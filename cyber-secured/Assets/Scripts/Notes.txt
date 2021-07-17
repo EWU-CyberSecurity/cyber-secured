@@ -1,0 +1,1067 @@
+﻿From ActivateEvent funtion - case 9:
+
+    Debug.Log("CASE 9------1");
+                /*if (bad_event_occured) {
+                    final_event_text.text = "An employee accidentally sends a sensitive email to the wrong person."
+                        + "\nNP has decreased by 30.";
+                    DecreaseNP(30);
+                } else {
+                    final_event_text.text = GoodMessage();
+                }
+                */
+
+                current_choice_text ="The Credit Bureau Equifax has a data breach. 143 million Americans have " +
+                "their financial information exposed. Click to see if yours was included... ";
+
+                //final_choice_text.text = "The Credit Bureau Equifax has a data breach. 143 million Americans have " +
+                //    "their financial information exposed. Click to see if yours was included... ";
+                
+                // End game -----------------------> MOVE IT TO THE LAST MONTH
+                //current_choice_text = "You have finished your work year! " +
+                //"Let's see how you did..";
+
+From AcrivateChoice function - case 9:
+
+  Debug.Log("CASE 9------2");
+  // TODO - incorporate this into a method
+                single_event_box.SetActive(false);
+
+                if (x)
+                {
+                    if(DataBreach()) {
+                        DecreaseNP(50);
+
+                        current_decision_text = "Oh no! Your information was hacked.." +
+                            "<i>\nNP has decreased by 50.</i>.";
+
+                        DisplayDecision();
+                        
+                    } else {
+                        current_decision_text = "Fortunately for you, your information remains safe.";
+
+                        DisplayDecision();
+                    }
+                }
+                    //TODO: Might need to complete the else for this section in order to continue to the next month
+
+
+
+
+
+If Ann wants to send a secret message to Matt, she will have to use some sort of technic to encrypt her message. 
+Ann will use OTP encryption by following number of steps.
+
+Assuming Ann would like to send the message: "Hello it is Ann". 
+Let's see what she will have to do to use OTP succesfully.
+
+Fitst: Ann will have to count how many letters she has in the sentence. As we can see, in this sentence we have 12 letters. 
+Note  that the structure of the sentence will stay the same before and after the encryption.
+
+Second: Ann will generate 12 random numbers to replace with each letter.
+
+
+
+
+
+
+
+
+
+switch (dialog.currentSentenceDisplayed)
+            {
+                case 1:// No need
+                    break;
+                case 2:// No need
+                    break;
+                case 3:// No need
+                    
+                    Debug.Log("case 3");
+
+                    dialog.setProceed(false); // Lock the user from proceeding 
+
+                    while (boy.transform.position.x > 7.0) //Move boy pic:
+                    {
+                        boyRB.MovePosition(boyRB.position + velocity * Time.fixedDeltaTime);
+                    }
+                    while (girl.transform.position.x < -7.0) //Move girl pic:
+                    {
+                        girlRB.MovePosition(girlRB.position + velocity * (-1) * Time.fixedDeltaTime);
+                    }
+                    //If both pictures of the boy and the girl are in place, start to move the envelope until its x position is 4.3:
+                    while (boy.transform.position.x <= 7.0 && girl.transform.position.x >= -7.0 && envelope.transform.position.x < 4.3)
+                    {
+                        envelope.SetActive(true);
+                        envelopeRB.MovePosition(envelopeRB.position + velocity * (-1) * Time.fixedDeltaTime);
+                    }
+
+                    if (envelope.transform.position.x >= 4.3) // If the envelope in its posstion:
+                    {
+                        dialog.setProceed(true); // Let the user continue
+                    }
+
+                    break; // End of case 3
+                case 4:
+
+                    if (helloItIsAnnText.transform.position.y > 3)
+                    {
+                        boy.SetActive(false);
+                        girl.SetActive(false);
+                        envelope.SetActive(false);
+
+                        helloItIsAnnTextRB.MovePosition(helloItIsAnnTextRB.position + new Vector2(0, -5) * Time.fixedDeltaTime);
+                    }
+
+                    break;// End of case 4
+                case 5:
+
+                    if (arrow.transform.position.x < 4)
+                    {
+                        dialog.setProceed(false); // lock the continue button
+                        arrow.SetActive(true); // Show the arrow in the screen
+                        arrowRB.MovePosition(arrowRB.position + velocity * (-1) * Time.fixedDeltaTime);
+                    }
+
+                    //This if statment might be outside of the witch, also check if the condition is needed:
+                    if (arrow.transform.position.x >= 3.85)// after the arrow got to the end of the sentence, release the lock
+                    {
+                        dialog.setProceed(true);
+                    }
+
+                    break;// End of case 5
+                case 6:
+
+                    dialog.setProceed(false); // lock the continue button
+
+                    // move the arrow to the first number - for now I chose the easy way 
+                    arrowRB.transform.position = new Vector3(-7.70f, 2.30f);
+                    arrow.SetActive(false);
+
+                    // drag out the text upward
+                    if (helloItIsAnnText.transform.position.y < 8)
+                    {
+                        helloItIsAnnTextRB.MovePosition(helloItIsAnnTextRB.position + new Vector2(0, 5) * Time.fixedDeltaTime);
+                    }
+                    // lower the numbers into the screen
+                    if (squares.transform.position.y > -3) // > 0
+                    {
+                        squaresRB.MovePosition(squaresRB.position + new Vector2(0, -5) * Time.fixedDeltaTime);
+                    }
+
+                    if (squares.transform.position.y <= 0) // Show the arrow in it's new postion
+                    {
+                        arrow.SetActive(true);
+                    }
+
+                    /*
+                    //generate a number:
+                    while (timePassed < 5) // giving 2 seconds to generate a number
+                    {
+                        //squares_numbers[0].text = "" + Random.Range(1, 26);
+                        //Debug.Log(squares_numbers[0].text);
+                        Debug.Log(timePassed);
+                        timePassed += Time.deltaTime;
+                    }*/
+
+                    // generate numbers individually or all together
+                    //for (int i = 0; i < squares_numbers.Length; i++)
+                    //{
+                     //   TimeMachine(2, i);
+                        //squares_numbers[i].text = "" + Random.Range(1, 26);
+                        /*
+                        //move the arrow:
+                        while (arrow.transform.position.x < arrow.transform.position.x + 20f)
+                        {
+                            arrowRB.MovePosition(arrowRB.position + velocity * (-1) * Time.fixedDeltaTime);
+                        }*/
+                   // }
+    
+                    break;// End of case 6
+                case 7:
+                    break;// End of case 7
+                case 8:
+                    break;// End of case 8
+                case 9:
+                    break;// End of case 9
+                case 10:
+                    break;// End of case 10
+                case 11:
+                    break;// End of case 11
+                case 12:
+                    break;// End of case 12
+                default:
+                    break;
+            }
+
+
+
+
+
+
+
+
+
+
+From MovingImagesAndText:
+
+
+
+                /*
+            //generate a number:
+            while (timePassed < 5) // giving 2 seconds to generate a number
+            {
+                //squares_numbers[0].text = "" + Random.Range(1, 26);
+                //Debug.Log(squares_numbers[0].text);
+                Debug.Log(timePassed);
+                timePassed += Time.deltaTime;
+            }*/
+
+        /*
+            // generate numbers individually or all together
+            for (int i = 0; i < squares_numbers.Length; i++)
+            {
+                TimeMachine(2, i);
+                //squares_numbers[i].text = "" + Random.Range(1, 26);
+                /*
+                //move the arrow:
+                while (arrow.transform.position.x < arrow.transform.position.x + 20f)
+                {
+                    arrowRB.MovePosition(arrowRB.position + velocity * (-1) * Time.fixedDeltaTime);
+                }
+            }
+        }
+        */
+
+
+
+    /* 
+    void TimedfdMachine(float seconds, int boxNumber)
+    {
+        float tempSeconds = 0;
+
+        while(tempSeconds < seconds)
+        {
+            squares_numbers[boxNumber].text = "" + Random.Range(1, 26);
+            tempSeconds += Time.deltaTime;
+        }
+        Debug.Log("End of time machine");
+    }
+    
+    
+    IEnumerator TypeSentence()
+    {
+        while (boy.transform.position.x > 3.5) //Move boy pic:
+        {
+            //boyRB.MovePosition(boyRB.position + velocity * Time.fixedDeltaTime);
+            boyRB.velocity = new Vector2(-5, 0); // (X, Y)
+        }
+        yield return null;
+    }
+    */
+
+   /* public void IllustrationSceneTen() // DOES NOT WORK WITH THE SPACE BUTTON - MAKE SURE TO DISABLE IT!!!!!
+    {
+        if (sceneTenToCheck.activeSelf) // if scene 10 is active then use this method
+        {
+            switch (dialog.currentSentenceDisplayed)
+            {
+                case (3):// No need
+                {
+                        dialog.setProceed(false); // Lock the user from proceeding 
+
+                    Debug.Log("1 " + boy.transform.position.x);
+                    Debug.Log("2 " + (boyRB.position + velocity * Time.deltaTime));
+                        //boyRB.MovePosition(boyRB.position + velocity * Time.deltaTime);
+                    StartCoroutine(TypeSentence()); 
+                        //while (a<1000000000) //Move boy pic:
+                        //{
+                           // boyRB.MovePosition(boyRB.position + velocity * Time.fixedDeltaTime);
+                           // a++;
+                            
+                        //}
+                    /*
+                        while (girl.transform.position.x < -7.0) //Move girl pic:
+                        {
+                            girlRB.MovePosition(girlRB.position + velocity * (-1) * Time.fixedDeltaTime);
+                        }
+                        //If both pictures of the boy and the girl are in place, start to move the envelope until its x position is 4.3:
+                        while (boy.transform.position.x <= 7.0 && girl.transform.position.x >= -7.0 && envelope.transform.position.x < 4.3)
+                        {
+                            envelope.SetActive(true);
+                            envelopeRB.MovePosition(envelopeRB.position + velocity * (-1) * Time.fixedDeltaTime);
+                        }
+
+                        if (envelope.transform.position.x >= 4.3) // If the envelope in its posstion:
+                        {
+                            dialog.setProceed(true); // Let the user continue
+                        }
+                   
+                }; break; // End of case 3
+            }
+        /*
+        switch (intelligence)
+            {
+                case 5:
+                    print("Why hello there good sir! Let me teach you about Trigonometry!");
+                    break;
+                case 4:
+                    print("Hello and good day!");
+                    break;
+                case 3:
+                    print("Whadya want?");
+                    break;
+                case 2:
+                    print("Grog SMASH!");
+                    break;
+                case 1:
+                    print("Ulg, glib, Pblblblblb");
+                    break;
+                default:
+                    print("Incorrect intelligence level.");
+                    break;
+            }
+        }
+    }*/
+
+
+
+
+
+
+
+
+                case(0):
+            {
+                    
+            };break;
+            case (1):
+            {
+
+
+            }; break;
+            case (2):
+            {
+
+
+            }; break;
+            case (3):
+            {
+                //demonstademonstration.SetActive(true);
+                //scn_main.SetActive(true);
+            }; break;
+            case (4):
+            {
+
+            }; break;
+            case (5):
+            {
+                //movingObjects.MovingEnvelope();
+            }; break;
+            case (6):
+            {
+                
+            }; break;
+            case (7):
+            {
+                
+            }; break;
+            case (8):
+            {
+
+            }; break;
+            case (9):
+            {
+
+            }; break;
+            case (10):
+            {
+                
+            }; break;
+
+                    switch(dialog.currentSentenceDisplayed)
+        {
+
+        }
+
+
+
+
+        //GameObject.FindGameObjectWithTag("scn_main").SetActive(false);
+
+
+                       /* encryptionAmswer += ((int.Parse(squaresT_random[0].text) + 15) % 26);
+                encryptionAmswer += ((int.Parse(squaresT_random[1].text) + 20) % 26);
+                encryptionAmswer += ((int.Parse(squaresT_random[2].text) + 16) % 26);
+                encryptionAmswer += " ";
+                encryptionAmswer += ((int.Parse(squaresT_random[3].text) + 20) % 26);
+                encryptionAmswer += ((int.Parse(squaresT_random[4].text) + 8) % 26);
+                encryptionAmswer += ((int.Parse(squaresT_random[5].text) + 5) % 26);
+                encryptionAmswer += " ";
+                encryptionAmswer += ((int.Parse(squaresT_random[6].text) + 2) % 26);
+                encryptionAmswer += ((int.Parse(squaresT_random[7].text) + 5) % 26);
+                encryptionAmswer += ((int.Parse(squaresT_random[8].text) + 19) % 26);
+                encryptionAmswer += ((int.Parse(squaresT_random[9].text) + 20) % 26);*/
+
+
+
+                                  //}
+                    //else
+                        //encryptionAnswer += letters[((int.Parse(squaresT_random[i].text) + otpTheBest[i]) % 26) - 1];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+case 3:
+                
+                // removes potential capitalization mistakes
+                if (decryptedAnswer.textComponent.text.ToLower() == "hello world")
+                {
+
+                    // play beep sound
+                    GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);
+
+                    // increase NP
+                    GameControllerV2.Instance.IncreaseNP(5);
+
+                    // Feedback for correct answer
+                    GameObject.Find("DCorrect").GetComponent<DialogueTrigger>().TriggerDialogue();
+                }
+                else
+                {
+                    // Decrease NP
+                    GameControllerV2.Instance.DecreaseNP(5);
+
+                    // Feedback for incorrect answer
+                    GameObject.Find("DIncorrect").GetComponent<DialogueTrigger>().TriggerDialogue();
+                }
+
+                // Next round
+                round++;
+                decryptedRound.SetActive(false);
+                bonusRound.SetActive(true);
+
+                break;
+            case 4:
+                
+                // removes potential capitalization mistakes
+                if (bonusAnswer.textComponent.text.ToLower() == "the boss is coming")
+                {
+                    // play beep sound
+                    GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);
+
+                    // increase NP
+                    GameControllerV2.Instance.IncreaseNP(25);
+
+                    // Feedback for correct answer
+                    GameObject.Find("BCorrect").GetComponent<DialogueTrigger>().TriggerDialogue();
+
+                    // glitch screen
+                    GameObject.FindObjectOfType<GlitchCamera>().StartGlitch();
+                }
+                else
+                {
+                    // Decrease NP
+                    GameControllerV2.Instance.DecreaseNP(5);
+
+                    // Feedback for incorrect answer
+                    GameObject.Find("BIncorrect").GetComponent<DialogueTrigger>().TriggerDialogue();
+                }
+
+                // Next scene
+                GameControllerV2.Instance.scn_one_time_pad.SetActive(false);
+                GameControllerV2.Instance.DisplayDecision();
+                Destroy(this);
+
+                break;
+
+
+
+
+
+    //public bool correct = false; // 3rd question - true false. the buttons the user supposed to click
+    //public bool disable = false; // 3rd question - true false. the buttons the user supposed to click
+
+    //public Button trueB;
+    //public Button falseB;
+
+
+
+
+
+
+
+
+
+
+
+
+    case(2):
+            {
+                if(bad_event_occured)
+                {
+                    if(mitigate_event)
+                    {
+                        Debug.Log("Bad event mitigated.");
+                        mitigate_event = false;
+                        current_event_text = GoodMessage();
+                        return;
+                    }
+
+                    current_event_text = "Insert bad event here.";
+                } else {
+                    current_event_text = GoodMessage();
+                }
+
+                current_choice_text = "TODO - Month 11 event goes here.." +
+                    "\n<b>Cost: TBD</b>";
+            }; break;
+
+
+
+
+
+
+
+                        // month 11 choice
+            case(2):
+            {
+                if(x)
+                {
+                    current_decision_text = "Month " + current_month + "'s event goes here.";
+
+                    DisplayDecision();
+                } else {
+                    current_decision_text = "You have skipped month " + current_month + "'s event.";
+
+                    DisplayDecision();
+                }
+            }; break;
+            
+
+
+
+
+
+
+
+
+             if(bad_event_occured)
+                {
+                    if(mitigate_event)
+                    {
+                        Debug.Log("Bad event mitigated.");
+                        mitigate_event = false;
+                        current_event_text = GoodMessage();
+                        return;
+                    }
+
+                    current_event_text = "Your system was cracked by experienced hackers because you did not udated your system in a long time.";
+                } else {
+                    current_event_text = GoodMessage();
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //If the sentennce number displayed is 4 and the position of the text in not at posstion y=3:
+        if (dialog.currentSentenceDisplayed == 4 && helloItIsAnnText.transform.position.y > 3)
+        {
+            dialog.setProceed(false); // Lock the user from proceeding
+
+            boy.SetActive(false);
+            girl.SetActive(false);
+            envelope.SetActive(false);
+
+            helloItIsAnnTextRB.MovePosition(helloItIsAnnTextRB.position + new Vector2(0, -5) * Time.fixedDeltaTime);
+        }
+
+        if (helloItIsAnnText.transform.position.y < 3 && dialog.getFinished_typing() == true)
+            dialog.setProceed(true);
+        
+        //For senctence 5 I possioned the arrow at  x = -3.80 and will move it to  x=3.85
+        if (dialog.currentSentenceDisplayed == 5 && arrow.transform.position.x < 4)
+        {
+            dialog.setProceed(false); // lock the continue button
+            arrow.SetActive(true); // Show the arrow in the screen
+            arrowRB.MovePosition(arrowRB.position + velocity * (-1) * Time.fixedDeltaTime);
+
+            if (arrow.transform.position.x >= 3.85)// after the arrow got to the end of the sentence, release the lock
+            {
+                dialog.setProceed(true);
+            }
+        }
+
+        //Sentence 6, generate the numbers
+        if (dialog.currentSentenceDisplayed == 6)
+        {
+            if(arrowInPosition)
+            {
+                dialog.setProceed(false); // lock the continue button
+                arrowInPosition = !arrowInPosition; // now the varible is false and we won't repeat that again
+                // move the arrow to the first number - for now I chose the easy way 
+                arrowRB.transform.position = new Vector3(-8.3f, 2.30f);
+                arrow.SetActive(false);    
+            }
+
+            // drag out the text upward
+            if(helloItIsAnnText.transform.position.y < 8)
+            {
+                helloItIsAnnTextRB.MovePosition(helloItIsAnnTextRB.position + new Vector2(0, 5) * Time.fixedDeltaTime);    
+            }
+            // lower the numbers into the screen
+            if(squares_random.transform.position.y > -3) // > 0
+            {
+                squares_randomRB.MovePosition(squares_randomRB.position + new Vector2(0,-5) * Time.fixedDeltaTime);
+            }
+
+            if(squares_random.transform.position.y <= 0) // Show the arrow in it's new postion
+            {
+                arrow.SetActive(true);  
+            }
+
+            if (arrowRB.position.x < 7.70f)
+            {
+                arrowRB.MovePosition(arrowRB.position + new Vector2(-3, 0) * (-1) * Time.fixedDeltaTime);
+
+                // Now we're checking the position of the arrow, in order to generate each random number to a squar: 
+                if (arrowRB.position.x > -8f    && arrowRB.position.x < -7.8f) 
+                {
+                    squaresT_random[0].text = "" + UnityEngine.Random.Range(1, 26);
+                }
+                if (arrowRB.position.x > -6.5f  && arrowRB.position.x < -6.3f) 
+                {
+                    squaresT_random[1].text = "" + UnityEngine.Random.Range(1, 26);
+                }
+                if (arrowRB.position.x > -5.0f  && arrowRB.position.x < -4.8f) 
+                {
+                    squaresT_random[2].text = "" + UnityEngine.Random.Range(1, 26);
+                }
+                if (arrowRB.position.x > -3.7f  && arrowRB.position.x < -3.5f) 
+                {
+                    squaresT_random[3].text = "" + UnityEngine.Random.Range(1, 26);
+                }
+                if (arrowRB.position.x > -2.2f  && arrowRB.position.x < -2.0f) 
+                {
+                    squaresT_random[4].text = "" + UnityEngine.Random.Range(1, 26);
+                }
+                if (arrowRB.position.x > -0.74f && arrowRB.position.x < -0.60f) 
+                {
+                    squaresT_random[5].text = "" + UnityEngine.Random.Range(1, 26);
+                }
+                if (arrowRB.position.x > 0.6f   && arrowRB.position.x < 0.74f) 
+                {
+                    squaresT_random[6].text = "" + UnityEngine.Random.Range(1, 26); 
+                }
+                if (arrowRB.position.x > 2.0f   && arrowRB.position.x < 2.2f) 
+                {
+                    squaresT_random[7].text = "" + UnityEngine.Random.Range(1, 26);
+                }
+                if (arrowRB.position.x > 3.5f   && arrowRB.position.x < 3.7f) 
+                {
+                    squaresT_random[8].text = "" + UnityEngine.Random.Range(1, 26);
+                }
+                if (arrowRB.position.x > 4.8f   && arrowRB.position.x < 5.0f) 
+                {
+                    squaresT_random[9].text = "" + UnityEngine.Random.Range(1, 26);
+                }
+                if (arrowRB.position.x > 6.3f   && arrowRB.position.x < 6.5f) 
+                {
+                    squaresT_random[10].text = "" + UnityEngine.Random.Range(1, 26);
+                }
+                if (arrowRB.position.x > 7.4f   && arrowRB.position.x < 7.8f) 
+                {
+                    squaresT_random[11].text = "" + UnityEngine.Random.Range(1, 26);
+                    dialog.setProceed(true); 
+                    blue_frame.SetActive(true);
+                }
+            }
+        }
+
+        if(dialog.currentSentenceDisplayed == 7) // The third step to acccumulate the numbers
+        {
+            
+            if (arrow.activeSelf == true)
+            {
+                arrow.SetActive(false);
+                dialog.setProceed(false); // lock the continue button
+            }
+                
+            if (squares_result.transform.position.y > -6)
+            {
+                squares_resultRB.MovePosition(squares_resultRB.position + new Vector2(0, -5) * Time.fixedDeltaTime);
+            }
+            if (squares_original.transform.position.y > -4.5) // as long that the squars are not in the place continue move:
+            {
+                squares_originalRB.MovePosition(squares_originalRB.position + new Vector2(0, -5) * Time.fixedDeltaTime);
+            }
+            else // Squars are in the place so turn on the frames:
+            {
+                if (green_frame.activeSelf == false && red_frame.activeSelf == false)
+                {
+                    red_frame.SetActive(true);
+                    green_frame.SetActive(true);
+                }
+
+                if(squares_result.transform.position.y < -6)
+                    dialog.setProceed(true); // lock the continue button
+            }
+        }
+
+        //Here the calculation of each value in the result squars:
+        if (dialog.currentSentenceDisplayed == 8)
+        {
+            if (array_index == 0)
+                dialog.setProceed(false); // lock the continue button
+
+            if(array_index >= 0 && array_index < 12)
+            {
+                //Need to take into consideration 26 % 26 = 0, we can't have 0 in the result so we put 26 instead of the 0:
+                //Created short if stament to handle the situation were 0 can occure 26 % 26. statment ? true : false.
+                squaresT_result[array_index].text = 
+                    ((Int32.Parse(squaresT_random[array_index].text) + Int32.Parse(squaresT_original[array_index].text)) % 26) == 0 ? 
+                    "26" : "" + ((Int32.Parse(squaresT_random[array_index].text) + Int32.Parse(squaresT_original[array_index].text)) % 26);
+                    //"" + ((Int32.Parse(squaresT_random[array_index].text) + Int32.Parse(squaresT_original[array_index].text)) % 26);
+                array_index++;
+            }
+
+            if (array_index == 11)
+            {
+                dialog.setProceed(true);
+            }
+        }
+
+        if (dialog.currentSentenceDisplayed == 9)
+        {
+            //Sentence 9 is the example, not sure if we want to do something with it.
+            if (dialog.getFinished_typing() == false)
+                dialog.setProceed(false);
+            else
+                dialog.setProceed(true);
+
+            if (array_index != 0) // resetting the array index for dialog.currentSentenceDisplayed == 11
+                array_index = 0;
+        }
+
+        if (dialog.currentSentenceDisplayed == 10)
+        {
+            if (dialog.getFinished_typing() == false)
+                dialog.setProceed(false);
+            
+            squares_random.SetActive(false);
+            blue_frame.SetActive(false);
+            squares_original.SetActive(false);
+            red_frame.SetActive(false);
+
+            if (squares_result.transform.position.y < -3.1)
+            {
+                squares_resultRB.MovePosition(squares_resultRB.position + new Vector2(0, 5) * Time.fixedDeltaTime);
+            }
+            if(dialog.getFinished_typing())
+            {
+                dialog.setProceed(true);
+            }
+        }
+
+        if (dialog.currentSentenceDisplayed == 11)
+        {
+            if(encrypted_message_index == 5 || encrypted_message_index == 8 || encrypted_message_index == 11) // first checking for the next position of the space
+            {
+                encrypted_message.text += " ";
+            }
+            else if(array_index < 12)// if no space nedded then put the next letter instead:
+            {
+                dialog.setProceed(false);
+
+                //Checking if the array length is not over 12.
+
+                //If the result of the first line plus the second line is equal to the third line then there is no need to cycle again 
+                if ((int.Parse(squaresT_random[array_index].text) + int.Parse(squaresT_original[array_index].text)) == int.Parse(squaresT_result[array_index].text))
+                {
+                    //Debug.Log("if----  " + ((int.Parse(squaresT_random[array_index].text) + int.Parse(squaresT_original[array_index].text)) - 1));
+                    //Debug.Log("if----  " + letters[(int.Parse(squaresT_random[array_index].text) + int.Parse(squaresT_original[array_index].text)) - 1]); // -1 because its start at 0
+                    encrypted_message.text += letters[(int.Parse(squaresT_random[array_index].text) + int.Parse(squaresT_original[array_index].text)) - 1];
+                }
+                else // there has to be a cycle to find the next letter to encrypt
+                {
+                    //Debug.Log("else---  " + (int.Parse(squaresT_result[array_index].text) - 1));
+                    //Debug.Log("else---  " + letters[int.Parse(squaresT_result[array_index].text) - 1]); // the modulo will return a number that will start from A
+                    encrypted_message.text += letters[int.Parse(squaresT_result[array_index].text) - 1]; 
+
+                    /*
+                     * I got index out of range! Check again why if this error come up again
+                    */
+                }
+                array_index++; // can't use array_index to count both the encrypted message and the squars arrays
+            }
+
+            if(encrypted_message_index != 14)
+                encrypted_message_index++;// in the end of the operation rase the index number
+
+            if(encrypted_message_index == 14)
+            {
+                if (encrypted_message.transform.position.x > 0)
+                {
+                    encrypted_messageRB.MovePosition(encrypted_messageRB.position + velocity * Time.fixedDeltaTime);
+                }
+                else
+                {
+                    dialog.setProceed(true);
+                }
+            }
+        }
+
+        if (dialog.currentSentenceDisplayed == 12)
+        {
+            //Pull up the green squers and pull down the original text
+            if(squares_result.transform.position.y < 1)
+                dialog.setProceed(false);
+            
+            if (squares_result.transform.position.y < 1) // squares up
+            {
+                squares_resultRB.MovePosition(squares_resultRB.position + new Vector2(0, 5) * Time.fixedDeltaTime);
+            }
+
+            if (helloItIsAnnText.transform.position.y > 4) // text down
+            {
+                helloItIsAnnTextRB.MovePosition(helloItIsAnnTextRB.position + new Vector2(0, -5) * Time.fixedDeltaTime);
+            }
+
+            if (helloItIsAnnText.transform.position.y > 4)
+            {
+                dialog.setProceed(true);
+                girl.SetActive(true);
+            }
+        }
+        if (dialog.currentSentenceDisplayed == 13)
+        {
+            //girl.SetActive(false);
+            boy.SetActive(true);
+        }
+        if(dialog.currentSentenceDisplayed == 14)
+        {
+            //Start the quiz
+            blackBackground.SetActive(true);
+        }
+
+
+
+
+        // month 12 event part one
+            case(12):
+            {
+                if(bad_event_occured)
+                {
+                    if(mitigate_event)
+                    {
+                        Debug.Log("Bad event mitigated.");
+                        mitigate_event = false;
+                        current_event_text = GoodMessage();
+                        return;
+                    }
+
+                    current_event_text = "Insert bad event here.";
+                } else {
+                    current_event_text = GoodMessage();
+                }
+
+                int temp_np = network_power;
+
+                IncreaseNP(monthly_np * 2);
+
+                int np_difference = network_power - temp_np; // calculate difference
+
+                current_event_text += "\nQuarter end bonus receieved. " +
+                                       "\n<i>NP has increased by " + np_difference + ".</i>";
+
+                name_perk_1.text = "Promotion (temp)";
+                info_perk_1.text = "Achieve a higher position";
+
+                name_perk_2.text = "Back to School (temp)";
+                info_perk_2.text = "Study for a better job";
+            }; break;
+
+            default: 
+                Debug.Log("default - month 12 part 1"); 
+            break;
+        }
+
+
+
+
+
+
+
+
+         // month 12 choice QUARTER (end of game)
+           case(12):
+            {
+                if(x)
+                {
+                    current_decision_text = "You have chosen perk 1!"; 
+
+                    DisplayDecision();
+                    increased_text.text = "End Game";
+                } else {
+                    current_decision_text = "You have chosen perk 2!";
+
+                    DisplayDecision();
+                    increased_text.text = "End Game";
+                }
+            }; break;
+            
+
+            default: 
+                Debug.Log("month 12 ---- second part"); 
+            break;
+        }
+
+
+
+
+
+
+
+
+
+        // Feedback for correct answer
+        //GameObject.Find("ECorrect").GetComponent<DialogueTrigger>().TriggerDialogue();
+
+        //GameObject.Find("EIncorrect").GetComponent<DialogueTrigger>().TriggerDialogue();
+
+
+
+From the RSA dialouge:
+
+Now the message is ready to be sent to Alice!
+Note that this message could land in the wrong hands, for example a hacker, but even in that scenario it 
+would be extremely complicated to decrypt the message, 
+time-wise speaking, without the necessary keys.
+
+
+Now Bob can be confident that only Alice will see the message because she's the only 
+one that holds the correct private key that associated with her publlic key. 
+That ensure confidentiality which is the first layer of encryption.
+
+
+
+
+
+
+
+
+
+
+    /*
+    public void DisplayNextSentence() //When the user clicks the button in the dialoue box
+    {
+        if(proceed) // In some cases like in the demonstraion of the one time pad - the user can't proceed until demonstration is over for each sentence
+        {
+            // sentences haven't ended
+            if (!has_ended)
+            {
+                //are there more sentences in the queue?
+                if (sentences.Count == 0)
+                {
+                    elapsed_time = 0;
+                    has_ended = true;
+                    has_started = false;
+
+                    // switch out of dialogue
+                    GameControllerV2.Instance.DialogueSwitch();
+
+                    return;
+                }
+            }
+
+            // play a beep sound
+            GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(3);
+
+            string sentence = sentences.Dequeue();
+            sentencesStack.Push(sentence); // To save it in the stack 
+
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));   
+        }
+    }
+    */
+
+
+
+            foreach(string sentence in dialogue.sentences)
+        {
+            //sentences.Enqueue(sentence);
+            sentencesArrayList.Add(sentence);
+            //Debug.Log(sentencesArrayList.Count);
+            //Debug.Log(sentencesArrayList[sentencesArrayList.Count-1]);
+        }
+
+
+
+
+
+
+
+        if (dialog.currentSentenceDisplayed == 12){
+
+                //else//Allow the user continue:
+                //dialog.setProceed(true);
+
+
+            /*if (key_1.transform.position.x <= 0) //Move key to the right
+            {
+                dialog.setProceed(false);
+                key_1RB.MovePosition(key_1RB.position + new Vector2(2.5f, 0) * Time.fixedDeltaTime);
+            }
+            else
+            {
+                if (key_4.transform.position.x > 0)
+                {
+                    key_4RB.MovePosition(key_4RB.position + new Vector2(-2.5f, 0) * Time.fixedDeltaTime);
+                }
+                else
+                    dialog.setProceed(true);
+            }*/
+
+            /*
+             * The text for sentence 12 in the dialouge box:
+             * Once Alice gets the message she will decrypt it with her own private key and then with Bob’s public key.
+             * Note that it's actually the opposite from the encrypting process where Bob used his private key and Alice's 
+             * public key.
+            */
+
+            }
