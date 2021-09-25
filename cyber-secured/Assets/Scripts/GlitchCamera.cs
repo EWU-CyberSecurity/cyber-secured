@@ -103,7 +103,7 @@ public class GlitchCamera : MonoBehaviour
         {
             name_gameObject.SetActive(false);
 
-            glitch = true;
+            glitch = false;
 
             if (GameControllerV2.Instance.GetState() == 0) // only if in title state
             {
@@ -113,7 +113,7 @@ public class GlitchCamera : MonoBehaviour
             }
 
             // play a glitch sound
-            GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(0);
+            // GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(0);
         }
     }
 }
