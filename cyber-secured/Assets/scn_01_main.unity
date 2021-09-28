@@ -9009,6 +9009,7 @@ MonoBehaviour:
   btn_return_options: {fileID: 115289565}
   btn_reset_game: {fileID: 897074308}
   btn_return_main: {fileID: 1188872569}
+  btn_return: {fileID: 1188872569}
 --- !u!1 &301167788
 GameObject:
   m_ObjectHideFlags: 0
