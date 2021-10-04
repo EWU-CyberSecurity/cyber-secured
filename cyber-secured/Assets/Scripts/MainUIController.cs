@@ -27,6 +27,8 @@ public class MainUIController : MonoBehaviour
     public Button btn_return_main;              // --
     public Button btn_skip;                     // -- 
 
+
+
     public Text txt_color_ref;                  // text for color reference
 
     private Color color_original;               // original color of text
