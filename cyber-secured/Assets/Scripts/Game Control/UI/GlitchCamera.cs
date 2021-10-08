@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class GlitchCamera : MonoBehaviour
 {
-    new public InputField name; // Drag and drop the input field for the name 
+    public InputField name; // Drag and drop the input field for the name 
     public GameObject name_gameObject;
     public Camera cam;
 
