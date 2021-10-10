@@ -11,8 +11,8 @@ public class RSA_SceneController : MonoBehaviour {
     public GameObject questions; //The object that suppoes to handle the qustions 
     public GameObject menuButton;
 
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+    void Awake () {
         
         // displays opening text
         GameObject.Find("dlg_RSA").GetComponent<DialogueTrigger>().TriggerDialogue();

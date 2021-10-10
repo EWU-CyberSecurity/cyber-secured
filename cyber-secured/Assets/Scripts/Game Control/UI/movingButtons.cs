@@ -8,13 +8,13 @@ public class movingButtons : MonoBehaviour {
     [SerializeField] private Button instructions;
     [SerializeField] private Button optiones;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
     {
         StartCoroutine(fadeButton(start, true, 3));
         StartCoroutine(fadeButton(instructions, true, 3));
         StartCoroutine(fadeButton(optiones, true, 3));
-	}
+    }
 
     IEnumerator fadeButton(Button button, bool fadeIn, float duration)
     {

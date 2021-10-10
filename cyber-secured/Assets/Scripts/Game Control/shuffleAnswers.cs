@@ -11,8 +11,8 @@ public class shuffleAnswers : MonoBehaviour {
 
     public bool password, virus, rsa;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
     {
         position = 0; // The spot where to put the button;
 
@@ -21,7 +21,7 @@ public class shuffleAnswers : MonoBehaviour {
         buttonsRB = new Rigidbody2D[4];
         for (byte i = 0; i < 4; i++)
             buttonsRB [i] =  buttons[i].GetComponent<Rigidbody2D>();
-	}
+    }
 
     private void Update()
     {

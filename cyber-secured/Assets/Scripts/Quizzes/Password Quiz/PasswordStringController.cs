@@ -12,8 +12,8 @@ public class PasswordStringController : MonoBehaviour {
     public Text passwordStrength;
     public InputField inputField;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         try
         {
             inputField.onValueChanged.AddListener(delegate { PasswordStrengthCheck(); });
@@ -22,7 +22,7 @@ public class PasswordStringController : MonoBehaviour {
         {
             Debug.Log(ex);
         }
-	}
+    }
 
     public char PasswordCheck(string text, int charIndex, char addedChar)
     {
