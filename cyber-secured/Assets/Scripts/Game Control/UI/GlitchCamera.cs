@@ -15,7 +15,7 @@ public class GlitchCamera : MonoBehaviour
     public GameObject name_gameObject;
     public Camera cam;
 
-    public bool glitch = false;     // flag for glitch effect
+    public bool update = false;     // flag for update
 
     // glitch script parameters:
     private float ag_slj = 0.0f;    // analog glitch scan line jitter
@@ -38,29 +38,12 @@ public class GlitchCamera : MonoBehaviour
     void FixedUpdate()
     {
         // glitch transition
-        if(glitch)
-        {   
-            ag_slj  = Mathf.MoveTowards(ag_slj, 0.3f, 0.05f);
-            ag_cd   = Mathf.MoveTowards(ag_cd,  0.3f, 0.05f);
-            dg_i    = Mathf.MoveTowards(dg_i,   1.0f, 0.05f);
-        } else {
-            ag_slj  = Mathf.MoveTowards(ag_slj, 0.0f, 0.05f);
-            ag_cd   = Mathf.MoveTowards(ag_cd,  0.0f, 0.05f);
-            dg_i    = Mathf.MoveTowards(dg_i,   0.0f, 0.05f);
-        }
 
-        // process glitch effect
-        if(cam != null)
-        {
-            cam.GetComponent<Kino.AnalogGlitch>().scanLineJitter    = ag_slj;
-            cam.GetComponent<Kino.AnalogGlitch>().colorDrift        = ag_cd;
-            cam.GetComponent<Kino.DigitalGlitch>().intensity        = dg_i;
-        }
 
         // when glitch transition reaches mid-point
-        if(dg_i >= 1.0f)
+        if(update)
         {
-            glitch = false;
+            update = false;
 
             GameObject.FindObjectOfType<SceneControllerTitle>().HideTitle();
 
@@ -103,7 +86,7 @@ public class GlitchCamera : MonoBehaviour
         {
             name_gameObject.SetActive(false);
 
-            glitch = true;
+            update = true;
 
             if (GameControllerV2.Instance.GetState() == 0) // only if in title state
             {
@@ -113,7 +96,7 @@ public class GlitchCamera : MonoBehaviour
             }
 
             // play a glitch sound
-            GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(0);
+            //GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(0);
         }
     }
 }

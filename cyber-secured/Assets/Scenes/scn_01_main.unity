@@ -25083,8 +25083,6 @@ GameObject:
   - component: {fileID: 805104094}
   - component: {fileID: 805104093}
   - component: {fileID: 805104092}
-  - component: {fileID: 805104097}
-  - component: {fileID: 805104098}
   - component: {fileID: 805104099}
   m_Layer: 0
   m_Name: Main Camera
@@ -25219,7 +25217,7 @@ MonoBehaviour:
   name: {fileID: 82204353}
   name_gameObject: {fileID: 82204352}
   cam: {fileID: 805104095}
-  glitch: 0
+  update: 0
 --- !u!1 &810672633
 GameObject:
   m_ObjectHideFlags: 0
