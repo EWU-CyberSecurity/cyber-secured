@@ -7,8 +7,8 @@ public class SceneControllerVirusPresentation : MonoBehaviour {
 
     public Button next;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
         // displays opening text
         GameObject.Find("dlg_virus_presentation").GetComponent<DialogueTrigger>().TriggerDialogue();
@@ -16,7 +16,7 @@ public class SceneControllerVirusPresentation : MonoBehaviour {
         // glitch animation
         GameObject.FindObjectOfType<GlitchCamera>().StartGlitch();
     }
-	
+    
     public void PressChoose() {
         // glitch screen
         GameObject.FindObjectOfType<GlitchCamera>().StartGlitch();

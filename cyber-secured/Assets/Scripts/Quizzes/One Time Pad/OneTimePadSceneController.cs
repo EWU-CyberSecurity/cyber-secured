@@ -15,8 +15,8 @@ public class OneTimePadSceneController : MonoBehaviour {
 
     public GameObject questions; //The object that suppoes to handle the qustions 
 
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+    void Awake () {
         
         // displays opening text
         GameObject.Find("dlg_one_time_pad_illustration").GetComponent<DialogueTrigger>().TriggerDialogue();

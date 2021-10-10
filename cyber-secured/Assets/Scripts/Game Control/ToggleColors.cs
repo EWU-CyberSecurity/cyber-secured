@@ -7,7 +7,7 @@ public class ToggleColors : MonoBehaviour {
     public Image image;
     public Toggle toggle;
 
-	public void OnToggleTrigger() {
+    public void OnToggleTrigger() {
         if(toggle.isOn) {
             image.GetComponent<Image>().color = new Color32(147, 255, 150, 255);
         } else {

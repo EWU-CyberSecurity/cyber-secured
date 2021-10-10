@@ -52,13 +52,13 @@ public class DialogueManager : MonoBehaviour
     private bool proceed = true; //Create a locking mechanism to prevent the user to continue when demonstration in the one time pad is going 
     private bool finished_typing = false;
 
-	// Use this for initialization
-	void Start()
-	{
+    // Use this for initialization
+    void Start()
+    {
         //sentences = new Queue<string>(); //FIFO system
         sentencesStack = new Stack<string>(); //LIFO stracture
         sentencesArrayList = new ArrayList();
-	}
+    }
 
     // Allows for enter key to display next sentence
     void Update() 

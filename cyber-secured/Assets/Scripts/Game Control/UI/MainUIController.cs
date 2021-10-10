@@ -33,11 +33,11 @@ public class MainUIController : MonoBehaviour
 
     private Color color_original;               // original color of text
 
-	// Use this for initialization
-	void Start()
-	{
+    // Use this for initialization
+    void Start()
+    {
         color_original = txt_color_ref.color;
-	}
+    }
 
     // non-input updating
     void FixedUpdate()
