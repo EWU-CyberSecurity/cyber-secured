@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackupDialogue : MonoBehaviour {
 
-	public void DisplayDialogue(int num) {
+    public void DisplayDialogue(int num) {
         switch (num) {
         case 1: GameObject.Find("HDD_Dialogue").GetComponent<DialogueTrigger>().TriggerDialogue();
             break;
