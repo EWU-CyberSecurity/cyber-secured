@@ -86,7 +86,7 @@ public class SceneControllerTitle : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);
 
         // move to instructions area to the middle of the screen, and move title screen over
-        scn_instruct.transform.DOLocalMove(new Vector3(0, 0, 0), 0.7f);
+        scn_about.transform.DOLocalMove(new Vector3(0, 0, 0), 0.7f);
         scn_title.transform.DOLocalMove(new Vector3(0, 1200, 0), 0.7f);
         background.transform.DOLocalMove(new Vector3(1, 0, 0), 0.7f);
 
