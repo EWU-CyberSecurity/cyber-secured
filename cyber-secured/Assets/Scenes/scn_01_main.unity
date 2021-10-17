@@ -2754,8 +2754,6 @@ MonoBehaviour:
   text: {fileID: 488325205}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 2
 --- !u!114 &111092031
 MonoBehaviour:
@@ -7212,8 +7210,6 @@ MonoBehaviour:
   text: {fileID: 686493174}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 5
 --- !u!114 &261463605
 MonoBehaviour:
@@ -11713,8 +11709,6 @@ MonoBehaviour:
   text: {fileID: 484271868}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 3
 --- !u!114 &415058663
 MonoBehaviour:
@@ -12490,8 +12484,6 @@ MonoBehaviour:
   text: {fileID: 686493174}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 5
 --- !u!114 &430624690
 MonoBehaviour:
@@ -19723,8 +19715,6 @@ MonoBehaviour:
   text: {fileID: 488325205}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 2
 --- !u!114 &655077010
 MonoBehaviour:
@@ -23567,8 +23557,6 @@ MonoBehaviour:
   text: {fileID: 993665685}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 4
 --- !u!114 &750583700
 MonoBehaviour:
@@ -25080,7 +25068,6 @@ GameObject:
   m_Component:
   - component: {fileID: 805104096}
   - component: {fileID: 805104095}
-  - component: {fileID: 805104094}
   - component: {fileID: 805104093}
   - component: {fileID: 805104092}
   - component: {fileID: 805104099}
@@ -25100,14 +25087,6 @@ AudioListener:
   m_GameObject: {fileID: 805104091}
   m_Enabled: 1
 --- !u!124 &805104093
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805104091}
-  m_Enabled: 1
---- !u!92 &805104094
 Behaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25171,37 +25150,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &805104097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805104091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 870b9a8f0f82f4f56800cc427bcd1025, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scanLineJitter: 0
-  _verticalJump: 0
-  _horizontalShake: 0
-  _colorDrift: 0
-  _shader: {fileID: 4800000, guid: da33272284ea24f208f36998880990be, type: 3}
---- !u!114 &805104098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805104091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a3a070408aa941ab83ae10be1708848, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _intensity: 0
-  _shader: {fileID: 4800000, guid: ba40dc630e1d9417cb9ea22586ece1e1, type: 3}
 --- !u!114 &805104099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29693,8 +29641,6 @@ MonoBehaviour:
   text: {fileID: 686493174}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 5
 --- !u!114 &975192965
 MonoBehaviour:
@@ -34409,8 +34355,6 @@ MonoBehaviour:
   text: {fileID: 484271868}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 3
 --- !u!114 &1130032964
 MonoBehaviour:
@@ -35118,8 +35062,6 @@ MonoBehaviour:
   text: {fileID: 993665685}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 4
 --- !u!114 &1164335000
 MonoBehaviour:
@@ -42341,8 +42283,6 @@ MonoBehaviour:
   text: {fileID: 484271868}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 3
 --- !u!114 &1402222165
 MonoBehaviour:
@@ -42726,8 +42666,6 @@ MonoBehaviour:
   text: {fileID: 993665685}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 4
 --- !u!114 &1406989366
 MonoBehaviour:
@@ -44295,8 +44233,6 @@ MonoBehaviour:
   text: {fileID: 484271868}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 3
 --- !u!114 &1452403917
 MonoBehaviour:
@@ -44472,8 +44408,6 @@ MonoBehaviour:
   text: {fileID: 488325205}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 2
 --- !u!114 &1454728922
 MonoBehaviour:
@@ -50315,8 +50249,6 @@ MonoBehaviour:
   text: {fileID: 815874507}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 1
 --- !u!114 &1632192901
 MonoBehaviour:
@@ -50492,8 +50424,6 @@ MonoBehaviour:
   text: {fileID: 815874507}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 1
 --- !u!114 &1634971723
 MonoBehaviour:
@@ -52974,8 +52904,6 @@ MonoBehaviour:
   text: {fileID: 815874507}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 1
 --- !u!114 &1728787730
 MonoBehaviour:
@@ -54546,8 +54474,6 @@ MonoBehaviour:
   text: {fileID: 686493174}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 5
 --- !u!114 &1771248793
 MonoBehaviour:
@@ -57977,8 +57903,6 @@ MonoBehaviour:
   text: {fileID: 815874507}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 1
 --- !u!114 &1883785024
 MonoBehaviour:
@@ -59375,8 +59299,6 @@ MonoBehaviour:
   text: {fileID: 993665685}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 4
 --- !u!114 &1924224068
 MonoBehaviour:
@@ -60433,8 +60355,6 @@ MonoBehaviour:
   text: {fileID: 488325205}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 2
 --- !u!114 &1964538324
 MonoBehaviour:

@@ -165,7 +165,8 @@ public class GameControllerV2 : MonoBehaviour
         instruct,   // 1
         options,    // 2
         main,       // 3
-        end         // 4
+        end,        // 4
+        about       // 5
     }
 
     public State CURRENT_STATE = State.title;

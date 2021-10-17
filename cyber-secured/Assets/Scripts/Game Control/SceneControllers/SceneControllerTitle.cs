@@ -22,6 +22,7 @@ public class SceneControllerTitle : MonoBehaviour
     public Button btn_start;                    // --
     public Button btn_instruct;                 // --
     public Button btn_options;                  // --
+    public Button btn_about;                    // About button.
 
     public GameObject scn_instruct;             // instructions scene
     public Button btn_return_instruct;          // --
@@ -32,16 +33,13 @@ public class SceneControllerTitle : MonoBehaviour
     public Button btn_return_main;              // --
     public Button btn_return;                   // return button in options menu that only appear after game is started
 
+    public GameObject scn_about;                // instructions scene
+    public Button btn_return_about;             // --
+
     // Use this for initialization
     void Start()
     {
         btn_return.gameObject.SetActive(false);
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     // button function to see instructions
@@ -82,6 +80,23 @@ public class SceneControllerTitle : MonoBehaviour
         GameControllerV2.Instance.SetState(2);
     }
 
+    public void DisplayAbouts()
+    {
+        // play a beep sound
+        GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);
+
+        // move to instructions area to the middle of the screen, and move title screen over
+        scn_instruct.transform.DOLocalMove(new Vector3(0, 0, 0), 0.7f);
+        scn_title.transform.DOLocalMove(new Vector3(0, 1200, 0), 0.7f);
+        background.transform.DOLocalMove(new Vector3(1, 0, 0), 0.7f);
+
+        // disable title buttons
+        SwitchTitleButtons();
+
+        // change state to instructions
+        GameControllerV2.Instance.SetState(5);
+    }
+
     // button function to move back to title screen
     public void MoveToTitle()
     {
@@ -95,12 +110,22 @@ public class SceneControllerTitle : MonoBehaviour
             scn_instruct.transform.DOLocalMove(new Vector3(-1200, 0, 0), 0.7f);
             scn_title.transform.DOLocalMove(new Vector3(0, 0, 0), 0.7f);
             background.transform.DOLocalMove(new Vector3(0, 0 ,0), 0.7f);
-        } else {
+        } else if(GameControllerV2.Instance.GetState() == 2) {
             // move title and options menu back to place
             scn_options.transform.DOLocalMove(new Vector3(1200, 0, 0), 0.7f);
             scn_title.transform.DOLocalMove(new Vector3(0, 0, 0), 0.7f);
             background.transform.DOLocalMove(new Vector3(0, 0 ,0), 0.7f);
+        } else if (GameControllerV2.Instance.GetState() == 5) {
+            // move title and about menu back to place
+            scn_about.transform.DOLocalMove(new Vector3(0, -1200, 0), 0.7f);
+            scn_title.transform.DOLocalMove(new Vector3(0, 0, 0), 0.7f);
+            background.transform.DOLocalMove(new Vector3(0, 0, 0), 0.7f);
+        } else {
+            scn_options.transform.DOLocalMove(new Vector3(0, 0, 0), 0.7f);
+            scn_title.transform.DOLocalMove(new Vector3(0, 0, 0), 0.7f);
+            background.transform.DOLocalMove(new Vector3(0, 0, 0), 0.7f);
         }
+          
 
         // enable title buttons
         SwitchTitleButtons();
@@ -120,22 +145,26 @@ public class SceneControllerTitle : MonoBehaviour
             btn_start.interactable = false;
             btn_instruct.interactable = false;
             btn_options.interactable = false;
+            btn_about.interactable = false;
 
             // enable the return buttons
             btn_return_instruct.interactable = true;
             btn_return_options.interactable = true;
+            btn_return_about.interactable = true;
         } else {
             // enable title screen buttons
             btn_start.interactable = true;
             btn_instruct.interactable = true;
             btn_options.interactable = true;
+            btn_about.interactable = true;
 
             // disable the return buttons
             btn_return_instruct.interactable = false;
             btn_return_options.interactable = false;
+            btn_return_about.interactable = false;
         }
     }
-
+    
     // disables instructions scene
     public void DisableInstruct()
     {
@@ -149,5 +178,6 @@ public class SceneControllerTitle : MonoBehaviour
         btn_start.gameObject.SetActive(false);
         btn_instruct.gameObject.SetActive(false);
         btn_options.gameObject.SetActive(false);
+        btn_about.gameObject.SetActive(false);
     }
 }
