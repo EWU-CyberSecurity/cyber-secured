@@ -7,6 +7,7 @@ public class movingButtons : MonoBehaviour {
     [SerializeField] private Button start;
     [SerializeField] private Button instructions;
     [SerializeField] private Button optiones;
+    [SerializeField] private Button about;
 
     // Use this for initialization
     void Start () 
@@ -14,6 +15,7 @@ public class movingButtons : MonoBehaviour {
         StartCoroutine(fadeButton(start, true, 3));
         StartCoroutine(fadeButton(instructions, true, 3));
         StartCoroutine(fadeButton(optiones, true, 3));
+        StartCoroutine(fadeButton(about, true, 3));
     }
 
     IEnumerator fadeButton(Button button, bool fadeIn, float duration)
