@@ -6261,6 +6261,7 @@ MonoBehaviour:
   start: {fileID: 361981996}
   instructions: {fileID: 1061848245}
   optiones: {fileID: 1584724037}
+  about: {fileID: 2131868360}
 --- !u!1 &225769443
 GameObject:
   m_ObjectHideFlags: 0
