@@ -4067,6 +4067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSlider: {fileID: 1917920415}
+  muteToggle: {fileID: 0}
 --- !u!1 &145245061
 GameObject:
   m_ObjectHideFlags: 0
@@ -16431,7 +16432,7 @@ MonoBehaviour:
     sentences:
     - Our firm has been given the chance to assist in keeping one of three companies
       running in top shape.
-    - Larger companies employ more people aand offer higher monthly income but are
+    - Larger companies employ more people and offer higher monthly income but are
       prone to more security problems
     - Don't worry, I'll be here to help you out.
     - "In the following screen, please choose one of the companies you would like
@@ -40604,6 +40605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042fc079635556649a88ff0dde3c668f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muted: 0
 --- !u!1 &1332202601
 GameObject:
   m_ObjectHideFlags: 0
