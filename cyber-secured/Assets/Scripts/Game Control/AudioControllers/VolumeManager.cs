@@ -13,7 +13,7 @@ public class VolumeManager : MonoBehaviour {
     }
 
     public void MusicSlider() {
-        if (muteToggle.getMuted() == false)
+        if (!muteToggle.getMuted())
         {
             AudioListener.volume = musicSlider.value;
         }
