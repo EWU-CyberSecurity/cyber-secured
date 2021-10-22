@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 87264084}
+  - component: {fileID: 87264085}
   - component: {fileID: 87264083}
   m_Layer: 0
   m_Name: GameController
@@ -138,10 +139,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 87264082}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7bcc72aa8715254fa3ca5ae01c4f50a, type: 3}
+  m_Script: {fileID: 11500000, guid: 97ede8abc9548e94f8c8fccf2352e12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestionPrompt: {fileID: 684742867}
+  questionsPrompt: {fileID: 684742867}
   btn1: {fileID: 1251520257}
   btn2: {fileID: 214957617}
   btn3: {fileID: 822224388}
@@ -160,6 +161,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &87264085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87264082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb10eca7417a55e47930c35afb8a0114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &197949395
 GameObject:
   m_ObjectHideFlags: 0
