@@ -14,6 +14,7 @@ public class QuizManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlayMusic(1);
         next.SetActive (false);
 
         questions = GameObject.FindGameObjectsWithTag("question");
