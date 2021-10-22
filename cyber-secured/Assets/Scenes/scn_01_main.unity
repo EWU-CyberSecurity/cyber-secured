@@ -8327,7 +8327,7 @@ MonoBehaviour:
   - {fileID: 1741385543}
   - {fileID: 546117035}
   MusicAudioSources:
-  - {fileID: 419739439}
+  - {fileID: 1576024009}
 --- !u!1 &287073781
 GameObject:
   m_ObjectHideFlags: 0
