@@ -101,7 +101,6 @@ public class CaesarQuizManager : MonoBehaviour {
                 GameControllerV2.Instance.IncreaseNP(5);
 
                 // Feedback for correct answer
-                // Feedback for correct answer
                 GameObject.Find("ECorrect").GetComponent<DialogueTrigger>().TriggerDialogue();
 
                
