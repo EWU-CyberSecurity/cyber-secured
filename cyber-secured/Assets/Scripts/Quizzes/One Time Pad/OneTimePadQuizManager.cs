@@ -42,9 +42,13 @@ public class OneTimePadQuizManager : MonoBehaviour {
     private Dialogue dialogue; // To be able to midify the dialogue at run time
     private string [] inputForDialogue; // The sentences for the dialogue
 
+    private AudioControllerV2 audioController;
     // starts with decryption question
     void Start()
     {
+        audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
+        audioController.PlayQuizMusic();
+
         inputForDialogue = new string[1];
 
         encryptedRound.SetActive(true);
@@ -246,6 +250,9 @@ public class OneTimePadQuizManager : MonoBehaviour {
                 // Next scene
                 GameControllerV2.Instance.scn_one_time_pad.SetActive(false);
                 GameControllerV2.Instance.DisplayDecision();
+
+                audioController.PlayGameMusic();
+
                 Destroy(this);
 
                 break;

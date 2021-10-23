@@ -29,8 +29,14 @@ public class CaesarQuizManager : MonoBehaviour {
     private int shift = 0;
     private int phraseLocation = 0;
 
+    private AudioControllerV2 audioController;
+
+
     // starts with decryption question
     void Start() {
+        audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
+        audioController.PlayQuizMusic();
+
         decryptedRound.SetActive(true);
         encryptedRound.SetActive(false);
         bonusRound.SetActive(false);
@@ -142,6 +148,8 @@ public class CaesarQuizManager : MonoBehaviour {
 
                 GameControllerV2.Instance.DisplayDecision();
 
+                audioController.PlayGameMusic();
+
                 // don't need script after this
                 Destroy(this);
             } else {
@@ -156,6 +164,9 @@ public class CaesarQuizManager : MonoBehaviour {
                 // Next scene
                 GameControllerV2.Instance.scn_caesar_cipher.SetActive(false);
                 GameControllerV2.Instance.DisplayDecision();
+
+                audioController.PlayGameMusic();
+
                 Destroy(this);
             }
             break;
