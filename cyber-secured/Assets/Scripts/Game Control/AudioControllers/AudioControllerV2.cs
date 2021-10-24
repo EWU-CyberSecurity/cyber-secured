@@ -31,7 +31,7 @@ public class AudioControllerV2 : MonoBehaviour
 
     public void PlayQuizMusic()
     {
-        MusicAudioSources[QUIZ_MUSIC].PlayLoopingMusicManaged(0.25f, 0.5f, false);
+        MusicAudioSources[QUIZ_MUSIC].PlayLoopingMusicManaged(0.15f, 0.5f, false);
     }
 
     public void PlayGameMusic()
