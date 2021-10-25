@@ -10,8 +10,13 @@ public class VirusQuizManager : MonoBehaviour {
 
     public int i = 0;
 
+    private AudioControllerV2 audioController;
+
     // Use this for initialization
     void Start() {
+
+        audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
+        audioController.PlayQuizMusic();
 
         // hides continue button
         next.SetActive(false);
@@ -53,6 +58,8 @@ public class VirusQuizManager : MonoBehaviour {
             // deactivate quiz, and display results
             GameControllerV2.Instance.scn_virus_quiz.SetActive(false);
             GameControllerV2.Instance.DisplayDecision();
+
+            audioController.PlayGameMusic();
         }
     }
 }

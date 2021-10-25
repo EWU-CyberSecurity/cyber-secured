@@ -36,6 +36,9 @@ public class SceneControllerVirusQuiz : MonoBehaviour {
             GameControllerV2.Instance.scn_virus_quiz.SetActive(false);
             GameControllerV2.Instance.DisplayDecision();
 
+            AudioControllerV2 audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
+            audioController.PlayGameMusic();
+
             // don't need script after this
             Destroy(this);
         }
