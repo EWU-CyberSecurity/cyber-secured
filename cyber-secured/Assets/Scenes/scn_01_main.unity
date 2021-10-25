@@ -14719,8 +14719,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0022277832, y: 4.299999}
-  m_SizeDelta: {x: -72.2, y: -21}
+  m_AnchoredPosition: {x: 0, y: -3.0999985}
+  m_SizeDelta: {x: -80, y: -6.200001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &485618343
 GameObject:
@@ -15018,7 +15018,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: Given a length of 12,, which password is the hardest to brute force?
+  m_Text: "Given a length of 12, which password is the hardest to \nbrute force?"
 --- !u!222 &488325206
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15043,8 +15043,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0018920898, y: 4.5}
-  m_SizeDelta: {x: -72.158, y: -21.3}
+  m_AnchoredPosition: {x: 0, y: 4.5}
+  m_SizeDelta: {x: -90, y: -21.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &498003449
 GameObject:
@@ -21716,8 +21716,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0022277832, y: 0.006374359}
-  m_SizeDelta: {x: -72.159, y: -13.542}
+  m_AnchoredPosition: {x: 0, y: 0.006374359}
+  m_SizeDelta: {x: -80, y: -13.542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &687031487
 GameObject:
@@ -22818,14 +22818,10 @@ MonoBehaviour:
       plain text. First he decrypts with Alice's public key to "unlock" her signature.
       Then, with his private key, he "unlocks" the next layer of encryption and receives
       the message.
-    - 'That''s it! Simple right?
-
-      In practice, RSA involves combinations of prime numbers in order to produce
-      unique keys. I encourage you to find out more about how RSA works, and to try
-      sending encrypted messages yourself!
-
-
-      Let''s do some review. Please solve the following questions.'
+    - That's it! Simple right? In practice, RSA involves combinations of prime numbers
+      in order to produce unique keys. I encourage you to find out more about how
+      RSA works, and to try sending encrypted messages yourself! Let's do some review.
+      Please solve the following questions.
   repeatable: 0
   triggered: 0
   picture: {fileID: 0}
@@ -25784,8 +25780,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0008544922, y: 5.799999}
-  m_SizeDelta: {x: -72.2, y: -23.7}
+  m_AnchoredPosition: {x: 0, y: 5.799999}
+  m_SizeDelta: {x: -90, y: -23.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &817449528
 GameObject:
@@ -29134,7 +29130,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 6}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -80, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &932016025
 GameObject:
