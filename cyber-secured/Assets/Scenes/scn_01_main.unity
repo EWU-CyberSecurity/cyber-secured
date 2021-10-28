@@ -2754,8 +2754,6 @@ MonoBehaviour:
   text: {fileID: 488325205}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 2
 --- !u!114 &111092031
 MonoBehaviour:
@@ -7212,8 +7210,6 @@ MonoBehaviour:
   text: {fileID: 686493174}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 5
 --- !u!114 &261463605
 MonoBehaviour:
@@ -11713,8 +11709,6 @@ MonoBehaviour:
   text: {fileID: 484271868}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 3
 --- !u!114 &415058663
 MonoBehaviour:
@@ -12490,8 +12484,6 @@ MonoBehaviour:
   text: {fileID: 686493174}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 5
 --- !u!114 &430624690
 MonoBehaviour:
@@ -19723,8 +19715,6 @@ MonoBehaviour:
   text: {fileID: 488325205}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 2
 --- !u!114 &655077010
 MonoBehaviour:
@@ -23567,8 +23557,6 @@ MonoBehaviour:
   text: {fileID: 993665685}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 4
 --- !u!114 &750583700
 MonoBehaviour:
@@ -25084,6 +25072,8 @@ GameObject:
   - component: {fileID: 805104093}
   - component: {fileID: 805104092}
   - component: {fileID: 805104099}
+  - component: {fileID: 805104097}
+  - component: {fileID: 805104098}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -29693,8 +29683,6 @@ MonoBehaviour:
   text: {fileID: 686493174}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 5
 --- !u!114 &975192965
 MonoBehaviour:
@@ -34409,8 +34397,6 @@ MonoBehaviour:
   text: {fileID: 484271868}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 3
 --- !u!114 &1130032964
 MonoBehaviour:
@@ -35118,8 +35104,6 @@ MonoBehaviour:
   text: {fileID: 993665685}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 4
 --- !u!114 &1164335000
 MonoBehaviour:
@@ -40104,6 +40088,10 @@ GameObject:
   - component: {fileID: 1329741132}
   - component: {fileID: 1329741131}
   - component: {fileID: 1329741133}
+  - component: {fileID: 1329741137}
+  - component: {fileID: 1329741136}
+  - component: {fileID: 1329741135}
+  - component: {fileID: 1329741134}
   m_Layer: 0
   m_Name: GameControllerV2
   m_TagString: Untagged
@@ -40200,6 +40188,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042fc079635556649a88ff0dde3c668f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1329741134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329741130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97ede8abc9548e94f8c8fccf2352e12d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionsPrompt: {fileID: 0}
+  btn1: {fileID: 0}
+  btn2: {fileID: 0}
+  btn3: {fileID: 0}
+  btn4: {fileID: 0}
+--- !u!114 &1329741135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329741130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2dc048fd24f2934a8b4b0819a65837c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1329741136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329741130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb10eca7417a55e47930c35afb8a0114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1329741137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329741130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a41d54b89afd26468b36ea9b774b69e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  downloadMananager: {fileID: 1329741136}
+  parser: {fileID: 1329741134}
+  csvParser: {fileID: 1329741135}
 --- !u!1 &1332202601
 GameObject:
   m_ObjectHideFlags: 0
@@ -42341,8 +42385,6 @@ MonoBehaviour:
   text: {fileID: 484271868}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 3
 --- !u!114 &1402222165
 MonoBehaviour:
@@ -42726,8 +42768,6 @@ MonoBehaviour:
   text: {fileID: 993665685}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 4
 --- !u!114 &1406989366
 MonoBehaviour:
@@ -44295,8 +44335,6 @@ MonoBehaviour:
   text: {fileID: 484271868}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 3
 --- !u!114 &1452403917
 MonoBehaviour:
@@ -44472,8 +44510,6 @@ MonoBehaviour:
   text: {fileID: 488325205}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 2
 --- !u!114 &1454728922
 MonoBehaviour:
@@ -50315,8 +50351,6 @@ MonoBehaviour:
   text: {fileID: 815874507}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 1
 --- !u!114 &1632192901
 MonoBehaviour:
@@ -50492,8 +50526,6 @@ MonoBehaviour:
   text: {fileID: 815874507}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 1
 --- !u!114 &1634971723
 MonoBehaviour:
@@ -52974,8 +53006,6 @@ MonoBehaviour:
   text: {fileID: 815874507}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 1
 --- !u!114 &1728787730
 MonoBehaviour:
@@ -54546,8 +54576,6 @@ MonoBehaviour:
   text: {fileID: 686493174}
   correct: 1
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 5
 --- !u!114 &1771248793
 MonoBehaviour:
@@ -57977,8 +58005,6 @@ MonoBehaviour:
   text: {fileID: 815874507}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 1
 --- !u!114 &1883785024
 MonoBehaviour:
@@ -59375,8 +59401,6 @@ MonoBehaviour:
   text: {fileID: 993665685}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 4
 --- !u!114 &1924224068
 MonoBehaviour:
@@ -60433,8 +60457,6 @@ MonoBehaviour:
   text: {fileID: 488325205}
   correct: 0
   disable: 0
-  googleAnalytics: {fileID: 114531908067335576, guid: bbc182e4479ba4d21ad61ccd1ffc0944,
-    type: 3}
   round: 2
 --- !u!114 &1964538324
 MonoBehaviour:
