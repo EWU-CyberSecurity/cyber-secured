@@ -231,7 +231,7 @@ public class RSA_illustration : MonoBehaviour {
             if(reverse == false && public_frame_alice.transform.position.x < 0)
                 public_frame_alice_RB.MovePosition(public_frame_alice_RB.position + new Vector2(5, 0) * Time.fixedDeltaTime);
 
-            //After the black box is in the middle then we can start to move both boxes (balck & yellow) outside to implement decryption:
+            //After the black box is in the middle then we can start to move both boxes (black & yellow) outside to implement decryption:
             if (reverse && private_frame_alice.transform.position.x > -13.0f)
             {
                 //The speed of moving the boxes is slow to make sure that the user can read everything:
