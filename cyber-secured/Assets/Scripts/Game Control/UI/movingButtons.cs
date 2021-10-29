@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class movingButtons : MonoBehaviour {
+public class MovingButtons : MonoBehaviour {
 
     [SerializeField] private Button start;
     [SerializeField] private Button instructions;
-    [SerializeField] private Button optiones;
+    [SerializeField] private Button options;
     [SerializeField] private Button about;
 
     // Use this for initialization
@@ -14,7 +14,7 @@ public class movingButtons : MonoBehaviour {
     {
         StartCoroutine(fadeButton(start, true, 3));
         StartCoroutine(fadeButton(instructions, true, 3));
-        StartCoroutine(fadeButton(optiones, true, 3));
+        StartCoroutine(fadeButton(options, true, 3));
         StartCoroutine(fadeButton(about, true, 3));
     }
 
@@ -65,7 +65,7 @@ public class movingButtons : MonoBehaviour {
 
             if (button.transition == Selectable.Transition.None || button.transition == Selectable.Transition.ColorTint)
             {
-                buttonImage.color = new Color(buttonColor.r, buttonColor.g, buttonColor.b, alpha);//Fade Traget Image
+                buttonImage.color = new Color(buttonColor.r, buttonColor.g, buttonColor.b, alpha);//Fade Target Image
                 buttonText.color = new Color(textColor.r, textColor.g, textColor.b, alpha);//Fade Text
             }
             else if (button.transition == Selectable.Transition.SpriteSwap)
@@ -77,7 +77,7 @@ public class movingButtons : MonoBehaviour {
                 colorBlock.disabledColor = new Color(colorBlock.disabledColor.r, colorBlock.disabledColor.g, colorBlock.disabledColor.b, alpha);
 
                 button.colors = colorBlock; //Assign the colors back to the Button
-                buttonImage.color = new Color(buttonColor.r, buttonColor.g, buttonColor.b, alpha);//Fade Traget Image
+                buttonImage.color = new Color(buttonColor.r, buttonColor.g, buttonColor.b, alpha);//Fade Target Image
                 buttonText.color = new Color(textColor.r, textColor.g, textColor.b, alpha);//Fade Text
             }
             else

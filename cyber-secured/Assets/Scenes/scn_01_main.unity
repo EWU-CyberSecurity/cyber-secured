@@ -6261,7 +6261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 361981996}
   instructions: {fileID: 1061848245}
-  optiones: {fileID: 1584724037}
+  options: {fileID: 1584724037}
   about: {fileID: 2131868360}
 --- !u!1 &225769443
 GameObject:
@@ -24379,7 +24379,7 @@ MonoBehaviour:
   encryptedRound: {fileID: 1952000782}
   generalQuestion: {fileID: 842933824}
   nextButton: {fileID: 824147168}
-  button_menue: {fileID: 319652964}
+  button_menu: {fileID: 319652964}
   squares_random: {fileID: 185372179}
   squaresT_random:
   - {fileID: 153774698}
@@ -65844,7 +65844,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 299393776}
-        m_MethodName: DisplayAbouts
+        m_MethodName: DisplayAbout
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
