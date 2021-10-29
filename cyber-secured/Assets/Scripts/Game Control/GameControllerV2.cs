@@ -369,8 +369,7 @@ public class GameControllerV2 : MonoBehaviour
 
                     current_decision_text = "You have chosen to work with a small company. " +
                         "Less people, however\n it won't be stress-free.";
-                };
-                    ; break;
+                } break;
 
                 case(Company.med):
                 {
@@ -382,7 +381,7 @@ public class GameControllerV2 : MonoBehaviour
 
                     current_decision_text = "You have chosen to work with a medium-sized company." +
                         "\nThere will be stress.";
-                }; break;
+                } break;
 
                 case(Company.large):
                 {
@@ -394,7 +393,7 @@ public class GameControllerV2 : MonoBehaviour
 
                     current_decision_text = "You have chosen to work with a large company. " +
                         "More people, more stress.";
-                }; break;
+                } break;
             }
 
             UpdateDisplayMonth();
@@ -928,7 +927,7 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = "First up on the agenda..." +
                 "\nWould you like to hold a password strength training session?\n" +
                 "<b>Cost: 10% of NP</b>";
-            }; break;
+            } break;
 
             // Month 2 event - backup offered
             case(2):
@@ -964,7 +963,7 @@ public class GameControllerV2 : MonoBehaviour
                 "\nWould you like to execute a company-wide file backup plan?\n" +
                 "<b>Cost: 10% of NP</b>";
 
-            }; break;
+            } break;
 
             // Month 3 event - perk offered
             case(3):
@@ -997,7 +996,7 @@ public class GameControllerV2 : MonoBehaviour
                     current_event_text = GoodMessage();
                 }
                 
-            }; break;
+            } break;
 
             // month 4 event
             case(4):
@@ -1029,7 +1028,7 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = "An employee has fallen for a phishing attempt. " +
                     "Would you like to hold a company meeting to discuss the dangers of phishing?" +
                     "\n<b>Cost: 10% of NP</b>";
-            }; break;
+            } break;
 
             // month 5 event
             case(5):
@@ -1051,7 +1050,7 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = "You feel the need to brush up on computer viruses." +
                     "\nDo some research? (No penalty for declining.)" +
                     "\n<b>Cost: 10% of NP</b>";
-            }; break;
+            } break;
 
             // month 6 event
             case(6):
@@ -1087,7 +1086,7 @@ public class GameControllerV2 : MonoBehaviour
                 "Would you like to learn about encryption?" +
                 "\n<b>Cost: 20 NP</b>";
 
-            }; break;
+            } break;
 
             // month 7 event
             case(7):
@@ -1112,7 +1111,7 @@ public class GameControllerV2 : MonoBehaviour
                 }
                 
                 
-            }; break;
+            } break;
 
             // month 8 event
             case(8):
@@ -1129,7 +1128,7 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text =
                      "The boss requests all employees to take a quiz to prove their knowledge on viruses." +
                      "\n<b>50 NP penalty for declining</b>";
-            }; break;
+            } break;
 
             // month 9 event
             case(9):
@@ -1164,7 +1163,7 @@ public class GameControllerV2 : MonoBehaviour
                      current_event_text = GoodMessage();
                 }
     
-            }; break;
+            } break;
 
             // month 10 event
             case(10):
@@ -1196,7 +1195,7 @@ public class GameControllerV2 : MonoBehaviour
                         "Solve the following challenge to advance your knowledge.";
                                       
                     
-            }; break;
+            } break;
             
             // month 11 event
             case(11):
@@ -1238,7 +1237,7 @@ public class GameControllerV2 : MonoBehaviour
                     current_choice_text = "Would you like to learn about RSA? That is one of the most important encryption technique today!" +
                         "\n<b>Cost: 5% of Monthly NP</b>";
                     
-            }; break;
+            } break;
             
             // month 12 event
             case(12):
@@ -1279,7 +1278,7 @@ public class GameControllerV2 : MonoBehaviour
                 name_perk_2.text = "Back to School";
                 info_perk_2.text = "Getting a M.S degree for an increase in your paycheck";
 
-            }; break;
+            } break;
 
             default: 
                 Debug.Log("default - month 12 part 1"); 
@@ -1358,7 +1357,7 @@ public class GameControllerV2 : MonoBehaviour
 
                     DisplayDecision();
                 }
-            }; break;
+            } break;
 
             // month 2 choice
             case(2):
@@ -1381,7 +1380,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            }; break;
+            } break;
 
             // month 3 choice
             case(3):
@@ -1409,7 +1408,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            }; break;
+            } break;
 
             // month 4 choice
             case(4):
@@ -1436,7 +1435,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
 
                 }
-            }; break;
+            } break;
 
             // month 5 choice
             case(5):
@@ -1462,7 +1461,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            }; break;
+            } break;
 
             // month 6 choice 
             case(6):
@@ -1498,7 +1497,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            }; break;
+            } break;
 
             // month 7 choice
             case(7):
@@ -1522,7 +1521,7 @@ public class GameControllerV2 : MonoBehaviour
 
                     DisplayDecision();
                 }
-            }; break;
+            } break;
 
             // month 8 choice
             case(8):
@@ -1545,7 +1544,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            }; break;
+            } break;
 
             // month 9 choice QUARTER
             case(9):
@@ -1570,7 +1569,7 @@ public class GameControllerV2 : MonoBehaviour
 
                 DisplayDecision();
 
-            }; break;
+            } break;
 
             // month 10 choice
             
@@ -1601,7 +1600,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
           
-            }; break;
+            } break;
             
             // month 11 choice
             case(11):
@@ -1630,7 +1629,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            }; break;
+            } break;
             
 
             // month 12 choice QUARTER (end of game)
@@ -1663,7 +1662,7 @@ public class GameControllerV2 : MonoBehaviour
                 DisplayDecision();
                 increased_text.text = "End Game";
 
-            }; break;
+            } break;
             
             default: 
                 Debug.Log("month 12 ---- second part"); 

@@ -13,7 +13,7 @@ public class ButtonManager : MonoBehaviour
 
     public int round;
 
-    private string[] explanation = {
+    private readonly string[] explanation = {
         "\"I am infatuated with you\" is much longer and uses spaces. \"I am infatuated with you\" can be improved so it doesn't have words; Eg: \"i^m infat 2 ated w/ y0u\"",
             "Since \"2 b OR !tuby\" uses numbers, capital and lowercase letters, and symbols, it is more complex than the other passwords.", 
             "\"RoundRobin\" is the worst of these options because a hacker could assume the bank's name was used in the password somehow because it is easy to remember.",
@@ -21,8 +21,8 @@ public class ButtonManager : MonoBehaviour
             "A Password Manager is secure software that handles your passwords for you. Helping your co-worker remember his password is better than leaving a password in readable form."
     };
 
-    private string[] affirmation = { "Bingo! ", "That's correct! ", "Good job. ", "You got it. ", "Nice work. " };
-    private string[] disdain = { "That's not it :( ", "That's incorrect! ", "Actually... ", "There's a better answer. ", "Try again! " };
+    private readonly string[] affirmation = { "Bingo! ", "That's correct! ", "Good job. ", "You got it. ", "Nice work. " };
+    private readonly string[] disdain = { "That's not it :( ", "That's incorrect! ", "Actually... ", "There's a better answer. ", "Try again! " };
 
     private int random;
 
