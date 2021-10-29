@@ -200,7 +200,7 @@ public class MainUIController : MonoBehaviour
 
             // deactivate quiz, display decision, increase error rate 10%
             GameControllerV2.Instance.scn_caesar_cipher.SetActive(false);
-            GameControllerV2.Instance.current_decision_text = "You give up on learning about encyrption " +
+            GameControllerV2.Instance.current_decision_text = "You give up on learning about encryption " +
                     "<i>Error rate has increased.</i>";
             GameControllerV2.Instance.IncreaseErrorRate(.1f);
             GameControllerV2.Instance.DisplayDecision();

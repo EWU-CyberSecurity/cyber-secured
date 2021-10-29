@@ -30,9 +30,7 @@ public class ButtonManager : MonoBehaviour
     {
 
         random = Random.Range(0, 5);
-        //googleAnalytics.LogScreen("Main Menu"); ------------------ need to fix it!!!!!!!!!!------
 
-        //googleAnalytics.LogEvent("asfdasf", "asdfasd", "safsf", 33847);
         if (correct)
         {
             // play a beep sound

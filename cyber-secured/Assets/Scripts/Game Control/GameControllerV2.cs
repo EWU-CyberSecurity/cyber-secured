@@ -514,10 +514,10 @@ public class GameControllerV2 : MonoBehaviour
         tweens.Add(decision_box.transform.DOScale(new Vector3(1, 1, 1), 1));
     }
 
-    // the "next month" button function -----> That's the function who decieds which month will be the last month! ------------------------------------------
+    // the "next month" button function -----> That's the function who decides which month will be the last month! ------------------------------------------
     public void HideDecision()
     {
-        if(current_month != 12) // don't chacge the 13!!!
+        if(current_month != 12) // don't change the 13!!!
         {
             if(!in_dialogue)
             {
@@ -702,7 +702,7 @@ public class GameControllerV2 : MonoBehaviour
     }
 
     //This function will be called from the nextEvent() when the user clicked 
-    //the "next month" button in the desicion box
+    //the "next month" button in the decision box
     public void DisplayEvent()
     {
         DisplayEvent(event_box);
@@ -884,7 +884,7 @@ public class GameControllerV2 : MonoBehaviour
         float rand = UnityEngine.Random.value;
         if(error_rate >= rand)
         {
-            Debug.Log(error_rate + " > " + rand + " Bad event occured.");
+            Debug.Log(error_rate + " > " + rand + " Bad event occurred.");
             return true;
         } else {
             Debug.Log(error_rate + " < " + rand + " Bad event avoided.");
@@ -910,7 +910,7 @@ public class GameControllerV2 : MonoBehaviour
         
     // IMPORTANT: what to do when a bad event occurs
     // ebox - event box (ctrl+f to find this easily)
-    public void ActivateEvent(bool bad_event_occured)
+    public void ActivateEvent(bool bad_event_occurred)
     {
         // play a beep sound
         GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);
@@ -932,7 +932,7 @@ public class GameControllerV2 : MonoBehaviour
             // Month 2 event - backup offered
             case(2):
             {
-                if(bad_event_occured)
+                if(bad_event_occurred)
                 {
                     // decrease NP by a scaling amount
                     int temp_np = network_power;
@@ -975,7 +975,7 @@ public class GameControllerV2 : MonoBehaviour
                 // calculate difference
                 int np_difference = network_power - temp_np; 
 
-                current_event_text += "\nProgress bonus receieved. " +
+                current_event_text += "\nProgress bonus received. " +
                                       "<i>NP has increased by " + np_difference + ".</i>";
 
                 // left perk text
@@ -986,7 +986,7 @@ public class GameControllerV2 : MonoBehaviour
                 name_perk_2.text = "Now Hiring";
                 info_perk_2.text = "Monthly NP increases by 20";
 
-                if (bad_event_occured) {
+                if (bad_event_occurred) {
                     // decrease monthly NP by a scaling amount - 10% of monthly NP
                     DecreaseMonthlyNP(Mathf.RoundToInt((float) monthly_np * 0.1f));
 
@@ -1016,7 +1016,7 @@ public class GameControllerV2 : MonoBehaviour
                 // calculate difference 
                 int np_difference = temp_np - network_power; 
 
-                if (bad_event_occured) {
+                if (bad_event_occurred) {
                     // Event that occurs
                     current_event_text = "Not enough people for current project." +
                                          "<i>NP has decreased by " + np_difference + ".</i>";
@@ -1033,7 +1033,7 @@ public class GameControllerV2 : MonoBehaviour
             // month 5 event
             case(5):
             {
-                if (bad_event_occured) 
+                if (bad_event_occurred) 
                 {
                     //GameControllerV2.Instance.DecreaseMonthlyNP(10);
 
@@ -1068,7 +1068,7 @@ public class GameControllerV2 : MonoBehaviour
                 name_perk_2.text = "Antivirus";
                 info_perk_2.text = "Error rate decreases significantly";
 
-                if (bad_event_occured) {
+                if (bad_event_occurred) {
 
                     // decrease monthly NP by half
                     DecreaseMonthlyNP(monthly_np / 2);
@@ -1091,7 +1091,7 @@ public class GameControllerV2 : MonoBehaviour
             // month 7 event
             case(7):
             {
-                if (bad_event_occured) {
+                if (bad_event_occurred) {
 
                     // decrease NP by a scaling amount
                     int temp_np = network_power;
@@ -1117,7 +1117,7 @@ public class GameControllerV2 : MonoBehaviour
             case(8):
             {
 
-                if (bad_event_occured) {
+                if (bad_event_occurred) {
                     current_event_text = "An employee downloads malware without realizing."
                         + "\nNP has decreased by 30.";
                 } else {
@@ -1140,7 +1140,7 @@ public class GameControllerV2 : MonoBehaviour
                 // calculate difference
                 int np_difference = network_power - temp_np;
 
-                current_event_text += "\nProgress bonus receieved. " +
+                current_event_text += "\nProgress bonus received. " +
                                       "<i>NP has increased by " + np_difference + ".</i>";
                 // left perk text
                 name_perk_1.text = "Try SMS marketing";
@@ -1150,7 +1150,7 @@ public class GameControllerV2 : MonoBehaviour
                 name_perk_2.text = "Launch a new secured product";
                 info_perk_2.text = "Monthly NP increases by 20";
 
-                if (bad_event_occured)
+                if (bad_event_occurred)
                 {
                     // decrease monthly NP by a scaling amount - 10% of monthly NP
                     DecreaseMonthlyNP(Mathf.RoundToInt((float)monthly_np * 0.1f));
@@ -1170,7 +1170,7 @@ public class GameControllerV2 : MonoBehaviour
             {
                 Debug.Log("CASE 10 ----   1");
 
-                if(bad_event_occured)
+                if(bad_event_occurred)
                 {
                     if(mitigate_event)
                     {
@@ -1200,7 +1200,7 @@ public class GameControllerV2 : MonoBehaviour
             // month 11 event
             case(11):
             {
-                if (bad_event_occured)
+                if (bad_event_occurred)
                 {
                     // decrease NP by a scaling amount
                     int temp_np = network_power;
@@ -1242,7 +1242,7 @@ public class GameControllerV2 : MonoBehaviour
             // month 12 event
             case(12):
             {
-                if(bad_event_occured)
+                if(bad_event_occurred)
                 {
                     // decrease NP by a scaling amount
                     int temp_np = network_power;
@@ -1558,7 +1558,7 @@ public class GameControllerV2 : MonoBehaviour
                     current_decision_text = "Perfect! Early indications show SMS to be far more responsive." +
                                                 "\n<i>Error rate has been decreased significantly.</i>";
                 }
-                else //If user chose secured product optioin 
+                else //If user chose secured product option 
                 {
                     // increase monthly np by 20
                     IncreaseMonthlyNP(20);
@@ -1616,7 +1616,7 @@ public class GameControllerV2 : MonoBehaviour
                     current_decision_text = "Great decision! Learning the importance of RSA is very important since many technologies relay on it!" +
                             "Good luck!";
 
-                    //DisplayDecision(); // That might have to be delted..... <<<<----------CHECK
+                    //DisplayDecision(); // That might have to be deleted..... <<<<----------CHECK
                 } 
                 else // chose no
                 {

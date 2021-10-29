@@ -57,7 +57,7 @@ public class RSA_illustration : MonoBehaviour {
         key_1RB = key_1.GetComponent<Rigidbody2D>();
         key_4RB = key_4.GetComponent<Rigidbody2D>();
 
-        velocity = new Vector2(-5, 0); // controling the x and y posstion, will move 5 units on the x direction to the left
+        velocity = new Vector2(-5, 0); // controlling the x and y position, will move 5 units on the x direction to the left
 
         //Get an access to the DialogueManager script to manage the demonstration according to the line displayed:
         dialog = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
@@ -97,7 +97,7 @@ public class RSA_illustration : MonoBehaviour {
                     envelope.SetActive(true);
                     envelopeRB.MovePosition(envelopeRB.position + velocity * (-1) * Time.fixedDeltaTime);
                 }
-                if (envelope.transform.position.x >= 4.3) // If the envelope in its posstion:
+                if (envelope.transform.position.x >= 4.3) // If the envelope in its position:
                 {
                     communication = false;
                     Debug.Log("Now false");
@@ -110,13 +110,13 @@ public class RSA_illustration : MonoBehaviour {
                 {
                     envelopeRB.MovePosition(envelopeRB.position + velocity * Time.fixedDeltaTime);
                 }
-                if (envelope.transform.position.x <= -4.1) // If the envelope in its posstion:
+                if (envelope.transform.position.x <= -4.1) // If the envelope in its position:
                 {
                     communication = true;
                 }
             }
 
-            if(boy.transform.position.x <= 7.0 && girl.transform.position.x >= -7.0) // If the envelope in its posstion:
+            if(boy.transform.position.x <= 7.0 && girl.transform.position.x >= -7.0) // If the envelope in its position:
             {
                 dialog.setProceed(true); // Let the user continue
             }
@@ -166,7 +166,7 @@ public class RSA_illustration : MonoBehaviour {
         {
             dialog.setProceed(false);
 
-            //check eatch time if the green box is in the middle of the screen to then strat moving both boxed outside:
+            //check each time if the green box is in the middle of the screen to then start moving both boxed outside:
             if (private_frame_bob.transform.position.x < 0)
                 reverse = true;
 
@@ -223,7 +223,7 @@ public class RSA_illustration : MonoBehaviour {
             else
                 dialog.setProceed(true);
 
-            //check eatch time if the black box is in the middle of the screen to then strat moving both boxes outside:
+            //check each time if the black box is in the middle of the screen to then start moving both boxes outside:
             if (public_frame_alice.transform.position.x > 0)
                 reverse = true;
 

@@ -8,12 +8,12 @@ public class OneTimePadSceneController : MonoBehaviour {
     private MovingImagesAndText movingObjects; // object to the script to move images on the screen
 
     private GameObject scn_main;
-    //public GameObject button_menue;// the button in the main scene that allow you to start over the game
+    //public GameObject button_menu;// the button in the main scene that allow you to start over the game
     //public Text txt_company; // No need for that too
 
     public  GameObject demonstration; // drag and drop the Illustration child object of the scn_one_time_pad
 
-    public GameObject questions; //The object that suppoes to handle the qustions 
+    public GameObject questions; //The object that is supposed to handle the questions 
 
     // Use this for initialization
     void Awake () {

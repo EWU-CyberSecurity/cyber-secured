@@ -155,7 +155,7 @@ public class SceneControllerPhishing : MonoBehaviour
         // end of first part
         if(current_round == 4)
         {
-            // deactive the first three buttons
+            // deactivate the first three buttons
             btn_link_1.gameObject.SetActive(false);
             btn_link_2.gameObject.SetActive(false);
             btn_link_3.gameObject.SetActive(false);
