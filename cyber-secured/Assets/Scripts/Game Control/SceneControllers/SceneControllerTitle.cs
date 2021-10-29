@@ -180,4 +180,19 @@ public class SceneControllerTitle : MonoBehaviour
         btn_options.gameObject.SetActive(false);
         btn_about.gameObject.SetActive(false);
     }
+
+    public void OnNameInputChanged(InputField name_input)
+    {
+        Button start_button = GameObject.Find("btn_start").GetComponent<Button>();
+
+        ColorBlock new_colors = start_button.colors;
+        if (string.IsNullOrEmpty(name_input.text)) {
+            new_colors.highlightedColor = new Color(1, 0.7245814f, 0.7176471f);
+            start_button.colors = new_colors;
+        } else {
+            // this is the original green color
+            new_colors.highlightedColor = new Color(0.8156863f, 1, 0.7176471f);
+            start_button.colors = new_colors;
+        }
+    }
 }
