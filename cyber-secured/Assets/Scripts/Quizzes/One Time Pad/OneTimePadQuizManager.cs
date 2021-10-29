@@ -24,8 +24,8 @@ public class OneTimePadQuizManager : MonoBehaviour {
     public Text textToChange; // this is what make the difference between the questions 1 and 2
 
     private string encryptionAnswer; // here I will save the result for question 1 (encrypt a sentence)
-    private byte[] otpTheBest = { 15, 20, 16, 20, 8, 5, 2, 5, 19, 20 }; // Saving the values of each letter
-    private byte[] itsTheSame = {  9, 20, 19, 20, 8, 5, 19, 1, 13, 5 };
+    private readonly byte[] otpTheBest = { 15, 20, 16, 20, 8, 5, 2, 5, 19, 20 }; // Saving the values of each letter
+    private readonly byte[] itsTheSame = {  9, 20, 19, 20, 8, 5, 19, 1, 13, 5 };
     private string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public GameObject ECorrect;

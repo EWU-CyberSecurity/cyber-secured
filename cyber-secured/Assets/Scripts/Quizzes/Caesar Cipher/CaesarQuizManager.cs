@@ -22,7 +22,7 @@ public class CaesarQuizManager : MonoBehaviour {
     // continue button
     public GameObject nextButton;
  
-    private List<string> plaintexts = new List<string>() {
+    private readonly List<string> plaintexts = new List<string>() {
         "hello world", "cyber secured", "happy holidays", "trust nobody", "get to the chopper", "baby shark", "flappy bird" };
     private string ciphertext;
     // private string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

@@ -369,7 +369,8 @@ public class GameControllerV2 : MonoBehaviour
 
                     current_decision_text = "You have chosen to work with a small company. " +
                         "Less people, however\n it won't be stress-free.";
-                }; break;
+                };
+                    ; break;
 
                 case(Company.med):
                 {
