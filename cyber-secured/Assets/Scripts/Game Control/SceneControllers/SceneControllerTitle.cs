@@ -187,7 +187,6 @@ public class SceneControllerTitle : MonoBehaviour
 
         ColorBlock new_colors = start_button.colors;
         if (string.IsNullOrEmpty(name_input.text)) {
-            
             new_colors.highlightedColor = new Color(1, 0.7245814f, 0.7176471f);
             new_colors.pressedColor = new Color(1, 0.607629f, 0.5764706f);
             start_button.colors = new_colors;
