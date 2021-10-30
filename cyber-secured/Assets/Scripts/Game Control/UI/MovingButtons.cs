@@ -35,7 +35,7 @@ public class MovingButtons : MonoBehaviour {
             b = 0;
         }
 
-        UnityEngine.UI.Image buttonImage = button.GetComponent<UnityEngine.UI.Image>();
+        Image buttonImage = button.GetComponent<Image>();
         Text buttonText = button.GetComponentInChildren<Text>();
 
         //Enable both Button, Image and Text components

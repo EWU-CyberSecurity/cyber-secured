@@ -2,8 +2,6 @@
 /// PURPOSE: this is a class just holds lines of dialogue; doesn't need to derive from MonoBehavior
 /// 
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]           //when making a class like this, it has to be serializable to show up in the inspector

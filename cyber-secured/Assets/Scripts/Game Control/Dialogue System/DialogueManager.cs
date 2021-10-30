@@ -168,7 +168,7 @@ public class DialogueManager : MonoBehaviour
         finished_typing = false;
 
         text_dialogue.text = "";
-        foreach(char letter in sentence.ToCharArray())
+        foreach(char letter in sentence)
         {
             text_dialogue.text += letter;
             //yield return null; -----> If you want to type the sentence letter by letter you need to uncomment this

@@ -4,8 +4,6 @@
 /// This script controls the glitch camera effect, as well as the start button function.
 /// </summary>
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 

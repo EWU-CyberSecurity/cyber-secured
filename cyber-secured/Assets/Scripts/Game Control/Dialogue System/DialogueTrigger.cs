@@ -10,8 +10,6 @@
 ///     triggers dialogue if not triggered already, using DialogueManager to control output
 /// 
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour

@@ -57,7 +57,6 @@ using System;
 
 // imported scripts:
 using DG.Tweening;
-using DigitalRuby.SoundManagerNamespace;
 
 public class GameControllerV2 : MonoBehaviour
 {
@@ -654,10 +653,6 @@ public class GameControllerV2 : MonoBehaviour
                     }
                     break;
                 }
-
-            default: {
-                    break;
-                }
             }
             
             GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().TriggerDialogue();
@@ -988,7 +983,7 @@ public class GameControllerV2 : MonoBehaviour
 
                 if (bad_event_occurred) {
                     // decrease monthly NP by a scaling amount - 10% of monthly NP
-                    DecreaseMonthlyNP(Mathf.RoundToInt((float) monthly_np * 0.1f));
+                    DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.1f));
 
                     current_event_text = "Company has reported low earnings. Morale is low.\n" +
                         "<i>Monthly NP has decreased by 10%.</i>";
@@ -1038,7 +1033,7 @@ public class GameControllerV2 : MonoBehaviour
                     //GameControllerV2.Instance.DecreaseMonthlyNP(10);
 
                     // decrease monthly NP by a scaling amount - 10% of monthly NP
-                    DecreaseMonthlyNP(Mathf.RoundToInt((float)monthly_np * 0.1f));
+                    DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.1f));
 
                     current_event_text = "Someone in your company loses a USB with sensitive,unprotected information on it. " +
                                          "\n<i>Monthly NP has decreased by 10 %.</i>";
@@ -1097,7 +1092,7 @@ public class GameControllerV2 : MonoBehaviour
                     int temp_np = network_power;
 
                     // decrease np by 30%
-                    DecreaseNP(Mathf.RoundToInt((float) network_power * 0.3f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.3f));
 
                     // calculate difference
                     int np_difference = temp_np - network_power;
@@ -1153,7 +1148,7 @@ public class GameControllerV2 : MonoBehaviour
                 if (bad_event_occurred)
                 {
                     // decrease monthly NP by a scaling amount - 10% of monthly NP
-                    DecreaseMonthlyNP(Mathf.RoundToInt((float)monthly_np * 0.1f));
+                    DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.1f));
 
                     current_event_text = "Company has reported high volume of expenses.\n" +
                                          "<i>Monthly NP has decreased by 10%.</i>";
@@ -1181,7 +1176,7 @@ public class GameControllerV2 : MonoBehaviour
                     }
 
                     // decrease monthly NP by a scaling amount - 10% of monthly NP
-                    DecreaseMonthlyNP(Mathf.RoundToInt((float)monthly_np * 0.1f));
+                    DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.1f));
 
                     current_event_text = "Someone in your company loses a USB with sensitive,unprotected information on it. " +
                             "\n<i>Monthly NP has decreased by 10 %.</i>";
@@ -1232,7 +1227,7 @@ public class GameControllerV2 : MonoBehaviour
                 }
 
                     // decrease monthly NP by a scaling amount - 5% of monthly NP
-                    DecreaseMonthlyNP(Mathf.RoundToInt((float)monthly_np * 0.05f));
+                    DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.05f));
 
                     current_choice_text = "Would you like to learn about RSA? That is one of the most important encryption technique today!" +
                         "\n<b>Cost: 5% of Monthly NP</b>";
@@ -1342,7 +1337,7 @@ public class GameControllerV2 : MonoBehaviour
                 if(x) // if "yes" has been chosen
                 {
                     // decrease np by 10%
-                    DecreaseNP(Mathf.RoundToInt((float)network_power * 0.1f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     // activate password quiz
                     StartCoroutine(TransitionToEvent(scn_quiz_password));
@@ -1365,7 +1360,7 @@ public class GameControllerV2 : MonoBehaviour
                 if(x)
                 {
                     // decrease np by 10%
-                    DecreaseNP(Mathf.RoundToInt((float)network_power * 0.1f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     // activate file backup choice
                     StartCoroutine(TransitionToEvent(scn_filebackup));
@@ -1415,7 +1410,7 @@ public class GameControllerV2 : MonoBehaviour
             {
                 if (x) {
                     // decrease np by 10%
-                    DecreaseNP(Mathf.RoundToInt((float) network_power * 0.1f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     // activate file phishing quiz
                     StartCoroutine(TransitionToEvent(scn_phishing_v2));
@@ -1443,7 +1438,7 @@ public class GameControllerV2 : MonoBehaviour
                 if (x)
                 {
                     // decrease np by 10%
-                    DecreaseNP(Mathf.RoundToInt((float) network_power * 0.1f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     // activate file Virus Presentation
                     StartCoroutine(TransitionToEvent(scn_virus_presentation));
@@ -1472,7 +1467,7 @@ public class GameControllerV2 : MonoBehaviour
                     int temp_np = network_power;
 
                     // increase np by 20%
-                    IncreaseNP(Mathf.RoundToInt((float)network_power * 0.2f));
+                    IncreaseNP(Mathf.RoundToInt(network_power * 0.2f));
 
                     int np_difference = network_power - temp_np; // calculate difference
 
@@ -1592,7 +1587,7 @@ public class GameControllerV2 : MonoBehaviour
                 { 
                         
                     // decrease np by 10%
-                    DecreaseNP(Mathf.RoundToInt((float)network_power * 0.1f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     current_decision_text = "You gave up a very useful information that could help you in the future. " +
                         "\n<i>NP rate has decreased.</i>";
@@ -1621,7 +1616,7 @@ public class GameControllerV2 : MonoBehaviour
                 else // chose no
                 {
                     // decrease np by 10%
-                    DecreaseNP(Mathf.RoundToInt((float)network_power * 0.1f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     current_decision_text = "Not a wise decision, you gave up a very important lesson on RSA encryption!" +
                             "\n<i>NP rate has decreased.</i> ";
@@ -1639,7 +1634,7 @@ public class GameControllerV2 : MonoBehaviour
                 {
                         
                     // increase np by 10%
-                    IncreaseNP(Mathf.RoundToInt((float)network_power * 0.1f));
+                    IncreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     current_decision_text = "You have chosen to get a promotion at your current job!" +
                                             "\n<i>Monthly NP has increased by 10%</i>"; 

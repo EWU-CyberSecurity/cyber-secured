@@ -5,8 +5,6 @@
 /// GameControllerV2.cs controls the Decision and Event UI.
 /// </summary>
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 

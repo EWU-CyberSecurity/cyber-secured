@@ -4,8 +4,6 @@
 /// This script controls the title screen; in tandem with GlitchCamera.cs
 /// </summary>
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 

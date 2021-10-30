@@ -114,7 +114,7 @@ public class MovingImagesAndText : MonoBehaviour {
             helloItIsAnnTextRB.MovePosition(helloItIsAnnTextRB.position + new Vector2(0, -5) * Time.fixedDeltaTime);
         }
 
-        if (helloItIsAnnText.transform.position.y < 3 && dialog.getFinished_typing() == true)
+        if (helloItIsAnnText.transform.position.y < 3 && dialog.getFinished_typing())
             dialog.setProceed(true);
         
         //For sentence 5 I positioned the arrow at  x = -3.80 and will move it to  x=3.85
@@ -219,7 +219,7 @@ public class MovingImagesAndText : MonoBehaviour {
         if(dialog.currentSentenceDisplayed == 7) // The third step to accumulate the numbers
         {
             
-            if (arrow.activeSelf == true)
+            if (arrow.activeSelf)
             {
                 arrow.SetActive(false);
                 dialog.setProceed(false); // lock the continue button
@@ -277,8 +277,7 @@ public class MovingImagesAndText : MonoBehaviour {
             else
                 dialog.setProceed(true);
 
-            if (array_index != 0) // resetting the array index for dialog.currentSentenceDisplayed == 11
-                array_index = 0;
+            array_index = 0;
         }
 
         if (dialog.currentSentenceDisplayed == 10)
