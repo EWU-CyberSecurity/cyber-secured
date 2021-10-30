@@ -188,10 +188,12 @@ public class SceneControllerTitle : MonoBehaviour
         ColorBlock new_colors = start_button.colors;
         if (string.IsNullOrEmpty(name_input.text)) {
             new_colors.highlightedColor = new Color(1, 0.7245814f, 0.7176471f);
+            new_colors.pressedColor = new Color(1, 0.607629f, 0.5764706f);
             start_button.colors = new_colors;
         } else {
-            // this is the original green color
+            // these are the original green colors
             new_colors.highlightedColor = new Color(0.8156863f, 1, 0.7176471f);
+            new_colors.pressedColor = new Color(0.5764706f, 1, 0.5882353f);
             start_button.colors = new_colors;
         }
     }
