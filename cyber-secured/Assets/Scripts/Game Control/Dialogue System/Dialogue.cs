@@ -14,8 +14,8 @@ public class Dialogue
     [TextArea(3, 10)]           //set the size of the boxes in the inspector
     public string[] sentences;  //a list of the lines of dialogue
 
-    public void setSentences(string[] sentences)
+    public void setSentences(string[] newSentences)
     {
-        this.sentences = sentences;
+        this.sentences = newSentences;
     }
 }
