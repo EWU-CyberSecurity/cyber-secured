@@ -20,7 +20,7 @@ public class DisplayQuestionAnswer : MonoBehaviour
     private string Answer2 = "A youtube video";
     private string Answer3 = "A book";
     private string Answer4 = "a email";
-
+    
     public void ReceivingLists()
     {
 
@@ -28,18 +28,56 @@ public class DisplayQuestionAnswer : MonoBehaviour
 
     public void Update()
     {
+        DisplayMultiChoiceQuestion(QuestionPrompt, Answer1, Answer2,Answer3, Answer4);
+        DisplayFillInQuestion(QuestionPrompt, Answer1, Answer2, Answer3, Answer4);
+        DisplayTrueFalseQuestion(QuestionPrompt, Answer1, Answer2);
+    }
+    
+    public void DisplayMultiChoiceQuestion(string questionProm, string ans1, string ans2, string ans3, string ans4)
+    {
+        GameObject.Find("text_question").GetComponentInChildren<Text>().text = questionProm;
+        //parse through answers to which is the correct one(s)
 
-        //DisplayMultiChoiceQuestion(QuestionPrompt, Answer1, Answer2,Answer3, Answer4);
+        GameObject.Find("btn1").GetComponentInChildren<Text>().text = ans1;
+        GameObject.Find("btn2").GetComponentInChildren<Text>().text = ans2;
+        GameObject.Find("btn3").GetComponentInChildren<Text>().text = ans3;
+        GameObject.Find("btn4").GetComponentInChildren<Text>().text = ans4;
     }
 
-
-
-    /*public void DisplayMultiChoiceQuestion(string questionProm, string ans1, string ans2, string ans3, string ans4)
+    public void DisplayTrueFalseQuestion(string questionProm, string ans1, string ans2)
     {
-        GameObject.Find("text_question").GetComponentInChildren<Text>().text = QuestionPrompt;
-        GameObject.Find("btn1").GetComponentInChildren<Text>().text = Answer1;
-        GameObject.Find("btn2").GetComponentInChildren<Text>().text = Answer2;
-        GameObject.Find("btn3").GetComponentInChildren<Text>().text = Answer3;
-        GameObject.Find("btn4").GetComponentInChildren<Text>().text = Answer4;
-    }*/
+        GameObject.Find("text_question").GetComponentInChildren<Text>().text = questionProm;
+
+        //parse through answers to which is the correct one(s)
+
+        GameObject.Find("btn1").GetComponentInChildren<Text>().text = ans1;
+        GameObject.Find("btn2").GetComponentInChildren<Text>().text = ans2;
+    }
+
+    public void DisplayFillInQuestion(string questionProm, string ans1, string ans2, string ans3, string ans4)
+    {
+        GameObject.Find("text_question").GetComponentInChildren<Text>().text = questionProm;
+
+        //parse through answers to which is the correct one(s)
+        //GameObject.Find("btn1").GetComponentInChildren<Text>().text = ans1;   ******* TODO figure out how to change the text in a field that the user can enter values from (like in the password 
+
+
+        if (ans1 != null) {
+            
+        } else if (ans2 != null) {
+            
+        } else if (ans3 != null) {
+            
+        } else if (ans4 != null) {
+            
+        }
+
+
+        /*
+         * check if there is more then one answer(in case its just a single answer they have to fill in)
+         * take in their input for each spot and check it against the answers(might have to loop through all answers in case the player didnt input it in the same slot.
+         *  ^ set to all answers to lowercase then check between the table data and UserInput < (Loop through their choices to make sure they have each word even if word is not in the same column as table)
+         */
+
+    }
 }

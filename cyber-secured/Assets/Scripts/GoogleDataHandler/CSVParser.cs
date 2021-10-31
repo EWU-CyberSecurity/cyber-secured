@@ -22,8 +22,11 @@ public class CSVParser : MonoBehaviour
 
         TopicSheetParser(topicsSheet);
         QuestionSheetParser(questionsSheet);
-    }
 
+        //Debug.LogWarning(topicsSheet);
+       //Debug.LogWarning(questionsSheet);
+    }
+    
     private void TopicSheetParser(string topicsSheet)
     {
         //loop through the 

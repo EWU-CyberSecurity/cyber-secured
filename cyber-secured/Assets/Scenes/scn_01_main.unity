@@ -40091,7 +40091,6 @@ GameObject:
   - component: {fileID: 1329741137}
   - component: {fileID: 1329741136}
   - component: {fileID: 1329741135}
-  - component: {fileID: 1329741134}
   m_Layer: 0
   m_Name: GameControllerV2
   m_TagString: Untagged
@@ -40188,23 +40187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042fc079635556649a88ff0dde3c668f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1329741134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329741130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97ede8abc9548e94f8c8fccf2352e12d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questionsPrompt: {fileID: 0}
-  btn1: {fileID: 0}
-  btn2: {fileID: 0}
-  btn3: {fileID: 0}
-  btn4: {fileID: 0}
 --- !u!114 &1329741135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40242,7 +40224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   downloadMananager: {fileID: 1329741136}
-  parser: {fileID: 1329741134}
   csvParser: {fileID: 1329741135}
 --- !u!1 &1332202601
 GameObject:
