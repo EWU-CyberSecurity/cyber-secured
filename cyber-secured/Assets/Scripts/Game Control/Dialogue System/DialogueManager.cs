@@ -160,7 +160,7 @@ public class DialogueManager : MonoBehaviour
             // play a beep sound
             GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(3);
             string sentence;
-            if(!pressedBackButton) //first time pressing back
+            if(!pressedBackButton) // first time pressing back
             {
                 sentence = sentencesStack.Pop();  //gets rid of empty space
                 sentencesArrayList.Add(sentence); // to read it again when the user pressing next
