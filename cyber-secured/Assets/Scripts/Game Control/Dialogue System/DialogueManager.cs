@@ -123,7 +123,7 @@ public class DialogueManager : MonoBehaviour
             {
                 sentence = (string)sentencesArrayList[sentencesArrayList.Count - 1]; // Give the last sentence
                 sentencesArrayList.RemoveAt(sentencesArrayList.Count - 1); // remove last element from the list
-                sentencesStack.Push(sentence); // To save it in the stack 
+                sentencesStack.Push(sentence); // to save it in the stack 
             }
             sentence = (string)sentencesArrayList[sentencesArrayList.Count - 1]; // Give the last sentence
             sentencesArrayList.RemoveAt(sentencesArrayList.Count - 1);// remove last element from the list
