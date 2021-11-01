@@ -122,7 +122,7 @@ public class DialogueManager : MonoBehaviour
             if(pressedBackButton) // This is for the case if the back button was pressed
             {
                 sentence = (string)sentencesArrayList[sentencesArrayList.Count - 1]; // Give the last sentence
-                sentencesArrayList.RemoveAt(sentencesArrayList.Count - 1);// remove last element from the list
+                sentencesArrayList.RemoveAt(sentencesArrayList.Count - 1); // remove last element from the list
                 sentencesStack.Push(sentence); // To save it in the stack 
             }
             sentence = (string)sentencesArrayList[sentencesArrayList.Count - 1]; // Give the last sentence
