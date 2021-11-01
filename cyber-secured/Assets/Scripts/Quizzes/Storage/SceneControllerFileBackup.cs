@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SceneControllerFileBackup : MonoBehaviour
@@ -23,7 +21,7 @@ public class SceneControllerFileBackup : MonoBehaviour
         }
         if (usb.isOn) {
             GameControllerV2.Instance.backup_usb = true;
-            GameControllerV2.Instance.DecreaseNP(Mathf.RoundToInt((float) GameControllerV2.Instance.GetNetworkPower() * 0.1f));
+            GameControllerV2.Instance.DecreaseNP(Mathf.RoundToInt(GameControllerV2.Instance.GetNetworkPower() * 0.1f));
         }
         if (cld.isOn) {
             GameControllerV2.Instance.backup_cld = true;

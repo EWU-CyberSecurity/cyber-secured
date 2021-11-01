@@ -4,8 +4,6 @@
 /// This script controls the title screen; in tandem with GlitchCamera.cs
 /// </summary>
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -80,7 +78,7 @@ public class SceneControllerTitle : MonoBehaviour
         GameControllerV2.Instance.SetState(2);
     }
 
-    public void DisplayAbouts()
+    public void DisplayAbout()
     {
         // play a beep sound
         GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);

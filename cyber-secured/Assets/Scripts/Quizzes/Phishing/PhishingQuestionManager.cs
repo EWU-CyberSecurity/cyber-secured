@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class PhishingQuestionManager : MonoBehaviour {
     public Button correctButton;
@@ -12,8 +9,8 @@ public class PhishingQuestionManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (correctButton.GetComponent<ChoiceManager>().disable == true ||
-            incorrectButton.GetComponent<ChoiceManager>().disable == true) {
+        if (correctButton.GetComponent<ChoiceManager>().disable ||
+            incorrectButton.GetComponent<ChoiceManager>().disable) {
             disableButtons();
             next.SetActive(true);
         }

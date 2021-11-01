@@ -30,13 +30,13 @@ public class DialogueManager : MonoBehaviour
     public GameObject portrait;         // ^
     public Text text_name;              // ^
     public Text text_dialogue;          // ^
+
     public int currentSentenceDisplayed = -1; // to match the index in the queue, start in -1 and increase 
 
     public GameObject panel;
 
     private ArrayList sentencesArrayList;
     private Stack<string> sentencesStack; // store the lines to make sure I can read them again
-
 
     public float elapsed_time;          // keep track of time for lerping
     public bool has_started;            // check dialogue's state
@@ -91,9 +91,9 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentenceArray(); // it was DisplayNextSentence()
     }
 
-    public void DisplayNextSentenceArray() // when the user clicks the button in the dialoue box
+    public void DisplayNextSentenceArray() // when the user clicks the button in the dialogue box
     {
-        if (proceed) // in some cases like in the demonstraion of the one time pad - the user can't proceed until demonstration is over for each sentence
+        if (proceed) // in some cases like in the demonstration of the one time pad - the user can't proceed until demonstration is over for each sentence
         {
             // sentences haven't ended
             if (!has_ended)
@@ -133,7 +133,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayPrecedingSentence() // when the user clicks the button in the dialoue box
     {
-        if (proceed) // in some cases like in the demonstraion of the one time pad - the user can't proceed until demonstration is over for each sentence
+        if (proceed) // in some cases like in the demonstration of the one time pad - the user can't proceed until demonstration is over for each sentence
         {
             // sentences haven't ended
             if (!has_ended)
@@ -174,7 +174,7 @@ public class DialogueManager : MonoBehaviour
         finished_typing = false;
 
         text_dialogue.text = "";
-        foreach(char letter in sentence.ToCharArray())
+        foreach(char letter in sentence)
         {
             text_dialogue.text += letter;
             //yield return null; -----> If you want to type the sentence letter by letter you need to uncomment this

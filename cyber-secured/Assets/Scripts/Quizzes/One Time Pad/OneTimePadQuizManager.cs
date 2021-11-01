@@ -16,7 +16,7 @@ public class OneTimePadQuizManager : MonoBehaviour {
     // continue button
     public GameObject nextButton;
 
-    public GameObject button_menue;// the button in the main scene that allow you to start over the game
+    public GameObject button_menu;// the button in the main scene that allow you to start over the game
 
     public GameObject squares_random; 
     public Text[] squaresT_random;
@@ -24,8 +24,8 @@ public class OneTimePadQuizManager : MonoBehaviour {
     public Text textToChange; // this is what make the difference between the questions 1 and 2
 
     private string encryptionAnswer; // here I will save the result for question 1 (encrypt a sentence)
-    private byte[] otpTheBest = { 15, 20, 16, 20, 8, 5, 2, 5, 19, 20 }; // Saving the values of each letter
-    private byte[] itsTheSame = {  9, 20, 19, 20, 8, 5, 19, 1, 13, 5 };
+    private readonly byte[] otpTheBest = { 15, 20, 16, 20, 8, 5, 2, 5, 19, 20 }; // Saving the values of each letter
+    private readonly byte[] itsTheSame = {  9, 20, 19, 20, 8, 5, 19, 1, 13, 5 };
     private string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public GameObject ECorrect;
@@ -52,7 +52,7 @@ public class OneTimePadQuizManager : MonoBehaviour {
         inputForDialogue = new string[1];
 
         encryptedRound.SetActive(true);
-        button_menue.SetActive(false);// no need for this button in the quiz
+        button_menu.SetActive(false);// no need for this button in the quiz
         squares_random.SetActive(true);
         generalQuestion.SetActive(false);
     }
@@ -122,7 +122,7 @@ public class OneTimePadQuizManager : MonoBehaviour {
 
                         // Feedback for incorrect answer
                         inputForDialogue[0] = "Whoops.. You weren't able to properly encrypt the text." +
-                            "\nThe correct ansser is: " + encryptionAnswer.ToLower() +"" +
+                            "\nThe correct answer is: " + encryptionAnswer.ToLower() +"" +
                             "\nYour answer was: " + encryptedAnswer.textComponent.text.ToLower() + "" +
                           "\nTry again in the next question! You got " + counter + "/10 points";
                         dialogue = new Dialogue { sentences = inputForDialogue };
@@ -134,7 +134,7 @@ public class OneTimePadQuizManager : MonoBehaviour {
                     // Next round
                     round++;
                     
-                    //Reseting all values:
+                    //Resetting all values:
                     textToChange.text = "\"Its the same\"";
                     
                     for (int i = 0; i < 10; i++) // reset the random generator
@@ -142,7 +142,7 @@ public class OneTimePadQuizManager : MonoBehaviour {
                         squaresT_random[i].text = "0";
                     }
                     
-                    encryptionAnswer = ""; // reseting the answer to check it with a different combination
+                    encryptionAnswer = ""; // resetting the answer to check it with a different combination
                     encryptedAnswer.text = ""; 
                     
                 }
@@ -178,7 +178,7 @@ public class OneTimePadQuizManager : MonoBehaviour {
                         GameControllerV2.Instance.IncreaseNP(10);
                         
                         // Feedback for correct answer
-                        inputForDialogue[0] = "Perfect! You encrypted correctly! You're doind a great job!" +
+                        inputForDialogue[0] = "Perfect! You encrypted correctly! You're doing a great job!" +
                             "\nYour answer was: " + encryptedAnswer.textComponent.text.ToLower() + "" +
                             "\nThat's the correct answer. \nContinue to the second question.";
                         dialogue = new Dialogue { sentences = inputForDialogue };
@@ -207,12 +207,12 @@ public class OneTimePadQuizManager : MonoBehaviour {
                        /* 
                         // Feedback for incorrect answer
                         inputForDialogue[0] = "Whoops.. You weren't able to properly encrypt the text." +
-                            "\nThe correct ansser is: " + encryptionAnswer.ToLower() + "" +
+                            "\nThe correct answer is: " + encryptionAnswer.ToLower() + "" +
                             "\nYour answer was: " + encryptedAnswer.textComponent.text.ToLower() + "" +
                             "\nTry again in the next question! You got " + counter + "/10 points";
                         */
                         inputForDialogue[0] = "Whoops.. You weren't able to properly encrypt the text." +
-                            "\nThe correct ansser is: " + encryptionAnswer.ToLower() + "" +
+                            "\nThe correct answer is: " + encryptionAnswer.ToLower() + "" +
                             "\nYour answer was: " + encryptedAnswer.textComponent.text.ToLower() + "" +
                             "\nTry harder the next time but until then don't stop practice!" +
                             "\nYou got " + counter + "/10 points";
@@ -265,7 +265,7 @@ public class OneTimePadQuizManager : MonoBehaviour {
 
     public void GenerateNumbers()
     {
-        encryptionAnswer = ""; // reseting the variable for each generated cycle
+        encryptionAnswer = ""; // resetting the variable for each generated cycle
 
         for (int i = 0; i < 10; i++) // length 10
         {

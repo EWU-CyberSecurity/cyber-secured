@@ -39,9 +39,9 @@ public class MovingImagesAndText : MonoBehaviour {
 
     private Vector2 velocity;
 
-    private bool arrowInPosition = true; // In sentence 6, when arrow in postion allow the arrow to go from left to right again.
+    private bool arrowInPosition = true; // In sentence 6, when arrow in position allow the arrow to go from left to right again.
 
-    //private float timePassed = 0; // For some reason using StartCoroutine() didn't work, had a problem with infinite loop. This varible is to count the time.
+    //private float timePassed = 0; // For some reason using StartCoroutine() didn't work, had a problem with infinite loop. This variable is to count the time.
     private byte array_index = 0;
     private byte encrypted_message_index = 0;
     private String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -60,7 +60,7 @@ public class MovingImagesAndText : MonoBehaviour {
         squares_resultRB =   squares_result.GetComponent<Rigidbody2D>();
         //green_frameRB = green_frame.GetComponent<Rigidbody2D>();
 
-        velocity = new Vector2(-5, 0); // controling the x and y posstion, will move 5 units on the x direction to the left
+        velocity = new Vector2(-5, 0); // controlling the x and y position, will move 5 units on the x direction to the left
 
         //Get an access to the DialogueManager script to manage the demonstration according to the line displayed:
         dialog = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
@@ -96,13 +96,13 @@ public class MovingImagesAndText : MonoBehaviour {
                 envelopeRB.MovePosition(envelopeRB.position + velocity * (-1) * Time.fixedDeltaTime);
             }
 
-            if(envelope.transform.position.x >= 4.3) // If the envelope in its posstion:
+            if(envelope.transform.position.x >= 4.3) // If the envelope in its position:
             {
                 dialog.setProceed(true); // Let the user continue
             }
         }
 
-        //If the sentennce number displayed is 4 and the position of the text in not at posstion y=3:
+        //If the sentence number displayed is 4 and the position of the text in not at position y=3:
         if (dialog.currentSentenceDisplayed == 4 && helloItIsAnnText.transform.position.y > 3)
         {
             dialog.setProceed(false); // Lock the user from proceeding
@@ -114,10 +114,10 @@ public class MovingImagesAndText : MonoBehaviour {
             helloItIsAnnTextRB.MovePosition(helloItIsAnnTextRB.position + new Vector2(0, -5) * Time.fixedDeltaTime);
         }
 
-        if (helloItIsAnnText.transform.position.y < 3 && dialog.getFinished_typing() == true)
+        if (helloItIsAnnText.transform.position.y < 3 && dialog.getFinished_typing())
             dialog.setProceed(true);
         
-        //For senctence 5 I possioned the arrow at  x = -3.80 and will move it to  x=3.85
+        //For sentence 5 I positioned the arrow at  x = -3.80 and will move it to  x=3.85
         if (dialog.currentSentenceDisplayed == 5 && arrow.transform.position.x < 4)
         {
             dialog.setProceed(false); // lock the continue button
@@ -136,7 +136,7 @@ public class MovingImagesAndText : MonoBehaviour {
             if(arrowInPosition)
             {
                 dialog.setProceed(false); // lock the continue button
-                arrowInPosition = !arrowInPosition; // now the varible is false and we won't repeat that again
+                arrowInPosition = !arrowInPosition; // now the variable is false and we won't repeat that again
                 // move the arrow to the first number - for now I chose the easy way 
                 arrowRB.transform.position = new Vector3(-8.3f, 2.30f);
                 arrow.SetActive(false);    
@@ -153,7 +153,7 @@ public class MovingImagesAndText : MonoBehaviour {
                 squares_randomRB.MovePosition(squares_randomRB.position + new Vector2(0,-5) * Time.fixedDeltaTime);
             }
 
-            if(squares_random.transform.position.y <= 0) // Show the arrow in it's new postion
+            if(squares_random.transform.position.y <= 0) // Show the arrow in it's new position
             {
                 arrow.SetActive(true);  
             }
@@ -162,7 +162,7 @@ public class MovingImagesAndText : MonoBehaviour {
             {
                 arrowRB.MovePosition(arrowRB.position + new Vector2(-3, 0) * (-1) * Time.fixedDeltaTime);
 
-                // Now we're checking the position of the arrow, in order to generate each random number to a squar: 
+                // Now we're checking the position of the arrow, in order to generate each random number to a square: 
                 if (arrowRB.position.x > -8f    && arrowRB.position.x < -7.8f) 
                 {
                     squaresT_random[0].text = "" + UnityEngine.Random.Range(1, 26);
@@ -216,10 +216,10 @@ public class MovingImagesAndText : MonoBehaviour {
             }
         }
 
-        if(dialog.currentSentenceDisplayed == 7) // The third step to acccumulate the numbers
+        if(dialog.currentSentenceDisplayed == 7) // The third step to accumulate the numbers
         {
             
-            if (arrow.activeSelf == true)
+            if (arrow.activeSelf)
             {
                 arrow.SetActive(false);
                 dialog.setProceed(false); // lock the continue button
@@ -229,11 +229,11 @@ public class MovingImagesAndText : MonoBehaviour {
             {
                 squares_resultRB.MovePosition(squares_resultRB.position + new Vector2(0, -5) * Time.fixedDeltaTime);
             }
-            if (squares_original.transform.position.y > -4.5) // as long that the squars are not in the place continue move:
+            if (squares_original.transform.position.y > -4.5) // as long that the squares are not in the place continue move:
             {
                 squares_originalRB.MovePosition(squares_originalRB.position + new Vector2(0, -5) * Time.fixedDeltaTime);
             }
-            else // Squars are in the place so turn on the frames:
+            else // Squares are in the place so turn on the frames:
             {
                 if (green_frame.activeSelf == false && red_frame.activeSelf == false)
                 {
@@ -246,7 +246,7 @@ public class MovingImagesAndText : MonoBehaviour {
             }
         }
 
-        //Here the calculation of each value in the result squars:
+        //Here the calculation of each value in the result squares:
         if (dialog.currentSentenceDisplayed == 8)
         {
             if (array_index == 0)
@@ -255,7 +255,7 @@ public class MovingImagesAndText : MonoBehaviour {
             if(array_index >= 0 && array_index < 12)
             {
                 //Need to take into consideration 26 % 26 = 0, we can't have 0 in the result so we put 26 instead of the 0:
-                //Created short if stament to handle the situation were 0 can occure 26 % 26. statment ? true : false.
+                //Created short if statement to handle the situation were 0 can occur 26 % 26. statement ? true : false.
                 squaresT_result[array_index].text = 
                     ((Int32.Parse(squaresT_random[array_index].text) + Int32.Parse(squaresT_original[array_index].text)) % 26) == 0 ? 
                     "26" : "" + ((Int32.Parse(squaresT_random[array_index].text) + Int32.Parse(squaresT_original[array_index].text)) % 26);
@@ -277,8 +277,7 @@ public class MovingImagesAndText : MonoBehaviour {
             else
                 dialog.setProceed(true);
 
-            if (array_index != 0) // resetting the array index for dialog.currentSentenceDisplayed == 11
-                array_index = 0;
+            array_index = 0;
         }
 
         if (dialog.currentSentenceDisplayed == 10)
@@ -307,7 +306,7 @@ public class MovingImagesAndText : MonoBehaviour {
             {
                 encrypted_message.text += " ";
             }
-            else if(array_index < 12)// if no space nedded then put the next letter instead:
+            else if(array_index < 12)// if no space needed then put the next letter instead:
             {
                 dialog.setProceed(false);
 
@@ -330,11 +329,11 @@ public class MovingImagesAndText : MonoBehaviour {
                      * I got index out of range! Check again why if this error come up again
                     */
                 }
-                array_index++; // can't use array_index to count both the encrypted message and the squars arrays
+                array_index++; // can't use array_index to count both the encrypted message and the squares arrays
             }
 
             if(encrypted_message_index != 14)
-                encrypted_message_index++;// in the end of the operation rase the index number
+                encrypted_message_index++;// in the end of the operation raise the index number
 
             if(encrypted_message_index == 14)
             {
@@ -351,7 +350,7 @@ public class MovingImagesAndText : MonoBehaviour {
 
         if (dialog.currentSentenceDisplayed == 12)
         {
-            //Pull up the green squers and pull down the original text
+            //Pull up the green squares and pull down the original text
             if(squares_result.transform.position.y < 1)
                 dialog.setProceed(false);
             
