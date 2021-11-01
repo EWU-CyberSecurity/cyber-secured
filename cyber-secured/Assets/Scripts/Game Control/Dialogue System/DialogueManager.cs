@@ -51,6 +51,7 @@ public class DialogueManager : MonoBehaviour
 
     private bool proceed = true; //Create a locking mechanism to prevent the user to continue when demonstration in the one time pad is going 
     private bool finished_typing = false;
+    private bool pressedBackButton = false;
 
     // Use this for initialization
     void Start()
@@ -117,11 +118,18 @@ public class DialogueManager : MonoBehaviour
 
             // play a beep sound
             GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(3);
-
-            string sentence = (string)sentencesArrayList[sentencesArrayList.Count - 1]; // Give the last sentence
+            string sentence;
+            if(pressedBackButton) //This is for the case if the back button was pressed
+            {
+                sentence = (string)sentencesArrayList[sentencesArrayList.Count - 1]; // Give the last sentence
+                sentencesArrayList.RemoveAt(sentencesArrayList.Count - 1);// remove last element from the list
+                sentencesStack.Push(sentence); // To save it in the stack 
+            }
+            sentence = (string)sentencesArrayList[sentencesArrayList.Count - 1]; // Give the last sentence
             sentencesArrayList.RemoveAt(sentencesArrayList.Count - 1);// remove last element from the list
             sentencesStack.Push(sentence); // To save it in the stack 
-
+            pressedBackButton = false;
+            
             StopAllCoroutines();
             //text_dialogue.text = sentence;
             StartCoroutine(TypeSentence(sentence)); // You can disable that but you need to modify the demonstrations (10,11)
@@ -151,10 +159,17 @@ public class DialogueManager : MonoBehaviour
 
             // play a beep sound
             GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(3);
-
-            string sentence = sentencesStack.Pop();//giving the next sentence in the stack
+            string sentence;
+            if(!pressedBackButton) //first time pressing back
+            {
+                sentence = sentencesStack.Pop();  //gets rid of empty space
+                sentencesArrayList.Add(sentence); // to read it again when the user pressing next
+            }
+            
+            sentence = sentencesStack.Pop();//giving the next sentence in the stack
             sentencesArrayList.Add(sentence); // to read it again when the user pressing next
-
+            
+            pressedBackButton = true;
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
         }
