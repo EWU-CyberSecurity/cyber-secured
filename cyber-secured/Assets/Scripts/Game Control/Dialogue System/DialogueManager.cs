@@ -162,7 +162,7 @@ public class DialogueManager : MonoBehaviour
             string sentence;
             if(!pressedBackButton) // first time pressing back
             {
-                sentence = sentencesStack.Pop();  //gets rid of empty space
+                sentence = sentencesStack.Pop();  // gets rid of empty space
                 sentencesArrayList.Add(sentence); // to read it again when the user pressing next
             }
             
