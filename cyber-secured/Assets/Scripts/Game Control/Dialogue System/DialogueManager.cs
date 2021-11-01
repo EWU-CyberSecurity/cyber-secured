@@ -119,7 +119,7 @@ public class DialogueManager : MonoBehaviour
             // play a beep sound
             GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(3);
             string sentence;
-            if(pressedBackButton) //This is for the case if the back button was pressed
+            if(pressedBackButton) // This is for the case if the back button was pressed
             {
                 sentence = (string)sentencesArrayList[sentencesArrayList.Count - 1]; // Give the last sentence
                 sentencesArrayList.RemoveAt(sentencesArrayList.Count - 1);// remove last element from the list
