@@ -166,7 +166,7 @@ public class DialogueManager : MonoBehaviour
                 sentencesArrayList.Add(sentence); // to read it again when the user pressing next
             }
             
-            sentence = sentencesStack.Pop();//giving the next sentence in the stack
+            sentence = sentencesStack.Pop(); // giving the next sentence in the stack
             sentencesArrayList.Add(sentence); // to read it again when the user pressing next
             
             pressedBackButton = true;
