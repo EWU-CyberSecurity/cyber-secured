@@ -27,7 +27,7 @@ public class DialogueManager : MonoBehaviour
 {
     //private MovingImagesAndText imagesAndText = new MovingImagesAndText(); // Object to call a function from that class when the user press continue button in the dialog
 
-    public GameObject dialogue_box;     //textbox element to be dragged into inspector
+    public GameObject dialogue_box;     //text box element to be dragged into inspector
     public GameObject portrait;         //^
     public Text text_name;              //^
     public Text text_dialogue;          //^
@@ -40,7 +40,7 @@ public class DialogueManager : MonoBehaviour
     private Stack<string> sentencesStack; //store the lines to make sure I can read them again
 
 
-    public float elapsed_time;          //keep track of time for lerping
+    public float elapsed_time;          //keep track of time for linear interpolation (lerp)
     public bool has_started;            //check dialogue's state
     public bool has_ended;              //^
 
@@ -56,7 +56,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         //sentences = new Queue<string>(); //FIFO system
-        sentencesStack = new Stack<string>(); //LIFO stracture
+        sentencesStack = new Stack<string>(); //LIFO structure
         sentencesArrayList = new ArrayList();
     }
 
@@ -94,9 +94,9 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentenceArray(); // it was DisplayNextSentence()
     }
 
-    public void DisplayNextSentenceArray() //When the user clicks the button in the dialoue box
+    public void DisplayNextSentenceArray() //When the user clicks the button in the dialogue box
     {
-        if (proceed) // In some cases like in the demonstraion of the one time pad - the user can't proceed until demonstration is over for each sentence
+        if (proceed) // In some cases like in the demonstration of the one time pad - the user can't proceed until demonstration is over for each sentence
         {
             // sentences haven't ended
             if (!has_ended)
@@ -130,7 +130,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayPrecedingSentence() //When the user clicks the button in the dialoue box
     {
-        if (proceed) // In some cases like in the demonstraion of the one time pad - the user can't proceed until demonstration is over for each sentence
+        if (proceed) // In some cases like in the demonstration of the one time pad - the user can't proceed until demonstration is over for each sentence
         {
             // sentences haven't ended
             if (!has_ended)
@@ -168,7 +168,7 @@ public class DialogueManager : MonoBehaviour
         finished_typing = false;
 
         text_dialogue.text = "";
-        foreach(char letter in sentence.ToCharArray())
+        foreach(char letter in sentence)
         {
             text_dialogue.text += letter;
             //yield return null; -----> If you want to type the sentence letter by letter you need to uncomment this
@@ -186,7 +186,7 @@ public class DialogueManager : MonoBehaviour
     void FixedUpdate()
     {
         // TODO: too messy, change to DOTween code (done partially)
-        // moving the textbox smoothly
+        // moving the text box smoothly
         if(has_started)
         {
             panel.GetComponent<Image>().raycastTarget = true;

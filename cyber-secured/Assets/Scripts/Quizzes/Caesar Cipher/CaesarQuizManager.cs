@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +20,7 @@ public class CaesarQuizManager : MonoBehaviour {
     // continue button
     public GameObject nextButton;
  
-    private List<string> plaintexts = new List<string>() {
+    private readonly List<string> plaintexts = new List<string>() {
         "hello world", "cyber secured", "happy holidays", "trust nobody", "get to the chopper", "baby shark", "flappy bird" };
     private string ciphertext;
     // private string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

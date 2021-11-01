@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class shuffleAnswers : MonoBehaviour {
+public class ShuffleAnswers : MonoBehaviour {
     
     [SerializeField] private Button[] buttons; // The buttons I want to switch places
     private Rigidbody2D [] buttonsRB;
-    private bool[] randoms; // That checkes which button got to be random next 
-    private byte position; // The possition of the next button to be placed
+    private bool[] randoms; // That checks which button got to be random next 
+    private byte position; // The position of the next button to be placed
     private byte temp; // holding the number that got generated
 
     public bool password, virus, rsa;
@@ -32,14 +32,14 @@ public class shuffleAnswers : MonoBehaviour {
             temp = (byte)Random.Range(0, 4);
 
             //Checking if that number was generated already:
-            if (randoms[temp] == false) // Is button number ___ got genrated already? if not...
+            if (randoms[temp] == false) // Is button number ___ got generated already? if not...
             {
-                randoms[temp] = true; // mark this index as genrated
+                randoms[temp] = true; // mark this index as generated
 
                 if (password)
                 {
                     switch (position) // place the button in its spot
-                    { // pleace it in the next postion
+                    { // place it in the next position
                         case 0:
                             buttonsRB[temp].transform.position = new Vector3(-3.274f, -0.475f); //upper left
                             break;
@@ -57,7 +57,7 @@ public class shuffleAnswers : MonoBehaviour {
                 else if(virus)
                 {
                     switch (position) // place the button in its spot
-                    { // pleace it in the next postion
+                    { // place it in the next position
                         case 0:
                             buttonsRB[temp].transform.position = new Vector3(-3.1f, -1.543f); //upper left
                             break;
@@ -75,7 +75,7 @@ public class shuffleAnswers : MonoBehaviour {
                 else // rsa
                 {
                     switch (position) // place the button in its spot
-                    { // pleace it in the next postion
+                    { // place it in the next position
                         case 0:
                             buttonsRB[temp].transform.position = new Vector3(-4.364f, -0.471f); //upper left
                             break;
