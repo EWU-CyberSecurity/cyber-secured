@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class QuestionManager : MonoBehaviour
 {
@@ -16,10 +13,10 @@ public class QuestionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( aButton.GetComponent<ButtonManager> ().disable == true ||
-            bButton.GetComponent<ButtonManager> ().disable == true ||
-            cButton.GetComponent<ButtonManager> ().disable == true ||
-            dButton.GetComponent<ButtonManager> ().disable == true) 
+        if( aButton.GetComponent<ButtonManager> ().disable ||
+            bButton.GetComponent<ButtonManager> ().disable ||
+            cButton.GetComponent<ButtonManager> ().disable ||
+            dButton.GetComponent<ButtonManager> ().disable) 
         {
             disableButtons();
             next.SetActive(true);

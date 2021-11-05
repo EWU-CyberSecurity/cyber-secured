@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class VirusQuestionManager : MonoBehaviour {
     public Button aButton;
@@ -15,10 +12,10 @@ public class VirusQuestionManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         
-        if (aButton.GetComponent<VirusChoiceManager>().disable == true ||
-            bButton.GetComponent<VirusChoiceManager>().disable == true ||
-            cButton.GetComponent<VirusChoiceManager>().disable == true ||
-            dButton.GetComponent<VirusChoiceManager>().disable == true) 
+        if (aButton.GetComponent<VirusChoiceManager>().disable ||
+            bButton.GetComponent<VirusChoiceManager>().disable ||
+            cButton.GetComponent<VirusChoiceManager>().disable ||
+            dButton.GetComponent<VirusChoiceManager>().disable) 
         {
             disableButtons();
             next.SetActive(true);

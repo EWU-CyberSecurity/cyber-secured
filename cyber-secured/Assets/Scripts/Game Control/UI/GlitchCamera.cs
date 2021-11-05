@@ -4,30 +4,20 @@
 /// This script controls the glitch camera effect, as well as the start button function.
 /// </summary>
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GlitchCamera : MonoBehaviour
 {
-    public InputField name; // Drag and drop the input field for the name 
+    public InputField name_field; // Drag and drop the input field for the name 
     public GameObject name_gameObject;
     public Camera cam;
 
     public bool update = false;     // flag for update
 
-    // glitch script parameters:
-    private float ag_slj = 0.0f;    // analog glitch scan line jitter
-    //private float ag_vj  = 0.0f;    // -- vertical jump        ------->values were never used!
-    //private float ag_hs  = 0.0f;    // -- horizontal shake     ------->values were never used!
-    private float ag_cd  = 0.0f;    // -- color drift
-    private float dg_i   = 0.0f;    // digital glitch intensity
-
     // initialization
     void Start()
     {
-        
         if(cam == null)
         {
             cam = gameObject.GetComponent<Camera>();
@@ -37,9 +27,6 @@ public class GlitchCamera : MonoBehaviour
     // non-input updating
     void FixedUpdate()
     {
-        // glitch transition
-
-
         // when glitch transition reaches mid-point
         if(update)
         {
@@ -82,7 +69,7 @@ public class GlitchCamera : MonoBehaviour
 
     public void StartGlitch()
     {
-        if(name.textComponent.text != "")
+        if(!string.IsNullOrEmpty(name_field.textComponent.text))
         {
             name_gameObject.SetActive(false);
 
@@ -94,9 +81,6 @@ public class GlitchCamera : MonoBehaviour
                 GameObject.Find("dlg_start").GetComponent<DialogueTrigger>().TriggerDialogue();
                 FindObjectOfType<MainUIController>().AdjustMenuOnStart();
             }
-
-            // play a glitch sound
-            //GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(0);
         }
     }
 }

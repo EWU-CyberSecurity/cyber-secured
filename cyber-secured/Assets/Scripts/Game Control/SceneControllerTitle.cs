@@ -4,8 +4,6 @@
 /// This script controls the title screen; in tandem with GlitchCamera.cs
 /// </summary>
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -80,7 +78,7 @@ public class SceneControllerTitle : MonoBehaviour
         GameControllerV2.Instance.SetState(2);
     }
 
-    public void DisplayAbouts()
+    public void DisplayAbout()
     {
         // play a beep sound
         GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);
@@ -179,5 +177,22 @@ public class SceneControllerTitle : MonoBehaviour
         btn_instruct.gameObject.SetActive(false);
         btn_options.gameObject.SetActive(false);
         btn_about.gameObject.SetActive(false);
+    }
+
+    public void OnNameInputChanged(InputField name_input)
+    {
+        Button start_button = GameObject.Find("btn_start").GetComponent<Button>();
+
+        ColorBlock new_colors = start_button.colors;
+        if (string.IsNullOrEmpty(name_input.text)) {
+            new_colors.highlightedColor = new Color(1, 0.7245814f, 0.7176471f);
+            new_colors.pressedColor = new Color(1, 0.607629f, 0.5764706f);
+            start_button.colors = new_colors;
+        } else {
+            // these are the original green colors
+            new_colors.highlightedColor = new Color(0.8156863f, 1, 0.7176471f);
+            new_colors.pressedColor = new Color(0.5764706f, 1, 0.5882353f);
+            start_button.colors = new_colors;
+        }
     }
 }

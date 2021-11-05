@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class FinalQuestionManager : MonoBehaviour {
     public Button correctButton;
@@ -12,8 +9,8 @@ public class FinalQuestionManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (correctButton.GetComponent<VirusChoiceManager>().disable == true ||
-            incorrectButton.GetComponent<VirusChoiceManager>().disable == true) {
+        if (correctButton.GetComponent<VirusChoiceManager>().disable ||
+            incorrectButton.GetComponent<VirusChoiceManager>().disable) {
             disableButtons();
             next.SetActive(true);
         }

@@ -1589,21 +1589,21 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
+      m_Calls: []
+  m_OnValueChanged:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: TriggerEvent
-        m_Mode: 1
+      - m_Target: {fileID: 299393776}
+        m_MethodName: OnNameInputChanged
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 82204353}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
@@ -6261,7 +6261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 361981996}
   instructions: {fileID: 1061848245}
-  optiones: {fileID: 1584724037}
+  options: {fileID: 1584724037}
   about: {fileID: 2131868360}
 --- !u!1 &225769443
 GameObject:
@@ -10728,8 +10728,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.9490196, g: 0.9607843, b: 0.87058824, a: 1}
-    m_HighlightedColor: {r: 0.8156863, g: 1, b: 0.7176471, a: 1}
-    m_PressedColor: {r: 0.5764706, g: 1, b: 0.5882353, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.72458136, b: 0.7176471, a: 1}
+    m_PressedColor: {r: 1, g: 0.607629, b: 0.5764706, a: 1}
     m_DisabledColor: {r: 0.5254902, g: 0.90588236, b: 0.72156864, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -11562,7 +11562,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1576024008}
-  - {fileID: 419739438}
   - {fileID: 589195027}
   - {fileID: 1422448217}
   - {fileID: 1741385542}
@@ -12037,133 +12036,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415686813}
   m_CullTransparentMesh: 0
---- !u!1 &419739437
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 419739438}
-  - component: {fileID: 419739439}
-  m_Layer: 0
-  m_Name: bgm_2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &419739438
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419739437}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 409922952}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &419739439
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419739437}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 58f93c30a45f948f39a94163dd20e7f3, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.5
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!1 &420400645
 GameObject:
   m_ObjectHideFlags: 0
@@ -17129,7 +17001,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409922952}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &546117035
 AudioSource:
@@ -18290,7 +18162,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409922952}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &589195028
 AudioSource:
@@ -20216,8 +20088,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1329741133}
-        m_MethodName: muteToggle
-        m_Mode: 0
+        m_MethodName: Toggle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -22620,7 +22492,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409922952}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &715470599
 AudioSource:
@@ -22923,12 +22795,12 @@ MonoBehaviour:
       It is an asymmetric cryptographic algorithm, meaning that there are two keys
       generated and to be used as a pair. This is also called public key cryptography,
       because one of the keys is made accessible. The other key must be kept private.
-    - 'The algorithm is based on the fact that finding the factors of a large composite
-      number is difficult: when the integers are prime numbers, the problem is called
+    - 'The algorithm is based on the fact that finding the factors of a large non-prime
+      number is difficult: when the factors are prime numbers, the problem is called
       prime factorization. '
-    - 'A user of RSA creates and publishes the product of two large prime numbers,
-      together with an auxiliary value as their public key. The prime factors must
-      be kept secret. '
+    - 'A user of RSA encryption creates a public key using the ssh-keygen utility,
+      which involves multiplying two large prime numbers together. The prime numbers
+      must be kept secret. '
     - Anyone can use the public key to encrypt a message, but with currently published
       methods, if the public key is large enough, only someone with knowledge of the
       prime factors can decode the message.
@@ -24379,7 +24251,7 @@ MonoBehaviour:
   encryptedRound: {fileID: 1952000782}
   generalQuestion: {fileID: 842933824}
   nextButton: {fileID: 824147168}
-  button_menue: {fileID: 319652964}
+  button_menu: {fileID: 319652964}
   squares_random: {fileID: 185372179}
   squaresT_random:
   - {fileID: 153774698}
@@ -25585,7 +25457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6718d2d506cf36c4e915a6b211252901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: {fileID: 82204353}
+  name_field: {fileID: 82204353}
   name_gameObject: {fileID: 82204352}
   cam: {fileID: 805104095}
   update: 0
@@ -34115,9 +33987,9 @@ MonoBehaviour:
       your account, it also denies entry to malicious impersonators.
     - It is your duty to come up with a secret only you should know and can remember.
       It is absolutely essential that your password is not easy to figure out.
-    - Modern computers can figure out many password in seconds. Take some time to
-      understand how to make a strong password, by making it harder for computers
-      to crack.
+    - Modern computers can figure out weak passwords in seconds by trying every combination
+      of letters, numbers and symbols. Take some time to understand how to make a
+      strong password, by making it harder for computers to crack.
   repeatable: 0
   triggered: 0
   picture: {fileID: 0}
@@ -43939,7 +43811,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409922952}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1422448218
 AudioSource:
@@ -54011,7 +53883,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409922952}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1741385543
 AudioSource:
@@ -65787,7 +65659,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 299393776}
-        m_MethodName: DisplayAbouts
+        m_MethodName: DisplayAbout
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

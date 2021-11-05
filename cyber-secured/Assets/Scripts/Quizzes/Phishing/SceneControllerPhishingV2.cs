@@ -1,10 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
-// imported scripts
-using DG.Tweening;
+﻿using UnityEngine;
 
 public class SceneControllerPhishingV2 : MonoBehaviour {
 
