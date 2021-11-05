@@ -1,69 +1,85 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
-
 public class CSVManager : MonoBehaviour
 {
+    // Netowrking code originally by https://github.com/mofrison/Unity3d-Network
+    // Used their code to get the CSV to download from google
+
     private string topicSheet;
     private string questionSheet;
 
-    public Dictionary<string, object> categories = new Dictionary<string, object>();
+    public CSVParser parser;
 
-    private static readonly string sheetID = "2PACX-1vTWkk_93-6edDxrGqz-gSsMgNmkVfIg_yQjIqypDpfpCw-rGIgYu5HqgK8ZHhA4SpzjGTrWh74DbLtD";
+    private static readonly string sheetID = "2PACX-1vTWkk_93-6edDxrGqz-gSsMgNmkVfIg_yQjIqypDpfpCw-rGIgYu5HqgK8ZHhA4SpzjGTrWh74DbLtD";  //Swap this out with the latest ID in the url if something breaks
 
     private readonly string spreadsheet1URL = "https://docs.google.com/spreadsheets/d/e/" + sheetID + "/pub?output=csv&gid=932839450";   //QuestionObj gid - 932839450
     private readonly string spreadsheet2URL = "https://docs.google.com/spreadsheets/d/e/" + sheetID + "/pub?output=csv&gid=2122133137";  //TopicObj gid - 2122133137
-    
-    private string uwr_response = " ";
-    private bool isLoaded = false;
-    
 
     private void Start()
     {
-        LoadJson();
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+        TaskHandlerAsync();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
     }
 
-    //this coroutine to get the response
-    public IEnumerator GetJson(string url)
+    async Task TaskHandlerAsync() 
     {
-        isLoaded = false;
-        UnityWebRequest uwr = UnityWebRequest.Get(url);
+        //Download the CSVs from the urls above and then send the strings to the parser.
+        questionSheet = await GetText(spreadsheet1URL);     //DO NOT TOUCH THIS.
+        topicSheet = await GetText(spreadsheet2URL);        //DO NOT TOUCH THIS.
 
-        yield return uwr.SendWebRequest();
+        parser.RetrieveSheets(topicSheet, questionSheet);
+    }
 
-        if (uwr.isNetworkError || uwr.isHttpError)
+    //DO NOT TOUCH THIS.
+    private static async Task<UnityWebRequest> SendWebRequest(UnityWebRequest request, CancellationTokenSource cancelationToken = null, System.Action<float> progress = null)
+    {
+        while (!Caching.ready)
         {
-            Debug.LogFormat("Error downloading file: <color=red>{0}</color> | Error code: <color=red>{1}</color>", uwr.downloadHandler.text, uwr.error);
+            if (cancelationToken != null && cancelationToken.IsCancellationRequested)
+            {
+                return null;
+            }
+            await Task.Yield();
+        }
+        
+        request.SendWebRequest();
+
+        while (!request.isDone)
+        {
+            if (cancelationToken != null && cancelationToken.IsCancellationRequested)
+            {
+                request.Abort();
+                request.Dispose();
+
+                return null;
+            }
+            else
+            {
+                progress?.Invoke(request.downloadProgress);
+                await Task.Yield();
+            }
+        }
+        progress?.Invoke(1f);
+        return request;
+    }
+
+    //DO NOT TOUCH THIS.
+    public static async Task<string> GetText(string url)
+    {
+        var uwr = await SendWebRequest(UnityWebRequest.Get(url));
+        if (uwr != null && !uwr.isHttpError && !uwr.isNetworkError)
+        {
+            return uwr.downloadHandler.text;
         }
         else
         {
-            var jsonResponce = MiniJSON.Json.Deserialize(uwr.downloadHandler.text) as Dictionary<string, object>;
-            //saving data to a variable
-            categories = jsonResponce;
+            throw new Exception("[Network] error: " + uwr.error + " " + uwr.url);
         }
-    }
-
-    //this one to wait for response and decode
-    private IEnumerator WaitingForJson()
-    {
-        while (!isLoaded)
-            yield return new WaitForSeconds(0.1f);
-
-    }
-
-    //this one to be called when you need the json (probably in Start() method)
-    private void LoadJson()
-    {
-        Debug.LogWarning("Starting download");
-
-        StartCoroutine(GetJson(spreadsheet1URL));
-        StartCoroutine(GetJson(spreadsheet2URL));
-        StartCoroutine(WaitingForJson());
-
-        Debug.LogWarning("Finished Download");
-        StopAllCoroutines();
-
-
     }
 }
