@@ -48,7 +48,7 @@ public class ButtonManager : MonoBehaviour
             // play a beep sound
             GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(2);
 
-            GameObject.Find("Password_questions").GetComponent<SceneControllerPassword>().DecreaseLife();
+            GameObject.Find("scn_quiz_password").GetComponent<PasswordSceneController>().DecreaseLife();
             text.text = disdain[random] + explanation[round - 1];
         }
 
