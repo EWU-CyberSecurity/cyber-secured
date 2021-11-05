@@ -12,6 +12,6 @@ namespace Assets.Scripts.Topics
     class Question : TopicItem
     {
         private string questionText;
-
+        private Answer answer;
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-// not sure if this namespace is needed or not
+﻿// not sure if this namespace is needed or not
 namespace Assets.Scripts.Topics
 {
     /// <summary>
