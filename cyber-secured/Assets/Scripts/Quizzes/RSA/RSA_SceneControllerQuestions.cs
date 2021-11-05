@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RSA_SceneControllerQuestions : MonoBehaviour
 {
@@ -40,6 +38,9 @@ public class RSA_SceneControllerQuestions : MonoBehaviour
             // deactivate quiz, and display results
             GameControllerV2.Instance.scn_RSA.SetActive(false);
             GameControllerV2.Instance.DisplayDecision();
+
+            AudioControllerV2 audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
+            audioController.PlayGameMusic();
 
             // don't need script after this
             Destroy(this);

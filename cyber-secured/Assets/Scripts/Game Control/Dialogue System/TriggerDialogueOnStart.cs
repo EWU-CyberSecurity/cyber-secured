@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 //this script just triggers the dialogue upon scene load
 public class TriggerDialogueOnStart : MonoBehaviour

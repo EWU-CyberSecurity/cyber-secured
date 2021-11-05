@@ -8,7 +8,7 @@ public class RSA_SceneController : MonoBehaviour {
     private GameObject scn_main;
 
     public GameObject demonstademonstration; // drag and drop the Illustration child object of the scn_one_time_pad
-    public GameObject questions; //The object that suppoes to handle the qustions 
+    public GameObject questions; //The object that is supposed to handle the questions 
     public GameObject menuButton;
 
     // Use this for initialization

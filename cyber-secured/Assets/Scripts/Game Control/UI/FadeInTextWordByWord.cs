@@ -42,7 +42,7 @@ public class FadeInTextWordByWord : MonoBehaviour
             {
                 colorFloat += Time.deltaTime * fadeSpeedMultiplier;
                 colorInt = (int)(Mathf.Lerp(0.0f, 1.0f, colorFloat) * 255.0f);
-                textToUse.text = shownText + "<color=\"#FFFFFF" + string.Format("{0:X}", colorInt) + "\">" + textToShow[letterCounter] + "</color>";
+                textToUse.text = shownText + "<color=\"#FFFFFF" + $"{colorInt:X}" + "\">" + textToShow[letterCounter] + "</color>";
             }
             else
             {
