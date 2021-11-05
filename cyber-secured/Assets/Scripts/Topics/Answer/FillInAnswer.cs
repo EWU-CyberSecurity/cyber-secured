@@ -5,7 +5,7 @@ namespace Assets.Scripts.Topics
     /// This class represents an answer where you have to write something
     /// in a text box.
     /// </summary>
-    class FillIn
+    class FillInAnswer
     {
         private string correctAnswer;
     }
