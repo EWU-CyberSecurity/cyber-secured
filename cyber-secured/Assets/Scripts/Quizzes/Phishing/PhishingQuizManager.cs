@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class PhishingQuizManager : MonoBehaviour {
     public GameObject [] questions = new GameObject[5];
@@ -10,9 +6,11 @@ public class PhishingQuizManager : MonoBehaviour {
 
     public int i = 0;
 
+    private AudioControllerV2 audioController;
     // Use this for initialization
     void Start() {
-
+        audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
+        audioController.PlayQuizMusic();
         // hides continue button
         next.SetActive(false);
 
@@ -52,6 +50,8 @@ public class PhishingQuizManager : MonoBehaviour {
             // deactivate quiz, and display results
             GameControllerV2.Instance.scn_phishing_v2.SetActive(false);
             GameControllerV2.Instance.DisplayDecision();
+
+            audioController.PlayGameMusic();
         }
     }
 }

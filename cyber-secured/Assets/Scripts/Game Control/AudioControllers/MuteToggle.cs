@@ -1,14 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MuteToggle : MonoBehaviour
 {
-    public void muteToggle(bool muted)
+    public bool muted = false;
+    public void Toggle()
     {
+        muted = !muted;
         if (muted)
             AudioListener.volume = 0;
         else
             AudioListener.volume = 1;
     }
+
+    public bool getMuted()
+    {
+        return this.muted;
+    } 
 }

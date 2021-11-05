@@ -9,9 +9,13 @@ public class RSA_QuizManager : MonoBehaviour
 
     public int i = 0;
 
+    private AudioControllerV2 audioController;
+
     // Use this for initialization
     void Start()
     {
+        audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
+        audioController.PlayQuizMusic();
         next.SetActive (false);
 
         questions = GameObject.FindGameObjectsWithTag("question");
@@ -53,6 +57,8 @@ public class RSA_QuizManager : MonoBehaviour
                 // deactivate quiz, and display results
                 GameControllerV2.Instance.scn_quiz_password.SetActive(false);
                 GameControllerV2.Instance.DisplayDecision();
+
+                audioController.PlayGameMusic();
             }
         }
     }

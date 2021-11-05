@@ -13,10 +13,10 @@ public class RSA_QuestionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( aButton.GetComponent<RSA_ButtonManager> ().disable == true ||
-            bButton.GetComponent<RSA_ButtonManager> ().disable == true ||
-            cButton.GetComponent<RSA_ButtonManager> ().disable == true ||
-            dButton.GetComponent<RSA_ButtonManager> ().disable == true) 
+        if( aButton.GetComponent<RSA_ButtonManager> ().disable ||
+            bButton.GetComponent<RSA_ButtonManager> ().disable ||
+            cButton.GetComponent<RSA_ButtonManager> ().disable ||
+            dButton.GetComponent<RSA_ButtonManager> ().disable) 
         {
             disableButtons();
             next.SetActive(true);

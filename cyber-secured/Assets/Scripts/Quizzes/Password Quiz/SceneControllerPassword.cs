@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SceneControllerPassword : MonoBehaviour
 {
@@ -38,6 +36,9 @@ public class SceneControllerPassword : MonoBehaviour
             GameControllerV2.Instance.DisplayDecision();
 
             GameControllerV2.Instance.scn_main.SetActive(true);
+
+            AudioControllerV2 audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
+            audioController.PlayGameMusic();
 
             // don't need script after this
             Destroy(this);

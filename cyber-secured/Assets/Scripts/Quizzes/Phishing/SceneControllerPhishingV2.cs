@@ -1,10 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
-// imported scripts
-using DG.Tweening;
+﻿using UnityEngine;
 
 public class SceneControllerPhishingV2 : MonoBehaviour {
 
@@ -41,7 +35,10 @@ public class SceneControllerPhishingV2 : MonoBehaviour {
             // deactivate quiz, and display results
             GameControllerV2.Instance.scn_phishing_v2.SetActive(false);
             GameControllerV2.Instance.DisplayDecision();
-            
+
+            AudioControllerV2 audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
+            audioController.PlayGameMusic();
+
             // don't need script after this
             Destroy(this);
         }

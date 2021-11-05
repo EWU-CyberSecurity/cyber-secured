@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class QuizManager : MonoBehaviour
 {
@@ -11,9 +7,14 @@ public class QuizManager : MonoBehaviour
 
     public int i = 0;
 
+    private AudioControllerV2 audioController;
+
     // Use this for initialization
     void Start()
     {
+        audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
+        audioController.PlayQuizMusic();
+
         next.SetActive (false);
 
         questions = GameObject.FindGameObjectsWithTag("question");
@@ -52,6 +53,8 @@ public class QuizManager : MonoBehaviour
                 GameControllerV2.Instance.scn_quiz_password.SetActive(false);
                 GameControllerV2.Instance.DisplayDecision();
                 GameControllerV2.Instance.scn_main.SetActive(true);
+
+                audioController.PlayGameMusic();
             }
         }
     }

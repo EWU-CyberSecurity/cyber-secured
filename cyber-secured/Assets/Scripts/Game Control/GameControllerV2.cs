@@ -57,7 +57,6 @@ using System;
 
 // imported scripts:
 using DG.Tweening;
-using DigitalRuby.SoundManagerNamespace;
 
 public class GameControllerV2 : MonoBehaviour
 {
@@ -165,7 +164,8 @@ public class GameControllerV2 : MonoBehaviour
         instruct,   // 1
         options,    // 2
         main,       // 3
-        end         // 4
+        end,        // 4
+        about       // 5
     }
 
     public State CURRENT_STATE = State.title;
@@ -368,7 +368,7 @@ public class GameControllerV2 : MonoBehaviour
 
                     current_decision_text = "You have chosen to work with a small company. " +
                         "Less people, however\n it won't be stress-free.";
-                }; break;
+                } break;
 
                 case(Company.med):
                 {
@@ -380,7 +380,7 @@ public class GameControllerV2 : MonoBehaviour
 
                     current_decision_text = "You have chosen to work with a medium-sized company." +
                         "\nThere will be stress.";
-                }; break;
+                } break;
 
                 case(Company.large):
                 {
@@ -392,7 +392,7 @@ public class GameControllerV2 : MonoBehaviour
 
                     current_decision_text = "You have chosen to work with a large company. " +
                         "More people, more stress.";
-                }; break;
+                } break;
             }
 
             UpdateDisplayMonth();
@@ -513,10 +513,10 @@ public class GameControllerV2 : MonoBehaviour
         tweens.Add(decision_box.transform.DOScale(new Vector3(1, 1, 1), 1));
     }
 
-    // the "next month" button function -----> That's the function who decieds which month will be the last month! ------------------------------------------
+    // the "next month" button function -----> That's the function who decides which month will be the last month! ------------------------------------------
     public void HideDecision()
     {
-        if(current_month != 12) // don't chacge the 13!!!
+        if(current_month != 12) // don't change the 13!!!
         {
             if(!in_dialogue)
             {
@@ -653,10 +653,6 @@ public class GameControllerV2 : MonoBehaviour
                     }
                     break;
                 }
-
-            default: {
-                    break;
-                }
             }
             
             GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().TriggerDialogue();
@@ -701,7 +697,7 @@ public class GameControllerV2 : MonoBehaviour
     }
 
     //This function will be called from the nextEvent() when the user clicked 
-    //the "next month" button in the desicion box
+    //the "next month" button in the decision box
     public void DisplayEvent()
     {
         DisplayEvent(event_box);
@@ -883,7 +879,7 @@ public class GameControllerV2 : MonoBehaviour
         float rand = UnityEngine.Random.value;
         if(error_rate >= rand)
         {
-            Debug.Log(error_rate + " > " + rand + " Bad event occured.");
+            Debug.Log(error_rate + " > " + rand + " Bad event occurred.");
             return true;
         } else {
             Debug.Log(error_rate + " < " + rand + " Bad event avoided.");
@@ -909,7 +905,7 @@ public class GameControllerV2 : MonoBehaviour
         
     // IMPORTANT: what to do when a bad event occurs
     // ebox - event box (ctrl+f to find this easily)
-    public void ActivateEvent(bool bad_event_occured)
+    public void ActivateEvent(bool bad_event_occurred)
     {
         // play a beep sound
         GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);
@@ -926,12 +922,12 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = "First up on the agenda..." +
                 "\nWould you like to hold a password strength training session?\n" +
                 "<b>Cost: 10% of NP</b>";
-            }; break;
+            } break;
 
             // Month 2 event - backup offered
             case(2):
             {
-                if(bad_event_occured)
+                if(bad_event_occurred)
                 {
                     // decrease NP by a scaling amount
                     int temp_np = network_power;
@@ -962,7 +958,7 @@ public class GameControllerV2 : MonoBehaviour
                 "\nWould you like to execute a company-wide file backup plan?\n" +
                 "<b>Cost: 10% of NP</b>";
 
-            }; break;
+            } break;
 
             // Month 3 event - perk offered
             case(3):
@@ -974,7 +970,7 @@ public class GameControllerV2 : MonoBehaviour
                 // calculate difference
                 int np_difference = network_power - temp_np; 
 
-                current_event_text += "\nProgress bonus receieved. " +
+                current_event_text += "\nProgress bonus received. " +
                                       "<i>NP has increased by " + np_difference + ".</i>";
 
                 // left perk text
@@ -985,9 +981,9 @@ public class GameControllerV2 : MonoBehaviour
                 name_perk_2.text = "Now Hiring";
                 info_perk_2.text = "Monthly NP increases by 20";
 
-                if (bad_event_occured) {
+                if (bad_event_occurred) {
                     // decrease monthly NP by a scaling amount - 10% of monthly NP
-                    DecreaseMonthlyNP(Mathf.RoundToInt((float) monthly_np * 0.1f));
+                    DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.1f));
 
                     current_event_text = "Company has reported low earnings. Morale is low.\n" +
                         "<i>Monthly NP has decreased by 10%.</i>";
@@ -995,7 +991,7 @@ public class GameControllerV2 : MonoBehaviour
                     current_event_text = GoodMessage();
                 }
                 
-            }; break;
+            } break;
 
             // month 4 event
             case(4):
@@ -1015,7 +1011,7 @@ public class GameControllerV2 : MonoBehaviour
                 // calculate difference 
                 int np_difference = temp_np - network_power; 
 
-                if (bad_event_occured) {
+                if (bad_event_occurred) {
                     // Event that occurs
                     current_event_text = "Not enough people for current project." +
                                          "<i>NP has decreased by " + np_difference + ".</i>";
@@ -1027,17 +1023,17 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = "An employee has fallen for a phishing attempt. " +
                     "Would you like to hold a company meeting to discuss the dangers of phishing?" +
                     "\n<b>Cost: 10% of NP</b>";
-            }; break;
+            } break;
 
             // month 5 event
             case(5):
             {
-                if (bad_event_occured) 
+                if (bad_event_occurred) 
                 {
                     //GameControllerV2.Instance.DecreaseMonthlyNP(10);
 
                     // decrease monthly NP by a scaling amount - 10% of monthly NP
-                    DecreaseMonthlyNP(Mathf.RoundToInt((float)monthly_np * 0.1f));
+                    DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.1f));
 
                     current_event_text = "Someone in your company loses a USB with sensitive,unprotected information on it. " +
                                          "\n<i>Monthly NP has decreased by 10 %.</i>";
@@ -1049,7 +1045,7 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = "You feel the need to brush up on computer viruses." +
                     "\nDo some research? (No penalty for declining.)" +
                     "\n<b>Cost: 10% of NP</b>";
-            }; break;
+            } break;
 
             // month 6 event
             case(6):
@@ -1067,7 +1063,7 @@ public class GameControllerV2 : MonoBehaviour
                 name_perk_2.text = "Antivirus";
                 info_perk_2.text = "Error rate decreases significantly";
 
-                if (bad_event_occured) {
+                if (bad_event_occurred) {
 
                     // decrease monthly NP by half
                     DecreaseMonthlyNP(monthly_np / 2);
@@ -1085,18 +1081,18 @@ public class GameControllerV2 : MonoBehaviour
                 "Would you like to learn about encryption?" +
                 "\n<b>Cost: 20 NP</b>";
 
-            }; break;
+            } break;
 
             // month 7 event
             case(7):
             {
-                if (bad_event_occured) {
+                if (bad_event_occurred) {
 
                     // decrease NP by a scaling amount
                     int temp_np = network_power;
 
                     // decrease np by 30%
-                    DecreaseNP(Mathf.RoundToInt((float) network_power * 0.3f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.3f));
 
                     // calculate difference
                     int np_difference = temp_np - network_power;
@@ -1110,13 +1106,13 @@ public class GameControllerV2 : MonoBehaviour
                 }
                 
                 
-            }; break;
+            } break;
 
             // month 8 event
             case(8):
             {
 
-                if (bad_event_occured) {
+                if (bad_event_occurred) {
                     current_event_text = "An employee downloads malware without realizing."
                         + "\nNP has decreased by 30.";
                 } else {
@@ -1127,7 +1123,7 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text =
                      "The boss requests all employees to take a quiz to prove their knowledge on viruses." +
                      "\n<b>50 NP penalty for declining</b>";
-            }; break;
+            } break;
 
             // month 9 event
             case(9):
@@ -1139,7 +1135,7 @@ public class GameControllerV2 : MonoBehaviour
                 // calculate difference
                 int np_difference = network_power - temp_np;
 
-                current_event_text += "\nProgress bonus receieved. " +
+                current_event_text += "\nProgress bonus received. " +
                                       "<i>NP has increased by " + np_difference + ".</i>";
                 // left perk text
                 name_perk_1.text = "Try SMS marketing";
@@ -1149,10 +1145,10 @@ public class GameControllerV2 : MonoBehaviour
                 name_perk_2.text = "Launch a new secured product";
                 info_perk_2.text = "Monthly NP increases by 20";
 
-                if (bad_event_occured)
+                if (bad_event_occurred)
                 {
                     // decrease monthly NP by a scaling amount - 10% of monthly NP
-                    DecreaseMonthlyNP(Mathf.RoundToInt((float)monthly_np * 0.1f));
+                    DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.1f));
 
                     current_event_text = "Company has reported high volume of expenses.\n" +
                                          "<i>Monthly NP has decreased by 10%.</i>";
@@ -1162,14 +1158,14 @@ public class GameControllerV2 : MonoBehaviour
                      current_event_text = GoodMessage();
                 }
     
-            }; break;
+            } break;
 
             // month 10 event
             case(10):
             {
                 Debug.Log("CASE 10 ----   1");
 
-                if(bad_event_occured)
+                if(bad_event_occurred)
                 {
                     if(mitigate_event)
                     {
@@ -1180,7 +1176,7 @@ public class GameControllerV2 : MonoBehaviour
                     }
 
                     // decrease monthly NP by a scaling amount - 10% of monthly NP
-                    DecreaseMonthlyNP(Mathf.RoundToInt((float)monthly_np * 0.1f));
+                    DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.1f));
 
                     current_event_text = "Someone in your company loses a USB with sensitive,unprotected information on it. " +
                             "\n<i>Monthly NP has decreased by 10 %.</i>";
@@ -1194,12 +1190,12 @@ public class GameControllerV2 : MonoBehaviour
                         "Solve the following challenge to advance your knowledge.";
                                       
                     
-            }; break;
+            } break;
             
             // month 11 event
             case(11):
             {
-                if (bad_event_occured)
+                if (bad_event_occurred)
                 {
                     // decrease NP by a scaling amount
                     int temp_np = network_power;
@@ -1231,17 +1227,17 @@ public class GameControllerV2 : MonoBehaviour
                 }
 
                     // decrease monthly NP by a scaling amount - 5% of monthly NP
-                    DecreaseMonthlyNP(Mathf.RoundToInt((float)monthly_np * 0.05f));
+                    DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.05f));
 
                     current_choice_text = "Would you like to learn about RSA? That is one of the most important encryption technique today!" +
                         "\n<b>Cost: 5% of Monthly NP</b>";
                     
-            }; break;
+            } break;
             
             // month 12 event
             case(12):
             {
-                if(bad_event_occured)
+                if(bad_event_occurred)
                 {
                     // decrease NP by a scaling amount
                     int temp_np = network_power;
@@ -1277,7 +1273,7 @@ public class GameControllerV2 : MonoBehaviour
                 name_perk_2.text = "Back to School";
                 info_perk_2.text = "Getting a M.S degree for an increase in your paycheck";
 
-            }; break;
+            } break;
 
             default: 
                 Debug.Log("default - month 12 part 1"); 
@@ -1341,7 +1337,7 @@ public class GameControllerV2 : MonoBehaviour
                 if(x) // if "yes" has been chosen
                 {
                     // decrease np by 10%
-                    DecreaseNP(Mathf.RoundToInt((float)network_power * 0.1f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     // activate password quiz
                     StartCoroutine(TransitionToEvent(scn_quiz_password));
@@ -1356,7 +1352,7 @@ public class GameControllerV2 : MonoBehaviour
 
                     DisplayDecision();
                 }
-            }; break;
+            } break;
 
             // month 2 choice
             case(2):
@@ -1364,7 +1360,7 @@ public class GameControllerV2 : MonoBehaviour
                 if(x)
                 {
                     // decrease np by 10%
-                    DecreaseNP(Mathf.RoundToInt((float)network_power * 0.1f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     // activate file backup choice
                     StartCoroutine(TransitionToEvent(scn_filebackup));
@@ -1379,7 +1375,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            }; break;
+            } break;
 
             // month 3 choice
             case(3):
@@ -1407,14 +1403,14 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            }; break;
+            } break;
 
             // month 4 choice
             case(4):
             {
                 if (x) {
                     // decrease np by 10%
-                    DecreaseNP(Mathf.RoundToInt((float) network_power * 0.1f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     // activate file phishing quiz
                     StartCoroutine(TransitionToEvent(scn_phishing_v2));
@@ -1434,7 +1430,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
 
                 }
-            }; break;
+            } break;
 
             // month 5 choice
             case(5):
@@ -1442,7 +1438,7 @@ public class GameControllerV2 : MonoBehaviour
                 if (x)
                 {
                     // decrease np by 10%
-                    DecreaseNP(Mathf.RoundToInt((float) network_power * 0.1f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     // activate file Virus Presentation
                     StartCoroutine(TransitionToEvent(scn_virus_presentation));
@@ -1460,7 +1456,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            }; break;
+            } break;
 
             // month 6 choice 
             case(6):
@@ -1471,7 +1467,7 @@ public class GameControllerV2 : MonoBehaviour
                     int temp_np = network_power;
 
                     // increase np by 20%
-                    IncreaseNP(Mathf.RoundToInt((float)network_power * 0.2f));
+                    IncreaseNP(Mathf.RoundToInt(network_power * 0.2f));
 
                     int np_difference = network_power - temp_np; // calculate difference
 
@@ -1496,7 +1492,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            }; break;
+            } break;
 
             // month 7 choice
             case(7):
@@ -1520,7 +1516,7 @@ public class GameControllerV2 : MonoBehaviour
 
                     DisplayDecision();
                 }
-            }; break;
+            } break;
 
             // month 8 choice
             case(8):
@@ -1543,7 +1539,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            }; break;
+            } break;
 
             // month 9 choice QUARTER
             case(9):
@@ -1557,7 +1553,7 @@ public class GameControllerV2 : MonoBehaviour
                     current_decision_text = "Perfect! Early indications show SMS to be far more responsive." +
                                                 "\n<i>Error rate has been decreased significantly.</i>";
                 }
-                else //If user chose secured product optioin 
+                else //If user chose secured product option 
                 {
                     // increase monthly np by 20
                     IncreaseMonthlyNP(20);
@@ -1568,7 +1564,7 @@ public class GameControllerV2 : MonoBehaviour
 
                 DisplayDecision();
 
-            }; break;
+            } break;
 
             // month 10 choice
             
@@ -1591,7 +1587,7 @@ public class GameControllerV2 : MonoBehaviour
                 { 
                         
                     // decrease np by 10%
-                    DecreaseNP(Mathf.RoundToInt((float)network_power * 0.1f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     current_decision_text = "You gave up a very useful information that could help you in the future. " +
                         "\n<i>NP rate has decreased.</i>";
@@ -1599,7 +1595,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
           
-            }; break;
+            } break;
             
             // month 11 choice
             case(11):
@@ -1615,12 +1611,12 @@ public class GameControllerV2 : MonoBehaviour
                     current_decision_text = "Great decision! Learning the importance of RSA is very important since many technologies relay on it!" +
                             "Good luck!";
 
-                    //DisplayDecision(); // That might have to be delted..... <<<<----------CHECK
+                    //DisplayDecision(); // That might have to be deleted..... <<<<----------CHECK
                 } 
                 else // chose no
                 {
                     // decrease np by 10%
-                    DecreaseNP(Mathf.RoundToInt((float)network_power * 0.1f));
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     current_decision_text = "Not a wise decision, you gave up a very important lesson on RSA encryption!" +
                             "\n<i>NP rate has decreased.</i> ";
@@ -1628,7 +1624,7 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            }; break;
+            } break;
             
 
             // month 12 choice QUARTER (end of game)
@@ -1638,7 +1634,7 @@ public class GameControllerV2 : MonoBehaviour
                 {
                         
                     // increase np by 10%
-                    IncreaseNP(Mathf.RoundToInt((float)network_power * 0.1f));
+                    IncreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
                     current_decision_text = "You have chosen to get a promotion at your current job!" +
                                             "\n<i>Monthly NP has increased by 10%</i>"; 
@@ -1661,7 +1657,7 @@ public class GameControllerV2 : MonoBehaviour
                 DisplayDecision();
                 increased_text.text = "End Game";
 
-            }; break;
+            } break;
             
             default: 
                 Debug.Log("month 12 ---- second part"); 

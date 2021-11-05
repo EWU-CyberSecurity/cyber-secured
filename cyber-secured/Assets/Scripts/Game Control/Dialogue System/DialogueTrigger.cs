@@ -10,15 +10,13 @@
 ///     triggers dialogue if not triggered already, using DialogueManager to control output
 /// 
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
-    //check in insepector if dialogue is repeatable or one-time trigger;
+    //check in inspector if dialogue is repeatable or one-time trigger;
     public bool repeatable, triggered = false;
 
     public GameObject picture; // the IT logo
