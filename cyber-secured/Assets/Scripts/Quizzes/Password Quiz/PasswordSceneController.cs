@@ -2,7 +2,7 @@
 
 public class PasswordSceneController : MonoBehaviour
 {
-    private DialogueManager dialog;
+    private DialogueManager dialogue;
     private GameObject scn_main;
 
     public GameObject temporaryObject;
@@ -26,7 +26,7 @@ public class PasswordSceneController : MonoBehaviour
         scn_main.SetActive(false);
 
         //Get an access to the DialogueManager script to manage the demonstration according to the line displayed:
-        dialog = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        dialogue = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
     }
 
     void Start()
