@@ -19,7 +19,10 @@ public class CSVManager : MonoBehaviour
 
     private void Start()
     {
+        // Suppressing a C# warning, having it wont affect anything but figured it would be better to just not have it show up in console.
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         TaskHandlerAsync();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
     }
 
     async Task TaskHandlerAsync() 
