@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CSVParser : MonoBehaviour
 {
     private string topicsSheet;
     private string questionsSheet;
 
-    //Get the sheets from the DownloadManager
+    // Get the sheets from the DownloadManager
     public void RetrieveSheets(string top, string ques)
     {
 

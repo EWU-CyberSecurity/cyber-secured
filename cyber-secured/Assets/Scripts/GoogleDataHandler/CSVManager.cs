@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+
 using UnityEngine;
 using UnityEngine.Networking;
+
 public class CSVManager : MonoBehaviour
 {
-    // Netowrking code originally by https://github.com/mofrison/Unity3d-Network
-    // Used their code to get the CSV to download from google
-
     private string topicSheet;
     private string questionSheet;
 
@@ -22,22 +19,21 @@ public class CSVManager : MonoBehaviour
 
     private void Start()
     {
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         TaskHandlerAsync();
-#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
     }
 
     async Task TaskHandlerAsync() 
     {
-        //Download the CSVs from the urls above and then send the strings to the parser.
-        questionSheet = await GetText(spreadsheet1URL);     //DO NOT TOUCH THIS.
-        topicSheet = await GetText(spreadsheet2URL);        //DO NOT TOUCH THIS.
+        // Download the CSVs from the urls above and then send the strings to the parser.
+        questionSheet = await GetText(spreadsheet1URL);
+        topicSheet = await GetText(spreadsheet2URL);
 
         parser.RetrieveSheets(topicSheet, questionSheet);
     }
 
-    //DO NOT TOUCH THIS.
-    private static async Task<UnityWebRequest> SendWebRequest(UnityWebRequest request, CancellationTokenSource cancelationToken = null, System.Action<float> progress = null)
+    // This is from https://github.com/mofrison/Unity3d-Network, modifying it may break stuff.
+    private static async Task<UnityWebRequest> SendWebRequest(UnityWebRequest request, 
+            CancellationTokenSource cancelationToken = null, System.Action<float> progress = null)
     {
         while (!Caching.ready)
         {
@@ -69,7 +65,7 @@ public class CSVManager : MonoBehaviour
         return request;
     }
 
-    //DO NOT TOUCH THIS.
+    // This is from https://github.com/mofrison/Unity3d-Network, modifying it may break stuff.
     public static async Task<string> GetText(string url)
     {
         var uwr = await SendWebRequest(UnityWebRequest.Get(url));

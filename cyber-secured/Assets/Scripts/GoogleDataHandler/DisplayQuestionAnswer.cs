@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class DisplayQuestionAnswer : MonoBehaviour
 {
-    //As the sheet row actually starts at the second row, row 0 is headers so we can skip that.
+    // As the sheet row actually starts at the second row, row 0 is headers so we can skip that.
 
-    //how to change the text in button 1, GameObject.Find("btn1").GetComponentInChildren<Text>().text = "la di da";
+    // How to change the text in button 1, GameObject.Find("btn1").GetComponentInChildren<Text>().text = "la di da";
     [SerializeField] public Text questionsPrompt;
     [SerializeField] public Button btn1;
     [SerializeField] public Button btn2;
@@ -36,7 +33,7 @@ public class DisplayQuestionAnswer : MonoBehaviour
     public void DisplayMultiChoiceQuestion(string questionProm, string ans1, string ans2, string ans3, string ans4)
     {
         GameObject.Find("text_question").GetComponentInChildren<Text>().text = questionProm;
-        //parse through answers to which is the correct one(s)
+        // Parse through answers to which is the correct one(s)
 
         GameObject.Find("btn1").GetComponentInChildren<Text>().text = ans1;
         GameObject.Find("btn2").GetComponentInChildren<Text>().text = ans2;
@@ -48,7 +45,7 @@ public class DisplayQuestionAnswer : MonoBehaviour
     {
         GameObject.Find("text_question").GetComponentInChildren<Text>().text = questionProm;
 
-        //parse through answers to which is the correct one(s)
+        // Parse through answers to which is the correct one(s)
 
         GameObject.Find("btn1").GetComponentInChildren<Text>().text = ans1;
         GameObject.Find("btn2").GetComponentInChildren<Text>().text = ans2;
@@ -58,8 +55,8 @@ public class DisplayQuestionAnswer : MonoBehaviour
     {
         GameObject.Find("text_question").GetComponentInChildren<Text>().text = questionProm;
 
-        //parse through answers to which is the correct one(s)
-        //GameObject.Find("btn1").GetComponentInChildren<Text>().text = ans1;   ******* TODO figure out how to change the text in a field that the user can enter values from (like in the password 
+        // Parse through answers to which is the correct one(s)
+        // GameObject.Find("btn1").GetComponentInChildren<Text>().text = ans1;   ******* TODO figure out how to change the text in a field that the user can enter values from (like in the password quiz)
 
 
         if (ans1 != null) {
@@ -73,9 +70,8 @@ public class DisplayQuestionAnswer : MonoBehaviour
         }
 
 
-        /*
-         * check if there is more then one answer(in case its just a single answer they have to fill in)
-         * take in their input for each spot and check it against the answers(might have to loop through all answers in case the player didnt input it in the same slot.
+        /* Check if there is more then one answer(in case its just a single answer they have to fill in)
+         * Take in their input for each spot and check it against the answers(might have to loop through all answers in case the player didn't input it in the same slot.
          *  ^ set to all answers to lowercase then check between the table data and UserInput < (Loop through their choices to make sure they have each word even if word is not in the same column as table)
          */
 
