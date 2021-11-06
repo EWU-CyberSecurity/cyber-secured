@@ -12,7 +12,7 @@ namespace Assets.Scripts.Topics
 
         public override void startItem()
         {
-            // activate the dialogue box and put the sentences in it.
+            // Activate the dialogue box and put the sentences in it.
         }
     }
 }

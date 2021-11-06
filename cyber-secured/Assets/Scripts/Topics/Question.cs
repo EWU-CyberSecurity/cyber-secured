@@ -17,7 +17,7 @@ namespace Assets.Scripts.Topics
         public override void startItem()
         {
             // Here we create the question box and put the text in it.
-            // And then 
+            // And then call answer.displayAnswer()
         }
     }
 }
