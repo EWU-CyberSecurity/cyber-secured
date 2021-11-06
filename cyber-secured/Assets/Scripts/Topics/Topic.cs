@@ -10,5 +10,10 @@ namespace Assets.Scripts.Topics
     class Topic
     {
         private List<TopicItem> items = new List<TopicItem>();
+
+        public void nextItem()
+        {
+            // Proceed to the next topic item in the list
+        }
     }
 }

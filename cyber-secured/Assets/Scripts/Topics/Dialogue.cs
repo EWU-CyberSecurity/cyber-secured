@@ -9,5 +9,10 @@ namespace Assets.Scripts.Topics
     class Dialogue : TopicItem
     {
         private string[] sentences;
+
+        public override void startItem()
+        {
+            // activate the dialogue box and put the sentences in it.
+        }
     }
 }

@@ -7,6 +7,6 @@ namespace Assets.Scripts.Topics
     /// </summary>
     abstract class TopicItem
     {
-
+        public abstract void startItem();
     }
 }

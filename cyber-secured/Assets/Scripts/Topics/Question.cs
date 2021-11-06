@@ -13,5 +13,11 @@ namespace Assets.Scripts.Topics
     {
         private string questionText;
         private Answer answer;
+
+        public override void startItem()
+        {
+            // Here we create the question box and put the text in it.
+            // And then 
+        }
     }
 }
