@@ -12,8 +12,8 @@ namespace Assets.Scripts.Topics
     /// </summary>
     class Question : TopicItem 
     {
-        private string questionText;
-        private Answer answer;
+        private string questionText { get; set; }
+        private Answer answer { get; set; }
 
         public override void startItem()
         {

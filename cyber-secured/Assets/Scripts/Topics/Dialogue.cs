@@ -8,7 +8,7 @@ namespace Assets.Scripts.Topics
 {
     class Dialogue : TopicItem
     {
-        private string[] sentences;
+        private string[] sentences { get; set; }
 
         public override void startItem()
         {
