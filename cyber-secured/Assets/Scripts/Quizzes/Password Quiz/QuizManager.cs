@@ -17,11 +17,11 @@ public class QuizManager : MonoBehaviour
 
         next.SetActive (false);
 
-        questions = GameObject.FindGameObjectsWithTag("question");
+        /*questions = GameObject.FindGameObjectsWithTag("question");
         for(int j = 1; j < 5; j++)
         {
             questions[j].SetActive(false);
-        }
+        }*/
     }
 
     public void nextSet()

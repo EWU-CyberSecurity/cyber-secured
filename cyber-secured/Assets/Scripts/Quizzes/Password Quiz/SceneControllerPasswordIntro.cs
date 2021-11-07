@@ -3,6 +3,9 @@
 public class SceneControllerPasswordIntro : MonoBehaviour {
 
     public GameObject questions;
+    public GameObject question_box;
+    public GameObject continue_button;
+    public GameObject hint_button;
     public GameObject PasswordIntro;
 
     // Use this for initialization
@@ -17,6 +20,9 @@ public class SceneControllerPasswordIntro : MonoBehaviour {
 
         PasswordIntro.SetActive(false);
         questions.SetActive(true);
+        question_box.SetActive(true);
+        continue_button.SetActive(true);
+        hint_button.SetActive(true);
 
     }
 }
