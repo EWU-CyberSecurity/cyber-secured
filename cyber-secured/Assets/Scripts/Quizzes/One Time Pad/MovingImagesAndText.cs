@@ -72,7 +72,7 @@ public class MovingImagesAndText : MonoBehaviour {
 
         //disable these two buttons from running during presentation
         back_btn_inDialogBox.SetActive(false);
-        GameObject.Find("btn_skip").SetActive(false);
+        GameObject.Find("btn_exit_dialogue").SetActive(false);
     }
 
     // Update is called once per frame
