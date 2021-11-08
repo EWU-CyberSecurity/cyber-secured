@@ -69,7 +69,10 @@ public class MovingImagesAndText : MonoBehaviour {
         blackBackground.SetActive(false); //DO NOT FORGET TO TURN IT ON AT THE END OF THE DEMONSTRATION !!!!!!
         envelope.SetActive(false);// Wait to display the envelope with sentence 4:
         arrow.SetActive(false);
+
+        //disable these two buttons from running during presentation
         back_btn_inDialogBox.SetActive(false);
+        GameObject.Find("btn_skip").SetActive(false);
     }
 
     // Update is called once per frame
