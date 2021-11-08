@@ -50457,6 +50457,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1014968570}
     m_Modifications:
+    - target: {fileID: 1574934282474006, guid: 931b440b1311b4264a1f68b3ebc3c66c, type: 3}
+      propertyPath: m_Name
+      value: btn_exit_dialouge
+      objectReference: {fileID: 0}
     - target: {fileID: 114021813760318976, guid: 931b440b1311b4264a1f68b3ebc3c66c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
