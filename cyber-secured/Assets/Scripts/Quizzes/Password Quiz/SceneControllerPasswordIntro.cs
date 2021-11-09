@@ -6,7 +6,8 @@ public class SceneControllerPasswordIntro : MonoBehaviour {
     public GameObject question_box;
     public GameObject continue_button;
     public GameObject hint_button;
-    public GameObject PasswordIntro;
+    public GameObject password_intro;
+    public GameObject quiz_start_dialogue;
 
     // Use this for initialization
     void Start () {
@@ -24,10 +25,10 @@ public class SceneControllerPasswordIntro : MonoBehaviour {
         question_box.SetActive(true);
         continue_button.SetActive(true);
         hint_button.SetActive(true);
+        quiz_start_dialogue.SetActive(true);
 
-        PasswordIntro.SetActive(false);
-        
+        password_intro.SetActive(false);
 
-
+        //quiz_start_dialogue.GetComponent<DialogueTrigger>().TriggerDialogue();
     }
 }
