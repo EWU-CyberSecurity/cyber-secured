@@ -12,7 +12,9 @@ namespace Assets.Scripts.Topics
     /// </summary>
     class Question : TopicItem 
     {
-        private string questionText { get; set; }
+        public string questionText { get; set; }
+        public string questionType { get; set; }
+        public string questionID { get; set; }
         private Answer answer { get; set; }
 
         public override void startItem()

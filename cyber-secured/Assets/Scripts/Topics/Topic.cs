@@ -9,7 +9,9 @@ namespace Assets.Scripts.Topics
     /// </summary>
     class Topic
     {
-        private List<TopicItem> items { get; set; }
+        public List<TopicItem> items { get; set; }
+        public string TopicID { get; set; }
+        public string TopicName { get; set; }
 
         public void nextItem()
         {
