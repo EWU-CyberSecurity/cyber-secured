@@ -5810,7 +5810,6 @@ GameObject:
   - component: {fileID: 212409709}
   - component: {fileID: 212409711}
   - component: {fileID: 212409710}
-  - component: {fileID: 212409712}
   m_Layer: 5
   m_Name: Question
   m_TagString: Untagged
@@ -5877,26 +5876,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212409708}
   m_CullTransparentMesh: 0
---- !u!114 &212409712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 212409708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9159236fcea64c09a0071686fe8d070, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 1728787730}
-  - {fileID: 1634971723}
-  - {fileID: 1883785024}
-  - {fileID: 1632192901}
-  password: 1
-  virus: 0
-  rsa: 0
 --- !u!1 &217755905
 GameObject:
   m_ObjectHideFlags: 0
@@ -6035,7 +6014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1a115494a38cc44b65e69d803ec0e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questions: {fileID: 1069870810}
+  buttons: {fileID: 1069870810}
   question_box: {fileID: 1068321366}
   continue_button: {fileID: 1664950876}
   hint_button: {fileID: 1863045307}
@@ -33890,7 +33869,6 @@ GameObject:
   - component: {fileID: 1068321367}
   - component: {fileID: 1068321370}
   - component: {fileID: 1068321369}
-  - component: {fileID: 1068321368}
   m_Layer: 5
   m_Name: question_box
   m_TagString: Untagged
@@ -33918,26 +33896,6 @@ RectTransform:
   m_AnchoredPosition: {x: 13.65625, y: 158.4375}
   m_SizeDelta: {x: 552.85, y: 103.66}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1068321368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068321366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9159236fcea64c09a0071686fe8d070, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  password: 1
-  virus: 0
-  rsa: 0
 --- !u!114 &1068321369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34060,6 +34018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1069870811}
   - component: {fileID: 1069870812}
+  - component: {fileID: 1069870813}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -34097,7 +34056,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069870810}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9159236fcea64c09a0071686fe8d070, type: 3}
   m_Name: 
@@ -34110,6 +34069,14 @@ MonoBehaviour:
   password: 1
   virus: 0
   rsa: 0
+--- !u!222 &1069870813
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069870810}
+  m_CullTransparentMesh: 0
 --- !u!1 &1071503593
 GameObject:
   m_ObjectHideFlags: 0

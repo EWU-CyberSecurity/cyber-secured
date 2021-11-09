@@ -2,7 +2,7 @@
 
 public class SceneControllerPasswordIntro : MonoBehaviour {
 
-    public GameObject questions;
+    public GameObject buttons;
     public GameObject question_box;
     public GameObject continue_button;
     public GameObject hint_button;
@@ -18,11 +18,16 @@ public class SceneControllerPasswordIntro : MonoBehaviour {
         // glitch screen
         GameObject.FindObjectOfType<GlitchCamera>().StartGlitch();
 
-        PasswordIntro.SetActive(false);
-        questions.SetActive(true);
+        // Set these to be active first so that the player can't see
+        // them being shuffled. 
+        buttons.SetActive(true);
         question_box.SetActive(true);
         continue_button.SetActive(true);
         hint_button.SetActive(true);
+
+        PasswordIntro.SetActive(false);
+        
+
 
     }
 }
