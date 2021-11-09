@@ -25366,8 +25366,6 @@ GameObject:
   - component: {fileID: 805104093}
   - component: {fileID: 805104092}
   - component: {fileID: 805104099}
-  - component: {fileID: 805104097}
-  - component: {fileID: 805104098}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -40645,8 +40643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a41d54b89afd26468b36ea9b774b69e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topicSheet: 
-  questionSheet: 
   parser: {fileID: 1329741134}
 --- !u!1 &1332202601
 GameObject:
