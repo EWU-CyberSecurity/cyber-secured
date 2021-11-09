@@ -69,8 +69,8 @@ public class CSVReader
 
             //Dialogue start = new Dialogue();
             //Dialogue end = new Dialogue();
-            DL start = new DL();
-            DL end = new DL();
+            Dialogue start = new Dialogue();
+            Dialogue end = new Dialogue();
             start.AddDialogue((string)topic["startDialogue"]);
             end.AddDialogue((string)topic["endDialogue"]);
             //start.AddDialogue((string)topic["startDialogue"]);
