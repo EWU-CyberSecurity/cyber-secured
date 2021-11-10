@@ -10,7 +10,7 @@ namespace Assets.Scripts.Topics
     /// <summary>
     /// This class represents a single question in a topic
     /// </summary>
-    class Question : TopicItem 
+    public class Question : TopicItem 
     {
         public string questionText { get; set; }
         public string questionType { get; set; }

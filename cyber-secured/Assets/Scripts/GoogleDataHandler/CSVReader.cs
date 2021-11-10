@@ -53,7 +53,7 @@ public class CSVReader
 
     // Takes in the strings of Google sheet CSV's containing the questions and topics
     // and returns a list of Topic objects representing the topics
-    public void createListTopic(string questionsCSV, string topicsCSV)
+    public List<Topic> createListTopic(string questionsCSV, string topicsCSV)
     {
         List<Dictionary<string, object>> questionsData = Read(questionsCSV);
         List<Dictionary<string, object>> topicData = Read(topicsCSV);
@@ -67,14 +67,10 @@ public class CSVReader
             nextTopic.TopicID = (string)topic["topicID"];
             nextTopic.TopicName = (string)topic["topicName"];
 
-            //Dialogue start = new Dialogue();
-            //Dialogue end = new Dialogue();
-            Dialogue start = new Dialogue();
-            Dialogue end = new Dialogue();
+            Assets.Scripts.Topics.Dialogue start = new Assets.Scripts.Topics.Dialogue();
+            Assets.Scripts.Topics.Dialogue end = new Assets.Scripts.Topics.Dialogue();
             start.AddDialogue((string)topic["startDialogue"]);
             end.AddDialogue((string)topic["endDialogue"]);
-            //start.AddDialogue((string)topic["startDialogue"]);
-            //end.AddDialogue((string)topic["endDialogue"]);
             nextTopic.items.Add(start);
             nextTopic.items.Add(end);
 
@@ -93,6 +89,7 @@ public class CSVReader
             // for the Topic object
             topics[AssociatedTopicID].items.Add(nextQuestion);
         }
-
+        List<Topic> FinalList = new List<Topic>(topics.Values);
+        return FinalList;
     }
 }
