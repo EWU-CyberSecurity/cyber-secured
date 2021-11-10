@@ -58,6 +58,31 @@ public class PasswordSceneController : MonoBehaviour
         currentQuestion.startItem();
     }
 
+    public void onMultiAnswerButton1Clicked()
+    {
+        // if this button was clicked we can assume that the current answer is a MultiAnswer
+        MultiAnswer currentAnswer = (MultiAnswer)currentQuestion.getAnswer();
+        currentAnswer.onButton1Clicked();
+    }
+
+    public void onMultiAnswerButton2Clicked()
+    {
+        // Call the right handler in the multi answer. 
+        Debug.Log("button 2 clicked");
+    }
+
+    public void onMultiAnswerButton3Clicked()
+    {
+        // Call the right handler in the multi answer. 
+        Debug.Log("button 3 clicked");
+    }
+
+    public void onMultiAnswerButton4Clicked()
+    {
+        // Call the right handler in the multi answer. 
+        Debug.Log("button 4 clicked");
+    }
+
     void Start()
     {
         lives = 3;

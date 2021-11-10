@@ -19688,7 +19688,6 @@ GameObject:
   - component: {fileID: 652323718}
   - component: {fileID: 652323717}
   - component: {fileID: 652323716}
-  - component: {fileID: 652323715}
   - component: {fileID: 652323714}
   m_Layer: 5
   m_Name: multi_answer_btn_3
@@ -19738,18 +19737,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &652323715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652323712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c085a1bd2155844a3c2b77c1dfb5db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &652323716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19790,7 +19777,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 652323715}
+      - m_Target: {fileID: 646155943}
         m_MethodName: onMultiAnswerButton3Clicked
         m_Mode: 1
         m_Arguments:
@@ -22566,7 +22553,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 713457458}
+      - m_Target: {fileID: 646155943}
         m_MethodName: onMultiAnswerButton4Clicked
         m_Mode: 1
         m_Arguments:
@@ -37422,7 +37409,6 @@ GameObject:
   - component: {fileID: 1201718209}
   - component: {fileID: 1201718208}
   - component: {fileID: 1201718207}
-  - component: {fileID: 1201718206}
   - component: {fileID: 1201718205}
   m_Layer: 5
   m_Name: multi_answer_btn_1
@@ -37472,18 +37458,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1201718206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201718203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c085a1bd2155844a3c2b77c1dfb5db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1201718207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37524,7 +37498,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1201718206}
+      - m_Target: {fileID: 646155943}
         m_MethodName: onMultiAnswerButton1Clicked
         m_Mode: 1
         m_Arguments:
@@ -65848,7 +65822,6 @@ GameObject:
   - component: {fileID: 2107984353}
   - component: {fileID: 2107984352}
   - component: {fileID: 2107984351}
-  - component: {fileID: 2107984350}
   - component: {fileID: 2107984349}
   m_Layer: 5
   m_Name: multi_answer_btn_2
@@ -65898,18 +65871,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2107984350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107984347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c085a1bd2155844a3c2b77c1dfb5db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2107984351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65950,7 +65911,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2107984350}
+      - m_Target: {fileID: 646155943}
         m_MethodName: onMultiAnswerButton2Clicked
         m_Mode: 1
         m_Arguments:

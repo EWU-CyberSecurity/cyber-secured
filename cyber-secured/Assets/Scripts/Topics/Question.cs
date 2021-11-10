@@ -31,6 +31,11 @@ namespace Assets.Scripts.Topics
             this.answer = answer;
         }
 
+        public Answer getAnswer()
+        {
+            return this.answer;
+        }
+
         public override void startItem()
         {
             // Here we create the question box and put the text in it.

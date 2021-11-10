@@ -1,5 +1,7 @@
 ﻿
+using System.Linq;
 using UnityEngine;
+using UnityScript.Steps;
 
 namespace Assets.Scripts.Topics
 {
@@ -27,6 +29,11 @@ namespace Assets.Scripts.Topics
         public string getAnswer(int answer_num)
         {
             return answers[answer_num];
+        }
+
+        public bool isCorrectAnswer(int answer)
+        {
+            return correctAnswers.Contains(answer);
         }
     }
 }
