@@ -8,6 +8,7 @@ public class SceneControllerPasswordIntro : MonoBehaviour {
     public GameObject hint_button;
     public GameObject password_intro;
     public GameObject quiz_start_dialogue;
+    public GameObject scene_controller;
 
     // Use this for initialization
     void Start () {
@@ -18,6 +19,8 @@ public class SceneControllerPasswordIntro : MonoBehaviour {
     {
         // glitch screen
         GameObject.FindObjectOfType<GlitchCamera>().StartGlitch();
+        scene_controller.GetComponent<PasswordSceneController>().nextQuestion();
+
 
         // Set these to be active first so that the player can't see
         // them being shuffled. 

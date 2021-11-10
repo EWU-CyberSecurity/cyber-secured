@@ -6020,6 +6020,7 @@ MonoBehaviour:
   hint_button: {fileID: 1863045307}
   password_intro: {fileID: 1648845730}
   quiz_start_dialogue: {fileID: 1762586394}
+  scene_controller: {fileID: 646155941}
 --- !u!1 &218435853
 GameObject:
   m_ObjectHideFlags: 0
@@ -19674,9 +19675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f23c1ab5b6ae947a6b24bbb041b386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temporaryObject: {fileID: 1648845730}
-  questions: {fileID: 332331460}
-  menuButton: {fileID: 319652964}
   lives: 3
 --- !u!1 &652323712
 GameObject:
@@ -32738,7 +32736,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: 'Which password is generally better and harder to crack? '
+  m_Text: 
 --- !u!222 &1043183531
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -34355,7 +34353,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: I<3You
+  m_Text: 
 --- !u!222 &1073331071
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46359,7 +46357,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: I am infatuated with you
+  m_Text: 
 --- !u!222 &1469574667
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -49870,7 +49868,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: eyeluvewe
+  m_Text: 
 --- !u!222 &1556766651
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -57357,7 +57355,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ILoooveYou
+  m_Text: 
 --- !u!222 &1825281854
 CanvasRenderer:
   m_ObjectHideFlags: 0
