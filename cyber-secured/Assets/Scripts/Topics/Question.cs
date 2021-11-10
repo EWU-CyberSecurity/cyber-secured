@@ -15,7 +15,7 @@ namespace Assets.Scripts.Topics
         public string questionText { get; set; }
         public string questionType { get; set; }
         public string questionID { get; set; }
-        private Answer answer { get; set; }
+        public Answer answer { get; set; }
 
         public override void startItem()
         {

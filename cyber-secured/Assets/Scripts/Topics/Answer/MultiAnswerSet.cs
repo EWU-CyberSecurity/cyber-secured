@@ -8,5 +8,10 @@ namespace Assets.Scripts.Topics
     {
         private string[] answers = new string[4];
         private int[] correctAnswer; // some of 0 - 3. 
+
+        public void addAnswer(string answer, int index)
+        {
+            this.answers[index] = answer;
+        }
     }
 }

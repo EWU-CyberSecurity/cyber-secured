@@ -84,12 +84,49 @@ public class CSVReader
             nextQuestion.questionType = (string)question["questionType"];
             nextQuestion.questionText = (string)question["questionText"];
 
+            if (nextQuestion.questionID == "MultiChoice")
+            {
+                MultiAnswerSet newAnswers = new MultiAnswerSet();
+                newAnswers.addAnswer((string)question["answer1"], 0);
+                newAnswers.addAnswer((string)question["answer2"], 1);
+                newAnswers.addAnswer((string)question["answer3"], 2);
+                newAnswers.addAnswer((string)question["answer4"], 3);
+
+                MultiAnswer newMulti = new MultiAnswer();
+                newMulti.addAnswerSet(newAnswers);
+
+                nextQuestion.answer = newMulti;
+            }
+            else if (nextQuestion.questionID == "FillIn")
+            {
+                FillInAnswer newFillIn = new FillInAnswer();
+                newFillIn.correctAnswer = (string) question["answer1"];
+
+                nextQuestion.answer = newFillIn;
+            }
+            else if (nextQuestion.questionID == "TF")
+            {
+                TFAnswer newTF = new TFAnswer();
+                string trueAns = (string)question["answer1"];
+                if (trueAns.Contains("<*>"))
+                {
+                    newTF.isTrue = true;
+                }
+                else
+                {
+                    newTF.isTrue = false;
+                }
+
+                nextQuestion.answer = newTF;
+            }
+
             string AssociatedTopicID = (string)question["topicID"];
             // Adds the Question object, which is a TopicItem, into the list
             // for the Topic object
             topics[AssociatedTopicID].items.Add(nextQuestion);
         }
-        List<Topic> FinalList = new List<Topic>(topics.Values);
-        return FinalList;
+
+        List<Topic> teacherAddedTopics = new List<Topic>(topics.Values);
+        return teacherAddedTopics;
     }
 }

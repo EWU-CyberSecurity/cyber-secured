@@ -12,6 +12,11 @@ namespace Assets.Scripts.Topics
         private List<MultiAnswerSet> answerPool = new List<MultiAnswerSet>(); // all the possible answer sets
         private MultiAnswerSet displayedSet; // the set of answers that is actually displayed
 
+        public void addAnswerSet(MultiAnswerSet newSet)
+        {
+            this.answerPool.Add(newSet);
+        }
+
         public override void displayAnswer()
         {
             // Change the text on the buttons and move them to the right spot.

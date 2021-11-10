@@ -7,7 +7,7 @@ namespace Assets.Scripts.Topics
     /// </summary>
     class FillInAnswer : Answer
     {
-        private string correctAnswer;
+        public string correctAnswer { get; set; }
 
         public override void displayAnswer()
         {
