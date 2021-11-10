@@ -27,6 +27,8 @@ public class OneTimePadSceneController : MonoBehaviour {
         scn_main = GameObject.Find("scn_main");
         scn_main.SetActive(false);
 
+        GameObject.Find("btn_exit_dialogue").SetActive(false);
+
 
         //Get an access to the DialogueManager script to manage the demonstration according to the line displayed:
         dialog = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();

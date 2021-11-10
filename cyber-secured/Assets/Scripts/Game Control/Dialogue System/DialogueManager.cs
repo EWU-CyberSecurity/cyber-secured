@@ -50,6 +50,7 @@ public class DialogueManager : MonoBehaviour
     private bool proceed = true; // create a locking mechanism to prevent the user to continue when demonstration in the one time pad is going 
     private bool finished_typing = false;
     private bool pressedBackButton = false;
+    private int iteration; // to not allow previous from running on 1st iteration
 
     // use this for initialization
     void Start()
@@ -87,7 +88,7 @@ public class DialogueManager : MonoBehaviour
             sentencesArrayList.Add(sentence);
         
         sentencesArrayList.Reverse(); // that will flip the list to start from the first sentence
-
+        iteration = 0;
         DisplayNextSentenceArray(); // it was DisplayNextSentence()
     }
 
@@ -95,6 +96,9 @@ public class DialogueManager : MonoBehaviour
     {
         if (proceed) // in some cases like in the demonstration of the one time pad - the user can't proceed until demonstration is over for each sentence
         {
+            // play a beep sound
+            GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(3);
+
             // sentences haven't ended
             if (!has_ended)
             {
@@ -111,9 +115,6 @@ public class DialogueManager : MonoBehaviour
                     return;
                 }
             }
-
-            // play a beep sound
-            GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(3);
             string sentence;
             if(pressedBackButton) // this is for the case if the back button was pressed
             {
@@ -125,15 +126,30 @@ public class DialogueManager : MonoBehaviour
             sentencesArrayList.RemoveAt(sentencesArrayList.Count - 1); // remove last element from the list
             sentencesStack.Push(sentence); // to save it in the stack 
             pressedBackButton = false;
+            iteration ++;
             
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence)); // you can disable that but you need to modify the demonstrations (10,11)
         }
     }
 
+    // close dialogue box
+    public void SkipDialogue()
+    {
+        elapsed_time = 0;
+        has_ended = true;
+        has_started = false;
+
+        // switch out of dialogue
+        GameControllerV2.Instance.DialogueSwitch();
+
+        // play a beep sound
+        GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(3);
+    }
+
     public void DisplayPrecedingSentence() // when the user clicks the button in the dialoue box
     {
-        if (proceed) // in some cases like in the demonstration of the one time pad - the user can't proceed until demonstration is over for each sentence
+        if (proceed && iteration > 1) // in some cases like in the demonstration of the one time pad - the user can't proceed until demonstration is over for each sentence
         {
             // sentences haven't ended
             if (!has_ended)
