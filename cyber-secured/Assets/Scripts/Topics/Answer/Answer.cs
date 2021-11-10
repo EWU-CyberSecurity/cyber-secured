@@ -5,7 +5,7 @@ namespace Assets.Scripts.Topics
     /// This class represents the answer to some question.
     /// Maybe this should be an interface.
     /// </summary>
-    abstract class Answer
+    public abstract class Answer
     {
         // Display the dialogue if it's correct.
         // The answer classes can override this to put
