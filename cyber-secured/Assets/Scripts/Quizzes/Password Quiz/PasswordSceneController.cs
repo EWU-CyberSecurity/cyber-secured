@@ -46,14 +46,9 @@ public class PasswordSceneController : MonoBehaviour
 
     public void nextQuestion()
     {
-        if (currentQuestion == null)
-        {
-            currentQuestion = questions.ElementAt(0);
-        }
-        else
-        {
-            currentQuestion = questions.ElementAt(questions.IndexOf(currentQuestion) + 1);
-        }
+        currentQuestion = currentQuestion == null
+            ? questions.ElementAt(0) 
+            : questions.ElementAt(questions.IndexOf(currentQuestion) + 1);
 
         currentQuestion.startItem();
     }
@@ -67,20 +62,20 @@ public class PasswordSceneController : MonoBehaviour
 
     public void onMultiAnswerButton2Clicked()
     {
-        // Call the right handler in the multi answer. 
-        Debug.Log("button 2 clicked");
+        MultiAnswer currentAnswer = (MultiAnswer)currentQuestion.getAnswer();
+        currentAnswer.onButton2Clicked();
     }
 
     public void onMultiAnswerButton3Clicked()
     {
-        // Call the right handler in the multi answer. 
-        Debug.Log("button 3 clicked");
+        MultiAnswer currentAnswer = (MultiAnswer)currentQuestion.getAnswer();
+        currentAnswer.onButton3Clicked();
     }
 
     public void onMultiAnswerButton4Clicked()
     {
-        // Call the right handler in the multi answer. 
-        Debug.Log("button 4 clicked");
+        MultiAnswer currentAnswer = (MultiAnswer)currentQuestion.getAnswer();
+        currentAnswer.onButton4Clicked();
     }
 
     void Start()

@@ -22,6 +22,9 @@ namespace Assets.Scripts.Topics
         private GameObject button3;
         private GameObject button4;
 
+        // use this for updating all the buttons in a clean way
+        private GameObject[] buttons;
+
         public MultiAnswer()
         {
             answerPool = new List<MultiAnswerSet>();
@@ -31,6 +34,8 @@ namespace Assets.Scripts.Topics
             this.button2 = root.transform.Find("multi_answer_btn_2").gameObject;
             this.button3 = root.transform.Find("multi_answer_btn_3").gameObject;
             this.button4 = root.transform.Find("multi_answer_btn_4").gameObject;
+
+            this.buttons = new GameObject[] { button1, button2, button3, button4};
         }
 
         public MultiAnswer(List<MultiAnswerSet> answerPool)
@@ -48,35 +53,44 @@ namespace Assets.Scripts.Topics
             // Set the text on the four multiple choice buttons. 
             displayedSet = answerPool.ElementAt(Random.Range(0, answerPool.Count));
 
-            button1.transform.Find("Text").GetComponent<Text>().text = displayedSet.getAnswer(0);
-            button2.transform.Find("Text").GetComponent<Text>().text = displayedSet.getAnswer(1);
-            button3.transform.Find("Text").GetComponent<Text>().text = displayedSet.getAnswer(2);
-            button4.transform.Find("Text").GetComponent<Text>().text = displayedSet.getAnswer(3);
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].transform.Find("Text").GetComponent<Text>().text = displayedSet.getAnswer(i);
+            }
         }
 
         // When the button is clicked check if it belongs to the right answer
         public void onButton1Clicked()
         {
-            if (displayedSet.isCorrectAnswer(0))
+            changeColorsAndDisableButtons();
+        }
+
+        private void changeColorsAndDisableButtons()
+        {
+            // Change the disabled colors on the answer buttons depending
+            // on whether or not they were correct.
+            for (int i = 0; i < buttons.Length; i++)
             {
-                ColorBlock colors = button1.GetComponent<Button>().colors;
-                colors.disabledColor = disabledCorrectColor;
+                ColorBlock newColors = button1.GetComponent<Button>().colors;
+                newColors.disabledColor = displayedSet.isAnswerCorrect(i) ? disabledCorrectColor : disabledIncorrectColor;
+                buttons[i].GetComponent<Button>().colors = newColors;
+                buttons[i].GetComponent<Button>().interactable = false;
             }
         }
 
         public void onButton2Clicked()
         {
-
+            changeColorsAndDisableButtons();
         }
 
         public void onButton3Clicked()
         {
-
+            changeColorsAndDisableButtons();
         }
 
         public void onButton4Clicked()
         {
-
+            changeColorsAndDisableButtons();
         }
     }
 }

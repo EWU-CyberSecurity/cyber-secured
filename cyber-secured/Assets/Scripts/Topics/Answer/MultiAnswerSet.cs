@@ -31,7 +31,7 @@ namespace Assets.Scripts.Topics
             return answers[answer_num];
         }
 
-        public bool isCorrectAnswer(int answer)
+        public bool isAnswerCorrect(int answer)
         {
             return correctAnswers.Contains(answer);
         }
