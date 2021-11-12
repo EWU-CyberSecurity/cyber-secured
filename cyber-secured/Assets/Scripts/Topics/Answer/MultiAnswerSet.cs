@@ -1,5 +1,4 @@
-﻿
-namespace Assets.Scripts.Topics
+﻿namespace Assets.Scripts.Topics
 {
     /// <summary>
     /// This class represents 4 possible answers, one of which is correct.
@@ -12,6 +11,11 @@ namespace Assets.Scripts.Topics
         public void addAnswer(string answer, int index)
         {
             this.answers[index] = answer;
+        }
+
+        public string[] getAnswer()
+        {
+            return this.answers;
         }
     }
 }

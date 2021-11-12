@@ -27,5 +27,7 @@ namespace Assets.Scripts.Topics
         // answer subclasses because they all have different stuff to do
         // for this.
         public abstract void displayAnswer();
+
+        public abstract string[] returnAnswer(); //TESTING
     }
 }

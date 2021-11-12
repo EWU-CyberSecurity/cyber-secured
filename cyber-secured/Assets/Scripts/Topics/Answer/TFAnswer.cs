@@ -32,6 +32,12 @@ namespace Assets.Scripts.Topics
                 base.displayIncorrectDialogue();
             }
         }
+        
+        public override string[] returnAnswer()
+        {
+            string[] s = { "True", "False" };
+            return s;
+        }
 
         public override void displayAnswer()
         {

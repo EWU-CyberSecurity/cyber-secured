@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Assets.Scripts.Topics;
@@ -71,8 +69,8 @@ public class CSVReader
             Assets.Scripts.Topics.Dialogue end = new Assets.Scripts.Topics.Dialogue();
             start.AddDialogue((string)topic["startDialogue"]);
             end.AddDialogue((string)topic["endDialogue"]);
-            nextTopic.items.Add(start);
-            nextTopic.items.Add(end);
+            nextTopic.start = start;
+            nextTopic.end = end;
 
             topics.Add((string)topic["topicID"], nextTopic);
         }
@@ -83,8 +81,7 @@ public class CSVReader
             nextQuestion.questionID = (string)question["questionID"];
             nextQuestion.questionType = (string)question["questionType"];
             nextQuestion.questionText = (string)question["questionText"];
-
-            if (nextQuestion.questionID == "MultiChoice")
+            if (nextQuestion.questionType == "MultiChoice")
             {
                 MultiAnswerSet newAnswers = new MultiAnswerSet();
                 newAnswers.addAnswer((string)question["answer1"], 0);
@@ -97,14 +94,14 @@ public class CSVReader
 
                 nextQuestion.answer = newMulti;
             }
-            else if (nextQuestion.questionID == "FillIn")
+            else if (nextQuestion.questionType == "FillIn")
             {
                 FillInAnswer newFillIn = new FillInAnswer();
                 newFillIn.correctAnswer = (string) question["answer1"];
 
                 nextQuestion.answer = newFillIn;
             }
-            else if (nextQuestion.questionID == "TF")
+            else if (nextQuestion.questionType == "TF")
             {
                 TFAnswer newTF = new TFAnswer();
                 string trueAns = (string)question["answer1"];
@@ -119,13 +116,12 @@ public class CSVReader
 
                 nextQuestion.answer = newTF;
             }
-
             string AssociatedTopicID = (string)question["topicID"];
             // Adds the Question object, which is a TopicItem, into the list
             // for the Topic object
-            topics[AssociatedTopicID].items.Add(nextQuestion);
-        }
+            topics[AssociatedTopicID].AddQuestion(nextQuestion);
 
+        }
         List<Topic> teacherAddedTopics = new List<Topic>(topics.Values);
         return teacherAddedTopics;
     }

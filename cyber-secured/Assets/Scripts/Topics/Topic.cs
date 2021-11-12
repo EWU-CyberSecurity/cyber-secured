@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts.Topics
 {
@@ -9,9 +10,18 @@ namespace Assets.Scripts.Topics
     /// </summary>
     public class Topic
     {
-        public List<TopicItem> items { get; set; }
+        public List<Question> questions = new List<Question>();
+
+        public void AddQuestion(Question q)
+        {
+            Debug.LogWarning("Adding " + q + " to List<Questions> question");
+            this.questions.Add(q);
+        }
+
         public string TopicID { get; set; }
         public string TopicName { get; set; }
+        public Dialogue start { get; set; }
+        public Dialogue end { get; set; }
 
         public void nextItem()
         {

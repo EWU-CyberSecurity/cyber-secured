@@ -12,6 +12,13 @@ namespace Assets.Scripts.Topics
         private List<MultiAnswerSet> answerPool = new List<MultiAnswerSet>(); // all the possible answer sets
         private MultiAnswerSet displayedSet; // the set of answers that is actually displayed
 
+        public List<MultiAnswerSet> getAnswerPool { get; set; }
+ 
+        public MultiAnswerSet getSet()
+        {
+            return answerPool[0];
+        }
+
         public void addAnswerSet(MultiAnswerSet newSet)
         {
             this.answerPool.Add(newSet);
@@ -23,6 +30,13 @@ namespace Assets.Scripts.Topics
             // Maybe this is where displayedSet is set by choosing a random set from the answerPool.
             // Also use ShuffleAnswers to shuffle them, hopefully we can get that
             // to work. 
+
+
+        }
+
+        public override string[] returnAnswer()
+        {
+            return getSet().getAnswer();
         }
 
         // When the button is clicked check if it belongs to the right answer

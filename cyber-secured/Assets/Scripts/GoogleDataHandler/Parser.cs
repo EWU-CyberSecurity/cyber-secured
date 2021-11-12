@@ -1,70 +1,76 @@
-﻿using System;
-using System.Collections;
+﻿using Assets.Scripts.Topics;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Parser : MonoBehaviour
 {
-    private string parTopicSheet;
-    private string parQuestionSheet;
-
-    private readonly int start = 1; //As the sheet row actually starts at the second row, row 0 is headers so we skip that.
+    List<Topic> topicList;
 
     //how to change the text in button 1, GameObject.Find("btn1").GetComponentInChildren<Text>().text = "la di da";
     [SerializeField] public Text questionsPrompt;
+    [SerializeField] public Text topic_name;
+    [SerializeField] public Text topic_id;
+    [SerializeField] public Text question_id;
+
     [SerializeField] public Button btn1;
     [SerializeField] public Button btn2;
     [SerializeField] public Button btn3;
     [SerializeField] public Button btn4;
+    
 
-    private string QuestionPrompt = "What is a virus";
-    private string Answer1 = "A malicious piece of code";
-    private string Answer2 = "A youtube video";
-    private string Answer3 = "A book";
-    private string Answer4 = "a email";
+    private string QuestionPrompt = " ";
+    private string QuestionID = " ";
+    private string QuestionType = " ";
+    private string topicName = " ";
+    private string Answer1 = " ";
+    private string Answer2 = " ";
+    private string Answer3 = " ";
+    private string Answer4 = " ";
 
-    public void ReceivingSheets(string topicsSheet, string questionsSheet)
+    private void readTopicsList(List<Topic> topicsSheet)
     {
-        parQuestionSheet = questionsSheet;
-        parTopicSheet = topicsSheet;
+        foreach (Topic t in topicsSheet)
+        {
+            topicName = t.TopicName;
+            List<Question> ti = t.questions;
+
+            Assets.Scripts.Topics.Dialogue sd = t.start;
+            Assets.Scripts.Topics.Dialogue ed = t.end;
+            foreach (Question q in ti)
+            {
+                QuestionPrompt = q.questionText;
+                QuestionID = q.questionID;
+                QuestionType = q.questionType;
+                if (q.questionType == "MultiChoice")
+                {
+                    Answer a = q.answer;
+                    Answer1 = a.returnAnswer()[0];
+                    Answer2 = a.returnAnswer()[1];
+                    Answer3 = a.returnAnswer()[2];
+                    Answer4 = a.returnAnswer()[3];
+                    DisplayMultiChoiceQuestion(QuestionPrompt, QuestionType, QuestionID, topicName, Answer1, Answer2, Answer3, Answer4);
+                }
+            }
+        }
     }
-
-    private void readQuestionSheet(string topicsSheet)
-    {
-        //skip the first row (headers)
-
-    }
-
-
-    public void Update()
-    {
-        DisplayMutliChoiceQuestion(QuestionPrompt, Answer1, Answer2,Answer3, Answer4);
-    }
-
-    private void DisplayMutliChoiceQuestion(string questionProm, string ans1, string ans2, string ans3, string ans4)
+    
+    private void DisplayMultiChoiceQuestion(string questionProm, string questionType, string questionID, string topic_name, string ans1, string ans2, string ans3, string ans4)
     {
         GameObject.Find("text_question").GetComponentInChildren<Text>().text = questionProm;
+        GameObject.Find("question_id").GetComponentInChildren<Text>().text = questionProm;
+        GameObject.Find("topic_name").GetComponentInChildren<Text>().text = topic_name;
+        GameObject.Find("topic_id").GetComponentInChildren<Text>().text = questionID;
+
         GameObject.Find("btn1").GetComponentInChildren<Text>().text = ans1;
         GameObject.Find("btn2").GetComponentInChildren<Text>().text = ans2;
         GameObject.Find("btn3").GetComponentInChildren<Text>().text = ans3;
         GameObject.Find("btn4").GetComponentInChildren<Text>().text = ans4;
     }
 
-    public void GetSheets(string TopicsObject, string QuestionObject)
+    public void RecieveTopicsList(List<Topic> topics)
     {
-        Debug.LogWarning("1");
-        //Get the files in and saved to their own strings in the class, Start parsing through the sheets.
-        Debug.LogWarning(TopicsObject);
-        Debug.LogWarning(QuestionObject);
+        this.topicList = topics;
+        readTopicsList(topicList);
     }
-
-    /*public void DisplayMutliChoiceQuestion()
-    {
-        GameObject.Find("text_question").GetComponentInChildren<Text>().text = QuestionPrompt;
-        GameObject.Find("btn1").GetComponentInChildren<Text>().text = Answer1;
-        GameObject.Find("btn2").GetComponentInChildren<Text>().text = Answer2;
-        GameObject.Find("btn3").GetComponentInChildren<Text>().text = Answer3;
-        GameObject.Find("btn4").GetComponentInChildren<Text>().text = Answer4;
-    }*/
 }

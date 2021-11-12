@@ -16,6 +16,12 @@ namespace Assets.Scripts.Topics
             // the caesar cipher quiz.
         }
 
+        public override string[] returnAnswer()
+        {
+            string[] s = {correctAnswer};
+            return s;
+        }
+
         public void OnContinueButtonClicked()
         {
             // Check if the text in the input field is the correct answer.
