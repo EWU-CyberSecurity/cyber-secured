@@ -13,6 +13,7 @@ namespace Assets.Scripts.Topics
     /// </summary>
     class Question : TopicItem
     {
+        private GameObject question_box = GameObject.Find("Quiz Components").transform.Find("question_box").gameObject;
         private string question_text;
         private Answer answer;
 
@@ -40,11 +41,14 @@ namespace Assets.Scripts.Topics
         {
             // Here we create the question box and put the text in it.
             // And then call answer.displayAnswer()
-            GameObject root = GameObject.Find("Quiz Components");
-            GameObject question_box = root.transform.Find("question_box").gameObject;
             question_box.transform.Find("Text").GetComponent<Text>().text = question_text;
 
             answer.displayAnswer();
+        }
+
+        public void changeQuestionText(string newText)
+        {
+            question_box.transform.Find("Text").GetComponent<Text>().text = question_text;
         }
     }
 }

@@ -17,28 +17,30 @@ namespace Assets.Scripts.Topics
         private Color disabledCorrectColor = new Color(0.5764706f, 1, 0.5882353f);
         private Color disabledIncorrectColor = new Color(1, 0.5764706f, 0.5764706f);
 
+        private GameObject root = GameObject.Find("Quiz Components").transform.Find("Buttons").gameObject;
+
         private GameObject button1;
         private GameObject button2;
         private GameObject button3;
         private GameObject button4;
 
-        // use this for updating all the buttons in a clean way
+        // use this for updating all
         private GameObject[] buttons;
 
         public MultiAnswer()
         {
             answerPool = new List<MultiAnswerSet>();
 
-            GameObject root = GameObject.Find("Quiz Components").transform.Find("Buttons").gameObject;
-            this.button1 = root.transform.Find("multi_answer_btn_1").gameObject;
-            this.button2 = root.transform.Find("multi_answer_btn_2").gameObject;
-            this.button3 = root.transform.Find("multi_answer_btn_3").gameObject;
-            this.button4 = root.transform.Find("multi_answer_btn_4").gameObject;
+            button1 = root.transform.Find("multi_answer_btn_1").gameObject;
+            button2 = root.transform.Find("multi_answer_btn_2").gameObject;
+            button3 = root.transform.Find("multi_answer_btn_3").gameObject;
+            button4 = root.transform.Find("multi_answer_btn_4").gameObject;
 
-            this.buttons = new GameObject[] { button1, button2, button3, button4};
-        }
+            // use this for updating all the buttons in a clean way
+            buttons = new GameObject[] { button1, button2, button3, button4 };
+    }
 
-        public MultiAnswer(List<MultiAnswerSet> answerPool)
+        public MultiAnswer(List<MultiAnswerSet> answerPool) : this()
         {
             this.answerPool = answerPool;
         }
@@ -52,7 +54,6 @@ namespace Assets.Scripts.Topics
         {
             // Set the text on the four multiple choice buttons. 
             displayedSet = answerPool.ElementAt(Random.Range(0, answerPool.Count));
-
             for (int i = 0; i < buttons.Length; i++)
             {
                 buttons[i].transform.Find("Text").GetComponent<Text>().text = displayedSet.getAnswer(i);
@@ -60,9 +61,10 @@ namespace Assets.Scripts.Topics
         }
 
         // When the button is clicked check if it belongs to the right answer
-        public void onButton1Clicked()
+        public bool onButton1Clicked()
         {
             changeColorsAndDisableButtons();
+            return displayedSet.isAnswerCorrect(0);
         }
 
         private void changeColorsAndDisableButtons()
@@ -78,19 +80,22 @@ namespace Assets.Scripts.Topics
             }
         }
 
-        public void onButton2Clicked()
+        public bool onButton2Clicked()
         {
             changeColorsAndDisableButtons();
+            return displayedSet.isAnswerCorrect(1);
         }
 
-        public void onButton3Clicked()
+        public bool onButton3Clicked()
         {
             changeColorsAndDisableButtons();
+            return displayedSet.isAnswerCorrect(2);
         }
 
-        public void onButton4Clicked()
+        public bool onButton4Clicked()
         {
             changeColorsAndDisableButtons();
+            return displayedSet.isAnswerCorrect(3);
         }
     }
 }

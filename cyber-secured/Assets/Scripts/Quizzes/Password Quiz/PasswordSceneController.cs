@@ -8,13 +8,28 @@ public class PasswordSceneController : MonoBehaviour
     private DialogueManager dialogue;
     private GameObject scn_main;
 
+    public int round; // The current round of the quiz. -1 is a convenient initial value here
+                      // that represents the fact that the quiz has not started. This is set in
+                      // the scn_quiz_password game object.
+
     public int lives;   // when lives = 0, you lose the minigame
 
     // Going to do this without using the Topic class at first. 
     // Also not going to use TopicItem, just the questions. 
     private List<Question> questions = new List<Question>();
     private Question currentQuestion;
-    
+
+    private readonly string[] explanation = {
+        "\"I am infatuated with you\" is much longer and uses spaces. \"I am infatuated with you\" can be improved so it doesn't have words; Eg: \"i^m infat 2 ated w/ y0u\"",
+        "Since \"2 b OR !tuby\" uses numbers, capital and lowercase letters, and symbols, it is more complex than the other passwords.",
+        "\"RoundRobin\" is the worst of these options because a hacker could assume the bank's name was used in the password somehow because it is easy to remember.",
+        "\"H20 b@ttle\" cannot be found in the dictionary, and seems more random than the others. dihydrogenmonoxide can be strong because of length, but it's technically a 2-word combo.",
+        "A Password Manager is secure software that handles your passwords for you. Helping your co-worker remember his password is better than leaving a password in readable form."
+    };
+
+    private readonly string[] affirmation = { "Bingo! ", "That's correct! ", "Good job. ", "You got it. ", "Nice work. " };
+    private readonly string[] disdain = { "That's not it :( ", "That's incorrect! ", "Actually... ", "There's a better answer. ", "Try again! " };
+
     // Use this for initialization
     void Awake()
     {
@@ -44,43 +59,72 @@ public class PasswordSceneController : MonoBehaviour
         dialogue = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
     }
 
+    void Start()
+    {
+        lives = 3;
+    }
+
     public void nextQuestion()
     {
-        currentQuestion = currentQuestion == null
-            ? questions.ElementAt(0) 
-            : questions.ElementAt(questions.IndexOf(currentQuestion) + 1);
-
+        // this quiz is all questions, so that's why this variable isn't called currentItem or something.
+        round++;
+        currentQuestion = questions.ElementAt(round);
         currentQuestion.startItem();
     }
 
     public void onMultiAnswerButton1Clicked()
     {
-        // if this button was clicked we can assume that the current answer is a MultiAnswer
+        // if this button was clicked we can assume that the current answer is a MultiAnswer.
+        // Todo remove this code duplication.
+        // There only needs to be a single method for handling a multi answer button click.
         MultiAnswer currentAnswer = (MultiAnswer)currentQuestion.getAnswer();
-        currentAnswer.onButton1Clicked();
+        bool correct = currentAnswer.onButton1Clicked();
+        displayAnswerFeedback(correct);
     }
 
     public void onMultiAnswerButton2Clicked()
     {
         MultiAnswer currentAnswer = (MultiAnswer)currentQuestion.getAnswer();
-        currentAnswer.onButton2Clicked();
+        bool correct = currentAnswer.onButton2Clicked();
+        displayAnswerFeedback(correct);
     }
 
     public void onMultiAnswerButton3Clicked()
     {
         MultiAnswer currentAnswer = (MultiAnswer)currentQuestion.getAnswer();
-        currentAnswer.onButton3Clicked();
+        bool correct = currentAnswer.onButton3Clicked();
+        displayAnswerFeedback(correct);
     }
 
     public void onMultiAnswerButton4Clicked()
     {
         MultiAnswer currentAnswer = (MultiAnswer)currentQuestion.getAnswer();
-        currentAnswer.onButton4Clicked();
+        bool correct = currentAnswer.onButton4Clicked();
+        displayAnswerFeedback(correct);
     }
 
-    void Start()
+    public void displayAnswerFeedback(bool correct)
     {
-        lives = 3;
+        int random = Random.Range(0, 5);
+
+        if (correct)
+        {
+            // play a beep sound
+            GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);
+
+            currentQuestion.changeQuestionText(affirmation[random] + explanation[round]);
+
+            // increase NP by 2
+            GameControllerV2.Instance.IncreaseNP(2);
+        }
+        else
+        {
+            // play a beep sound
+            GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(2);
+
+            GameObject.Find("scn_quiz_password").GetComponent<PasswordSceneController>().DecreaseLife();
+            currentQuestion.changeQuestionText(disdain[random] + explanation[round]);
+        }
     }
 
     public void DecreaseLife()
