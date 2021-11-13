@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-
     public Text text;
 
     public bool correct;
