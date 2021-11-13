@@ -55,6 +55,7 @@ public class OneTimePadQuizManager : MonoBehaviour {
         button_menu.SetActive(false);// no need for this button in the quiz
         squares_random.SetActive(true);
         generalQuestion.SetActive(false);
+        GameObject.Find("btn_exit_dialogue").SetActive(true);
     }
 
     // proceed to next question
