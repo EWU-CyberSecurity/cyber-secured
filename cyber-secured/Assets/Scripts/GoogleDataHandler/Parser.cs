@@ -42,14 +42,23 @@ public class Parser : MonoBehaviour
                 QuestionPrompt = q.questionText;
                 QuestionID = q.questionID;
                 QuestionType = q.questionType;
+                Answer a = q.answer;
                 if (q.questionType == "MultiChoice")
                 {
-                    Answer a = q.answer;
                     Answer1 = a.returnAnswer()[0];
                     Answer2 = a.returnAnswer()[1];
                     Answer3 = a.returnAnswer()[2];
                     Answer4 = a.returnAnswer()[3];
                     DisplayMultiChoiceQuestion(QuestionPrompt, QuestionType, QuestionID, topicName, Answer1, Answer2, Answer3, Answer4);
+                } else if (q.questionType == "FillIn")
+                {
+                    Answer1 = a.returnAnswer()[0];
+                    DisplayFillInQuestion(QuestionPrompt, QuestionType, QuestionID, topicName, Answer1);
+                } else
+                {
+                    Answer1 = a.returnAnswer()[0];
+                    Answer2 = a.returnAnswer()[1];
+                    DisplayTFQuestion(QuestionPrompt, QuestionType, QuestionID, topicName, Answer1, Answer2);
                 }
             }
         }
@@ -66,6 +75,27 @@ public class Parser : MonoBehaviour
         GameObject.Find("btn2").GetComponentInChildren<Text>().text = ans2;
         GameObject.Find("btn3").GetComponentInChildren<Text>().text = ans3;
         GameObject.Find("btn4").GetComponentInChildren<Text>().text = ans4;
+    }
+
+    private void DisplayFillInQuestion(string questionProm, string questionType, string questionID, string topic_name, string ans)
+    {
+        GameObject.Find("text_question").GetComponentInChildren<Text>().text = questionProm;
+        GameObject.Find("question_id").GetComponentInChildren<Text>().text = questionProm;
+        GameObject.Find("topic_name").GetComponentInChildren<Text>().text = topic_name;
+        GameObject.Find("topic_id").GetComponentInChildren<Text>().text = questionID;
+
+        GameObject.Find("btn1").GetComponentInChildren<Text>().text = ans;
+    }
+
+    private void DisplayTFQuestion(string questionProm, string questionType, string questionID, string topic_name, string ans1, string ans2)
+    {
+        GameObject.Find("text_question").GetComponentInChildren<Text>().text = questionProm;
+        GameObject.Find("question_id").GetComponentInChildren<Text>().text = questionProm;
+        GameObject.Find("topic_name").GetComponentInChildren<Text>().text = topic_name;
+        GameObject.Find("topic_id").GetComponentInChildren<Text>().text = questionID;
+
+        GameObject.Find("btn1").GetComponentInChildren<Text>().text = ans1;
+        GameObject.Find("btn2").GetComponentInChildren<Text>().text = ans2;
     }
 
     public void RecieveTopicsList(List<Topic> topics)
