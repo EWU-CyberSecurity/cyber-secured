@@ -52,10 +52,11 @@ namespace Assets.Scripts.Topics
 
         public override void displayAnswer()
         {
-            // Set the text on the four multiple choice buttons. 
+            // Set the text on the four multiple choice buttons. Also set them to intractable again. 
             displayedSet = answerPool.ElementAt(Random.Range(0, answerPool.Count));
             for (int i = 0; i < buttons.Length; i++)
             {
+                buttons[i].GetComponent<Button>().interactable = true;
                 buttons[i].transform.Find("Text").GetComponent<Text>().text = displayedSet.getAnswer(i);
             }
         }

@@ -33,16 +33,7 @@ public class PasswordSceneController : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        Question question1 = new Question("Which password is hardest to crack?");
-        MultiAnswer answer1 = new MultiAnswer();
-        MultiAnswerSet answerSet1 = new MultiAnswerSet("I am infatuated with you",
-                                                "eyeluvewe",
-                                                "ILoooveYou",
-                                                "I<3You", new[] {0});
-        answer1.addToAnswerPool(answerSet1);
-        question1.setAnswer(answer1);
-
-        questions.Add(question1);
+        setUpQuestions();
 
         // displays opening text
         GameObject.Find("dlg_password_intro").GetComponent<DialogueTrigger>().TriggerDialogue();
@@ -57,6 +48,68 @@ public class PasswordSceneController : MonoBehaviour
 
         //Get an access to the DialogueManager script to manage the demonstration according to the line displayed:
         dialogue = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+    }
+
+    private void setUpQuestions()
+    {
+        Question question1 = new Question("Which password is hardest to crack?");
+        MultiAnswer answer1 = new MultiAnswer();
+        MultiAnswerSet answerSet1 = new MultiAnswerSet("I am infatuated with you",
+            "eyeluvewe",
+            "ILoooveYou",
+            "I<3You", new[] { 0 });
+
+        answer1.addToAnswerPool(answerSet1);
+        question1.setAnswer(answer1);
+
+        questions.Add(question1);
+
+        Question question2 = new Question("Which of these 12 character long passwords is the hardest to brute force?");
+        MultiAnswer answer2 = new MultiAnswer();
+        MultiAnswerSet answerSet2 = new MultiAnswerSet("2 b OR !tuby",
+            "1-8002446227",
+            "abcdefghijkl",
+            "qwertyuiop[]", new[] { 0 });
+        
+        answer2.addToAnswerPool(answerSet2);
+        question2.setAnswer(answer2);
+        questions.Add(question2);
+
+        Question question3 = new Question("You need a new strong password for your Robin bank account. Which password would be the WORST to use?");
+        MultiAnswer answer3 = new MultiAnswer();
+        MultiAnswerSet answerSet3 = new MultiAnswerSet("RoundRobin",
+            "RoundCactus",
+            "RoundLemur",
+            "RoundCircle", new[] { 0 });
+
+        answer3.addToAnswerPool(answerSet3);
+        question3.setAnswer(answer3);
+        questions.Add(question3);
+
+        Question question4 = new Question("Suppose your password is \"waterbottle\"," +
+                                          " and you want to make it more secure. Which password would be the best " +
+                                          " improvement to security?");
+        MultiAnswer answer4 = new MultiAnswer();
+        MultiAnswerSet answerSet4 = new MultiAnswerSet("H20 b@ttle",
+            "waterbottle!",
+            "water bottle",
+            "dihydrogenmonoxide", new[] { 0, 3 });
+
+        answer4.addToAnswerPool(answerSet4);
+        question4.setAnswer(answer4);
+        questions.Add(question4);
+
+        Question question5 = new Question("You know your co-worker writes his password down because it is very" +
+                                          " complicated and hard to remember. What could you suggest to him to do instead?");
+        MultiAnswer answer5 = new MultiAnswer();
+        MultiAnswerSet answerSet5 = new MultiAnswerSet("Password Manager",
+            "Make a new password",
+            "Create mnenomic",
+            "Store in .txt file", new[] { 0, 1, 2 });
+
+        answer5.addToAnswerPool(answerSet5);
+        question5.setAnswer(answer5);
+        questions.Add(question5);
     }
 
     void Start()
@@ -158,4 +211,41 @@ public class PasswordSceneController : MonoBehaviour
             Destroy(this);
         }
     }
+
+    /*public void nextSet()
+    {
+        next.SetActive(false);
+
+        if (i < 5)
+        {
+            questions[i].SetActive(false);
+            if (i != 4)
+            {
+                questions[i + 1].SetActive(true);
+                i++;
+            }
+            else
+            {
+                // done with quiz, succeeded in not failing
+                // glitch screen
+                GameObject.FindObjectOfType<GlitchCamera>().StartGlitch();
+                GameObject.Find("dlg_quiz_success").GetComponent<DialogueTrigger>().TriggerDialogue();
+
+                // reward for completion
+                GameControllerV2.Instance.current_decision_text = "Your employees learn to create a good password. " +
+                                                                  "<i>Error rate has decreased.</i>";
+                // error rate decreased by 5-10%
+                // TODO: may need adjustments
+                float rand_er = Random.Range(0.05f, 0.1f);
+                GameControllerV2.Instance.DecreaseErrorRate(rand_er);
+
+                // deactivate quiz, and display results
+                GameControllerV2.Instance.scn_quiz_password.SetActive(false);
+                GameControllerV2.Instance.DisplayDecision();
+                GameControllerV2.Instance.scn_main.SetActive(true);
+
+                audioController.PlayGameMusic();
+            }
+        }
+    }*/
 }

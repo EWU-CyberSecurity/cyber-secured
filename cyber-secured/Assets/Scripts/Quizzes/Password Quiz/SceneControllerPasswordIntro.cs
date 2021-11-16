@@ -20,18 +20,18 @@ public class SceneControllerPasswordIntro : MonoBehaviour {
         // glitch screen
         GameObject.FindObjectOfType<GlitchCamera>().StartGlitch();
         scene_controller.GetComponent<PasswordSceneController>().nextQuestion();
-
+        AudioControllerV2 audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
 
         // Set these to be active first so that the player can't see
         // them being shuffled. 
         buttons.SetActive(true);
         question_box.SetActive(true);
-        continue_button.SetActive(true);
         hint_button.SetActive(true);
         quiz_start_dialogue.SetActive(true);
 
         password_intro.SetActive(false);
 
+        audioController.PlayQuizMusic();
         //quiz_start_dialogue.GetComponent<DialogueTrigger>().TriggerDialogue();
     }
 }

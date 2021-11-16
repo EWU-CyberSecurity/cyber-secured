@@ -52805,7 +52805,6 @@ GameObject:
   - component: {fileID: 1664950881}
   - component: {fileID: 1664950880}
   - component: {fileID: 1664950879}
-  - component: {fileID: 1664950882}
   m_Layer: 5
   m_Name: Continue_button
   m_TagString: Untagged
@@ -52873,8 +52872,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664950882}
-        m_MethodName: nextSet
+      - m_Target: {fileID: 646155943}
+        m_MethodName: nextQuestion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -52919,21 +52918,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664950876}
   m_CullTransparentMesh: 0
---- !u!114 &1664950882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664950876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c90e44b04b4da942abeab3b3a870310, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questions: []
-  next: {fileID: 1664950876}
-  i: 0
 --- !u!1 &1674897762
 GameObject:
   m_ObjectHideFlags: 0
@@ -59555,7 +59539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1881410882
 RectTransform:
   m_ObjectHideFlags: 0

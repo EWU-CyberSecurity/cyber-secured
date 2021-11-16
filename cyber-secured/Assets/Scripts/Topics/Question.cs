@@ -37,6 +37,8 @@ namespace Assets.Scripts.Topics
         {
             // Here we create the question box and put the text in it.
             // And then call answer.displayAnswer()
+            hideContinueButton();
+
             questionBox.transform.Find("Text").GetComponent<Text>().text = questionText;
 
             answer.displayAnswer();
@@ -50,6 +52,11 @@ namespace Assets.Scripts.Topics
         public void showContinueButton()
         {
             continueButton.SetActive(true);
+        }
+
+        public void hideContinueButton()
+        {
+            continueButton.SetActive(false);
         }
     }
 }
