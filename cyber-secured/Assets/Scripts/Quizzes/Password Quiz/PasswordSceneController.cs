@@ -119,10 +119,36 @@ public class PasswordSceneController : MonoBehaviour
 
     public void nextQuestion()
     {
-        // this quiz is all questions, so that's why this variable isn't called currentItem or something.
         round++;
-        currentQuestion = questions.ElementAt(round);
-        currentQuestion.startItem();
+        // if the quiz is over then the continue button ends it otherwise go to the next question
+        if (round == questions.Count)
+        {
+            // the quiz is complete
+            GameObject.FindObjectOfType<GlitchCamera>().StartGlitch();
+            GameObject.Find("dlg_quiz_success").GetComponent<DialogueTrigger>().TriggerDialogue();
+
+            // reward for completion
+            GameControllerV2.Instance.current_decision_text = "Your employees learn to create a good password. " +
+                                                              "<i>Error rate has decreased.</i>";
+            // error rate decreased by 5-10%
+            // TODO: may need adjustments
+            float rand_er = Random.Range(0.05f, 0.1f);
+            GameControllerV2.Instance.DecreaseErrorRate(rand_er);
+
+            // deactivate quiz, and display results
+            GameControllerV2.Instance.scn_quiz_password.SetActive(false);
+            GameControllerV2.Instance.DisplayDecision();
+            GameControllerV2.Instance.scn_main.SetActive(true);
+
+            AudioControllerV2 audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
+            audioController.PlayGameMusic();
+        }
+        else
+        {
+            // this quiz is all questions, so that's why this variable isn't called currentItem or something.
+            currentQuestion = questions.ElementAt(round);
+            currentQuestion.startItem();
+        }
     }
 
     public void onMultiAnswerButton1Clicked()
@@ -211,41 +237,4 @@ public class PasswordSceneController : MonoBehaviour
             Destroy(this);
         }
     }
-
-    /*public void nextSet()
-    {
-        next.SetActive(false);
-
-        if (i < 5)
-        {
-            questions[i].SetActive(false);
-            if (i != 4)
-            {
-                questions[i + 1].SetActive(true);
-                i++;
-            }
-            else
-            {
-                // done with quiz, succeeded in not failing
-                // glitch screen
-                GameObject.FindObjectOfType<GlitchCamera>().StartGlitch();
-                GameObject.Find("dlg_quiz_success").GetComponent<DialogueTrigger>().TriggerDialogue();
-
-                // reward for completion
-                GameControllerV2.Instance.current_decision_text = "Your employees learn to create a good password. " +
-                                                                  "<i>Error rate has decreased.</i>";
-                // error rate decreased by 5-10%
-                // TODO: may need adjustments
-                float rand_er = Random.Range(0.05f, 0.1f);
-                GameControllerV2.Instance.DecreaseErrorRate(rand_er);
-
-                // deactivate quiz, and display results
-                GameControllerV2.Instance.scn_quiz_password.SetActive(false);
-                GameControllerV2.Instance.DisplayDecision();
-                GameControllerV2.Instance.scn_main.SetActive(true);
-
-                audioController.PlayGameMusic();
-            }
-        }
-    }*/
 }
