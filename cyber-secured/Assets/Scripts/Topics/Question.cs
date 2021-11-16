@@ -8,17 +8,18 @@ namespace Assets.Scripts.Topics
     /// </summary>
     class Question : TopicItem
     {
-        private GameObject question_box = GameObject.Find("Quiz Components").transform.Find("question_box").gameObject;
-        private string question_text;
+        private GameObject questionBox = GameObject.Find("Quiz Components").transform.Find("question_box").gameObject;
+        private GameObject continueButton = GameObject.Find("Quiz Components").transform.Find("Continue_button").gameObject;
+        private string questionText;
         private Answer answer;
 
         public Question(string question_text)
         {
-            this.question_text = question_text;
+            this.questionText = question_text;
         }
         public Question(string questionText, Answer answer)
         {
-            this.question_text = questionText;
+            this.questionText = questionText;
             this.answer = answer;
         }
 
@@ -36,14 +37,19 @@ namespace Assets.Scripts.Topics
         {
             // Here we create the question box and put the text in it.
             // And then call answer.displayAnswer()
-            question_box.transform.Find("Text").GetComponent<Text>().text = question_text;
+            questionBox.transform.Find("Text").GetComponent<Text>().text = questionText;
 
             answer.displayAnswer();
         }
 
         public void changeQuestionText(string newText)
         {
-            question_box.transform.Find("Text").GetComponent<Text>().text = newText;
+            questionBox.transform.Find("Text").GetComponent<Text>().text = newText;
+        }
+
+        public void showContinueButton()
+        {
+            continueButton.SetActive(true);
         }
     }
 }

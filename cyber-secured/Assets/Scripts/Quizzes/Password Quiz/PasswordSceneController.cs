@@ -74,32 +74,28 @@ public class PasswordSceneController : MonoBehaviour
 
     public void onMultiAnswerButton1Clicked()
     {
-        // if this button was clicked we can assume that the current answer is a MultiAnswer.
-        // Todo remove this code duplication.
-        // There only needs to be a single method for handling a multi answer button click.
-        MultiAnswer currentAnswer = (MultiAnswer)currentQuestion.getAnswer();
-        bool correct = currentAnswer.onButton1Clicked();
+        // Once again we know that this is a multi answer question.
+        // These methods could be refactored to just have one function with
+        // an argument and a switch statement.
+        bool correct = ((MultiAnswer) currentQuestion.getAnswer()).onButton1Clicked();
         displayAnswerFeedback(correct);
     }
 
     public void onMultiAnswerButton2Clicked()
     {
-        MultiAnswer currentAnswer = (MultiAnswer)currentQuestion.getAnswer();
-        bool correct = currentAnswer.onButton2Clicked();
+        bool correct = ((MultiAnswer)currentQuestion.getAnswer()).onButton2Clicked();
         displayAnswerFeedback(correct);
     }
 
     public void onMultiAnswerButton3Clicked()
     {
-        MultiAnswer currentAnswer = (MultiAnswer)currentQuestion.getAnswer();
-        bool correct = currentAnswer.onButton3Clicked();
+        bool correct = ((MultiAnswer)currentQuestion.getAnswer()).onButton3Clicked();
         displayAnswerFeedback(correct);
     }
 
     public void onMultiAnswerButton4Clicked()
     {
-        MultiAnswer currentAnswer = (MultiAnswer)currentQuestion.getAnswer();
-        bool correct = currentAnswer.onButton4Clicked();
+        bool correct = ((MultiAnswer)currentQuestion.getAnswer()).onButton4Clicked();
         displayAnswerFeedback(correct);
     }
 
@@ -125,6 +121,8 @@ public class PasswordSceneController : MonoBehaviour
             GameObject.Find("scn_quiz_password").GetComponent<PasswordSceneController>().DecreaseLife();
             currentQuestion.changeQuestionText(disdain[random] + explanation[round]);
         }
+
+        currentQuestion.showContinueButton();
     }
 
     public void DecreaseLife()
