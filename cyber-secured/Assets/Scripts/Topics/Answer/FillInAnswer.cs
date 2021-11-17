@@ -14,6 +14,8 @@ namespace Assets.Scripts.Topics
             // Move the input field and continue button (plus anything else that's needed)
             // to the right place. There is an example of this kind of thing happening in
             // the caesar cipher quiz.
+
+            
         }
 
         public override string[] returnAnswer()
@@ -25,6 +27,16 @@ namespace Assets.Scripts.Topics
         public void OnContinueButtonClicked()
         {
             // Check if the text in the input field is the correct answer.
+        }
+
+        public bool CheckInputtedAnswer(string uiString)
+        {
+            if (uiString.ToLower().Equals(correctAnswer.ToLower()))
+            {
+                return true;
+            }
+            
+            return false;
         }
     }
 }

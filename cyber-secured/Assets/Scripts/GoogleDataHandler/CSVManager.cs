@@ -10,6 +10,7 @@ public class CSVManager : MonoBehaviour
 {
     private string topicSheet;
     private string questionSheet;
+    List<Topic> topics;
 
     public Parser parser;
 
@@ -34,8 +35,7 @@ public class CSVManager : MonoBehaviour
 
         Debug.LogWarning("Finished Downloading");
         CSVReader csvReader = new CSVReader();
-        List<Topic> topics = csvReader.createListTopic(questionSheet, topicSheet);
-
+        topics = csvReader.createListTopic(questionSheet, topicSheet);
         parser.RecieveTopicsList(topics);
     }
 
