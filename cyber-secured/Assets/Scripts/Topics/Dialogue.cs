@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Topics
 {
-    class Dialogue : TopicItem
+    public class Dialogue : TopicItem
     {
-        private string[] sentences { get; set; }
+        public string[] sentences { get; set; }
+
+        public void AddDialogue(string Dialogue)
+        {
+            string[] result = Dialogue.Split('.');
+            this.sentences = result;
+        }
 
         public override void startItem()
         {

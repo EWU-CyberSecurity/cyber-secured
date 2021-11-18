@@ -18,18 +18,6 @@ public class DisplayQuestionAnswer : MonoBehaviour
     private string Answer3 = "A book";
     private string Answer4 = "a email";
     
-    public void ReceivingLists()
-    {
-
-    }
-
-    public void Update()
-    {
-        DisplayMultiChoiceQuestion(QuestionPrompt, Answer1, Answer2,Answer3, Answer4);
-        DisplayFillInQuestion(QuestionPrompt, Answer1, Answer2, Answer3, Answer4);
-        DisplayTrueFalseQuestion(QuestionPrompt, Answer1, Answer2);
-    }
-    
     public void DisplayMultiChoiceQuestion(string questionProm, string ans1, string ans2, string ans3, string ans4)
     {
         GameObject.Find("text_question").GetComponentInChildren<Text>().text = questionProm;

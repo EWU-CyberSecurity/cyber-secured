@@ -13,6 +13,9 @@ namespace Assets.Scripts.Topics
         private string questionText;
         private Answer answer;
 
+        public string questionType { get; set; }
+        public string questionID { get; set; }
+
         public Question(string question_text)
         {
             this.questionText = question_text;
@@ -21,6 +24,11 @@ namespace Assets.Scripts.Topics
         {
             this.questionText = questionText;
             this.answer = answer;
+        }
+
+        public string getQuestionText()
+        {
+            return this.questionText;
         }
 
         public void setAnswer(Answer answer)
@@ -39,7 +47,7 @@ namespace Assets.Scripts.Topics
             // And then call answer.displayAnswer()
             hideContinueButton();
 
-            questionBox.transform.Find("Text").GetComponent<Text>().text = questionText;
+            changeQuestionText(questionText);
 
             answer.displayAnswer();
         }
