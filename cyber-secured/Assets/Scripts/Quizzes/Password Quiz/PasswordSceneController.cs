@@ -52,82 +52,78 @@ public class PasswordSceneController : MonoBehaviour
 
     private void setUpQuestions()
     {
-        Question question1 = new Question("Which password is hardest to crack?");
-        MultiAnswer answer1 = new MultiAnswer();
-        MultiAnswerSet answerSet1 = new MultiAnswerSet(
-                "I am infatuated with you", "eyeluvewe",
-                "ILoooveYou", "I<3You", new[] { 0 }
-            );
+        Question questionToAdd = new Question("Which password is hardest to crack?");
+        MultiAnswer answerToAdd = new MultiAnswer();
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "I am infatuated with you", "eyeluvewe",
+            "ILoooveYou", "I<3You", new[] { 0 }
+        ));
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "numbers one to ten", "12345678910",
+            "one2ten", "0nly_nUmb3rs", new[] { 0 }
+        ));
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "Nobody expects the Spanish Inquisition!", "A k1ll3r r@bbit!",
+            "Knights who say NI", "FleshWound1975", new[] { 0 }
+        ));
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "Unl0ck the Door!", "password",
+            "this_is_my_password", "1 g00d p@ssword!", new[] { 0 }
+        ));
+        questionToAdd.setAnswer(answerToAdd);
 
-        MultiAnswerSet answerSet2 = new MultiAnswerSet(
-                "numbers one to ten", "12345678910",
-                "one2ten", "0nly_nUmb3rs", new[] { 0 }
-            );
+        questions.Add(questionToAdd);
 
-        MultiAnswerSet answerSet3 = new MultiAnswerSet(
-                "Nobody expects the Spanish Inquisition!", "A k1ll3r r@bbit!",
-                "Knights who say NI", "FleshWound1975", new []{ 0 }
-            );
+        questionToAdd = new Question("Which of these 12 character long passwords is the hardest to brute force?");
+        answerToAdd = new MultiAnswer();
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+                "2 b OR !tuby",
+                "1-8002446227",
+                "abcdefghijkl",
+                "qwertyuiop[]", new[] { 0 }
+            ));
 
-        MultiAnswerSet answerSet4 = new MultiAnswerSet(
-                "Unl0ck the Door!", "password",
-                "this_is_my_password", "1 g00d p@ssword!", new []{ 0 }
-            );
+        questionToAdd.setAnswer(answerToAdd);
+        questions.Add(questionToAdd);
 
-        answer1.addToAnswerPool(answerSet1);
-        answer1.addToAnswerPool(answerSet2);
-        answer1.addToAnswerPool(answerSet3);
-        answer1.addToAnswerPool(answerSet4);
-        question1.setAnswer(answer1);
-
-        questions.Add(question1);
-
-        Question question2 = new Question("Which of these 12 character long passwords is the hardest to brute force?");
-        MultiAnswer answer2 = new MultiAnswer();
-        MultiAnswerSet answerSet5 = new MultiAnswerSet("2 b OR !tuby",
-            "1-8002446227",
-            "abcdefghijkl",
-            "qwertyuiop[]", new[] { 0 });
-        
-        answer2.addToAnswerPool(answerSet5);
-        question2.setAnswer(answer2);
-        questions.Add(question2);
-
-        Question question3 = new Question("You need a new strong password for your Robin bank account. Which password would be the WORST to use?");
-        MultiAnswer answer3 = new MultiAnswer();
-        MultiAnswerSet answerSet6 = new MultiAnswerSet("RoundRobin",
+        questionToAdd = new Question("You need a new strong password for your Robin bank account. Which password would be the WORST to use?");
+        answerToAdd = new MultiAnswer();
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "RoundRobin",
             "RoundCactus",
             "RoundLemur",
-            "RoundCircle", new[] { 0 });
+            "RoundCircle", new[] { 0 }
+        ));
 
-        answer3.addToAnswerPool(answerSet6);
-        question3.setAnswer(answer3);
-        questions.Add(question3);
+        questionToAdd.setAnswer(answerToAdd);
+        questions.Add(questionToAdd);
 
-        Question question4 = new Question("Suppose your password is \"waterbottle\"," +
+        questionToAdd = new Question("Suppose your password is \"waterbottle\"," +
                                           " and you want to make it more secure. Which password would be the best " +
                                           " improvement to security?");
-        MultiAnswer answer4 = new MultiAnswer();
-        MultiAnswerSet answerSet7 = new MultiAnswerSet("H20 b@ttle",
+        answerToAdd = new MultiAnswer();
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "H20 b@ttle",
             "waterbottle!",
             "water bottle",
-            "dihydrogenmonoxide", new[] { 0, 3 });
+            "dihydrogenmonoxide", new[] { 0, 3 }
+        ));
 
-        answer4.addToAnswerPool(answerSet7);
-        question4.setAnswer(answer4);
-        questions.Add(question4);
+        questionToAdd.setAnswer(answerToAdd);
+        questions.Add(questionToAdd);
 
-        Question question5 = new Question("You know your co-worker writes his password down because it is very" +
+        questionToAdd = new Question("You know your co-worker writes his password down because it is very" +
                                           " complicated and hard to remember. What could you suggest to him to do instead?");
-        MultiAnswer answer5 = new MultiAnswer();
-        MultiAnswerSet answerSet8 = new MultiAnswerSet("Password Manager",
+        answerToAdd = new MultiAnswer();
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "Password Manager",
             "Make a new password",
             "Create mnenomic",
-            "Store in .txt file", new[] { 0, 1, 2 });
+            "Store in .txt file", new[] { 0, 1, 2 }
+        ));
 
-        answer5.addToAnswerPool(answerSet8);
-        question5.setAnswer(answer5);
-        questions.Add(question5);
+        questionToAdd.setAnswer(answerToAdd);
+        questions.Add(questionToAdd);
     }
 
     void Start()
