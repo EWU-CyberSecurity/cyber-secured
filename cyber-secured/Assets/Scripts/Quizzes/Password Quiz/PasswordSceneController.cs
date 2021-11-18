@@ -70,6 +70,7 @@ public class PasswordSceneController : MonoBehaviour
             "Unl0ck the Door!", "password",
             "this_is_my_password", "1 g00d p@ssword!", new[] { 0 }
         ));
+
         questionToAdd.setAnswer(answerToAdd);
 
         questions.Add(questionToAdd);
@@ -77,11 +78,32 @@ public class PasswordSceneController : MonoBehaviour
         questionToAdd = new Question("Which of these 12 character long passwords is the hardest to brute force?");
         answerToAdd = new MultiAnswer();
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
-                "2 b OR !tuby",
-                "1-8002446227",
-                "abcdefghijkl",
-                "qwertyuiop[]", new[] { 0 }
-            ));
+            "2 b OR !tuby",
+            "1-8002446227",
+            "abcdefghijkl",
+            "qwertyuiop[]", new[] { 0 }
+        ));
+
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "a green sign",
+            "174-01011118",
+            "+ one Quest!",
+            "qrstuvwxyz[]", new[] { 2 }
+        ));
+
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "a fruit xbox",
+            "187-55503645",
+            "N1ne Four #s",
+            "defghijklm[]", new[] { 2 }
+        ));
+
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "! 2 m@ny #'s",
+            "248163264128",
+            "goodPassword",
+            "qwert1234567", new[] { 0 }
+        ));
 
         questionToAdd.setAnswer(answerToAdd);
         questions.Add(questionToAdd);
@@ -95,18 +117,52 @@ public class PasswordSceneController : MonoBehaviour
             "RoundCircle", new[] { 0 }
         ));
 
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "RoundRobin",
+            "RoundTires",
+            "RoundMonkey",
+            "RoundShape", new[] { 0 }
+        ));
+
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "RoundRobin",
+            "RoundStone",
+            "RoundPanda",
+            "RoundStars", new[] { 0 }
+        ));
+
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "RoundRobin",
+            "RoundPlant",
+            "RoundFlower",
+            "RoundGlasses", new[] { 0 }
+        ));
+
         questionToAdd.setAnswer(answerToAdd);
         questions.Add(questionToAdd);
 
         questionToAdd = new Question("Suppose your password is \"waterbottle\"," +
-                                          " and you want to make it more secure. Which password would be the best " +
-                                          " improvement to security?");
+                                          " and you want to make it more secure. What could you change it to?");
         answerToAdd = new MultiAnswer();
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "H20 b@ttle",
             "waterbottle!",
             "water bottle",
             "dihydrogenmonoxide", new[] { 0, 3 }
+        ));
+
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "bottle o' H20",
+            "WaterBottle!",
+            "water_bottle",
+            "twohydrogensoneoxygen", new[] { 0, 3 }
+        ));
+
+        answerToAdd.addToAnswerPool(new MultiAnswerSet(
+            "H20 in b@ttle",
+            "WATERBOTTLE",
+            "waterbottle10!",
+            "hydrogenandoxygen", new[] { 0, 3 }
         ));
 
         questionToAdd.setAnswer(answerToAdd);
