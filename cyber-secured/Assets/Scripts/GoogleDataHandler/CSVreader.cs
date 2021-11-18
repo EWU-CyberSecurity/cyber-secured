@@ -50,7 +50,7 @@ public class CSVreader : MonoBehaviour
 
     // Takes in the strings of Google sheet CSV's containing the questions and topics
     // and returns a list of Topic objects representing the topics
-    public List<Topic> createListTopic(string questionsCSV, string topicsCSV)
+    List<Topic> createListTopic(string questionsCSV, string topicsCSV)
     {
         List<Dictionary<string, object>> questionsData = Read(questionsCSV);
         List<Dictionary<string, object>> topicData = Read(topicsCSV);
@@ -77,7 +77,8 @@ public class CSVreader : MonoBehaviour
         foreach (Dictionary<string, object> question in questionsData)
         {
             Question nextQuestion = new Question((string)question["questionText"]);
-            
+            nextQuestion.questionType = (string)question["questionType"];
+
             if (nextQuestion.questionType == "MultiChoice")
             {
                 string ans1 = (string)question["answer1"];
@@ -107,7 +108,7 @@ public class CSVreader : MonoBehaviour
             {
                 FillInAnswer newFillIn = new FillInAnswer((string)question["answer1"]);
                 
-                nextQuestion.answer = newFillIn;
+                nextQuestion.setAnswer(newFillIn);
             }
             else if (nextQuestion.questionType == "TF")
             {
@@ -122,7 +123,7 @@ public class CSVreader : MonoBehaviour
                     newTF.isTrue = false;
                 }
 
-                nextQuestion.answer = newTF;
+                nextQuestion.setAnswer(newTF);
             }
             string AssociatedTopicID = (string)question["topicID"];
             // Adds the Question object, which is a TopicItem, into the list

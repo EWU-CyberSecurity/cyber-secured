@@ -7,7 +7,7 @@ namespace Assets.Scripts.Topics
     /// </summary>
     class TFAnswer : Answer
     {
-        private bool isTrue;
+        public bool isTrue { get; set; }
 
         public void onTrueClicked()
         {
