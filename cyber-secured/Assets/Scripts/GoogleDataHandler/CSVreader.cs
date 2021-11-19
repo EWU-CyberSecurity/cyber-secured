@@ -107,7 +107,6 @@ public class CSVReader : MonoBehaviour
             else if (nextQuestion.questionType == "FillIn")
             {
                 FillInAnswer newFillIn = new FillInAnswer((string)question["answer1"]);
-
                 nextQuestion.setAnswer(newFillIn);
             }
             else if (nextQuestion.questionType == "TF")
