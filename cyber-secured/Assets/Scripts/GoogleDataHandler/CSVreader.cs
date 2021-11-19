@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Assets.Scripts.Topics;
 
-public class CSVreader : MonoBehaviour
+public class CSVReader : MonoBehaviour
 {
     static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
     static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
@@ -50,7 +50,7 @@ public class CSVreader : MonoBehaviour
 
     // Takes in the strings of Google sheet CSV's containing the questions and topics
     // and returns a list of Topic objects representing the topics
-    public List<Topic> createListTopic(string questionsCSV, string topicsCSV)
+    List<Topic> createListTopic(string questionsCSV, string topicsCSV)
     {
         List<Dictionary<string, object>> questionsData = Read(questionsCSV);
         List<Dictionary<string, object>> topicData = Read(topicsCSV);
@@ -77,7 +77,8 @@ public class CSVreader : MonoBehaviour
         foreach (Dictionary<string, object> question in questionsData)
         {
             Question nextQuestion = new Question((string)question["questionText"]);
-            
+            nextQuestion.questionType = (string)question["questionType"];
+
             if (nextQuestion.questionType == "MultiChoice")
             {
                 string ans1 = (string)question["answer1"];
@@ -85,11 +86,11 @@ public class CSVreader : MonoBehaviour
                 string ans3 = (string)question["answer3"];
                 string ans4 = (string)question["answer4"];
 
-                int[] correctAnswers = {0,0,0,0};
-                
+                int[] correctAnswers = { 0, 0, 0, 0 };
+
                 if (ans1.Contains("<*>"))
                     correctAnswers[0] = 1;
-                else if(ans2.Contains("<*>"))
+                else if (ans2.Contains("<*>"))
                     correctAnswers[1] = 1;
                 else if (ans3.Contains("<*>"))
                     correctAnswers[2] = 1;
@@ -106,8 +107,8 @@ public class CSVreader : MonoBehaviour
             else if (nextQuestion.questionType == "FillIn")
             {
                 FillInAnswer newFillIn = new FillInAnswer((string)question["answer1"]);
-                
-                nextQuestion.answer = newFillIn;
+
+                nextQuestion.setAnswer(newFillIn);
             }
             else if (nextQuestion.questionType == "TF")
             {
@@ -122,7 +123,7 @@ public class CSVreader : MonoBehaviour
                     newTF.isTrue = false;
                 }
 
-                nextQuestion.answer = newTF;
+                nextQuestion.setAnswer(newTF);
             }
             string AssociatedTopicID = (string)question["topicID"];
             // Adds the Question object, which is a TopicItem, into the list

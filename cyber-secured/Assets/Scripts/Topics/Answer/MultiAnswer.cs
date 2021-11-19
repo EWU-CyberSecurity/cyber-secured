@@ -61,13 +61,6 @@ namespace Assets.Scripts.Topics
             }
         }
 
-        // When the button is clicked check if it belongs to the right answer
-        public bool onButton1Clicked()
-        {
-            changeColorsAndDisableButtons();
-            return displayedSet.isAnswerCorrect(0);
-        }
-
         private void changeColorsAndDisableButtons()
         {
             // Change the disabled colors on the answer buttons depending
@@ -81,6 +74,12 @@ namespace Assets.Scripts.Topics
             }
         }
 
+        // When the button is clicked check if it belongs to the right answer
+        public bool onButton1Clicked()
+        {
+            changeColorsAndDisableButtons();
+            return displayedSet.isAnswerCorrect(0);
+        }
         public bool onButton2Clicked()
         {
             changeColorsAndDisableButtons();

@@ -1,4 +1,8 @@
 ﻿
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+
 namespace Assets.Scripts.Topics
 {
     /// <summary>
@@ -7,38 +11,46 @@ namespace Assets.Scripts.Topics
     /// </summary>
     class TFAnswer : Answer
     {
-        private bool isTrue;
+        public bool isTrue { get; set; }
+        bool isClicked;
+        GameObject stage_TF;
+        Button True_btn;
+        Button False_btn;
 
-        public void onTrueClicked()
+        private GameObject root = GameObject.Find("Quiz Components").transform.Find("Buttons").gameObject;
+
+        void TaskOnTrueClick()
         {
-            if (isTrue)
-            {
-                base.displayCorrectDialogue();
-            }
-            else
-            {
-                base.displayIncorrectDialogue();
-            }
+            isClicked = true;
+            Debug.LogWarning("True was pressed");
         }
 
-        public void onFalseClicked()
+        void TaskOnFalseClick()
         {
-            if (!isTrue)
-            {
-                base.displayCorrectDialogue();
-            }
-            else
-            {
-                base.displayIncorrectDialogue();
-            }
+            isClicked = false;
+            Debug.LogWarning("False was pressed");
         }
 
         public override void displayAnswer()
         {
-            // This is an easy one, just put the two buttons
-            // in the right place. No changing text or anything.
+            stage_TF.SetActive(true);
+            OnContinueButtonClicked();
+            stage_TF.SetActive(false);
+        }
 
+        private void OnContinueButtonClicked()
+        {
+            True_btn.onClick.AddListener(TaskOnTrueClick);
+            False_btn.onClick.AddListener(TaskOnFalseClick);
 
+            if (isClicked)
+            {
+                base.displayCorrectDialogue();
+            }
+            else
+            {
+                base.displayIncorrectDialogue();
+            }
         }
     }
 }

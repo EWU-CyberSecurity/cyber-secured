@@ -12,8 +12,6 @@ namespace Assets.Scripts.Topics
     {
         private string correctAnswer;
 
-        private List<MultiAnswerSet> answerPool; // all the possible answer sets
-        private MultiAnswerSet displayedSet; // the set of answers that is actually displayed
         private Color disabledCorrectColor = new Color(0.5764706f, 1, 0.5882353f);
         private Color disabledIncorrectColor = new Color(1, 0.5764706f, 0.5764706f);
 
@@ -42,30 +40,27 @@ namespace Assets.Scripts.Topics
 
         public override void displayAnswer()
         {
-            // Move the input field and continue button (plus anything else that's needed)
-            // to the right place. There is an example of this kind of thing happening in
-            // the caesar cipher quiz.
-
-            //GameObject.Find("text_question").GetComponentInChildren<Text>().text = ;
-            //question_prompt.transform.Find("Text").GetComponent<Text>().text = displayedSet.getAnswer(0);
-
-
+            stage_FillIn.SetActive(true);
+            OnContinueButtonClicked();
+            stage_FillIn.SetActive(true);
         }
 
         public void OnContinueButtonClicked()
         {
-            // Check if the text in the input field is the correct answer.
-
-            //check it against the correct answer
-            //pass if correct, try again if failed.
             string userAnswer = InputFieldInput();
+
+            // Check if the text in the input field is the correct answer.
             if (checkUIAnswer(userAnswer))
             {
                 //get next question or the dialogue.
+                stage_FillIn.transform.Find("InputField").GetComponent<InputField>().selectionColor = disabledCorrectColor;
+
             }
             else
             {
                 //Tell the user they entered the wrong answer, or continue on with the game.
+                stage_FillIn.transform.Find("InputField").GetComponent<InputField>().selectionColor = disabledIncorrectColor;
+
             }
         }
     }
