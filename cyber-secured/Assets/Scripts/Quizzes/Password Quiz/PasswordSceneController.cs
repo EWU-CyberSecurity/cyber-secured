@@ -19,16 +19,8 @@ public class PasswordSceneController : MonoBehaviour
     private List<Question> questions = new List<Question>();
     private Question currentQuestion;
 
-    private readonly string[] explanation = {
-        "\"I am infatuated with you\" is much longer and uses spaces. \"I am infatuated with you\" can be improved so it doesn't have words; Eg: \"i^m infat 2 ated w/ y0u\"",
-        "Since \"2 b OR !tuby\" uses numbers, capital and lowercase letters, and symbols, it is more complex than the other passwords.",
-        "\"RoundRobin\" is the worst of these options because a hacker could assume the bank's name was used in the password somehow because it is easy to remember.",
-        "\"H20 b@ttle\" cannot be found in the dictionary, and seems more random than the others. dihydrogenmonoxide can be strong because of length, but it's technically a 2-word combo.",
-        "A Password Manager is secure software that handles your passwords for you. Helping your co-worker remember his password is better than leaving a password in readable form."
-    };
-
     private readonly string[] affirmation = { "Bingo! ", "That's correct! ", "Good job. ", "You got it. ", "Nice work. " };
-    private readonly string[] disdain = { "That's not it :( ", "That's incorrect! ", "Actually... ", "There's a better answer. ", "Try again! " };
+    private readonly string[] disdain = { "That's not it :( ", "That's incorrect! ", "There's a better answer. "};
 
     // Use this for initialization
     void Awake()
@@ -56,19 +48,26 @@ public class PasswordSceneController : MonoBehaviour
         MultiAnswer answerToAdd = new MultiAnswer();
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "I am infatuated with you", "eyeluvewe",
-            "ILoooveYou", "I<3You", new[] { 0 }
+            "ILoooveYou", "I<3You", new[] { 0 },
+            "\"I am infatuated with you\" is much longer and uses spaces. \"I am infatuated with you\" can be improved so it doesn't have words; Eg: \"i^m infat 2 ated w/ y0u\""
         ));
+
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "numbers one to ten", "12345678910",
-            "one2ten", "0nly_nUmb3rs", new[] { 0 }
+            "one2ten", "0nly_nUmb3rs", new[] { 0 },
+            "\"numbers one to ten\" is the longest and uses spaces, making it the strongest. It could be improved by adding numbers, symbols, or uppercase letters."
         ));
+
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "Nobody expects the Spanish Inquisition!", "A k1ll3r r@bbit!",
-            "Knights who say NI", "FleshWound1975", new[] { 0 }
+            "Knights who say NI", "FleshWound1975", new[] { 0 },
+            "Although all of these are strong passwords \"Nobody expects the Spanish Inquisition!\" is the strongest because of its length and use of uppercase letters and a special character."
         ));
+
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "Unl0ck the Door!", "password",
-            "this_is_my_password", "1 g00d p@ssword!", new[] { 0 }
+            "this_is_my_password", "1 g00d p@ssword!", new[] { 0 },
+            "\"Unl0ck the Door!\" is the strongest password due to not using the word \"password\". It also uses a number, a special character, and uses uppercase letters."
         ));
 
         questionToAdd.setAnswer(answerToAdd);
@@ -81,28 +80,32 @@ public class PasswordSceneController : MonoBehaviour
             "2 b OR !tuby",
             "1-8002446227",
             "abcdefghijkl",
-            "qwertyuiop[]", new[] { 0 }
+            "qwertyuiop[]", new[] { 0 },
+            "Since \"2 b OR !tuby\" uses numbers, capital and lowercase letters, and symbols, it is more complex than the other passwords."
         ));
 
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "a green sign",
             "174-01011118",
             "+ one Quest!",
-            "qrstuvwxyz[]", new[] { 2 }
+            "qrstuvwxyz[]", new[] { 2 },
+            "Since \"+ one Quest!\" uses special characters along with uppercase and lowercase letters it is the hardest to brute force."
         ));
 
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "a fruit xbox",
             "187-55503645",
             "N1ne Four #s",
-            "defghijklm[]", new[] { 2 }
+            "defghijklm[]", new[] { 2 },
+            "Since \"N1ne Four #s\" uses special characters along with uppercase and lowercase letters it is the hardest to brute force."
         ));
 
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "! 2 m@ny #'s",
             "248163264128",
             "goodPassword",
-            "qwert1234567", new[] { 0 }
+            "qwert1234567", new[] { 0 },
+            "Since \"! 2 m@ny #'s\" uses many special characters and a number it is the hardest to brute force especially compared to the other passwords, which are very weak."
         ));
 
         questionToAdd.setAnswer(answerToAdd);
@@ -114,28 +117,32 @@ public class PasswordSceneController : MonoBehaviour
             "RoundRobin",
             "RoundCactus",
             "RoundLemur",
-            "RoundCircle", new[] { 0 }
+            "RoundCircle", new[] { 0 },
+            "\"RoundRobin\" is the worst of these options because a hacker could assume the bank's name was used in the password somehow because it is easy to remember."
         ));
 
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "RoundRobin",
             "RoundTires",
             "RoundMonkey",
-            "RoundShape", new[] { 0 }
+            "RoundShape", new[] { 0 },
+            "\"RoundRobin\" is the worst of these options because a hacker could assume the bank's name was used in the password somehow because it is easy to remember."
         ));
 
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "RoundRobin",
             "RoundStone",
             "RoundPanda",
-            "RoundStars", new[] { 0 }
+            "RoundStars", new[] { 0 },
+            "\"RoundRobin\" is the worst of these options because a hacker could assume the bank's name was used in the password somehow because it is easy to remember."
         ));
 
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "RoundRobin",
             "RoundPlant",
             "RoundFlower",
-            "RoundGlasses", new[] { 0 }
+            "RoundGlasses", new[] { 0 },
+            "\"RoundRobin\" is the worst of these options because a hacker could assume the bank's name was used in the password somehow because it is easy to remember."
         ));
 
         questionToAdd.setAnswer(answerToAdd);
@@ -144,25 +151,29 @@ public class PasswordSceneController : MonoBehaviour
         questionToAdd = new Question("Suppose your password is \"waterbottle\"," +
                                           " and you want to make it more secure. What could you change it to?");
         answerToAdd = new MultiAnswer();
+
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "H20 b@ttle",
             "waterbottle!",
             "water bottle",
-            "dihydrogenmonoxide", new[] { 0, 3 }
+            "dihydrogenmonoxide", new[] { 0, 3 },
+            "\"H20 b@ttle\" cannot be found in the dictionary, and seems more random than the others. \"dihydrogenmonoxide\" can be strong because of length, but it's technically a 2-word combo."
         ));
 
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
-            "bottle o' H20",
+            "b0ttle o' H20",
             "WaterBottle!",
             "water_bottle",
-            "twohydrogensoneoxygen", new[] { 0, 3 }
+            "twohydrogensoneoxygen", new[] { 0, 3 },
+            "\"b0ttle o' H20\" cannot be found in the dictionary, and seems more random than the others. \"twohydrogensoneoxygen\" is strong because of length, but is made out of dictionary words."
         ));
 
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
-            "H20 in b@ttle",
+            "H20 in b0ttle",
             "WATERBOTTLE",
             "waterbottle10!",
-            "hydrogenandoxygen", new[] { 0, 3 }
+            "justhydrogenandoxygen", new[] { 0, 3 },
+            "\"H20 in b0ttle\" cannot be found in the dictionary, and seems more random than the others. \"justhydrogenandoxygen\" is also strong, but is made out of dictionary words."
         ));
 
         questionToAdd.setAnswer(answerToAdd);
@@ -175,7 +186,8 @@ public class PasswordSceneController : MonoBehaviour
             "Password Manager",
             "Make a new password",
             "Create mnenomic",
-            "Store in .txt file", new[] { 0, 1, 2 }
+            "Store in .txt file", new[] { 0, 1, 2 },
+            "A Password Manager is secure software that handles your passwords for you. Helping your co-worker remember his password is better than leaving a password in readable form."
         ));
 
         questionToAdd.setAnswer(answerToAdd);
@@ -250,25 +262,26 @@ public class PasswordSceneController : MonoBehaviour
 
     public void displayAnswerFeedback(bool correct)
     {
-        int random = Random.Range(0, 5);
 
         if (correct)
         {
+            int random = Random.Range(0, affirmation.Length);
             // play a beep sound
             GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);
 
-            currentQuestion.changeQuestionText(affirmation[random] + explanation[round]);
+            currentQuestion.changeQuestionText(affirmation[random] + currentQuestion.getAnswer().getExplanation());
 
             // increase NP by 2
             GameControllerV2.Instance.IncreaseNP(2);
         }
         else
         {
+            int random = Random.Range(0, disdain.Length);
             // play a beep sound
             GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(2);
 
             GameObject.Find("scn_quiz_password").GetComponent<PasswordSceneController>().DecreaseLife();
-            currentQuestion.changeQuestionText(disdain[random] + explanation[round]);
+            currentQuestion.changeQuestionText(disdain[random] + currentQuestion.getAnswer().getExplanation());
         }
 
         currentQuestion.showContinueButton();

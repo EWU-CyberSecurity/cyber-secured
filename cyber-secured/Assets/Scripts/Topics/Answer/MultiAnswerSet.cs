@@ -12,6 +12,10 @@ namespace Assets.Scripts.Topics
     {
         private string[] answers;
         private int[] correctAnswers; // some of 0 - 3. 
+        // string to explain why the correct answer is correct, could be used
+        // to set the text in the question box or be a dialogue popup after the question is answered.
+        // the game currently does both. 
+        private string explanation; 
 
         public MultiAnswerSet(string option1, string option2,
             string option3, string option4, int[] correctAnswers)
@@ -24,6 +28,18 @@ namespace Assets.Scripts.Topics
             }
 
             this.correctAnswers = correctAnswers;
+        }
+
+        public MultiAnswerSet(string option1, string option2,
+            string option3, string option4, int[] correctAnswers,
+            string explanation) : this(option1, option2, option3, option4, correctAnswers)
+        {
+            this.explanation = explanation;
+        }
+
+        public string getExplanation()
+        {
+            return explanation;
         }
 
         public string getAnswer(int answer_num)
