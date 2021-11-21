@@ -61441,7 +61441,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ec013f3ba876e0a4e9cbc47a9fa60347, type: 3}
-    m_FontSize: 35
+    m_FontSize: 29
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -61452,7 +61452,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SKIP()
+  m_Text: Skip to custom topics
 --- !u!222 &1967439684
 CanvasRenderer:
   m_ObjectHideFlags: 0
