@@ -5,7 +5,7 @@ namespace Assets.Scripts.Topics
     /// This is an abstract class for things that are
     /// common to both questions and dialogue. 
     /// </summary>
-    abstract class TopicItem
+    public abstract class TopicItem
     {
         public abstract void startItem();
     }

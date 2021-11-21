@@ -50,7 +50,7 @@ public class CSVReader : MonoBehaviour
 
     // Takes in the strings of Google sheet CSV's containing the questions and topics
     // and returns a list of Topic objects representing the topics
-    List<Topic> createListTopic(string questionsCSV, string topicsCSV)
+    public List<Topic> createListTopic(string questionsCSV, string topicsCSV)
     {
         List<Dictionary<string, object>> questionsData = Read(questionsCSV);
         List<Dictionary<string, object>> topicData = Read(topicsCSV);

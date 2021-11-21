@@ -6,7 +6,7 @@ namespace Assets.Scripts.Topics
     /// <summary>
     /// This class represents a single question in a topic
     /// </summary>
-    class Question : TopicItem
+    public class Question : TopicItem
     {
         private GameObject questionBox = GameObject.Find("Quiz Components").transform.Find("question_box").gameObject;
         private GameObject continueButton = GameObject.Find("Quiz Components").transform.Find("Continue_button").gameObject;

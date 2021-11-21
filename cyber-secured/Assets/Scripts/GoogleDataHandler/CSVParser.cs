@@ -2,8 +2,8 @@
 
 public class CSVParser : MonoBehaviour
 {
-    private string topicsSheet;
-    private string questionsSheet;
+    public string topicsSheet { get; set; }
+    public string questionsSheet { get; set; }
 
     // Get the sheets from the DownloadManager
     public void RetrieveSheets(string top, string ques)

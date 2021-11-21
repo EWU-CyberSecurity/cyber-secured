@@ -8,7 +8,7 @@ namespace Assets.Scripts.Topics
     /// which consists of dialogue, and questions. Dialogue and
     /// questions are subclasses of TopicItem
     /// </summary>
-    class Topic
+    public class Topic
     {
         private List<TopicItem> question { get; set; }
         public List<Question> questions = new List<Question>();

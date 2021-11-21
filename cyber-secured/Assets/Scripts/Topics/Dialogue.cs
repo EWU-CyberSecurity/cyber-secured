@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Topics
 {
-    class Dialogue : TopicItem
+    public class Dialogue : TopicItem
     {
         public string[] sentences { get; set; }
 
