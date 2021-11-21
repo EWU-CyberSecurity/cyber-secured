@@ -195,4 +195,36 @@ public class SceneControllerTitle : MonoBehaviour
             start_button.colors = new_colors;
         }
     }
+
+    public void GoToNewTopics()
+    {
+        // this is as if the user pressed start
+        GameObject.Find("Main Camera").GetComponent<GlitchCamera>().name_gameObject.SetActive(false);
+        GameObject.Find("Main Camera").GetComponent<GlitchCamera>().update = true;
+        GameObject.Find("scn_title_CONTROL").GetComponent<SceneControllerTitle>().SwitchTitleButtons();
+        GameObject.Find("dlg_start").GetComponent<DialogueTrigger>().TriggerDialogue();
+        FindObjectOfType<MainUIController>().AdjustMenuOnStart();
+
+        // this closes the first dialogue box
+        GameObject.Find("DialogueManager").GetComponent<DialogueManager>().SkipDialogue();
+        
+        GameControllerV2.Instance.SetCompany(1); // set the company to the smallest
+
+        // while loop to go through selections while pressing no to quizes
+        int i = 0;
+        while(i <  13)
+        {
+            GameControllerV2.Instance.HideDecision();
+            GameControllerV2.Instance.EventYesNo(false);
+
+            if(GameObject.Find("btn_exit_dialogue").activeSelf)
+            {
+                GameObject.Find("DialogueManager").GetComponent<DialogueManager>().SkipDialogue();
+            }
+
+            GameControllerV2.Instance.HideDecision();
+            i++;
+        }
+    }
+
 }
