@@ -40729,6 +40729,7 @@ MonoBehaviour:
   info_perk_1: {fileID: 2108371790}
   name_perk_2: {fileID: 2066515551}
   info_perk_2: {fileID: 1218214784}
+  skip_topics_button: {fileID: 524588768}
   in_dialogue: 0
   mitigate_event: 0
   CURRENT_STATE: 0

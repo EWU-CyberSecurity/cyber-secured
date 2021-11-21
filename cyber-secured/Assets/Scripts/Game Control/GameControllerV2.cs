@@ -121,6 +121,8 @@ public class GameControllerV2 : MonoBehaviour
     public Text name_perk_2;                    // --
     public Text info_perk_2;                    // --
 
+    public GameObject skip_topics_button;      // button to skip to custom topics.
+
     //private Color original_color;               // store original color of text
 
     public bool in_dialogue;                    // dialogue flag to check if currently in dialogue
@@ -400,6 +402,7 @@ public class GameControllerV2 : MonoBehaviour
             DisplayErrorRate();
             UpdateDisplayErrorRate();
             DisplayDecision();
+            skip_topics_button.SetActive(false);
         }
     }
 
