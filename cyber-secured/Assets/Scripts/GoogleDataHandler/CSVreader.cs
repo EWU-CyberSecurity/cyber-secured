@@ -9,6 +9,8 @@ public class CSVReader : MonoBehaviour
     static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
     static char[] TRIM_CHARS = { '\"' };
 
+    //public List<Topic> AddedTopicList { get; set; }
+
     public static List<Dictionary<string, object>> Read(string file)
     {
         var list = new List<Dictionary<string, object>>();
@@ -50,10 +52,10 @@ public class CSVReader : MonoBehaviour
 
     // Takes in the strings of Google sheet CSV's containing the questions and topics
     // and returns a list of Topic objects representing the topics
-    public List<Topic> createListTopic(string questionsCSV, string topicsCSV)
+    public List<Topic> createListTopic(string topicSheet, string questionsSheet)
     {
-        List<Dictionary<string, object>> questionsData = Read(questionsCSV);
-        List<Dictionary<string, object>> topicData = Read(topicsCSV);
+        List<Dictionary<string, object>> questionsData = Read(questionsSheet);
+        List<Dictionary<string, object>> topicData = Read(topicSheet);
         Dictionary<string, Topic> topics = new Dictionary<string, Topic>();
 
         // Goes through the topics CSV and creates a dictionary of Topic objects

@@ -19,6 +19,7 @@ namespace Assets.Scripts.Topics
         public override void startItem()
         {
             // Activate the dialogue box and put the sentences in it.
+
         }
     }
 }

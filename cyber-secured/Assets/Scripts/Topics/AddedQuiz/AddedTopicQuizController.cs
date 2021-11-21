@@ -11,15 +11,21 @@ public class AddedTopicQuizController : MonoBehaviour
     private int topicCount;
     private int currentTopicListID = 0;
 
+    CSVDownload manager;
+    CSVReader reader;
+
     void Awake()
     {
-        CSVReader googleData = new CSVReader();
-        CSVParser getCSVStrings = new CSVParser();
-        string topicSheet = getCSVStrings.topicsSheet;
-        string questionsSheet = getCSVStrings.questionsSheet;
+        manager = new CSVDownload();
+        reader = new CSVReader();
+        string topicSheet = manager.GetTopicSheet();
+        string questionsSheet = manager.GetQuestionSheet();
 
-        this.AddedTopics = googleData.createListTopic(topicSheet, questionsSheet);
+        this.AddedTopics = reader.createListTopic(topicSheet, questionsSheet);
         this.topicCount = this.AddedTopics.Count;
+
+        scn_main = GameObject.Find("scn_main");
+        scn_main.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -28,7 +34,7 @@ public class AddedTopicQuizController : MonoBehaviour
         
     }
 
-    // Gets next topic and it's associated quiz, planning on a separate manager for the quiz
+    // Gets next topic and presents it's associated quiz
     public void nextQuiz()
     {
         // Gets next topic and triggers starting dialogue
