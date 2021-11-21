@@ -25,7 +25,6 @@ public class Password_SceneController : MonoBehaviour
         scn_main = GameObject.Find("scn_main");
         scn_main.SetActive(false);
 
-
         //Get an access to the DialogueManager script to manage the demonstration according to the line displayed:
         dialog = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
     }
