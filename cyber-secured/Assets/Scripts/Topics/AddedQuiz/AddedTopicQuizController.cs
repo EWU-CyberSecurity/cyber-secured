@@ -12,6 +12,10 @@ public class AddedTopicQuizController : MonoBehaviour
     private int topicCount;
     private int currentTopicListID = 0;
 
+    public GameObject fillin_components;
+    public GameObject true_false_components;
+    public GameObject multianswer_components;
+
     CSVManager manager;
     CSVReader reader;
 
@@ -30,7 +34,7 @@ public class AddedTopicQuizController : MonoBehaviour
         /*scn_main = GameObject.Find("scn_main");
         scn_main.SetActive(false);*/
 
-        currentTopic = AddedTopics[0];
+        nextQuiz();
     }
 
     // Start is called before the first frame update

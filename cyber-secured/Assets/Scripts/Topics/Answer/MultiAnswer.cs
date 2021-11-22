@@ -17,7 +17,7 @@ namespace Assets.Scripts.Topics
         private Color disabledCorrectColor = new Color(0.5764706f, 1, 0.5882353f);
         private Color disabledIncorrectColor = new Color(1, 0.5764706f, 0.5764706f);
 
-        private GameObject root = GameObject.Find("stage_custom_topics").transform.Find("Quiz Components").gameObject;
+        private GameObject root = GameObject.Find("stage_custom_topics").transform.Find("Quiz Components").transform.Find("multianswer_components").gameObject;
 
         private GameObject button1;
         private GameObject button2;
