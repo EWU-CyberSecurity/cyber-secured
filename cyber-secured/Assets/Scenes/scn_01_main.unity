@@ -5622,8 +5622,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1a115494a38cc44b65e69d803ec0e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questions: {fileID: 0}
-  PasswordIntro: {fileID: 0}
+  buttons: {fileID: 1069870810}
+  question_box: {fileID: 1068321366}
+  continue_button: {fileID: 1664950876}
+  hint_button: {fileID: 1863045307}
+  password_intro: {fileID: 1648845730}
+  quiz_start_dialogue: {fileID: 1762586394}
+  scene_controller: {fileID: 646155941}
 --- !u!1 &218435853
 GameObject:
   m_ObjectHideFlags: 0
