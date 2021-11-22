@@ -62,16 +62,9 @@ public class CSVReader : MonoBehaviour
         // and keys them with their TopicID
         foreach (Dictionary<string, object> topic in topicData)
         {
-            Topic nextTopic = new Topic();
-            nextTopic.TopicID = (string)topic["topicID"];
-            nextTopic.TopicName = (string)topic["topicName"];
+            Assets.Scripts.Topics.Dialogue startDialogue = new Assets.Scripts.Topics.Dialogue((string)topic["startDialogue"]);
 
-            Assets.Scripts.Topics.Dialogue start = new Assets.Scripts.Topics.Dialogue();
-            Assets.Scripts.Topics.Dialogue end = new Assets.Scripts.Topics.Dialogue();
-            start.AddDialogue((string)topic["startDialogue"]);
-            end.AddDialogue((string)topic["endDialogue"]);
-            nextTopic.start = start;
-            nextTopic.end = end;
+            Topic nextTopic = new Topic((string)topic["topicID"], (string)topic["topicName"], startDialogue);
 
             topics.Add((string)topic["topicID"], nextTopic);
         }

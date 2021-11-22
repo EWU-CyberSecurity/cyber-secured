@@ -131,6 +131,8 @@ public class GameControllerV2 : MonoBehaviour
 
     public List<Tweener> tweens = new List<Tweener>();  // for DOTween killing
 
+    private int lastMonth = 99; // set this to a large number until the number of custom topics is known.
+
     // Backup events that may occur
     // Certain cases added multiple times to increase the chance of that specific event over others
     public ArrayList dataLossEvents = new ArrayList() 
@@ -519,7 +521,7 @@ public class GameControllerV2 : MonoBehaviour
     // the "next month" button function -----> That's the function who decides which month will be the last month! ------------------------------------------
     public void HideDecision()
     {
-        if(current_month != 12) // don't change the 13!!!
+        if(current_month != lastMonth) // don't change the 13!!!
         {
             if(!in_dialogue)
             {
@@ -897,9 +899,9 @@ public class GameControllerV2 : MonoBehaviour
 
         ActivateEvent(RollError());
 
-        if(current_month == 13) { // Don't change it from 13 to other number, 13 is just to indicate that a full year passed
+        if(current_month == lastMonth) {
             DisplayFinalEvent();
-        } else if(current_month == 3 || current_month == 6 || current_month == 9 || current_month == 12) {
+        } else if(current_month == 3 || current_month == 6 || current_month == 9) {
             DisplayQuarterlyEvent();
         } else {
             DisplayEvent();
@@ -925,7 +927,8 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = "First up on the agenda..." +
                 "\nWould you like to hold a password strength training session?\n" +
                 "<b>Cost: 10% of NP</b>";
-            } break;
+                return;
+            }
 
             // Month 2 event - backup offered
             case(2):
@@ -960,8 +963,8 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = "The company is making progress." +
                 "\nWould you like to execute a company-wide file backup plan?\n" +
                 "<b>Cost: 10% of NP</b>";
-
-            } break;
+                return;
+            }
 
             // Month 3 event - perk offered
             case(3):
@@ -993,8 +996,8 @@ public class GameControllerV2 : MonoBehaviour
                 } else {
                     current_event_text = GoodMessage();
                 }
-                
-            } break;
+                return;
+            }
 
             // month 4 event
             case(4):
@@ -1026,7 +1029,8 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = "An employee has fallen for a phishing attempt. " +
                     "Would you like to hold a company meeting to discuss the dangers of phishing?" +
                     "\n<b>Cost: 10% of NP</b>";
-            } break;
+                return;
+            }
 
             // month 5 event
             case(5):
@@ -1048,7 +1052,8 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = "You feel the need to brush up on computer viruses." +
                     "\nDo some research? (No penalty for declining.)" +
                     "\n<b>Cost: 10% of NP</b>";
-            } break;
+                return;
+            }
 
             // month 6 event
             case(6):
@@ -1078,13 +1083,12 @@ public class GameControllerV2 : MonoBehaviour
                     current_event_text = GoodMessage();
                 }
                 
-
                 // Caesar Cipher
                 current_choice_text = "An employee wants to email sensitive information. " +
                 "Would you like to learn about encryption?" +
                 "\n<b>Cost: 20 NP</b>";
-
-            } break;
+                return;
+            }
 
             // month 7 event
             case(7):
@@ -1107,26 +1111,31 @@ public class GameControllerV2 : MonoBehaviour
                 } else {
                     current_event_text = GoodMessage();
                 }
-                
-                
-            } break;
+
+                return;
+
+            }
 
             // month 8 event
-            case(8):
+            case (8):
             {
 
-                if (bad_event_occurred) {
+                if (bad_event_occurred)
+                {
                     current_event_text = "An employee downloads malware without realizing."
-                        + "\nNP has decreased by 30.";
-                } else {
+                                         + "\nNP has decreased by 30.";
+                }
+                else
+                {
                     current_event_text = GoodMessage();
                 }
-                
+
                 // Virus quiz
                 current_choice_text =
-                     "The boss requests all employees to take a quiz to prove their knowledge on viruses." +
-                     "\n<b>50 NP penalty for declining</b>";
-            } break;
+                    "The boss requests all employees to take a quiz to prove their knowledge on viruses." +
+                    "\n<b>50 NP penalty for declining</b>";
+                return;
+            }
 
             // month 9 event
             case(9):
@@ -1160,8 +1169,9 @@ public class GameControllerV2 : MonoBehaviour
                 {
                      current_event_text = GoodMessage();
                 }
-    
-            } break;
+
+                return;
+            }
 
             // month 10 event
             case(10):
@@ -1191,9 +1201,9 @@ public class GameControllerV2 : MonoBehaviour
                 
                 current_choice_text = "A significant part of your learning process as an IT specialist is to get knowledge of one time pad encryption. " +
                         "Solve the following challenge to advance your knowledge.";
-                                      
-                    
-            } break;
+
+                return;
+            }
             
             // month 11 event
             case(11):
@@ -1229,62 +1239,69 @@ public class GameControllerV2 : MonoBehaviour
                     current_event_text = GoodMessage();
                 }
 
-                    // decrease monthly NP by a scaling amount - 5% of monthly NP
-                    DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.05f));
+                // decrease monthly NP by a scaling amount - 5% of monthly NP
+                DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.05f));
 
-                    current_choice_text = "Would you like to learn about RSA? That is one of the most important encryption technique today!" +
-                        "\n<b>Cost: 5% of Monthly NP</b>";
-                    
-            } break;
+                current_choice_text = "Would you like to learn about RSA? That is one of the most important encryption technique today!" +
+                    "\n<b>Cost: 5% of Monthly NP</b>";
+                return;
+            }
             
             // month 12 event
             case(12):
             {
-                // start the custom topics
                 GameObject.Find("Canvas").transform.Find("stage_custom_topics").gameObject.SetActive(true);
-                Debug.Log("CUSTOM TOPICS!");
-            } break;
+                AddedTopicQuizController controller = GameObject.Find("stage_custom_topics").GetComponent<AddedTopicQuizController>();
+                lastMonth = 12 + controller.getTopicCount();
+                
+                current_event_text = GoodMessage();
 
-            default:
-                // this is the end of the game.
-                if (bad_event_occurred)
+                current_choice_text = "Would you like to learn about " + controller.getNextTopicName() + "?";
+
+                return;
+            }
+        }
+
+        if (current_month == lastMonth)
+        {
+            // this is the end of the game.
+            if (bad_event_occurred)
+            {
+                // decrease NP by a scaling amount
+                int temp_np = network_power;
+
+                // Amount decreased by
+                if (CHOSEN_COMPANY == Company.small)
                 {
-                    // decrease NP by a scaling amount
-                    int temp_np = network_power;
-
-                    // Amount decreased by
-                    if (CHOSEN_COMPANY == Company.small)
-                    {
-                        DecreaseNP(10);
-                    }
-                    else if (CHOSEN_COMPANY == Company.med)
-                    {
-                        DecreaseNP(20);
-                    }
-                    else
-                    {
-                        DecreaseNP(50);
-                    }
-
-                    // calculate difference
-                    int np_difference = temp_np - network_power;
-
-                    // Event that occurred
-                    current_event_text = "Your company suffers from a heavy deficit.\n" +
-                                         "<i>NP has decreased by " + np_difference + ".</i>";
-
+                    DecreaseNP(10);
+                }
+                else if (CHOSEN_COMPANY == Company.med)
+                {
+                    DecreaseNP(20);
                 }
                 else
                 {
-                    current_event_text = GoodMessage();
+                    DecreaseNP(50);
                 }
 
-                name_perk_1.text = "Promotion";
-                info_perk_1.text = "You're being offered a higher position";
+                // calculate difference
+                int np_difference = temp_np - network_power;
 
-                name_perk_2.text = "Back to School";
-                info_perk_2.text = "Getting a M.S degree for an increase in your paycheck";
-                break;
+                // Event that occurred
+                current_event_text = "Your company suffers from a heavy deficit.\n" +
+                                     "<i>NP has decreased by " + np_difference + ".</i>";
+
+            }
+            else
+            {
+                current_event_text = GoodMessage();
+            }
+
+            name_perk_1.text = "Promotion";
+            info_perk_1.text = "You're being offered a higher position";
+
+            name_perk_2.text = "Back to School";
+            info_perk_2.text = "Getting a M.S degree for an increase in your paycheck";
         }
     }
 
@@ -1359,7 +1376,9 @@ public class GameControllerV2 : MonoBehaviour
 
                     DisplayDecision();
                 }
-            } break;
+
+                return;
+            }
 
             // month 2 choice
             case(2):
@@ -1382,7 +1401,8 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            } break;
+                return;
+            }
 
             // month 3 choice
             case(3):
@@ -1410,7 +1430,8 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            } break;
+                return;
+            }
 
             // month 4 choice
             case(4):
@@ -1437,7 +1458,9 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
 
                 }
-            } break;
+
+                return;
+            }
 
             // month 5 choice
             case(5):
@@ -1463,7 +1486,8 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            } break;
+                return;
+            }
 
             // month 6 choice 
             case(6):
@@ -1499,7 +1523,8 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            } break;
+                return;
+            }
 
             // month 7 choice
             case(7):
@@ -1523,7 +1548,9 @@ public class GameControllerV2 : MonoBehaviour
 
                     DisplayDecision();
                 }
-            } break;
+
+                return;
+            }
 
             // month 8 choice
             case(8):
@@ -1546,7 +1573,8 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            } break;
+                return;
+            }
 
             // month 9 choice QUARTER
             case(9):
@@ -1570,8 +1598,8 @@ public class GameControllerV2 : MonoBehaviour
                 }
 
                 DisplayDecision();
-
-            } break;
+                return;
+            }
 
             // month 10 choice
             
@@ -1601,8 +1629,9 @@ public class GameControllerV2 : MonoBehaviour
 
                     DisplayDecision();
                 }
-          
-            } break;
+
+                return;
+            }
             
             // month 11 choice
             case(11):
@@ -1631,44 +1660,41 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            } break;
-            
+                return;
+            }
 
-            // month 12 choice QUARTER (end of game)
-           case(12):
+            case (12):
             {
-                if(x) // Promotion - chose the first option
-                {
-                        
-                    // increase np by 10%
-                    IncreaseNP(Mathf.RoundToInt(network_power * 0.1f));
+                // TODO: Make the no button move on to the next topic with a penalty.
+                Debug.Log("next topic, activate stuff");
+                AddedTopicQuizController controller = GameObject.Find("stage_custom_topics").GetComponent<AddedTopicQuizController>();
+                controller.nextTopic();
+                return;
+            } 
+        }
 
-                    current_decision_text = "You have chosen to get a promotion at your current job!" +
-                                            "\n<i>Monthly NP has increased by 10%</i>"; 
+        if (current_month == lastMonth)
+        {
+            if (x) // Promotion - chose the first option
+            {
+                // increase np by 10%
+                IncreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
-                    //DisplayDecision();
-                    //increased_text.text = "End Game";
+                current_decision_text = "You have chosen to get a promotion at your current job!" +
+                                        "\n<i>Monthly NP has increased by 10%</i>";
+            }
+            else
+            {
+                // Back to School - chose the second option
+                DecreaseErrorRate(error_rate * 0.2f);
 
-                } else { // Back to School - chose the second option
+                current_decision_text =
+                    "You have chosen to go back to school to get your M.S degree! That's a very good decision" +
+                    "\n<i> Error rate has decreased by 20%</i> ";
+            }
 
-                   
-                    DecreaseErrorRate(error_rate * 0.2f);
-                        
-                        current_decision_text = "You have chosen to go back to school to get your M.S degree! That's a very good decision" +
-                            "\n<i> Error rate has decreased by 20%</i> ";
-
-                    //DisplayDecision();
-                    //increased_text.text = "End Game";
-                }
-
-                DisplayDecision();
-                increased_text.text = "End Game";
-
-            } break;
-            
-            default: 
-                Debug.Log("month 12 ---- second part"); 
-            break;
+            DisplayDecision();
+            increased_text.text = "End Game";
         }
     }
 }

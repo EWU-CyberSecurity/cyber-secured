@@ -10,23 +10,40 @@ namespace Assets.Scripts.Topics
     /// </summary>
     public class Topic
     {
-        private List<TopicItem> question { get; set; }
-        public List<Question> questions = new List<Question>();
+        private List<TopicItem> topicItems;
+        private Dialogue startDialogue;
+        private string topicID;
+        private string topicName;
 
-        public TopicItem nextItem(int index)
+        public Topic(string topicID, string topicName,
+            Dialogue startDialogue)
         {
-            return question[index + 1];
+            this.topicID = topicID;
+            this.topicName = topicName;
+            this.startDialogue = startDialogue;
+            this.topicItems = new List<TopicItem>();
         }
 
-        public void AddQuestion(Question q)
+        public void start()
         {
-            Debug.LogWarning("Adding " + q + " to List<Questions> question");
-            this.questions.Add(q);
+            Debug.Log("starting the first topic!");
+            startDialogue.startItem();
         }
 
-        public string TopicID { get; set; }
-        public string TopicName { get; set; }
-        public Dialogue start { get; set; }
-        public Dialogue end { get; set; }
+        public void AddQuestion(Question question)
+        {
+            Debug.LogWarning("Adding " + question + " to List<Questions> question");
+            this.topicItems.Add(question);
+        }
+
+        public void AddDialogue(Dialogue dialogue)
+        {
+            this.topicItems.Add(dialogue);
+        }
+
+        public string getName()
+        {
+            return topicName;
+        }
     }
 }

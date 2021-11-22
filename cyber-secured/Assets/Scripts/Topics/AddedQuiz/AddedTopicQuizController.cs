@@ -10,19 +10,19 @@ public class AddedTopicQuizController : MonoBehaviour
     private Topic currentTopic;
     private GameObject scn_main;
     private int topicCount;
-    private int currentTopicListID = 0;
 
     public GameObject fillin_components;
     public GameObject true_false_components;
     public GameObject multianswer_components;
+
+    public GameObject quizComponents;
+    public GameObject questionPrompt;
 
     CSVManager manager;
     CSVReader reader;
 
     void Awake()
     {
-        GameObject.Find("stage_custom_topics").SetActive(true);
-
         manager = GameObject.Find("CSVManager").GetComponent<CSVManager>();
         reader = GameObject.Find("CSVReader").GetComponent<CSVReader>();
         string topicSheet = manager.GetTopicSheet();
@@ -30,11 +30,6 @@ public class AddedTopicQuizController : MonoBehaviour
 
         this.AddedTopics = reader.createListTopic(topicSheet, questionsSheet);
         this.topicCount = this.AddedTopics.Count;
-
-        /*scn_main = GameObject.Find("scn_main");
-        scn_main.SetActive(false);*/
-
-        nextQuiz();
     }
 
     // Start is called before the first frame update
@@ -43,16 +38,31 @@ public class AddedTopicQuizController : MonoBehaviour
         
     }
 
+    public string getNextTopicName()
+    {
+        if (topicCount == 0) return "";
+
+        if (currentTopic == null)
+        {
+            return AddedTopics[0].getName();
+        }
+
+        return currentTopic.getName();
+    }
+
     // Gets next topic and presents it's associated quiz
-    public void nextQuiz()
+    public void nextTopic()
     {
         // Gets next topic and triggers starting dialogue
-        currentTopic = AddedTopics[currentTopicListID];
-        Assets.Scripts.Topics.Dialogue start = currentTopic.start;
-        start.startItem();
+        if (currentTopic == null)
+        {
+            GameObject.Find("stage_custom_topics").SetActive(true);
+            quizComponents.SetActive(true);
+            questionPrompt.SetActive(true);
+            currentTopic = AddedTopics[0];
+        }
 
-        // TO DO: trigger quiz, trigger end dialogue
-        // Using Password Quiz as a reference
+        currentTopic.start();
     }
 
     public int getTopicCount()

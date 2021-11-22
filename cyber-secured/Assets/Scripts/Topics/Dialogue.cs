@@ -3,23 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.Topics
 {
     public class Dialogue : TopicItem
     {
-        public string[] sentences { get; set; }
+        private string[] sentences;
 
-        public void AddDialogue(string Dialogue)
+        public Dialogue(string googleSheetString)
         {
-            string[] result = Dialogue.Split('.');
-            this.sentences = result;
+            this.sentences = googleSheetString.Split(new string[] { "<>" }, StringSplitOptions.None);
         }
 
         public override void startItem()
         {
             // Activate the dialogue box and put the sentences in it.
+            DialogueTrigger trigger = GameObject.Find("dlg_custom").GetComponent<DialogueTrigger>();
+            trigger.dialogue.sentences = sentences;
+            trigger.TriggerDialogue();
+        }
 
+        public string[] getSentences()
+        {
+            return sentences;
         }
     }
 }
