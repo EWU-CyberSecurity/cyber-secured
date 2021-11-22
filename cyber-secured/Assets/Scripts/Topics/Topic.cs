@@ -14,6 +14,8 @@ namespace Assets.Scripts.Topics
         private Dialogue startDialogue;
         private string topicID;
         private string topicName;
+        private TopicItem currenItem;
+
 
         public Topic(string topicID, string topicName,
             Dialogue startDialogue)
@@ -26,8 +28,14 @@ namespace Assets.Scripts.Topics
 
         public void start()
         {
-            Debug.Log("starting the first topic!");
+            Debug.Log("starting the first topic");
             startDialogue.startItem();
+            Debug.Log("first item is dialogue? " + (topicItems[0] is Dialogue));
+            if (topicItems[0] is Dialogue) return;
+
+            currenItem = topicItems[0];
+
+            currenItem.startItem();
         }
 
         public void AddQuestion(Question question)

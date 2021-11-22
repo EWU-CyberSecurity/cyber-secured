@@ -15,8 +15,7 @@ public class AddedTopicQuizController : MonoBehaviour
     public GameObject true_false_components;
     public GameObject multianswer_components;
 
-    public GameObject quizComponents;
-    public GameObject questionPrompt;
+    public GameObject questionBox;
 
     CSVManager manager;
     CSVReader reader;
@@ -58,10 +57,8 @@ public class AddedTopicQuizController : MonoBehaviour
         {
             currentTopic = AddedTopics[0];
             GameObject.Find("stage_custom_topics").SetActive(true);
-            quizComponents.SetActive(true);
-            questionPrompt.SetActive(true);
+            questionBox.SetActive(true);
         }
-
         currentTopic.start();
     }
 

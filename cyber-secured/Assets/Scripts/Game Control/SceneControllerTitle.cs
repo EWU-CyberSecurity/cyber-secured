@@ -202,7 +202,7 @@ public class SceneControllerTitle : MonoBehaviour
 
         // while loop to go through selections while pressing no to quizzes
         int i = 0;
-        while(i <  12)
+        while(i <  10)
         {
             GameControllerV2.Instance.HideDecision();
             GameControllerV2.Instance.EventYesNo(false);

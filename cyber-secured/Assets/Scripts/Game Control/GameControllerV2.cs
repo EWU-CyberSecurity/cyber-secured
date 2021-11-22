@@ -521,6 +521,7 @@ public class GameControllerV2 : MonoBehaviour
     // the "next month" button function -----> That's the function who decides which month will be the last month! ------------------------------------------
     public void HideDecision()
     {
+        Debug.Log("HIDE DECISION");
         if(current_month != lastMonth) // don't change the 13!!!
         {
             if(!in_dialogue)

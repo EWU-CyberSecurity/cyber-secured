@@ -13,7 +13,7 @@ namespace Assets.Scripts.Topics
     {
         public bool isTrue { get; set; }
         bool isClicked;
-        GameObject stage_TF;
+        GameObject tf_components = GameObject.Find("stage_custom_topics").transform.Find("Quiz Components").transform.Find("true_false_components").gameObject;
         Button True_btn;
         Button False_btn;
 
@@ -31,9 +31,7 @@ namespace Assets.Scripts.Topics
 
         public override void displayAnswer()
         {
-            stage_TF.SetActive(true);
-            OnContinueButtonClicked();
-            stage_TF.SetActive(false);
+            tf_components.SetActive(true);
         }
 
         private void OnContinueButtonClicked()
