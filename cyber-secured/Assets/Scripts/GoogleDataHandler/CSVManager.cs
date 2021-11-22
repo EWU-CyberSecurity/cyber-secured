@@ -34,8 +34,17 @@ public class CSVManager : MonoBehaviour
         parser.RetrieveSheets(topicSheet, questionSheet);
     }
 
-    // This is from https://github.com/mofrison/Unity3d-Network, modifying it may break stuff.
-    private static async Task<UnityWebRequest> SendWebRequest(UnityWebRequest request, 
+    public string GetTopicSheet()
+    {
+        return this.topicSheet;
+    }
+    public string GetQuestionSheet()
+    {
+        return this.questionSheet;
+    }
+
+// This is from https://github.com/mofrison/Unity3d-Network, modifying it may break stuff.
+private static async Task<UnityWebRequest> SendWebRequest(UnityWebRequest request, 
             CancellationTokenSource cancelationToken = null, System.Action<float> progress = null)
     {
         while (!Caching.ready)

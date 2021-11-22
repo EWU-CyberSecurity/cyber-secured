@@ -11,18 +11,20 @@ public class AddedTopicQuizController : MonoBehaviour
     private int topicCount;
     private int currentTopicListID = 0;
 
-    CSVDownload manager;
+    CSVManager manager;
     CSVReader reader;
 
     void Awake()
     {
-        manager = new CSVDownload();
+        manager = new CSVManager();
         reader = new CSVReader();
         string topicSheet = manager.GetTopicSheet();
         string questionsSheet = manager.GetQuestionSheet();
 
         this.AddedTopics = reader.createListTopic(topicSheet, questionsSheet);
         this.topicCount = this.AddedTopics.Count;
+
+        Debug.Log("TOPIC COUNT? " + topicCount);
 
         scn_main = GameObject.Find("scn_main");
         scn_main.SetActive(false);
