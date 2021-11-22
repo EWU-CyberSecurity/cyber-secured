@@ -8,8 +8,8 @@ namespace Assets.Scripts.Topics
     /// </summary>
     public class Question : TopicItem
     {
-        private GameObject questionBox = GameObject.Find("Quiz Components").transform.Find("question_box").gameObject;
-        private GameObject continueButton = GameObject.Find("Quiz Components").transform.Find("Continue_button").gameObject;
+        private GameObject questionBox = GameObject.Find("question_prompt");
+        private GameObject continueButton = GameObject.Find("stage_custom_topics").transform.Find("Quiz Components").transform.Find("question_prompt").gameObject;
         private string questionText;
         private Answer answer;
 

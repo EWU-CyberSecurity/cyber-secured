@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Assets.Scripts.Topics;
 
@@ -16,18 +17,20 @@ public class AddedTopicQuizController : MonoBehaviour
 
     void Awake()
     {
-        manager = new CSVManager();
-        reader = new CSVReader();
+        GameObject.Find("stage_custom_topics").SetActive(true);
+
+        manager = GameObject.Find("CSVManager").GetComponent<CSVManager>();
+        reader = GameObject.Find("CSVReader").GetComponent<CSVReader>();
         string topicSheet = manager.GetTopicSheet();
         string questionsSheet = manager.GetQuestionSheet();
 
         this.AddedTopics = reader.createListTopic(topicSheet, questionsSheet);
         this.topicCount = this.AddedTopics.Count;
 
-        Debug.Log("TOPIC COUNT? " + topicCount);
+        /*scn_main = GameObject.Find("scn_main");
+        scn_main.SetActive(false);*/
 
-        scn_main = GameObject.Find("scn_main");
-        scn_main.SetActive(false);
+        currentTopic = AddedTopics[0];
     }
 
     // Start is called before the first frame update
@@ -46,5 +49,10 @@ public class AddedTopicQuizController : MonoBehaviour
 
         // TO DO: trigger quiz, trigger end dialogue
         // Using Password Quiz as a reference
+    }
+
+    public int getTopicCount()
+    {
+        return topicCount;
     }
 }

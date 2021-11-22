@@ -17,8 +17,6 @@ namespace Assets.Scripts.Topics
         Button True_btn;
         Button False_btn;
 
-        private GameObject root = GameObject.Find("Quiz Components").transform.Find("Buttons").gameObject;
-
         void TaskOnTrueClick()
         {
             isClicked = true;

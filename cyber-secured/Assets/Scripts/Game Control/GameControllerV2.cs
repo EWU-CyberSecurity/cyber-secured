@@ -905,7 +905,7 @@ public class GameControllerV2 : MonoBehaviour
             DisplayEvent();
         }
     }
-        
+    
     // IMPORTANT: what to do when a bad event occurs
     // ebox - event box (ctrl+f to find this easily)
     public void ActivateEvent(bool bad_event_occurred)
@@ -1240,7 +1240,14 @@ public class GameControllerV2 : MonoBehaviour
             // month 12 event
             case(12):
             {
-                if(bad_event_occurred)
+                // start the custom topics
+                GameObject.Find("Canvas").transform.Find("stage_custom_topics").gameObject.SetActive(true);
+                Debug.Log("CUSTOM TOPICS!");
+            } break;
+
+            default:
+                // this is the end of the game.
+                if (bad_event_occurred)
                 {
                     // decrease NP by a scaling amount
                     int temp_np = network_power;
@@ -1264,9 +1271,11 @@ public class GameControllerV2 : MonoBehaviour
 
                     // Event that occurred
                     current_event_text = "Your company suffers from a heavy deficit.\n" +
-                    "<i>NP has decreased by " + np_difference + ".</i>";
+                                         "<i>NP has decreased by " + np_difference + ".</i>";
 
-                } else {
+                }
+                else
+                {
                     current_event_text = GoodMessage();
                 }
 
@@ -1275,12 +1284,7 @@ public class GameControllerV2 : MonoBehaviour
 
                 name_perk_2.text = "Back to School";
                 info_perk_2.text = "Getting a M.S degree for an increase in your paycheck";
-
-            } break;
-
-            default: 
-                Debug.Log("default - month 12 part 1"); 
-            break;
+                break;
         }
     }
 
