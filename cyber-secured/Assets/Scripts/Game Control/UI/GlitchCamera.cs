@@ -80,6 +80,8 @@ public class GlitchCamera : MonoBehaviour
                 GameObject.Find("scn_title_CONTROL").GetComponent<SceneControllerTitle>().SwitchTitleButtons();
                 GameObject.Find("dlg_start").GetComponent<DialogueTrigger>().TriggerDialogue();
                 FindObjectOfType<MainUIController>().AdjustMenuOnStart();
+
+                GameObject.Find("scn_title").transform.Find("btn_till_end").gameObject.SetActive(true);
             }
         }
     }
