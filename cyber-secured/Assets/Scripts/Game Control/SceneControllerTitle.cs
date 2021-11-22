@@ -195,4 +195,38 @@ public class SceneControllerTitle : MonoBehaviour
             start_button.colors = new_colors;
         }
     }
+
+    public void GoToNewTopics()
+    {
+        GameControllerV2.Instance.SetCompany(1); // set the company to the smallest
+
+        // while loop to go through selections while pressing no to quizzes
+        int i = 0;
+        while(i <  13)
+        {
+            GameControllerV2.Instance.HideDecision();
+            GameControllerV2.Instance.EventYesNo(false);
+
+            if(GameObject.Find("btn_exit_dialogue").activeSelf)
+            {
+                GameObject.Find("DialogueManager").GetComponent<DialogueManager>().SkipDialogue();
+            }
+
+            GameControllerV2.Instance.HideDecision();
+            i++;
+        }
+
+        // Check if the end of game panel to choose a promotion or getting a master's degree is active.
+        // That only happens sometimes but this will disable it if it does.
+        // This isn't necessary to do once this is merged into the custom topics because this box
+        // won't pop up due to this button skipping until the START of the custom topics.
+        if (GameObject.Find("scn_main").transform.Find("pnl_q_event").gameObject.activeSelf)
+        {
+            GameControllerV2.Instance.EventYesNo(false);
+            GameControllerV2.Instance.HideDecision();
+        }
+
+        GameObject.Find("scn_title").transform.Find("btn_till_end").gameObject.SetActive(false);
+    }
+
 }
