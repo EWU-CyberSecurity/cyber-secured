@@ -56,10 +56,10 @@ public class AddedTopicQuizController : MonoBehaviour
         // Gets next topic and triggers starting dialogue
         if (currentTopic == null)
         {
+            currentTopic = AddedTopics[0];
             GameObject.Find("stage_custom_topics").SetActive(true);
             quizComponents.SetActive(true);
             questionPrompt.SetActive(true);
-            currentTopic = AddedTopics[0];
         }
 
         currentTopic.start();
