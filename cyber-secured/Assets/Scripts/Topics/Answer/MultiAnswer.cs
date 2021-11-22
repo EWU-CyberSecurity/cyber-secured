@@ -54,6 +54,7 @@ namespace Assets.Scripts.Topics
         {
             // Set the text on the four multiple choice buttons. Also set them to intractable again. 
             displayedSet = answerPool.ElementAt(Random.Range(0, answerPool.Count));
+            explanation = displayedSet.getExplanation();
             for (int i = 0; i < buttons.Length; i++)
             {
                 buttons[i].GetComponent<Button>().interactable = true;
