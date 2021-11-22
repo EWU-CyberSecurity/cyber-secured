@@ -17,7 +17,7 @@ namespace Assets.Scripts.Topics
         private Color disabledCorrectColor = new Color(0.5764706f, 1, 0.5882353f);
         private Color disabledIncorrectColor = new Color(1, 0.5764706f, 0.5764706f);
 
-        private GameObject root = GameObject.Find("stage_custom_topics").transform.Find("Quiz Components").transform.Find("multianswer_components").gameObject;
+        private GameObject root = GameObject.Find("Canvas").transform.Find("stage_custom_topics").transform.Find("Quiz Components").transform.Find("multianswer_components").gameObject;
 
         private GameObject button1;
         private GameObject button2;
@@ -26,6 +26,21 @@ namespace Assets.Scripts.Topics
 
         // use this for updating all
         private GameObject[] buttons;
+
+        public MultiAnswer(GameObject root)
+        {
+            this.root = root;
+
+            answerPool = new List<MultiAnswerSet>();
+
+            button1 = root.transform.Find("multi_answer_btn_1").gameObject;
+            button2 = root.transform.Find("multi_answer_btn_2").gameObject;
+            button3 = root.transform.Find("multi_answer_btn_3").gameObject;
+            button4 = root.transform.Find("multi_answer_btn_4").gameObject;
+
+            // use this for updating all the buttons in a clean way
+            buttons = new GameObject[] { button1, button2, button3, button4 };
+        }
 
         public MultiAnswer()
         {

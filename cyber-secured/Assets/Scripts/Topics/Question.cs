@@ -8,8 +8,8 @@ namespace Assets.Scripts.Topics
     /// </summary>
     public class Question : TopicItem
     {
-        private GameObject questionBox = GameObject.Find("stage_custom_topics").transform.Find("question_box").gameObject;
-        private GameObject continueButton = GameObject.Find("stage_custom_topics").transform.Find("Continue").gameObject;
+        private GameObject questionBox = GameObject.Find("Canvas").transform.Find("stage_custom_topics").transform.Find("question_box").gameObject;
+        private GameObject continueButton = GameObject.Find("Canvas").transform.Find("stage_custom_topics").transform.Find("Continue").gameObject;
         private string questionText;
         private Answer answer;
 
@@ -65,6 +65,16 @@ namespace Assets.Scripts.Topics
         public void hideContinueButton()
         {
             continueButton.SetActive(false);
+        }
+
+        public void setQuestionBox(GameObject questionBox)
+        {
+            this.questionBox = questionBox;
+        }
+
+        public void setContinueButton(GameObject continueButton)
+        {
+            this.continueButton = continueButton;
         }
     }
 }

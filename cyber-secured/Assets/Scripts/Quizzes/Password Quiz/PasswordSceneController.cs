@@ -44,8 +44,14 @@ public class PasswordSceneController : MonoBehaviour
 
     private void setUpQuestions()
     {
+        GameObject questionBox = GameObject.Find("scn_quiz_password").transform.Find("Quiz Components").transform.Find("question_box").gameObject;
+        GameObject continueButton = GameObject.Find("scn_quiz_password").transform.Find("Quiz Components").transform.Find("Continue_button").gameObject;
+        GameObject root = GameObject.Find("scn_quiz_password").transform.Find("Quiz Components").transform.Find("Buttons").gameObject;
+
         Question questionToAdd = new Question("Which password is hardest to crack?");
-        MultiAnswer answerToAdd = new MultiAnswer();
+        questionToAdd.setContinueButton(continueButton);
+        questionToAdd.setQuestionBox(questionBox);
+        MultiAnswer answerToAdd = new MultiAnswer(root);
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "I am infatuated with you", "eyeluvewe",
             "ILoooveYou", "I<3You", new[] { 0 },
@@ -75,7 +81,9 @@ public class PasswordSceneController : MonoBehaviour
         questions.Add(questionToAdd);
 
         questionToAdd = new Question("Which of these 12 character long passwords is the hardest to brute force?");
-        answerToAdd = new MultiAnswer();
+        questionToAdd.setContinueButton(continueButton);
+        questionToAdd.setQuestionBox(questionBox);
+        answerToAdd = new MultiAnswer(root);
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "2 b OR !tuby",
             "1-8002446227",
@@ -112,7 +120,9 @@ public class PasswordSceneController : MonoBehaviour
         questions.Add(questionToAdd);
 
         questionToAdd = new Question("You need a new strong password for your Robin bank account. Which password would be the WORST to use?");
-        answerToAdd = new MultiAnswer();
+        questionToAdd.setContinueButton(continueButton);
+        questionToAdd.setQuestionBox(questionBox);
+        answerToAdd = new MultiAnswer(root);
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "RoundRobin",
             "RoundCactus",
@@ -150,7 +160,9 @@ public class PasswordSceneController : MonoBehaviour
 
         questionToAdd = new Question("Suppose your password is \"waterbottle\"," +
                                           " and you want to make it more secure. What could you change it to?");
-        answerToAdd = new MultiAnswer();
+        questionToAdd.setContinueButton(continueButton);
+        questionToAdd.setQuestionBox(questionBox);
+        answerToAdd = new MultiAnswer(root);
 
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "H20 b@ttle",
@@ -181,7 +193,9 @@ public class PasswordSceneController : MonoBehaviour
 
         questionToAdd = new Question("You know your co-worker writes his password down because it is very" +
                                           " complicated and hard to remember. What could you suggest to him to do instead?");
-        answerToAdd = new MultiAnswer();
+        questionToAdd.setContinueButton(continueButton);
+        questionToAdd.setQuestionBox(questionBox);
+        answerToAdd = new MultiAnswer(root);
         answerToAdd.addToAnswerPool(new MultiAnswerSet(
             "Password Manager",
             "Make a new password",
