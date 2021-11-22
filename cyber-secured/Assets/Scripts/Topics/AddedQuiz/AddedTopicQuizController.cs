@@ -17,17 +17,18 @@ public class AddedTopicQuizController : MonoBehaviour
 
     public GameObject questionBox;
 
-    CSVManager manager;
-    CSVReader reader;
+    public CSVDownloader downloader;
+    public CSVParser parser;
 
     void Awake()
     {
-        manager = GameObject.Find("CSVManager").GetComponent<CSVManager>();
-        reader = GameObject.Find("CSVReader").GetComponent<CSVReader>();
-        string topicSheet = manager.GetTopicSheet();
-        string questionsSheet = manager.GetQuestionSheet();
+        downloader = GameObject.Find("CSVDownloader").GetComponent<CSVDownloader>();
+        parser = GameObject.Find("CSVParser").GetComponent<CSVParser>();
 
-        this.AddedTopics = reader.createListTopic(topicSheet, questionsSheet);
+        string topicSheet = downloader.GetTopicSheet();
+        string questionsSheet = downloader.GetQuestionSheet();
+
+        this.AddedTopics = parser.createListTopic(topicSheet, questionsSheet);
         this.topicCount = this.AddedTopics.Count;
     }
 

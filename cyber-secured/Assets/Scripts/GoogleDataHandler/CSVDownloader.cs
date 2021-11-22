@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class CSVManager : MonoBehaviour
+public class CSVDownloader : MonoBehaviour
 {
     private string topicSheet;
     private string questionSheet;
-
-    public CSVParser parser;
 
     private static readonly string sheetID = "2PACX-1vTWkk_93-6edDxrGqz-gSsMgNmkVfIg_yQjIqypDpfpCw-rGIgYu5HqgK8ZHhA4SpzjGTrWh74DbLtD";  //Swap this out with the latest ID in the url if something breaks
 
@@ -20,9 +18,9 @@ public class CSVManager : MonoBehaviour
     private void Start()
     {
         // Suppressing a C# warning, having it wont affect anything but figured it would be better to just not have it show up in console.
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+    #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         TaskHandlerAsync();
-#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+    #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
     }
 
     async Task TaskHandlerAsync() 
@@ -30,8 +28,7 @@ public class CSVManager : MonoBehaviour
         // Download the CSVs from the urls above and then send the strings to the parser.
         questionSheet = await GetText(spreadsheet1URL);
         topicSheet = await GetText(spreadsheet2URL);
-
-        parser.RetrieveSheets(topicSheet, questionSheet);
+        Debug.LogWarning("Finished Downloading");
     }
 
     public string GetTopicSheet()
@@ -43,8 +40,8 @@ public class CSVManager : MonoBehaviour
         return this.questionSheet;
     }
 
-// This is from https://github.com/mofrison/Unity3d-Network, modifying it may break stuff.
-private static async Task<UnityWebRequest> SendWebRequest(UnityWebRequest request, 
+    // This is from https://github.com/mofrison/Unity3d-Network, modifying it may break stuff.
+    private static async Task<UnityWebRequest> SendWebRequest(UnityWebRequest request, 
             CancellationTokenSource cancelationToken = null, System.Action<float> progress = null)
     {
         while (!Caching.ready)
