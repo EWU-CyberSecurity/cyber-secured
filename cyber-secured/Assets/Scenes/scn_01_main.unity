@@ -5258,6 +5258,8 @@ MonoBehaviour:
   true_false_components: {fileID: 1587158527}
   multianswer_components: {fileID: 695905710}
   questionBox: {fileID: 2119671723}
+  downloader: {fileID: 1828117649}
+  parser: {fileID: 1006932244}
 --- !u!1 &192058990
 GameObject:
   m_ObjectHideFlags: 0
@@ -28682,7 +28684,7 @@ GameObject:
   - component: {fileID: 1006932243}
   - component: {fileID: 1006932244}
   m_Layer: 0
-  m_Name: CSVReader
+  m_Name: CSVParser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28695,12 +28697,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006932242}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1058315047}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1006932244
 MonoBehaviour:
@@ -28711,7 +28713,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1006932242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bbcf0f0fd9ee5f48ad40c4bbc39179b, type: 3}
+  m_Script: {fileID: 11500000, guid: d2dc048fd24f2934a8b4b0819a65837c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1007232528
@@ -30450,6 +30452,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1058315047}
+  - component: {fileID: 1058315048}
   m_Layer: 0
   m_Name: GoogleSheetReading
   m_TagString: Untagged
@@ -30468,11 +30471,23 @@ Transform:
   m_LocalPosition: {x: 0.5496064, y: 0.13038722, z: 184.55664}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1828117648}
   - {fileID: 1006932243}
+  - {fileID: 1828117648}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1058315048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058315046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2dc048fd24f2934a8b4b0819a65837c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1058585744
 GameObject:
   m_ObjectHideFlags: 0
@@ -38181,7 +38196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a41d54b89afd26468b36ea9b774b69e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parser: {fileID: 1329741134}
 --- !u!1 &1332202601
 GameObject:
   m_ObjectHideFlags: 0
@@ -52843,7 +52857,7 @@ GameObject:
   - component: {fileID: 1828117648}
   - component: {fileID: 1828117649}
   m_Layer: 0
-  m_Name: CSVManager
+  m_Name: CSVDownloader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52861,7 +52875,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1058315047}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1828117649
 MonoBehaviour:
@@ -52875,7 +52889,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a41d54b89afd26468b36ea9b774b69e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parser: {fileID: 0}
 --- !u!1 &1830323699
 GameObject:
   m_ObjectHideFlags: 0
