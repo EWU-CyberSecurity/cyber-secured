@@ -204,17 +204,20 @@ public class SceneControllerTitle : MonoBehaviour
         int i = 0;
         while(i <  10)
         {
-            GameControllerV2.Instance.HideDecision();
-            GameControllerV2.Instance.EventYesNo(false);
-
-            if(GameObject.Find("btn_exit_dialogue").activeSelf)
+            if (GameObject.Find("btn_exit_dialogue").activeSelf)
             {
                 GameObject.Find("DialogueManager").GetComponent<DialogueManager>().SkipDialogue();
             }
-
+            GameControllerV2.Instance.HideDecision();
+            GameControllerV2.Instance.EventYesNo(false);
             GameControllerV2.Instance.HideDecision();
             i++;
         }
+        GameControllerV2.Instance.EventYesNo(false);
+        GameControllerV2.Instance.HideDecision();
+        GameControllerV2.Instance.EventYesNo(false);
+        GameControllerV2.Instance.HideDecision();
+
 
         GameObject.Find("scn_title").transform.Find("btn_till_end").gameObject.SetActive(false);
     }
