@@ -222,6 +222,7 @@ public class GameControllerV2 : MonoBehaviour
     // resets the game
     public void ResetGame()
     {
+        AudioListener.volume = 0.5f;
         Destroy(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
