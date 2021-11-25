@@ -53,30 +53,19 @@ public class VolumeManager : MonoBehaviour {
         }
     }
 
-    public void MusicSlider() {
-        if (!getMuted())
-        {
-            AudioListener.volume = AllAudioSlider.value;
-        }
-    }
-
+    //Used in editor for the clickOn in the mute toggle button
     public void Toggle()
     {
         muted = !muted;
         if (muted)
         {
-            muteToggle.GetComponentInChildren<Text>().text = "Muted Audio";
+            muteToggle.GetComponentInChildren<Text>().text = "Unmute all audio";
             AudioListener.volume = 0.0001f;
         }
         else
         {
-            muteToggle.GetComponentInChildren<Text>().text = "Unmuted Audio";
+            muteToggle.GetComponentInChildren<Text>().text = "Mute all audio";
             AudioListener.volume = 1.000f;
         }
-    }
-
-    public bool getMuted()
-    {
-        return this.muted;
     }
 }
