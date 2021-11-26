@@ -84,6 +84,7 @@ public class GameControllerV2 : MonoBehaviour
     public GameObject scn_hard_drive;           // hard drive selection scene  ---> used in the SceneControllerHardDrive class
     public GameObject scn_one_time_pad;         // one time encryption scene     -----------------> New scene for the one time pad
     public GameObject scn_RSA;                  // RSA encryption scene          -----------------> New scene for the RSA encryption
+    public GameObject stage_custom_topics;
 
     // Numbers:
     public int network_power;                   // main score

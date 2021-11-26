@@ -99,6 +99,7 @@ public class MainUIController : MonoBehaviour
         GameControllerV2.Instance.scn_virus_presentation.transform.DOLocalMoveY(-500, 0.8f);
         GameControllerV2.Instance.scn_virus_quiz.transform.DOLocalMoveY(-500, 0.8f);
         GameControllerV2.Instance.scn_caesar_cipher.transform.DOLocalMoveY(-500, 0.8f);
+        GameControllerV2.Instance.stage_custom_topics.transform.DOLocalMoveY(-500, 0.8f);
 
         scn_options.transform.DOLocalMoveY      (0, 0.75f);
         btn_menu.transform.DOLocalMoveY         (100, 0.8f);
@@ -117,6 +118,7 @@ public class MainUIController : MonoBehaviour
         GameControllerV2.Instance.scn_virus_presentation.transform.DOLocalMoveY(0, 0.8f);
         GameControllerV2.Instance.scn_virus_quiz.transform.DOLocalMoveY(0, 0.8f);
         GameControllerV2.Instance.scn_caesar_cipher.transform.DOLocalMoveY(0, 0.8f);
+        GameControllerV2.Instance.stage_custom_topics.transform.DOLocalMoveY(0, 0.8f);
 
         scn_options.transform.DOLocalMoveY      (500, 0.75f);
         btn_menu.transform.DOLocalMoveY         (275, 0.8f);
