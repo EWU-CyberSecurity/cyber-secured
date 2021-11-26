@@ -52,10 +52,9 @@ public class OneTimePadQuizManager : MonoBehaviour {
         inputForDialogue = new string[1];
 
         encryptedRound.SetActive(true);
-        button_menu.SetActive(false);// no need for this button in the quiz
         squares_random.SetActive(true);
         generalQuestion.SetActive(false);
-        GameObject.Find("btn_exit_dialogue").SetActive(true);
+        GameObject.Find("dialogue_box").transform.Find("btn_exit_dialogue").gameObject.SetActive(true);
     }
 
     // proceed to next question
@@ -95,7 +94,7 @@ public class OneTimePadQuizManager : MonoBehaviour {
                         inputForDialogue[0] = "Very Good! You encrypted correctly!" +
                             "\nYour answer was: " + encryptedAnswer.textComponent.text.ToLower() + "" +
                             "\nThat's the correct answer. \nContinue to the second question.";
-                        dialogue = new Dialogue { sentences = inputForDialogue };
+                        dialogue = new Dialogue { sentences = inputForDialogue, name = "IT Senior" };
                         
                         ECorrect.GetComponent<DialogueTrigger>().dialogue = dialogue;
                         ECorrect.GetComponent<DialogueTrigger>().TriggerDialogue();
@@ -126,7 +125,7 @@ public class OneTimePadQuizManager : MonoBehaviour {
                             "\nThe correct answer is: " + encryptionAnswer.ToLower() +"" +
                             "\nYour answer was: " + encryptedAnswer.textComponent.text.ToLower() + "" +
                           "\nTry again in the next question! You got " + counter + "/10 points";
-                        dialogue = new Dialogue { sentences = inputForDialogue };
+                        dialogue = new Dialogue { sentences = inputForDialogue, name = "IT Senior"};
 
                         EIncorrect.GetComponent<DialogueTrigger>().dialogue = dialogue;
                         EIncorrect.GetComponent<DialogueTrigger>().TriggerDialogue();

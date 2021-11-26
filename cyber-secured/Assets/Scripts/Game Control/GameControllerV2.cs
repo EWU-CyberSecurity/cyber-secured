@@ -68,23 +68,23 @@ public class GameControllerV2 : MonoBehaviour
     public GameObject scn_main;                 // main scene
     public GameObject[] companies;              // the three company buttons
 
-    public GameObject scn_quiz_password;        // password "minigame scene"
-
-    public GameObject scn_filebackup;           // file backup "minigame scene"
     public bool backup_hdd = false;
     public bool backup_usb = false;
     public bool backup_cld = false;
     //public int backup_type;                     // 1 = external; 2 = internal; 3 = cloud
 
     // public GameObject scn_phishing;             // --
+    public GameObject scn_quiz_password;        // password "minigame scene"
+    public GameObject scn_filebackup;           // file backup "minigame scene"
     public GameObject scn_phishing_v2;          // alternative phishing scene 
     public GameObject scn_virus_presentation;   // virus presentation scene
     public GameObject scn_virus_quiz;           // virus quiz scene
     public GameObject scn_caesar_cipher;        // caesar cipher scene
-    public GameObject scn_hard_drive;           // hard drive selection scene  ---> used in the SceneControllerHardDrive class
     public GameObject scn_one_time_pad;         // one time encryption scene     -----------------> New scene for the one time pad
     public GameObject scn_RSA;                  // RSA encryption scene          -----------------> New scene for the RSA encryption
     public GameObject stage_custom_topics;
+
+    public GameObject[] all_stages;
 
     // Numbers:
     public int network_power;                   // main score

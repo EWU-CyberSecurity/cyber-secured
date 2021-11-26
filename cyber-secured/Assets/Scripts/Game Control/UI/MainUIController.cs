@@ -90,16 +90,23 @@ public class MainUIController : MonoBehaviour
         // play a beep sound
         GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);
 
-        // moves all the things appropriately down
-        // TODO: when finished with all scenes, create an array with all scenes and for loop this
-        GameControllerV2.Instance.scn_main.transform.DOLocalMoveY         (-700, 0.8f);
-        GameControllerV2.Instance.scn_quiz_password.transform.DOLocalMoveY(-500, 0.8f);
-        GameControllerV2.Instance.scn_filebackup.transform.DOLocalMoveY   (-500, 0.8f);
-        GameControllerV2.Instance.scn_phishing_v2.transform.DOLocalMoveY(-500, 0.8f);
-        GameControllerV2.Instance.scn_virus_presentation.transform.DOLocalMoveY(-500, 0.8f);
-        GameControllerV2.Instance.scn_virus_quiz.transform.DOLocalMoveY(-500, 0.8f);
-        GameControllerV2.Instance.scn_caesar_cipher.transform.DOLocalMoveY(-500, 0.8f);
-        GameControllerV2.Instance.stage_custom_topics.transform.DOLocalMoveY(-500, 0.8f);
+        float endValueY = -500;
+        float duration = 0.8f;
+
+        GameObject[] allStages = GameControllerV2.Instance.all_stages;
+
+        foreach (GameObject stage in allStages)
+        {
+            // the main stage components need to be moved a little further because of the info in the top left.
+            if (stage.name == "scn_main")
+            {
+                stage.transform.DOLocalMoveY(-700, duration);
+            }
+            else
+            {
+                stage.transform.DOLocalMoveY(endValueY, duration);
+            }
+        }
 
         scn_options.transform.DOLocalMoveY      (0, 0.75f);
         btn_menu.transform.DOLocalMoveY         (100, 0.8f);
@@ -110,15 +117,15 @@ public class MainUIController : MonoBehaviour
         // play a beep sound
         GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);
 
-        // moves all the things appropriately up
-        GameControllerV2.Instance.scn_main.transform.DOLocalMoveY         (0, 0.8f);
-        GameControllerV2.Instance.scn_quiz_password.transform.DOLocalMoveY(0, 0.8f);
-        GameControllerV2.Instance.scn_filebackup.transform.DOLocalMoveY   (0, 0.8f);
-        GameControllerV2.Instance.scn_phishing_v2.transform.DOLocalMoveY(0, 0.8f);
-        GameControllerV2.Instance.scn_virus_presentation.transform.DOLocalMoveY(0, 0.8f);
-        GameControllerV2.Instance.scn_virus_quiz.transform.DOLocalMoveY(0, 0.8f);
-        GameControllerV2.Instance.scn_caesar_cipher.transform.DOLocalMoveY(0, 0.8f);
-        GameControllerV2.Instance.stage_custom_topics.transform.DOLocalMoveY(0, 0.8f);
+        float endValueY = 0;
+        float duration = 0.8f;
+
+        GameObject[] allStages = GameControllerV2.Instance.all_stages;
+
+        foreach (GameObject stage in allStages)
+        {
+            stage.transform.DOLocalMoveY(endValueY, duration);
+        }
 
         scn_options.transform.DOLocalMoveY      (500, 0.75f);
         btn_menu.transform.DOLocalMoveY         (275, 0.8f);
@@ -138,14 +145,16 @@ public class MainUIController : MonoBehaviour
         // Beep sound
         GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);
 
+        float endValueY = 0;
+        float duration = 0.8f;
+
+        GameObject[] allStages = GameControllerV2.Instance.all_stages;
+
         // moves all the things appropriately up
-        GameControllerV2.Instance.scn_main.transform.DOLocalMoveY(0, 0.8f);
-        GameControllerV2.Instance.scn_quiz_password.transform.DOLocalMoveY(0, 0.8f);
-        GameControllerV2.Instance.scn_filebackup.transform.DOLocalMoveY(0, 0.8f);
-        GameControllerV2.Instance.scn_phishing_v2.transform.DOLocalMoveY(0, 0.8f);
-        GameControllerV2.Instance.scn_virus_presentation.transform.DOLocalMoveY(0, 0.8f);
-        GameControllerV2.Instance.scn_virus_quiz.transform.DOLocalMoveY(0, 0.8f);
-        GameControllerV2.Instance.scn_caesar_cipher.transform.DOLocalMoveY(0, 0.8f);
+        foreach (GameObject stage in allStages)
+        {
+            stage.transform.DOLocalMoveY(endValueY, duration);
+        }
 
         scn_options.transform.DOLocalMoveY(500, 0.75f);
         btn_menu.transform.DOLocalMoveY(275, 0.8f);

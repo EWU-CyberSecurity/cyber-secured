@@ -38099,19 +38099,29 @@ MonoBehaviour:
   - {fileID: 1112727863}
   - {fileID: 1239960087}
   - {fileID: 1254613255}
-  scn_quiz_password: {fileID: 646155941}
-  scn_filebackup: {fileID: 1427442604}
   backup_hdd: 0
   backup_usb: 0
   backup_cld: 0
+  scn_quiz_password: {fileID: 646155941}
+  scn_filebackup: {fileID: 1427442604}
   scn_phishing_v2: {fileID: 748008015}
   scn_virus_presentation: {fileID: 1406815010}
   scn_virus_quiz: {fileID: 1487395943}
   scn_caesar_cipher: {fileID: 671755138}
-  scn_hard_drive: {fileID: 0}
   scn_one_time_pad: {fileID: 821240469}
   scn_RSA: {fileID: 27754530}
   stage_custom_topics: {fileID: 191967207}
+  all_stages:
+  - {fileID: 1761814135}
+  - {fileID: 748008015}
+  - {fileID: 1406815010}
+  - {fileID: 1487395943}
+  - {fileID: 671755138}
+  - {fileID: 821240469}
+  - {fileID: 27754530}
+  - {fileID: 646155941}
+  - {fileID: 1427442604}
+  - {fileID: 191967207}
   network_power: 0
   monthly_np: 0
   current_month: 0
