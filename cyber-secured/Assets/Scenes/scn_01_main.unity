@@ -10749,8 +10749,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 805104099}
-        m_MethodName: StartGlitch
+      - m_Target: {fileID: 1329741131}
+        m_MethodName: StartButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25601,7 +25601,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name_field: {fileID: 82204353}
   name_gameObject: {fileID: 82204352}
-  cam: {fileID: 805104095}
   update: 0
 --- !u!1 &810672633
 GameObject:
@@ -40710,6 +40709,7 @@ MonoBehaviour:
   display_month: {fileID: 1285135453}
   display_error_rate: {fileID: 796137905}
   btn_menu: {fileID: 319652966}
+  name_field_gameObject: {fileID: 82204352}
   decision_box: {fileID: 256821235}
   decision_text: {fileID: 1408091801}
   current_decision_text: 

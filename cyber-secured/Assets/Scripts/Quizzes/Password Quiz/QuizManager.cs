@@ -38,7 +38,7 @@ public class QuizManager : MonoBehaviour
             } else {
                 // done with quiz, succeeded in not failing
                 // glitch screen
-                GameObject.FindObjectOfType<GlitchCamera>().StartGlitch();
+                //GameObject.FindObjectOfType<GlitchCamera>().StartGlitch();
                 GameObject.Find("dlg_quiz_success").GetComponent<DialogueTrigger>().TriggerDialogue();
                 
                 // reward for completion

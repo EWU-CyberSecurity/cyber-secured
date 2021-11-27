@@ -11,17 +11,13 @@ public class GlitchCamera : MonoBehaviour
 {
     public InputField name_field; // Drag and drop the input field for the name 
     public GameObject name_gameObject;
-    public Camera cam;
 
     public bool update = false;     // flag for update
 
     // initialization
     void Start()
     {
-        if(cam == null)
-        {
-            cam = gameObject.GetComponent<Camera>();
-        }
+
     }
 
     // non-input updating
@@ -48,18 +44,7 @@ public class GlitchCamera : MonoBehaviour
                     g.SetActive(true);
                 }
 
-                // move options to the top of the screen
-                //GameControllerV2.Instance.scn_instruct.gameObject.SetActive(false);
                 GameObject.FindObjectOfType<SceneControllerTitle>().DisableInstruct();
-                /*GameControllerV2.Instance.scn_options.transform.SetPositionAndRotation(
-                    new Vector3(0, 10, 0), Quaternion.identity);
-
-                // disable the return option
-                GameControllerV2.Instance.btn_return_options.gameObject.SetActive(false);
-
-                // enable the game reset button
-                GameControllerV2.Instance.btn_reset_game.gameObject.SetActive(true);
-                GameControllerV2.Instance.btn_return_main.gameObject.SetActive(true);*/
 
                 // change state to main
                 GameControllerV2.Instance.SetState(3);

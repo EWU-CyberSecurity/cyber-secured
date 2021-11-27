@@ -97,6 +97,7 @@ public class GameControllerV2 : MonoBehaviour
     public Text display_error_rate;             // --
 
     public Button btn_menu;                     // --
+    public GameObject name_field_gameObject;
 
     public GameObject decision_box;             // decision box objects
     public Text decision_text;                  // --
@@ -404,6 +405,43 @@ public class GameControllerV2 : MonoBehaviour
             DisplayDecision();
             skip_topics_button.SetActive(false);
         }
+    }
+
+    public void StartButtonClicked()
+    {
+        InputField inputField = name_field_gameObject.GetComponent<InputField>();
+
+        if (!string.IsNullOrEmpty(inputField.textComponent.text))
+        {
+            name_field_gameObject.SetActive(false);
+
+            GameObject.Find("scn_title_CONTROL").GetComponent<SceneControllerTitle>().SwitchTitleButtons();
+            GameObject.Find("dlg_start").GetComponent<DialogueTrigger>().TriggerDialogue();
+            FindObjectOfType<MainUIController>().AdjustMenuOnStart();
+
+            // show the skip to custom topics button
+            GameObject.Find("scn_title").transform.Find("btn_till_end").gameObject.SetActive(true);
+
+            DisplayNP();
+            DisplayMonth();
+            DisplayErrorRate();
+
+            btn_menu.gameObject.SetActive(true);
+
+            Debug.Log("Game start!");
+            foreach (GameObject g in companies)
+            {
+                g.SetActive(true);
+            }
+
+            GameObject.FindObjectOfType<SceneControllerTitle>().DisableInstruct();
+
+            // change state to main
+            CURRENT_STATE = State.main;
+
+            GameObject.FindObjectOfType<SceneControllerTitle>().HideTitle();
+        }
+
     }
 
     // coroutine accompanying SetCompany() when choosing company
