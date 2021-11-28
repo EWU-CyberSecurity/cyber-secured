@@ -1252,7 +1252,7 @@ public class GameControllerV2 : MonoBehaviour
             case(12):
             {
                 GameObject.Find("Canvas").transform.Find("stage_custom_topics").gameObject.SetActive(true);
-                AddedTopicQuizController controller = GameObject.Find("stage_custom_topics").GetComponent<AddedTopicQuizController>();
+                CustomTopicQuizController controller = GameObject.Find("stage_custom_topics").GetComponent<CustomTopicQuizController>();
                 lastMonth = 12 + controller.getTopicCount();
                 
                 current_event_text = GoodMessage();
@@ -1668,7 +1668,7 @@ public class GameControllerV2 : MonoBehaviour
             {
                 // TODO: Make the no button move on to the next topic with a penalty.
                 Debug.Log("next topic, activate stuff");
-                AddedTopicQuizController controller = GameObject.Find("stage_custom_topics").GetComponent<AddedTopicQuizController>();
+                CustomTopicQuizController controller = GameObject.Find("stage_custom_topics").GetComponent<CustomTopicQuizController>();
                 controller.nextTopic();
                 return;
             } 

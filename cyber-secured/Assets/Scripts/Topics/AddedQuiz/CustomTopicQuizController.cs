@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Assets.Scripts.Topics;
 
-public class AddedTopicQuizController : MonoBehaviour
+public class CustomTopicQuizController : MonoBehaviour
 {
     private List<Topic> AddedTopics;
     private Topic currentTopic;
