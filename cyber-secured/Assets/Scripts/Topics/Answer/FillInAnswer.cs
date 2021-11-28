@@ -12,10 +12,11 @@ namespace Assets.Scripts.Topics
     {
         private string correctAnswer;
 
-        public GameObject stage_FillIn;
+        public GameObject fillInComponents;
 
         public FillInAnswer(string sheetCorrectAnswer)
         {
+            fillInComponents = quizComponentsRoot.transform.Find("fillin_components").gameObject;
             this.correctAnswer = sheetCorrectAnswer;
         }
 
@@ -23,7 +24,7 @@ namespace Assets.Scripts.Topics
         string InputFieldInput()
         {
             string userAnswer = " ";
-            userAnswer = stage_FillIn.transform.Find("InputField").GetComponent<InputField>().text;
+            userAnswer = fillInComponents.transform.Find("InputField").GetComponent<InputField>().text;
             return userAnswer;
         }
 
@@ -37,9 +38,8 @@ namespace Assets.Scripts.Topics
 
         public override void DisplayAnswer()
         {
-            stage_FillIn.SetActive(true);
-            OnContinueButtonClicked();
-            stage_FillIn.SetActive(true);
+            Debug.Log("displaying fill in answer");
+            fillInComponents.SetActive(true);
         }
 
         public void OnContinueButtonClicked()
@@ -50,13 +50,13 @@ namespace Assets.Scripts.Topics
             if (checkUIAnswer(userAnswer))
             {
                 //get next question or the dialogue.
-                stage_FillIn.transform.Find("InputField").GetComponent<InputField>().selectionColor = disabledCorrectColor;
+                fillInComponents.transform.Find("InputField").GetComponent<InputField>().selectionColor = disabledCorrectColor;
 
             }
             else
             {
                 //Tell the user they entered the wrong answer, or continue on with the game.
-                stage_FillIn.transform.Find("InputField").GetComponent<InputField>().selectionColor = disabledIncorrectColor;
+                fillInComponents.transform.Find("InputField").GetComponent<InputField>().selectionColor = disabledIncorrectColor;
 
             }
         }
@@ -64,6 +64,11 @@ namespace Assets.Scripts.Topics
         protected override void changeColorsAndDisableButtons()
         {
             
+        }
+
+        public override void hideAnswerComponents()
+        {
+            fillInComponents.SetActive(false);
         }
     }
 }

@@ -90,6 +90,11 @@ namespace Assets.Scripts.Topics
             }
         }
 
+        public override void hideAnswerComponents()
+        {
+            multiAnswerRoot.SetActive(false);
+        }
+
         // When the button is clicked check if it belongs to the right answer
         public bool onButton1Clicked()
         {

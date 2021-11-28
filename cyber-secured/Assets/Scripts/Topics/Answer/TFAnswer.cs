@@ -49,5 +49,10 @@ namespace Assets.Scripts.Topics
             btn_true.interactable = false;
             btn_false.interactable = false;
         }
+
+        public override void hideAnswerComponents()
+        {
+            tfRoot.SetActive(false);
+        }
     }
 }

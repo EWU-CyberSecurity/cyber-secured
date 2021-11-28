@@ -45,6 +45,7 @@ namespace Assets.Scripts.Topics
         {
             // Here we create the question box and put the text in it.
             // And then call answer.DisplayAnswer()
+
             hideContinueButton();
 
             changeQuestionText(questionText);
@@ -75,6 +76,12 @@ namespace Assets.Scripts.Topics
         public void setContinueButton(GameObject continueButton)
         {
             this.continueButton = continueButton;
+        }
+
+        // hide all of the components associated with the current answer.
+        public void hideAnswerComponents()
+        {
+            answer.hideAnswerComponents();
         }
     }
 }

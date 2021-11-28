@@ -69,6 +69,12 @@ public class CustomTopicQuizController : MonoBehaviour
         currentTopic.start();
     }
 
+    // advance to the next topic item.
+    public void nextTopicItem()
+    {
+        currentTopic.nextQuestion();
+    }
+
     public int getTopicCount()
     {
         return topicCount;

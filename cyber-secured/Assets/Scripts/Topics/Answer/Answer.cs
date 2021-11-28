@@ -47,5 +47,7 @@ namespace Assets.Scripts.Topics
         }
 
         protected abstract void changeColorsAndDisableButtons();
+
+        public abstract void hideAnswerComponents();
     }
 }

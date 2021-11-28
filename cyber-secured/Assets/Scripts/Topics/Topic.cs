@@ -10,6 +10,7 @@ namespace Assets.Scripts.Topics
     /// </summary>
     public class Topic
     {
+        private int itemNumber;
         private List<TopicItem> topicItems;
         private Dialogue startDialogue;
         private string topicID;
@@ -28,12 +29,13 @@ namespace Assets.Scripts.Topics
 
         public void start()
         {
+            itemNumber = 0;
             Debug.Log("starting the first topic");
             startDialogue.startItem();
-            Debug.Log("first item is dialogue? " + (topicItems[0] is Dialogue));
-            if (topicItems[0] is Dialogue) return;
+            Debug.Log("first item is dialogue? " + (topicItems[itemNumber] is Dialogue));
+            if (topicItems[itemNumber] is Dialogue) return;
 
-            currentItem = topicItems[0];
+            currentItem = topicItems[itemNumber];
 
             currentItem.startItem();
         }
@@ -56,6 +58,31 @@ namespace Assets.Scripts.Topics
             currentQuestion.showContinueButton();
             // we can assume this is a true false answer because of this button being clicked.
             return ((TFAnswer) currentQuestion.getAnswer()).OnTrueFalseButtonClicked(trueWasClicked);
+        }
+
+        // when we allow dialogue in the middle of a topic this should be nextItem()
+        public void nextQuestion()
+        {
+            // this checks for instance type and also creates a variable that is currentItem cast to Question
+            if (currentItem is Question currentQuestion)
+            {
+                currentQuestion.hideAnswerComponents();
+            }
+            else
+            {
+                Debug.LogError("dialogue in the middle of a quiz isn't supported yet.");
+            }
+
+            itemNumber++;
+            if (itemNumber == topicItems.Count)
+            {
+                Debug.Log("move on to the next month...");
+            }
+            else
+            {
+                currentItem = topicItems[itemNumber];
+                currentItem.startItem();
+            }
         }
 
         public string getName()
