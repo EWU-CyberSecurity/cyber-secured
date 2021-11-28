@@ -14,7 +14,7 @@ namespace Assets.Scripts.Topics
         private Dialogue startDialogue;
         private string topicID;
         private string topicName;
-        private TopicItem currenItem;
+        private TopicItem currentItem;
 
 
         public Topic(string topicID, string topicName,
@@ -33,9 +33,9 @@ namespace Assets.Scripts.Topics
             Debug.Log("first item is dialogue? " + (topicItems[0] is Dialogue));
             if (topicItems[0] is Dialogue) return;
 
-            currenItem = topicItems[0];
+            currentItem = topicItems[0];
 
-            currenItem.startItem();
+            currentItem.startItem();
         }
 
         public void AddQuestion(Question question)
@@ -47,6 +47,14 @@ namespace Assets.Scripts.Topics
         public void AddDialogue(Dialogue dialogue)
         {
             this.topicItems.Add(dialogue);
+        }
+
+        public bool trueFalseButtonClicked(bool trueWasClicked)
+        {
+            // the current item must be a question instead of dialogue.
+            Question currentQuestion = (Question) currentItem;
+            // we can assume this is a true false answer because of this button being clicked.
+            return ((TFAnswer) currentQuestion.getAnswer()).OnTrueFalseButtonClicked(trueWasClicked);
         }
 
         public string getName()

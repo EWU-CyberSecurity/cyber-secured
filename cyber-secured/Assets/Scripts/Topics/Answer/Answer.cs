@@ -29,7 +29,7 @@ namespace Assets.Scripts.Topics
         // to the right places. This is overridden by the different
         // answer subclasses because they all have different stuff to do
         // for this.
-        public abstract void displayAnswer();
+        public abstract void DisplayAnswer();
 
         public string getExplanation()
         {

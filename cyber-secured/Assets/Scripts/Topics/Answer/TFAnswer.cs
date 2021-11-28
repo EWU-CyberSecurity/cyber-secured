@@ -12,41 +12,18 @@ namespace Assets.Scripts.Topics
     class TFAnswer : Answer
     {
         public bool isTrue { get; set; }
-        bool isClicked;
         GameObject tf_components = GameObject.Find("stage_custom_topics").transform.Find("Quiz Components").transform.Find("true_false_components").gameObject;
         Button True_btn;
         Button False_btn;
 
-        void TaskOnTrueClick()
+        public bool OnTrueFalseButtonClicked(bool trueWasClicked)
         {
-            isClicked = true;
-            Debug.LogWarning("True was pressed");
+            return trueWasClicked == isTrue;
         }
 
-        void TaskOnFalseClick()
-        {
-            isClicked = false;
-            Debug.LogWarning("False was pressed");
-        }
-
-        public override void displayAnswer()
+        public override void DisplayAnswer()
         {
             tf_components.SetActive(true);
-        }
-
-        private void OnContinueButtonClicked()
-        {
-            True_btn.onClick.AddListener(TaskOnTrueClick);
-            False_btn.onClick.AddListener(TaskOnFalseClick);
-
-            if (isClicked)
-            {
-                base.displayCorrectDialogue();
-            }
-            else
-            {
-                base.displayIncorrectDialogue();
-            }
         }
     }
 }

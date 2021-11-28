@@ -38,6 +38,12 @@ public class CustomTopicQuizController : MonoBehaviour
         
     }
 
+    public void trueFalseButtonClicked(bool trueWasClicked)
+    {
+        bool correct = currentTopic.trueFalseButtonClicked(trueWasClicked);
+        Debug.Log("was correct? " + correct);
+    }
+
     public string getNextTopicName()
     {
         if (topicCount == 0) return "";

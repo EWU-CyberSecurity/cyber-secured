@@ -44,12 +44,12 @@ namespace Assets.Scripts.Topics
         public override void startItem()
         {
             // Here we create the question box and put the text in it.
-            // And then call answer.displayAnswer()
+            // And then call answer.DisplayAnswer()
             hideContinueButton();
 
             changeQuestionText(questionText);
 
-            answer.displayAnswer();
+            answer.DisplayAnswer();
         }
 
         public void changeQuestionText(string newText)

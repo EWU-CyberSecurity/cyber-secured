@@ -38,7 +38,7 @@ namespace Assets.Scripts.Topics
                 return false;
         }
 
-        public override void displayAnswer()
+        public override void DisplayAnswer()
         {
             stage_FillIn.SetActive(true);
             OnContinueButtonClicked();

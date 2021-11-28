@@ -65,7 +65,7 @@ namespace Assets.Scripts.Topics
             answerPool.Add(answerSetToAdd);
         }
 
-        public override void displayAnswer()
+        public override void DisplayAnswer()
         {
             // Set the text on the four multiple choice buttons. Also set them to intractable again. 
             displayedSet = answerPool.ElementAt(Random.Range(0, answerPool.Count));
