@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine;
+
 namespace Assets.Scripts.Topics
 {
     /// <summary>
@@ -9,6 +11,14 @@ namespace Assets.Scripts.Topics
     {
         // after this is merged setting this can be done in subclass constructors. 
         protected string explanation;
+
+        // for setting the disabled color of the buttons.
+        protected readonly Color disabledCorrectColor = new Color(0.5764706f, 1, 0.5882353f);
+        protected readonly Color disabledIncorrectColor = new Color(1, 0.5764706f, 0.5764706f);
+
+        // for accessing and modifying the different game objects used in the custom topics.
+        protected readonly GameObject quizComponentsRoot = GameObject.Find("Canvas").
+            transform.Find("stage_custom_topics").transform.Find("Quiz Components").gameObject;
 
         // Display the dialogue if it's correct.
         // The answer classes can override this to put
@@ -35,5 +45,7 @@ namespace Assets.Scripts.Topics
         {
             return explanation;
         }
+
+        protected abstract void changeColorsAndDisableButtons();
     }
 }

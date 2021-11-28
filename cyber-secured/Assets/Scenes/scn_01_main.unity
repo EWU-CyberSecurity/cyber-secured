@@ -62177,7 +62177,7 @@ GameObject:
   - component: {fileID: 1467040827979641459}
   - component: {fileID: 1467040827979641457}
   m_Layer: 5
-  m_Name: False_btn
+  m_Name: btn_false
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62205,7 +62205,7 @@ GameObject:
   - component: {fileID: 1467040828232145500}
   - component: {fileID: 1467040828232145490}
   m_Layer: 5
-  m_Name: True_btn
+  m_Name: btn_true
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

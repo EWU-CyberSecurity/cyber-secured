@@ -12,9 +12,6 @@ namespace Assets.Scripts.Topics
     {
         private string correctAnswer;
 
-        private Color disabledCorrectColor = new Color(0.5764706f, 1, 0.5882353f);
-        private Color disabledIncorrectColor = new Color(1, 0.5764706f, 0.5764706f);
-
         public GameObject stage_FillIn;
 
         public FillInAnswer(string sheetCorrectAnswer)
@@ -62,6 +59,11 @@ namespace Assets.Scripts.Topics
                 stage_FillIn.transform.Find("InputField").GetComponent<InputField>().selectionColor = disabledIncorrectColor;
 
             }
+        }
+
+        protected override void changeColorsAndDisableButtons()
+        {
+            
         }
     }
 }

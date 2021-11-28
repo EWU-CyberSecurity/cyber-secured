@@ -53,6 +53,7 @@ namespace Assets.Scripts.Topics
         {
             // the current item must be a question instead of dialogue.
             Question currentQuestion = (Question) currentItem;
+            currentQuestion.showContinueButton();
             // we can assume this is a true false answer because of this button being clicked.
             return ((TFAnswer) currentQuestion.getAnswer()).OnTrueFalseButtonClicked(trueWasClicked);
         }

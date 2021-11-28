@@ -14,10 +14,8 @@ namespace Assets.Scripts.Topics
     {
         private List<MultiAnswerSet> answerPool; // all the possible answer sets
         private MultiAnswerSet displayedSet; // the set of answers that is actually displayed
-        private Color disabledCorrectColor = new Color(0.5764706f, 1, 0.5882353f);
-        private Color disabledIncorrectColor = new Color(1, 0.5764706f, 0.5764706f);
 
-        private GameObject root = GameObject.Find("Canvas").transform.Find("stage_custom_topics").transform.Find("Quiz Components").transform.Find("multianswer_components").gameObject;
+        private GameObject multiAnswerRoot;
 
         private GameObject button1;
         private GameObject button2;
@@ -29,7 +27,7 @@ namespace Assets.Scripts.Topics
 
         public MultiAnswer(GameObject root)
         {
-            this.root = root;
+            this.multiAnswerRoot = root;
 
             answerPool = new List<MultiAnswerSet>();
 
@@ -44,12 +42,14 @@ namespace Assets.Scripts.Topics
 
         public MultiAnswer()
         {
+            this.multiAnswerRoot = quizComponentsRoot.transform.Find("multianswer_components").gameObject;
+
             answerPool = new List<MultiAnswerSet>();
 
-            button1 = root.transform.Find("multi_answer_btn_1").gameObject;
-            button2 = root.transform.Find("multi_answer_btn_2").gameObject;
-            button3 = root.transform.Find("multi_answer_btn_3").gameObject;
-            button4 = root.transform.Find("multi_answer_btn_4").gameObject;
+            button1 = multiAnswerRoot.transform.Find("multi_answer_btn_1").gameObject;
+            button2 = multiAnswerRoot.transform.Find("multi_answer_btn_2").gameObject;
+            button3 = multiAnswerRoot.transform.Find("multi_answer_btn_3").gameObject;
+            button4 = multiAnswerRoot.transform.Find("multi_answer_btn_4").gameObject;
 
             // use this for updating all the buttons in a clean way
             buttons = new GameObject[] { button1, button2, button3, button4 };
@@ -77,7 +77,7 @@ namespace Assets.Scripts.Topics
             }
         }
 
-        private void changeColorsAndDisableButtons()
+        protected override void changeColorsAndDisableButtons()
         {
             // Change the disabled colors on the answer buttons depending
             // on whether or not they were correct.

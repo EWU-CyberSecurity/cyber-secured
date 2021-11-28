@@ -106,16 +106,8 @@ public class CSVParser : MonoBehaviour
             }
             else if (nextQuestion.questionType == "TF")
             {
-                TFAnswer newTF = new TFAnswer();
                 string trueAns = (string)question["answer1"];
-                if (trueAns.Contains("<*>"))
-                {
-                    newTF.isTrue = true;
-                }
-                else
-                {
-                    newTF.isTrue = false;
-                }
+                TFAnswer newTF = new TFAnswer(trueAns.Contains("<*>"));
 
                 nextQuestion.setAnswer(newTF);
             }
