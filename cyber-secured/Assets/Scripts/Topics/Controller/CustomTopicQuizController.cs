@@ -41,7 +41,27 @@ public class CustomTopicQuizController : MonoBehaviour
     public void trueFalseButtonClicked(bool trueWasClicked)
     {
         bool correct = currentTopic.trueFalseButtonClicked(trueWasClicked);
-        Debug.Log("was correct? " + correct);
+        displayAnswerFeedback(correct);
+    }
+
+    public void onSubmitButtonClicked()
+    {
+        bool correct = currentTopic.onFillInSubmitButtonClicked();
+        displayAnswerFeedback(correct);
+    }
+
+    private void displayAnswerFeedback(bool correct)
+    {
+        if (correct)
+        {
+            GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(1);
+            // the amount to increase NP could be added to the spreadsheet.
+            GameControllerV2.Instance.IncreaseNP(2);
+        }
+        else
+        {
+            GameObject.Find("SoundManager").GetComponent<AudioControllerV2>().PlaySound(2);
+        }
     }
 
     public string getNextTopicName()

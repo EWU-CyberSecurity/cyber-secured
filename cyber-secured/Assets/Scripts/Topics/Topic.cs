@@ -60,9 +60,18 @@ namespace Assets.Scripts.Topics
             return ((TFAnswer) currentQuestion.getAnswer()).OnTrueFalseButtonClicked(trueWasClicked);
         }
 
+        public bool onFillInSubmitButtonClicked()
+        {
+            Question currentQuestion = (Question) currentItem;
+            currentQuestion.showContinueButton();
+            return ((FillInAnswer) currentQuestion.getAnswer()).OnSubmitButtonClicked();
+        }
+
         // when we allow dialogue in the middle of a topic this should be nextItem()
         public void nextQuestion()
         {
+            // for fill in answers this does the checking for if its right
+
             // this checks for instance type and also creates a variable that is currentItem cast to Question
             if (currentItem is Question currentQuestion)
             {

@@ -3356,7 +3356,7 @@ GameObject:
   - component: {fileID: 133841653}
   - component: {fileID: 133841652}
   m_Layer: 5
-  m_Name: Continue
+  m_Name: submit_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3379,8 +3379,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: -46.1}
-  m_SizeDelta: {x: 273.86, y: 51.3}
+  m_AnchoredPosition: {x: 244.2, y: 25}
+  m_SizeDelta: {x: 148.8938, y: 51.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &133841652
 MonoBehaviour:
@@ -3423,7 +3423,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 191967209}
-        m_MethodName: nextTopicItem
+        m_MethodName: onSubmitButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4560,7 +4560,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: 35}
+  m_AnchoredPosition: {x: -76.27, y: 25}
   m_SizeDelta: {x: 207.93097, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &167173790
@@ -36590,7 +36590,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue
+  m_Text: Submit
 --- !u!222 &1262336890
 CanvasRenderer:
   m_ObjectHideFlags: 0

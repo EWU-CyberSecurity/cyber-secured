@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,20 +21,10 @@ namespace Assets.Scripts.Topics
             this.correctAnswer = sheetCorrectAnswer;
         }
 
-        //Makes a empty string for the userAnswer, finds the InputField in the Stage object for FillIn, and gets the text then returns the UserAnswer.
-        string InputFieldInput()
+        private bool wasPlayerCorrect()
         {
-            string userAnswer = " ";
-            userAnswer = fillInComponents.transform.Find("InputField").GetComponent<InputField>().text;
-            return userAnswer;
-        }
-
-        bool checkUIAnswer(string userAnswer)
-        {
-            if (userAnswer.ToLower().Equals(correctAnswer))
-                return true;
-            else
-                return false;
+            string userAnswer = fillInComponents.transform.Find("InputField").GetComponent<InputField>().text;
+            return string.Equals(userAnswer, correctAnswer, StringComparison.OrdinalIgnoreCase);
         }
 
         public override void DisplayAnswer()
@@ -42,28 +33,25 @@ namespace Assets.Scripts.Topics
             fillInComponents.SetActive(true);
         }
 
-        public void OnContinueButtonClicked()
+        public bool OnSubmitButtonClicked()
         {
-            string userAnswer = InputFieldInput();
+            changeColorsAndDisableButtons();
+            return wasPlayerCorrect();
+        }
 
+        protected override void changeColorsAndDisableButtons()
+        {
             // Check if the text in the input field is the correct answer.
-            if (checkUIAnswer(userAnswer))
+            if (wasPlayerCorrect())
             {
                 //get next question or the dialogue.
                 fillInComponents.transform.Find("InputField").GetComponent<InputField>().selectionColor = disabledCorrectColor;
-
             }
             else
             {
                 //Tell the user they entered the wrong answer, or continue on with the game.
                 fillInComponents.transform.Find("InputField").GetComponent<InputField>().selectionColor = disabledIncorrectColor;
-
             }
-        }
-
-        protected override void changeColorsAndDisableButtons()
-        {
-            
         }
 
         public override void hideAnswerComponents()
