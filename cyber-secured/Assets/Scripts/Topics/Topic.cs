@@ -34,7 +34,6 @@ namespace Assets.Scripts.Topics
             audioController.PlayQuizMusic();
 
             itemNumber = 0;
-            Debug.Log("starting the first topic");
             startDialogue.startItem();
             Debug.Log("first item is dialogue? " + (topicItems[itemNumber] is Dialogue));
             if (topicItems[itemNumber] is Dialogue) return;

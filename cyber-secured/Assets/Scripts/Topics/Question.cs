@@ -45,10 +45,10 @@ namespace Assets.Scripts.Topics
         {
             // Here we create the question box and put the text in it.
             // And then call answer.DisplayAnswer()
-
             hideContinueButton();
 
             changeQuestionText(questionText);
+            showQuestionBox();
 
             answer.DisplayAnswer();
         }
@@ -66,6 +66,11 @@ namespace Assets.Scripts.Topics
         public void hideContinueButton()
         {
             continueButton.SetActive(false);
+        }
+
+        public void showQuestionBox()
+        {
+            questionBox.SetActive(true);
         }
 
         public void hideQuestionBox()

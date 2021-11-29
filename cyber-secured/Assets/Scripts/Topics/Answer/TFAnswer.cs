@@ -32,6 +32,8 @@ namespace Assets.Scripts.Topics
 
         public override void DisplayAnswer()
         {
+            btn_true.interactable = true;
+            btn_false.interactable = true;
             tfRoot.SetActive(true);
         }
 

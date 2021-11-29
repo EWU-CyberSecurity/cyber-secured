@@ -1248,7 +1248,7 @@ public class GameControllerV2 : MonoBehaviour
                 return;
             }
 
-            // month 12 event
+            // custom topic event
             default:
             {
                 if (current_month != lastMonth)
@@ -1668,28 +1668,33 @@ public class GameControllerV2 : MonoBehaviour
                 return;
             }
 
-            case (12):
+            default:
             {
-                CustomTopicQuizController controller = GameObject.Find("stage_custom_topics").GetComponent<CustomTopicQuizController>();
-                if (x)
+                if (current_month != lastMonth)
                 {
-                    Debug.Log("next topic, activate stuff");
-                    controller.nextTopic();
+                    CustomTopicQuizController controller = GameObject.Find("stage_custom_topics")
+                        .GetComponent<CustomTopicQuizController>();
+                    if (x)
+                    {
+                        Debug.Log("next topic, activate stuff");
+                        controller.nextTopic();
+                    }
+                    else
+                    {
+                        // another spot where the penalty for declining could be defined in the google sheet.
+                        DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
+
+                        current_decision_text = "You decided not to learn about " + controller.getNextTopicName() +
+                                                "\n<i>NP rate has decreased.</i> ";
+
+                        controller.skipTopic();
+
+                        DisplayDecision();
+                    }
+                    return;
                 }
-                else
-                {
-                    // another spot where the penalty for declining could be defined in the google sheet.
-                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
-
-                    current_decision_text = "You decided not to learn about " + controller.getNextTopicName() +
-                                            "\n<i>NP rate has decreased.</i> ";
-
-                    controller.skipTopic();
-
-                    DisplayDecision();
-                }
-                return;
-            } 
+                break;
+            }
         }
 
         if (current_month == lastMonth)

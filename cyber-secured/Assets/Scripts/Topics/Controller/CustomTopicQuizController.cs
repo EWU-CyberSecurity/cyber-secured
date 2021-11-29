@@ -108,12 +108,10 @@ public class CustomTopicQuizController : MonoBehaviour
     {
         topicNum++;
         // Gets next topic and triggers starting dialogue
-        if (currentTopic == null)
-        {
-            currentTopic = AddedTopics[topicNum];
-            GameObject.Find("stage_custom_topics").SetActive(true);
-            questionBox.SetActive(true);
-        }
+        currentTopic = AddedTopics[topicNum];
+        GameObject.Find("stage_custom_topics").SetActive(true);
+        questionBox.SetActive(true);
+
         currentTopic.start();
     }
 
@@ -121,6 +119,7 @@ public class CustomTopicQuizController : MonoBehaviour
     {
         topicNum++;
         currentTopic = AddedTopics[topicNum];
+        Debug.Log("Skipped a topic, current topic name: " + currentTopic.getName());
     }
 
     // advance to the next topic item.
