@@ -99,7 +99,7 @@ public class CustomTopicQuizController : MonoBehaviour
         return currentTopic.getName();
     }
 
-    // Gets next topic and presents it's associated quiz
+    // Gets next topic and presents its associated quiz
     public void nextTopic()
     {
         // Gets next topic and triggers starting dialogue

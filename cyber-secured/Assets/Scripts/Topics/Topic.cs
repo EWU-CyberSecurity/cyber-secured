@@ -13,6 +13,7 @@ namespace Assets.Scripts.Topics
         private int itemNumber;
         private List<TopicItem> topicItems;
         private Dialogue startDialogue;
+        private Dialogue endDialogue;
         private string topicID;
         private string topicName;
         private TopicItem currentItem;
@@ -29,6 +30,9 @@ namespace Assets.Scripts.Topics
 
         public void start()
         {
+            AudioControllerV2 audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
+            audioController.PlayQuizMusic();
+
             itemNumber = 0;
             Debug.Log("starting the first topic");
             startDialogue.startItem();
@@ -98,8 +102,6 @@ namespace Assets.Scripts.Topics
         // when we allow dialogue in the middle of a topic this should be nextItem()
         public void nextQuestion()
         {
-            // for fill in answers this does the checking for if its right
-
             // this checks for instance type and also creates a variable that is currentItem cast to Question
             if (currentItem is Question currentQuestion)
             {
@@ -114,6 +116,17 @@ namespace Assets.Scripts.Topics
             if (itemNumber == topicItems.Count)
             {
                 Debug.Log("move on to the next month...");
+                GameControllerV2.Instance.stage_custom_topics.SetActive(false);
+                GameControllerV2.Instance.current_decision_text = "You passed the " + topicName + " Quiz!\n" +
+                                                                  "<i>Error rate has decreased.</i>";
+                // once again this could be defined in the google sheet.
+                float rand_er = Random.Range(0.05f, 0.1f);
+                GameControllerV2.Instance.DecreaseErrorRate(rand_er);
+
+                GameControllerV2.Instance.DisplayDecision();
+
+                AudioControllerV2 audioController = GameObject.Find("SoundManager").GetComponent<AudioControllerV2>();
+                audioController.PlayGameMusic();
             }
             else
             {
