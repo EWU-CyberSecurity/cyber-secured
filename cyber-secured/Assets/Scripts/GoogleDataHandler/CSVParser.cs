@@ -82,30 +82,30 @@ public class CSVParser : MonoBehaviour
                 string ans3 = (string)question["answer3"];
                 string ans4 = (string)question["answer4"];
 
-                int[] correctAnswers = { 0, 0, 0, 0 };
+                List<int> correctAnswers = new List<int>();
 
                 if (ans1.Contains(correctSymbol))
                 {
-                    correctAnswers[0] = 1;
+                    correctAnswers.Add(0);
                     ans1 = ans1.Replace(correctSymbol, "");
                 }
                 else if (ans2.Contains(correctSymbol))
                 {
-                    correctAnswers[1] = 1;
+                    correctAnswers.Add(1);
                     ans2 = ans2.Replace(correctSymbol, "");
                 }
                 else if (ans3.Contains(correctSymbol))
                 {
-                    correctAnswers[2] = 1;
+                    correctAnswers.Add(2);
                     ans3 = ans3.Replace(correctSymbol, "");
                 }
                 else if (ans4.Contains(correctSymbol))
                 {
-                    correctAnswers[3] = 1;
+                    correctAnswers.Add(3);
                     ans4 = ans4.Replace(correctSymbol, "");
                 }
 
-                MultiAnswerSet newAnswers = new MultiAnswerSet(ans1, ans2, ans3, ans4, correctAnswers);
+                MultiAnswerSet newAnswers = new MultiAnswerSet(ans1, ans2, ans3, ans4, correctAnswers.ToArray());
 
                 MultiAnswer newMulti = new MultiAnswer();
                 newMulti.addToAnswerPool(newAnswers);

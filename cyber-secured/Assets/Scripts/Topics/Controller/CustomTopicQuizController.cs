@@ -50,6 +50,29 @@ public class CustomTopicQuizController : MonoBehaviour
         displayAnswerFeedback(correct);
     }
 
+    public void onMultiAnswerButton1Clicked()
+    {
+        bool correct = currentTopic.onMultiAnswerButton1Clicked();
+        displayAnswerFeedback(correct);
+    }
+    public void onMultiAnswerButton2Clicked()
+    {
+        bool correct = currentTopic.onMultiAnswerButton2Clicked();
+        displayAnswerFeedback(correct);
+    }
+
+    public void onMultiAnswerButton3Clicked()
+    {
+        bool correct = currentTopic.onMultiAnswerButton3Clicked();
+        displayAnswerFeedback(correct);
+    }
+
+    public void onMultiAnswerButton4Clicked()
+    {
+        bool correct = currentTopic.onMultiAnswerButton4Clicked();
+        displayAnswerFeedback(correct);
+    }
+
     private void displayAnswerFeedback(bool correct)
     {
         if (correct)

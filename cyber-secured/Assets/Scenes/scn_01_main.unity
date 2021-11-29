@@ -20834,7 +20834,6 @@ GameObject:
   - component: {fileID: 713457461}
   - component: {fileID: 713457460}
   - component: {fileID: 713457459}
-  - component: {fileID: 713457458}
   - component: {fileID: 713457457}
   m_Layer: 5
   m_Name: multi_answer_btn_4
@@ -20884,18 +20883,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &713457458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 713457455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c085a1bd2155844a3c2b77c1dfb5db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &713457459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63092,7 +63079,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3706658380539292655}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191967209}
+        m_MethodName: onMultiAnswerButton3Clicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3706658380539292655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63344,7 +63342,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3706658381546787325}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191967209}
+        m_MethodName: onMultiAnswerButton2Clicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3706658381546787325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63440,7 +63449,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3706658381564491291}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191967209}
+        m_MethodName: onMultiAnswerButton1Clicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3706658381564491291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63552,7 +63572,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.656, y: -236.4}
+  m_AnchoredPosition: {x: 13.656, y: -245}
   m_SizeDelta: {x: 273.86, y: 51.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3706658381653075076
@@ -63818,7 +63838,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3706658382285895933}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191967209}
+        m_MethodName: onMultiAnswerButton4Clicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3706658382285895933
 MonoBehaviour:
   m_ObjectHideFlags: 0

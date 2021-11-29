@@ -67,6 +67,34 @@ namespace Assets.Scripts.Topics
             return ((FillInAnswer) currentQuestion.getAnswer()).OnSubmitButtonClicked();
         }
 
+        public bool onMultiAnswerButton1Clicked()
+        {
+            Question currentQuestion = (Question)currentItem;
+            currentQuestion.showContinueButton();
+            return ((MultiAnswer) currentQuestion.getAnswer()).onButton1Clicked();
+        }
+
+        public bool onMultiAnswerButton2Clicked()
+        {
+            Question currentQuestion = (Question)currentItem;
+            currentQuestion.showContinueButton();
+            return ((MultiAnswer)currentQuestion.getAnswer()).onButton2Clicked();
+        }
+
+        public bool onMultiAnswerButton3Clicked()
+        {
+            Question currentQuestion = (Question)currentItem;
+            currentQuestion.showContinueButton();
+            return ((MultiAnswer)currentQuestion.getAnswer()).onButton3Clicked();
+        }
+
+        public bool onMultiAnswerButton4Clicked()
+        {
+            Question currentQuestion = (Question)currentItem;
+            currentQuestion.showContinueButton();
+            return ((MultiAnswer)currentQuestion.getAnswer()).onButton4Clicked();
+        }
+
         // when we allow dialogue in the middle of a topic this should be nextItem()
         public void nextQuestion()
         {
