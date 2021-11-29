@@ -897,7 +897,7 @@ public class GameControllerV2 : MonoBehaviour
     public void NextEvent() 
     {
         Debug.Log("Month " + current_month + " event triggered.");
-
+        Debug.Log("last month? " + lastMonth);
         ActivateEvent(RollError());
 
         if(current_month == lastMonth) {
@@ -1247,19 +1247,23 @@ public class GameControllerV2 : MonoBehaviour
                     "\n<b>Cost: 5% of Monthly NP</b>";
                 return;
             }
-            
+
             // month 12 event
-            case(12):
+            default:
             {
-                GameObject.Find("Canvas").transform.Find("stage_custom_topics").gameObject.SetActive(true);
-                CustomTopicQuizController controller = GameObject.Find("stage_custom_topics").GetComponent<CustomTopicQuizController>();
-                lastMonth = 12 + controller.getTopicCount();
-                
-                current_event_text = GoodMessage();
+                if (current_month != lastMonth)
+                {
+                    GameObject.Find("Canvas").transform.Find("stage_custom_topics").gameObject.SetActive(true);
+                    CustomTopicQuizController controller = GameObject.Find("stage_custom_topics").GetComponent<CustomTopicQuizController>();
+                    lastMonth = 12 + controller.getTopicCount();
 
-                current_choice_text = "Would you like to learn about " + controller.getNextTopicName() + "?";
+                    current_event_text = GoodMessage();
 
-                return;
+                    current_choice_text = "Would you like to learn about " + controller.getNextTopicName() + "?";
+
+                    return;
+                }
+                break;
             }
         }
 

@@ -68,6 +68,11 @@ namespace Assets.Scripts.Topics
             continueButton.SetActive(false);
         }
 
+        public void hideQuestionBox()
+        {
+            questionBox.SetActive(false);
+        }
+
         public void setQuestionBox(GameObject questionBox)
         {
             this.questionBox = questionBox;

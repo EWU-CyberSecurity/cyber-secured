@@ -103,8 +103,10 @@ namespace Assets.Scripts.Topics
         public void nextQuestion()
         {
             // this checks for instance type and also creates a variable that is currentItem cast to Question
-            if (currentItem is Question currentQuestion)
+            Question currentQuestion = null;
+            if (currentItem is Question)
             {
+                currentQuestion = (Question) currentItem;
                 currentQuestion.hideAnswerComponents();
             }
             else
@@ -116,7 +118,14 @@ namespace Assets.Scripts.Topics
             if (itemNumber == topicItems.Count)
             {
                 Debug.Log("move on to the next month...");
+                if (currentQuestion != null)
+                {
+                    currentQuestion.hideContinueButton();
+                    currentQuestion.hideQuestionBox();
+                }
+
                 GameControllerV2.Instance.stage_custom_topics.SetActive(false);
+
                 GameControllerV2.Instance.current_decision_text = "You passed the " + topicName + " Quiz!\n" +
                                                                   "<i>Error rate has decreased.</i>";
                 // once again this could be defined in the google sheet.

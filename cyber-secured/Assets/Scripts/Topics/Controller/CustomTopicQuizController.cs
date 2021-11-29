@@ -8,6 +8,7 @@ public class CustomTopicQuizController : MonoBehaviour
 {
     private List<Topic> AddedTopics;
     private Topic currentTopic;
+    private int topicNum = -1;
     private GameObject scn_main;
     private int topicCount;
 
@@ -95,17 +96,21 @@ public class CustomTopicQuizController : MonoBehaviour
         {
             return AddedTopics[0].getName();
         }
-
-        return currentTopic.getName();
+        else if (topicNum + 1 == AddedTopics.Count)
+        {
+            return "";
+        }
+        return AddedTopics[topicNum + 1].getName();
     }
 
     // Gets next topic and presents its associated quiz
     public void nextTopic()
     {
+        topicNum++;
         // Gets next topic and triggers starting dialogue
         if (currentTopic == null)
         {
-            currentTopic = AddedTopics[0];
+            currentTopic = AddedTopics[topicNum];
             GameObject.Find("stage_custom_topics").SetActive(true);
             questionBox.SetActive(true);
         }
