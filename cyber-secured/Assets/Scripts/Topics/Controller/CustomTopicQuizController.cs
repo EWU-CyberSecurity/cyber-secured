@@ -117,6 +117,12 @@ public class CustomTopicQuizController : MonoBehaviour
         currentTopic.start();
     }
 
+    public void skipTopic()
+    {
+        topicNum++;
+        currentTopic = AddedTopics[topicNum];
+    }
+
     // advance to the next topic item.
     public void nextTopicItem()
     {

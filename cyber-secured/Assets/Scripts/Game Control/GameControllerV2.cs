@@ -1670,10 +1670,24 @@ public class GameControllerV2 : MonoBehaviour
 
             case (12):
             {
-                // TODO: Make the no button move on to the next topic with a penalty.
-                Debug.Log("next topic, activate stuff");
                 CustomTopicQuizController controller = GameObject.Find("stage_custom_topics").GetComponent<CustomTopicQuizController>();
-                controller.nextTopic();
+                if (x)
+                {
+                    Debug.Log("next topic, activate stuff");
+                    controller.nextTopic();
+                }
+                else
+                {
+                    // another spot where the penalty for declining could be defined in the google sheet.
+                    DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
+
+                    current_decision_text = "You decided not to learn about " + controller.getNextTopicName() +
+                                            "\n<i>NP rate has decreased.</i> ";
+
+                    controller.skipTopic();
+
+                    DisplayDecision();
+                }
                 return;
             } 
         }
