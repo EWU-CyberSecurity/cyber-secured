@@ -75,6 +75,7 @@ namespace Assets.Scripts.Topics
                 buttons[i].GetComponent<Button>().interactable = true;
                 buttons[i].transform.Find("Text").GetComponent<Text>().text = displayedSet.getAnswer(i);
             }
+            multiAnswerRoot.SetActive(true);
         }
 
         protected override void changeColorsAndDisableButtons()

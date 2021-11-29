@@ -54,6 +54,7 @@ public class CSVParser : MonoBehaviour
     // and returns a list of Topic objects representing the topics
     public List<Topic> createListTopic(string topicSheet, string questionsSheet)
     {
+        string correctSymbol = "<*>";
         List<Dictionary<string, object>> questionsData = Read(questionsSheet);
         List<Dictionary<string, object>> topicData = Read(topicSheet);
         Dictionary<string, Topic> topics = new Dictionary<string, Topic>();
@@ -83,14 +84,26 @@ public class CSVParser : MonoBehaviour
 
                 int[] correctAnswers = { 0, 0, 0, 0 };
 
-                if (ans1.Contains("<*>"))
+                if (ans1.Contains(correctSymbol))
+                {
                     correctAnswers[0] = 1;
-                else if (ans2.Contains("<*>"))
+                    ans1 = ans1.Replace(correctSymbol, "");
+                }
+                else if (ans2.Contains(correctSymbol))
+                {
                     correctAnswers[1] = 1;
-                else if (ans3.Contains("<*>"))
+                    ans2 = ans2.Replace(correctSymbol, "");
+                }
+                else if (ans3.Contains(correctSymbol))
+                {
                     correctAnswers[2] = 1;
-                else if (ans4.Contains("<*>"))
+                    ans3 = ans3.Replace(correctSymbol, "");
+                }
+                else if (ans4.Contains(correctSymbol))
+                {
                     correctAnswers[3] = 1;
+                    ans4 = ans4.Replace(correctSymbol, "");
+                }
 
                 MultiAnswerSet newAnswers = new MultiAnswerSet(ans1, ans2, ans3, ans4, correctAnswers);
 
