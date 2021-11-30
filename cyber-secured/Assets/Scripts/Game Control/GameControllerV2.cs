@@ -225,6 +225,7 @@ public class GameControllerV2 : MonoBehaviour
     // resets the game
     public void ResetGame()
     {
+        AudioListener.volume = 0.5f;
         Destroy(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -426,13 +427,13 @@ public class GameControllerV2 : MonoBehaviour
         foreach(GameObject b in buttons)
         {
             b.transform.DOLocalMoveY(600, 1);
-            yield return new WaitForSeconds(0.05f);
             Destroy(b, 1);
         }
 
         // bring in company's title
         company_title.gameObject.SetActive(true);
         company_title.transform.DOLocalMoveY(250, 1);
+        yield return null;
     }
 
     // DISPLAY:
@@ -1346,8 +1347,8 @@ public class GameControllerV2 : MonoBehaviour
     {
         // glitch screen
         GameObject.FindObjectOfType<GlitchCamera>().StartGlitch();
-        yield return new WaitForSeconds(0.5f);
         g.SetActive(true);
+        yield return null;
     }
 
     // dbox - decision box (ctrl+f to find this easily)
