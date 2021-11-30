@@ -8492,9 +8492,9 @@ MonoBehaviour:
   dialogue:
     name: IT Senior
     sentences:
-    - "Congratulations! It's already been 12 months! \nThroughout the year, you gained
-      substantial information that will help you in your future career. Make the right
-      decisions and feel free to come back again to refresh your knowledge."
+    - "Congratulations! It's already been [x] months! \nThroughout the past [x] months,
+      you gained substantial information that will help you in your future career.
+      Make the right decisions and feel free to come back again to refresh your knowledge."
     - Now let's see how you performed...
     - '[temp text]'
     - '[temp text]'

@@ -54,6 +54,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using System.Security.AccessControl;
 
 // imported scripts:
 using DG.Tweening;
@@ -543,17 +544,21 @@ public class GameControllerV2 : MonoBehaviour
             
             decision_box.gameObject.SetActive(false);
 
+            Dialogue end_dialogue = GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue;
+
+            end_dialogue.sentences[0] = end_dialogue.sentences[0].Replace("[x]", lastMonth.ToString());
+
             // change dialogue to reflect score
-            switch(CHOSEN_COMPANY) {
+            switch (CHOSEN_COMPANY) {
 
             case (Company.small): {
-                GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[2] =
+                end_dialogue.sentences[2] =
                     "A total network power score of " + network_power + "..." +
                     "\nMonthly network power at " + monthly_np + "..." +
                     "\nError rate at a " + ErrorLevelAsString().ToLower() + " level...";
 
                     if(GetNetworkPower() < 100) {
-                        GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                        end_dialogue.sentences[3] =
                             "Cyber Security is challenging! You let your company down this time... Better luck at your next job!";
                     }
 
@@ -561,10 +566,10 @@ public class GameControllerV2 : MonoBehaviour
 
                         // Downgrade one level if error rate is too high
                         if(error_rate > .3f) {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                            end_dialogue.sentences[3] =
                             "Cyber Security is challenging! You let your company down this time... Better luck at your next job!";
                         } else {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                            end_dialogue.sentences[3] =
                             "Good job, but there is room for improvement before you can consider yourself a cyber security expert.";
                         }
                     }
@@ -573,10 +578,10 @@ public class GameControllerV2 : MonoBehaviour
 
                         // Downgrade one level if error rate is too high
                         if(error_rate > .3f) {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                            end_dialogue.sentences[3] =
                             "Good job, but there is room for improvement before you can consider yourself a cyber security expert.";
                         } else {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                            end_dialogue.sentences[3] =
                             "Great job! You should consider yourself a cyber security pro. Do you think you're up to the challenge of a larger company?";
                         }
                     }
@@ -585,13 +590,13 @@ public class GameControllerV2 : MonoBehaviour
                 }
 
             case (Company.med): {
-                    GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[2] =
+                end_dialogue.sentences[2] =
                         "A total network power score of " + network_power + "..." +
                         "\nMonthly network power at " + monthly_np + "..." +
                         "\nError rate at a " + ErrorLevelAsString().ToLower() + " level...";
 
                     if (GetNetworkPower() < 200) {
-                        GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                        end_dialogue.sentences[3] =
                             "Cyber Security is challenging! You let your company down this time... Better luck at your next job! (Maybe try a smaller company)";
                     }
 
@@ -599,10 +604,10 @@ public class GameControllerV2 : MonoBehaviour
 
                         // Downgrade one level if error rate is too high
                         if (error_rate > .3f) {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                            end_dialogue.sentences[3] =
                             "Cyber Security is challenging! You let your company down this time... Better luck at your next job! (Maybe try a smaller company)";
                         } else {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                            end_dialogue.sentences[3] =
                             "Good job, but there is room for improvement before you can consider yourself a cyber security expert.";
                         }
                         
@@ -612,10 +617,10 @@ public class GameControllerV2 : MonoBehaviour
 
                         // Downgrade one level if error rate is too high
                         if (error_rate > .3f) {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                            end_dialogue.sentences[3] =
                             "Good job, but there is room for improvement before you can consider yourself a cyber security expert.";
                         } else {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                            end_dialogue.sentences[3] =
                             "Great job! You should consider yourself a cyber security pro. Do you think you're up to the challenge of a larger company?";
                         }
                     }
@@ -624,13 +629,13 @@ public class GameControllerV2 : MonoBehaviour
                 }
 
             case (Company.large): {
-                    GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[2] =
+                    end_dialogue.sentences[2] =
                         "A total network power score of " + network_power + "..." +
                         "\nMonthly network power at " + monthly_np + "..." +
                         "\nError rate at a " + ErrorLevelAsString().ToLower() + " level...";
 
                     if (GetNetworkPower() < 700) {
-                        GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                        end_dialogue.sentences[3] =
                             "Cyber Security is challenging! You let your company down this time... Better luck at your next job! (Maybe try a smaller company)";
                     }
 
@@ -638,10 +643,10 @@ public class GameControllerV2 : MonoBehaviour
 
                         // Downgrade one level if error rate is too high
                         if(error_rate > .3) {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                            end_dialogue.sentences[3] =
                             "Cyber Security is challenging! You let your company down this time... Better luck at your next job! (Maybe try a smaller company)";
                         } else {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                            end_dialogue.sentences[3] =
                             "Good job, but there is room for improvement before you can consider yourself a cyber security expert.";
                         }
                         
@@ -651,10 +656,10 @@ public class GameControllerV2 : MonoBehaviour
 
                         // Downgrade one level if error rate is too high
                         if (error_rate > .3) {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                            end_dialogue.sentences[3] =
                             "Good job, but there is room for improvement before you can consider yourself a cyber security expert.";
                         } else {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
+                            end_dialogue.sentences[3] =
                             "Great job! You should consider yourself a cyber security expert!";
                         }
                     }
