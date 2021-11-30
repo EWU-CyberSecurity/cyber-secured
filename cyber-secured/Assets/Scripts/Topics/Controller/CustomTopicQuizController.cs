@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Topics;
+using UnityEngine.UI;
 
 public class CustomTopicQuizController : MonoBehaviour
 {
@@ -125,6 +124,8 @@ public class CustomTopicQuizController : MonoBehaviour
     // advance to the next topic item.
     public void nextTopicItem()
     {
+        // clear the fill in text box.
+        fillin_components.transform.Find("InputField").GetComponent<InputField>().text = "";
         currentTopic.nextQuestion();
     }
 

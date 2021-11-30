@@ -14,8 +14,6 @@ namespace Assets.Scripts.Topics
     {
         private List<MultiAnswerSet> answerPool; // all the possible answer sets
         private MultiAnswerSet displayedSet; // the set of answers that is actually displayed
-        private Color disabledCorrectColor = new Color(0.5764706f, 1, 0.5882353f);
-        private Color disabledIncorrectColor = new Color(1, 0.5764706f, 0.5764706f);
 
         private GameObject multiAnswerRoot;
 
