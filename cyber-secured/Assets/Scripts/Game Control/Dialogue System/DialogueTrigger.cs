@@ -37,7 +37,7 @@ public class DialogueTrigger : MonoBehaviour
         // don't start another piece of dialogue if still in one
         if(!GameControllerV2.Instance.InDialogue())
         {
-            if(!triggered)
+            if (!triggered)
             {
                 // switch to in_dialogue
                 GameControllerV2.Instance.DialogueSwitch();
