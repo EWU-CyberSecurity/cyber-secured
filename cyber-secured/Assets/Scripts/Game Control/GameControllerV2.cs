@@ -520,10 +520,10 @@ public class GameControllerV2 : MonoBehaviour
         tweens.Add(decision_box.transform.DOScale(new Vector3(1, 1, 1), 1));
     }
 
-    // the "next month" button function -----> That's the function who decides which month will be the last month! ------------------------------------------
     public void HideDecision()
     {
-        if(current_month != lastMonth) // don't change the 13!!!
+        Debug.Log("current month? " + current_month + " last month? " + lastMonth);
+        if(current_month != lastMonth)
         {
             if(!in_dialogue)
             {
@@ -728,6 +728,10 @@ public class GameControllerV2 : MonoBehaviour
 
     public void DisplayQuarterlyEvent()
     {
+        if (current_month == lastMonth)
+        {
+            q_event_box.transform.Find("txt_title").gameObject.GetComponent<Text>().text = "Final Recap";
+        }
         DisplayEvent(q_event_box);
     }
 
@@ -901,9 +905,9 @@ public class GameControllerV2 : MonoBehaviour
         Debug.Log("last month? " + lastMonth);
         ActivateEvent(RollError());
 
-        if(current_month == lastMonth) {
+        if(current_month == lastMonth + 1) {
             DisplayFinalEvent();
-        } else if(current_month == 3 || current_month == 6 || current_month == 9) {
+        } else if(current_month == 3 || current_month == 6 || current_month == 9 || current_month == lastMonth) {
             DisplayQuarterlyEvent();
         } else {
             DisplayEvent();
@@ -1256,6 +1260,7 @@ public class GameControllerV2 : MonoBehaviour
                 {
                     GameObject.Find("Canvas").transform.Find("stage_custom_topics").gameObject.SetActive(true);
                     CustomTopicQuizController controller = GameObject.Find("stage_custom_topics").GetComponent<CustomTopicQuizController>();
+
                     lastMonth = 12 + controller.getTopicCount();
 
                     current_event_text = GoodMessage();
@@ -1270,6 +1275,7 @@ public class GameControllerV2 : MonoBehaviour
 
         if (current_month == lastMonth)
         {
+            Debug.Log("does this happen?");
             // this is the end of the game.
             if (bad_event_occurred)
             {
