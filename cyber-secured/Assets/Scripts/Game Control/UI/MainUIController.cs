@@ -64,7 +64,8 @@ public class MainUIController : MonoBehaviour
         // enable the game reset button
         btn_reset_game.gameObject.SetActive(true);
         btn_return_main.gameObject.SetActive(true);
-        btn_skip.gameObject.SetActive(true);
+        // TODO This skip button does not work.
+        // btn_skip.gameObject.SetActive(true);
     }
 
     // sequence to make NP pop
