@@ -54990,7 +54990,7 @@ MonoBehaviour:
   dialogue:
     name: IT Senior
     sentences: []
-  repeatable: 0
+  repeatable: 1
   triggered: 0
   picture: {fileID: 0}
 --- !u!1 &1855500536

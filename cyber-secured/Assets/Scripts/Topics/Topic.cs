@@ -13,7 +13,6 @@ namespace Assets.Scripts.Topics
         private int itemNumber;
         private List<TopicItem> topicItems;
         private Dialogue startDialogue;
-        private Dialogue endDialogue;
         private string topicID;
         private string topicName;
         private TopicItem currentItem;
