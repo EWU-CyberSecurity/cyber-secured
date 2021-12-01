@@ -5948,7 +5948,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: return;
+  m_Text: return
 --- !u!222 &218435856
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10054,7 +10054,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: About( )
+  m_Text: ABOUT
 --- !u!222 &357786667
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18902,7 +18902,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: START( )
+  m_Text: START
 --- !u!222 &670672607
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31512,7 +31512,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: return;
+  m_Text: return
 --- !u!222 &1064907556
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32717,7 +32717,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: INSTRUCT( )
+  m_Text: INSTRUCT
 --- !u!222 &1098764368
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -34329,7 +34329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.2, y: -154}
+  m_AnchoredPosition: {x: 2.2, y: -141.2}
   m_SizeDelta: {x: 120, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188872569
@@ -36482,7 +36482,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: ResetGame( )
+  m_Text: ResetGame
 --- !u!222 &1253216403
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37533,7 +37533,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: OPTIONS( )
+  m_Text: OPTIONS
 --- !u!222 &1283716168
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -39162,7 +39162,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: return;
+  m_Text: return
 --- !u!222 &1334022462
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45591,7 +45591,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: return;
+  m_Text: return
 --- !u!222 &1532114202
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -56495,7 +56495,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: MENU( )
+  m_Text: MENU
 --- !u!222 &1932262679
 CanvasRenderer:
   m_ObjectHideFlags: 0
