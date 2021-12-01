@@ -432,8 +432,8 @@ public class GameControllerV2 : MonoBehaviour
         }
 
         // bring in company's title
-        company_title.gameObject.SetActive(true);
-        company_title.transform.DOLocalMoveY(250, 1);
+        /*company_title.gameObject.SetActive(true);
+        company_title.transform.DOLocalMoveY(250, 1);*/
         yield return null;
     }
 
