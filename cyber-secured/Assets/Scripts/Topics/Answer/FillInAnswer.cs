@@ -27,6 +27,18 @@ namespace Assets.Scripts.Topics
             return string.Equals(userAnswer, correctAnswer, StringComparison.OrdinalIgnoreCase);
         }
 
+        public override void displayFeedback(bool correct)
+        {
+            if (correct)
+            {
+                questionBoxText.text = correct_feedback_template.Replace("[answer]", correctAnswer);
+            }
+            else
+            {
+                questionBoxText.text = incorrect_feedback_template.Replace("[answer]", correctAnswer);
+            }
+        }
+
         public override void DisplayAnswer()
         {
             fillInComponents.SetActive(true);
@@ -36,6 +48,7 @@ namespace Assets.Scripts.Topics
         public bool OnSubmitButtonClicked()
         {
             changeColorsAndDisableButtons();
+            displayFeedback(wasPlayerCorrect());
             return wasPlayerCorrect();
         }
 

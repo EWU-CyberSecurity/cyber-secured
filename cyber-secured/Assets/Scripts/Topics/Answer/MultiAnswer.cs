@@ -65,6 +65,19 @@ namespace Assets.Scripts.Topics
             answerPool.Add(answerSetToAdd);
         }
 
+        public override void displayFeedback(bool correct)
+        {
+            string correct_answers = displayedSet.getCorrectAnswers();
+            if (correct)
+            {
+                questionBoxText.text = correct_feedback_template.Replace("[answer]", correct_answers);
+            }
+            else
+            {
+                questionBoxText.text = incorrect_feedback_template.Replace("[answer]", correct_answers);
+            }
+        }
+
         public override void DisplayAnswer()
         {
             // Set the text on the four multiple choice buttons. Also set them to intractable again. 
@@ -100,24 +113,32 @@ namespace Assets.Scripts.Topics
         public bool onButton1Clicked()
         {
             changeColorsAndDisableButtons();
-            return displayedSet.isAnswerCorrect(0);
+            bool correct = displayedSet.isAnswerCorrect(0);
+            displayFeedback(correct);
+            return correct;
         }
         public bool onButton2Clicked()
         {
             changeColorsAndDisableButtons();
-            return displayedSet.isAnswerCorrect(1);
+            bool correct = displayedSet.isAnswerCorrect(1);
+            displayFeedback(correct);
+            return correct;
         }
 
         public bool onButton3Clicked()
         {
             changeColorsAndDisableButtons();
-            return displayedSet.isAnswerCorrect(2);
+            bool correct = displayedSet.isAnswerCorrect(2);
+            displayFeedback(correct);
+            return correct;
         }
 
         public bool onButton4Clicked()
         {
             changeColorsAndDisableButtons();
-            return displayedSet.isAnswerCorrect(3);
+            bool correct = displayedSet.isAnswerCorrect(3);
+            displayFeedback(correct);
+            return correct;
         }
     }
 }

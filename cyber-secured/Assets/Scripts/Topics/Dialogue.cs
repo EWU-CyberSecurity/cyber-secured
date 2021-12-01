@@ -11,6 +11,8 @@ namespace Assets.Scripts.Topics
     {
         private string[] sentences;
 
+        public Dialogue() { }
+
         public Dialogue(string googleSheetString)
         {
             this.sentences = googleSheetString.Split(new string[] { "<>" }, StringSplitOptions.None);
@@ -27,6 +29,11 @@ namespace Assets.Scripts.Topics
         public string[] getSentences()
         {
             return sentences;
+        }
+
+        public void setSentences(string[] s)
+        {
+            this.sentences = s;
         }
     }
 }

@@ -27,7 +27,22 @@ namespace Assets.Scripts.Topics
         public bool OnTrueFalseButtonClicked(bool trueWasClicked)
         {
             changeColorsAndDisableButtons();
+            displayFeedback(trueWasClicked == isTrue);
             return trueWasClicked == isTrue;
+        }
+
+        public override void displayFeedback(bool correct)
+        {
+            string correctAnswer = isTrue ? "true" : "false";
+            
+            if (correct)
+            {
+                questionBoxText.text = correct_feedback_template.Replace("[answer]", correctAnswer);
+            }
+            else
+            {
+                questionBoxText.text = incorrect_feedback_template.Replace("[answer]", correctAnswer);
+            }
         }
 
         public override void DisplayAnswer()

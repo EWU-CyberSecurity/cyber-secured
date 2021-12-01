@@ -1,5 +1,7 @@
 ﻿
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Topics
 {
@@ -20,21 +22,17 @@ namespace Assets.Scripts.Topics
         protected readonly GameObject quizComponentsRoot = GameObject.Find("Canvas").
             transform.Find("stage_custom_topics").transform.Find("Quiz Components").gameObject;
 
-        // Display the dialogue if it's correct.
-        // The answer classes can override this to put
-        // specific dialogue, while this method could create
-        // the dialogue box. We can look at examples on how this
-        // is already being done in the game. 
-        public void displayCorrectDialogue()
-        {
+        protected string correct_feedback_template = "Well done! \"[answer]\" was the correct answer.";
+        protected string incorrect_feedback_template = "That's not it. \"[answer]\" was the correct answer.";
 
-        }
+        protected Text questionBoxText = GameObject.Find("Canvas").transform.Find("stage_custom_topics").transform
+            .Find("question_box").transform.Find("Text").GetComponent<Text>();
 
-        // same thing for if they get it wrong. 
-        public void displayIncorrectDialogue()
-        {
+        // Display dialogue based on if the player given answer is correct.
+        // This is abstract because different types of questions have different ways of
+        // storing the correct answer.
+        public abstract void displayFeedback(bool correct);
 
-        }
         // Method for moving the correct buttons and stuff
         // to the right places. This is overridden by the different
         // answer subclasses because they all have different stuff to do
