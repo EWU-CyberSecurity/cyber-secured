@@ -29,8 +29,8 @@ namespace Assets.Scripts.Topics
 
         public override void DisplayAnswer()
         {
-            Debug.Log("displaying fill in answer");
             fillInComponents.SetActive(true);
+            fillInComponents.transform.Find("submit_btn").gameObject.GetComponent<Button>().interactable = true;
         }
 
         public bool OnSubmitButtonClicked()
@@ -52,6 +52,8 @@ namespace Assets.Scripts.Topics
                 //Tell the user they entered the wrong answer, or continue on with the game.
                 fillInComponents.transform.Find("InputField").GetComponent<InputField>().selectionColor = disabledIncorrectColor;
             }
+
+            fillInComponents.transform.Find("submit_btn").gameObject.GetComponent<Button>().interactable = false;
         }
 
         public override void hideAnswerComponents()
