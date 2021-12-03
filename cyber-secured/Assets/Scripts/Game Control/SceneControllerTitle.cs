@@ -1,3 +1,4 @@
+
 // SceneControllerTitle.cs
 
 /// <summary>
@@ -12,7 +13,7 @@ using DG.Tweening;
 
 public class SceneControllerTitle : MonoBehaviour
 {
-    
+    public string playerName;
     public GameObject background;               // background image
 
     public GameObject scn_title;                // title scene
@@ -35,9 +36,20 @@ public class SceneControllerTitle : MonoBehaviour
     public Button btn_return_about;             // --
 
     // Use this for initialization
+
     void Start()
     {
         btn_return.gameObject.SetActive(false);
+    }
+
+    void Update()
+    {
+        //Skip to custom topics keyboard binding
+
+        if (Input.GetKeyDown(KeyCode.F8))
+        {
+            GoToNewTopics();
+        }
     }
 
     // button function to see instructions
@@ -193,7 +205,15 @@ public class SceneControllerTitle : MonoBehaviour
             new_colors.highlightedColor = new Color(0.8156863f, 1, 0.7176471f);
             new_colors.pressedColor = new Color(0.5764706f, 1, 0.5882353f);
             start_button.colors = new_colors;
+
+            this.playerName = name_input.text;
         }
+    }
+
+    //Getter for player name
+    public string getPlayerName()
+    {
+        return this.playerName;
     }
 
     public void GoToNewTopics()
