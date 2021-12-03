@@ -29653,11 +29653,11 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 8.120332, y: 4.5498405}
+  m_Size: {x: 8.24, y: 4.65}
   m_AdaptiveModeThreshold: 0.568
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1014289088
 Transform:
@@ -38770,6 +38770,7 @@ MonoBehaviour:
   skip_topics_button: {fileID: 524588768}
   in_dialogue: 0
   mitigate_event: 0
+  lastMonth: 99
   CURRENT_STATE: 0
   CHOSEN_COMPANY: 0
 --- !u!4 &1329741132
