@@ -8498,7 +8498,7 @@ MonoBehaviour:
     - Now let's see how you performed...
     - '[temp text]'
     - '[temp text]'
-    - '[Go to menu to reset game.]'
+    - Click continue to go back to the main menu.
   repeatable: 0
   triggered: 0
   picture: {fileID: 0}
@@ -37012,7 +37012,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: ResetGame
+  m_Text: Reset Game
 --- !u!222 &1253216403
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -39386,6 +39386,7 @@ MonoBehaviour:
   skip_topics_button: {fileID: 524588768}
   in_dialogue: 0
   mitigate_event: 0
+  lastMonth: 99
   CURRENT_STATE: 0
   CHOSEN_COMPANY: 0
 --- !u!4 &1329741132

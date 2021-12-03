@@ -133,7 +133,7 @@ public class GameControllerV2 : MonoBehaviour
 
     public List<Tweener> tweens = new List<Tweener>();  // for DOTween killing
 
-    private int lastMonth = 99; // set this to a large number until the number of custom topics is known.
+    public int lastMonth = 99; // set this to a large number until the number of custom topics is known.
 
     // Backup events that may occur
     // Certain cases added multiple times to increase the chance of that specific event over others

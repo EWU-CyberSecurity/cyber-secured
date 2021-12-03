@@ -112,6 +112,11 @@ public class DialogueManager : MonoBehaviour
                     // switch out of dialogue
                     GameControllerV2.Instance.DialogueSwitch();
 
+                    if (GameControllerV2.Instance.current_month == GameControllerV2.Instance.lastMonth)
+                    {
+                        GameControllerV2.Instance.ResetGame();
+                    }
+
                     return;
                 }
             }
