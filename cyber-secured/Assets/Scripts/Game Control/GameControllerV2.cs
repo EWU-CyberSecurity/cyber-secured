@@ -54,6 +54,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using System.Security.AccessControl;
 
 // imported scripts:
 using DG.Tweening;
@@ -70,22 +71,23 @@ public class GameControllerV2 : MonoBehaviour
     public GameObject scn_main;                 // main scene
     public GameObject[] companies;              // the three company buttons
 
-    public GameObject scn_quiz_password;        // password "minigame scene"
-
-    public GameObject scn_filebackup;           // file backup "minigame scene"
     public bool backup_hdd = false;
     public bool backup_usb = false;
     public bool backup_cld = false;
     //public int backup_type;                     // 1 = external; 2 = internal; 3 = cloud
 
     // public GameObject scn_phishing;             // --
+    public GameObject scn_quiz_password;        // password "minigame scene"
+    public GameObject scn_filebackup;           // file backup "minigame scene"
     public GameObject scn_phishing_v2;          // alternative phishing scene 
     public GameObject scn_virus_presentation;   // virus presentation scene
     public GameObject scn_virus_quiz;           // virus quiz scene
     public GameObject scn_caesar_cipher;        // caesar cipher scene
-    public GameObject scn_hard_drive;           // hard drive selection scene  ---> used in the SceneControllerHardDrive class
     public GameObject scn_one_time_pad;         // one time encryption scene     -----------------> New scene for the one time pad
     public GameObject scn_RSA;                  // RSA encryption scene          -----------------> New scene for the RSA encryption
+    public GameObject stage_custom_topics;
+
+    public GameObject[] all_stages;
 
     // Numbers:
     public int network_power;                   // main score
@@ -132,7 +134,9 @@ public class GameControllerV2 : MonoBehaviour
     public bool mitigate_event;                 // flag to mitigate bad event
 
     public List<Tweener> tweens = new List<Tweener>();  // for DOTween killing
-    public int lastMonth = 99;
+
+    public int lastMonth = 99; // set this to a large number until the number of custom topics is known.
+
     // Backup events that may occur
     // Certain cases added multiple times to increase the chance of that specific event over others
     public ArrayList dataLossEvents = new ArrayList() 
@@ -528,10 +532,10 @@ public class GameControllerV2 : MonoBehaviour
         tweens.Add(decision_box.transform.DOScale(new Vector3(1, 1, 1), 1));
     }
 
-    // the "next month" button function -----> That's the function who decides which month will be the last month! ------------------------------------------
     public void HideDecision()
     {
-        if(current_month != 12) // don't change the 13!!!
+        Debug.Log("current month? " + current_month + " last month? " + lastMonth);
+        if(current_month != lastMonth)
         {
             if(!in_dialogue)
             {
@@ -553,30 +557,33 @@ public class GameControllerV2 : MonoBehaviour
             
             decision_box.gameObject.SetActive(false);
 
+            Dialogue end_dialogue = GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue;
+
+            end_dialogue.sentences[0] = end_dialogue.sentences[0].Replace("[x]", lastMonth.ToString());
+
             // change dialogue to reflect score
-            switch(CHOSEN_COMPANY) {
+            switch (CHOSEN_COMPANY) {
 
             case (Company.small): {
-                GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[2] =
-                    "Attention, " + playerName +
-                    "\nA total network power score of " + network_power + "..." +
+                end_dialogue.sentences[2] =
+                    "A total network power score of " + network_power + "..." +
                     "\nMonthly network power at " + monthly_np + "..." +
                     "\nError rate at a " + ErrorLevelAsString().ToLower() + " level...";
 
                     if(GetNetworkPower() < 100) {
-                        GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                            playerName + ", Cyber Security is challenging! You let your company down this time... Better luck at your next job!";
+                        end_dialogue.sentences[3] =
+                            "Cyber Security is challenging! You let your company down this time... Better luck at your next job!";
                     }
 
                     if(GetNetworkPower() >= 100 && GetNetworkPower() < 250) {
 
                         // Downgrade one level if error rate is too high
                         if(error_rate > .3f) {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                             playerName + ", Cyber Security is challenging! You let your company down this time... Better luck at your next job!";
+                            end_dialogue.sentences[3] =
+                            "Cyber Security is challenging! You let your company down this time... Better luck at your next job!";
                         } else {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                            "Good job " + playerName +  ", but there is room for improvement before you can consider yourself a cyber security expert.";
+                            end_dialogue.sentences[3] =
+                            "Good job, but there is room for improvement before you can consider yourself a cyber security expert.";
                         }
                     }
 
@@ -584,11 +591,11 @@ public class GameControllerV2 : MonoBehaviour
 
                         // Downgrade one level if error rate is too high
                         if(error_rate > .3f) {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                            "Good job " + playerName + ", but there is room for improvement before you can consider yourself a cyber security expert.";
+                            end_dialogue.sentences[3] =
+                            "Good job, but there is room for improvement before you can consider yourself a cyber security expert.";
                         } else {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                            "Great job! " + playerName +", You should consider yourself a cyber security pro. Do you think you're up to the challenge of a larger company?";
+                            end_dialogue.sentences[3] =
+                            "Great job! You should consider yourself a cyber security pro. Do you think you're up to the challenge of a larger company?";
                         }
                     }
 
@@ -596,26 +603,25 @@ public class GameControllerV2 : MonoBehaviour
                 }
 
             case (Company.med): {
-                    GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[2] =
-                        "Attention, " + playerName +
-                        "\nA total network power score of " + network_power + "..." +
+                end_dialogue.sentences[2] =
+                        "A total network power score of " + network_power + "..." +
                         "\nMonthly network power at " + monthly_np + "..." +
                         "\nError rate at a " + ErrorLevelAsString().ToLower() + " level...";
 
-                        if (GetNetworkPower() < 200) {
-                        GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                        playerName + ", Cyber Security is challenging! You let your company down this time... Better luck at your next job! (Maybe try a smaller company)";
+                    if (GetNetworkPower() < 200) {
+                        end_dialogue.sentences[3] =
+                            "Cyber Security is challenging! You let your company down this time... Better luck at your next job! (Maybe try a smaller company)";
                     }
 
                     if (GetNetworkPower() >= 200 && GetNetworkPower() < 400) {
 
                         // Downgrade one level if error rate is too high
                         if (error_rate > .3f) {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                            playerName + ", Cyber Security is challenging! You let your company down this time... Better luck at your next job! (Maybe try a smaller company)";
+                            end_dialogue.sentences[3] =
+                            "Cyber Security is challenging! You let your company down this time... Better luck at your next job! (Maybe try a smaller company)";
                         } else {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                            "Good job, " + playerName + " but there is room for improvement before you can consider yourself a cyber security expert.";
+                            end_dialogue.sentences[3] =
+                            "Good job, but there is room for improvement before you can consider yourself a cyber security expert.";
                         }
                         
                     }
@@ -624,11 +630,11 @@ public class GameControllerV2 : MonoBehaviour
 
                         // Downgrade one level if error rate is too high
                         if (error_rate > .3f) {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                            "Good job, " + playerName + " but there is room for improvement before you can consider yourself a cyber security expert.";
+                            end_dialogue.sentences[3] =
+                            "Good job, but there is room for improvement before you can consider yourself a cyber security expert.";
                         } else {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                            "Great job! " + playerName + ", You should consider yourself a cyber security pro. Do you think you're up to the challenge of a larger company?";
+                            end_dialogue.sentences[3] =
+                            "Great job! You should consider yourself a cyber security pro. Do you think you're up to the challenge of a larger company?";
                         }
                     }
 
@@ -636,26 +642,25 @@ public class GameControllerV2 : MonoBehaviour
                 }
 
             case (Company.large): {
-                    GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[2] =
-                        "Attention, " + playerName +
-                        "\nA total network power score of " + network_power + "..." +
+                end_dialogue.sentences[2] =
+                        "A total network power score of " + network_power + "..." +
                         "\nMonthly network power at " + monthly_np + "..." +
                         "\nError rate at a " + ErrorLevelAsString().ToLower() + " level...";
 
-                        if (GetNetworkPower() < 700) {
-                        GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                            playerName + ", Cyber Security is challenging! You let your company down this time... Better luck at your next job! (Maybe try a smaller company)";
+                    if (GetNetworkPower() < 700) {
+                        end_dialogue.sentences[3] =
+                            "Cyber Security is challenging! You let your company down this time... Better luck at your next job! (Maybe try a smaller company)";
                     }
 
                     if (GetNetworkPower() >= 700 && GetNetworkPower() < 1000) {
 
                         // Downgrade one level if error rate is too high
                         if(error_rate > .3) {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                            playerName + ", Cyber Security is challenging! You let your company down this time... Better luck at your next job! (Maybe try a smaller company)";
+                            end_dialogue.sentences[3] =
+                            "Cyber Security is challenging! You let your company down this time... Better luck at your next job! (Maybe try a smaller company)";
                         } else {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                            "Good job, " + playerName + " but there is room for improvement before you can consider yourself a cyber security expert.";
+                            end_dialogue.sentences[3] =
+                            "Good job, but there is room for improvement before you can consider yourself a cyber security expert.";
                         }
                         
                     }
@@ -664,11 +669,11 @@ public class GameControllerV2 : MonoBehaviour
 
                         // Downgrade one level if error rate is too high
                         if (error_rate > .3) {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                            "Good job, " + playerName + " but there is room for improvement before you can consider yourself a cyber security expert.";
+                            end_dialogue.sentences[3] =
+                            "Good job, but there is room for improvement before you can consider yourself a cyber security expert.";
                         } else {
-                            GameObject.Find("dlg_end").GetComponent<DialogueTrigger>().dialogue.sentences[3] =
-                            "Great job! " + playerName + ", You should consider yourself a cyber security expert!";
+                            end_dialogue.sentences[3] =
+                            "Great job! You should consider yourself a cyber security expert!";
                         }
                     }
                     break;
@@ -742,6 +747,10 @@ public class GameControllerV2 : MonoBehaviour
 
     public void DisplayQuarterlyEvent()
     {
+        if (current_month == lastMonth)
+        {
+            q_event_box.transform.Find("txt_title").gameObject.GetComponent<Text>().text = "Final Recap";
+        }
         DisplayEvent(q_event_box);
     }
 
@@ -912,18 +921,18 @@ public class GameControllerV2 : MonoBehaviour
     public void NextEvent() 
     {
         Debug.Log("Month " + current_month + " event triggered.");
-
+        Debug.Log("last month? " + lastMonth);
         ActivateEvent(RollError());
 
-        if(current_month == 13) { // Don't change it from 13 to other number, 13 is just to indicate that a full year passed
+        if(current_month == lastMonth + 1) {
             DisplayFinalEvent();
-        } else if(current_month == 3 || current_month == 6 || current_month == 9 || current_month == 12) {
+        } else if(current_month == 3 || current_month == 6 || current_month == 9 || current_month == lastMonth) {
             DisplayQuarterlyEvent();
         } else {
             DisplayEvent();
         }
     }
-        
+    
     // IMPORTANT: what to do when a bad event occurs
     // ebox - event box (ctrl+f to find this easily)
     public void ActivateEvent(bool bad_event_occurred)
@@ -943,7 +952,8 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = "First up on the agenda, " + playerName +
                 "\nWould you like to hold a password strength training session?\n" +
                 "<b>Cost: 10% of NP</b>";
-            } break;
+                return;
+            }
 
             // Month 2 event - backup offered
             case(2):
@@ -978,8 +988,8 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = "The company is making progress, " + playerName + ", thanks to your help." +  
                 "\nWould you like to execute a company-wide file backup plan?\n" +
                 "<b>Cost: 10% of NP</b>";
-
-            } break;
+                return;
+            }
 
             // Month 3 event - perk offered
             case(3):
@@ -1011,8 +1021,8 @@ public class GameControllerV2 : MonoBehaviour
                 } else {
                     current_event_text = GoodMessage();
                 }
-                
-            } break;
+                return;
+            }
 
             // month 4 event
             case(4):
@@ -1044,7 +1054,8 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = "An employee has fallen for a phishing attempt. " +
                     playerName + " could you hold a company meeting to discuss the dangers of phishing?" +
                     "\n<b>Cost: 10% of NP</b>";
-            } break;
+                return;
+            }
 
             // month 5 event
             case(5):
@@ -1066,7 +1077,8 @@ public class GameControllerV2 : MonoBehaviour
                 current_choice_text = playerName + ", Do you feel the need to brush up on computer viruses." +
                     "\nDo some research? (No penalty for declining.)" +
                     "\n<b>Cost: 10% of NP</b>";
-            } break;
+                return;
+            }
 
             // month 6 event
             case(6):
@@ -1096,13 +1108,12 @@ public class GameControllerV2 : MonoBehaviour
                     current_event_text = GoodMessage();
                 }
                 
-
                 // Caesar Cipher
                 current_choice_text = playerName + ", an employee wants to email sensitive information. " +
                 "Would you like to learn about encryption?" +
                 "\n<b>Cost: 20 NP</b>";
-
-            } break;
+                return;
+            }
 
             // month 7 event
             case(7):
@@ -1125,29 +1136,33 @@ public class GameControllerV2 : MonoBehaviour
                 } else {
                     current_event_text = GoodMessage();
                 }
-                
-                
-            } break;
+
+                return;
+
+            }
 
             // month 8 event
-            case(8):
+            case (8):
             {
 
-                if (bad_event_occurred) {
+                if (bad_event_occurred)
+                {
                     current_event_text = playerName + ", An employee downloads malware without realizing."
-                        + "\nNP has decreased by 30.";
-                } else {
+                                                    + "\nNP has decreased by 30.";
+                }
+                else
+                {
                     current_event_text = GoodMessage();
                 }
-                
+
                 // Virus quiz
-                current_choice_text =
-                      playerName + ", The boss requests all employees to take a quiz to prove their knowledge on viruses." +
-                     "\n<b>50 NP penalty for declining</b>";
-            } break;
+                current_choice_text = playerName + ", The boss requests all employees to take a quiz to prove their knowledge on viruses." +
+                    "\n<b>50 NP penalty for declining</b>";
+                return;
+            }
 
             // month 9 event
-            case(9):
+            case (9):
             {
                 // increase NP for the first "third" of the game
                 int temp_np = network_power;
@@ -1178,8 +1193,9 @@ public class GameControllerV2 : MonoBehaviour
                 {
                      current_event_text = GoodMessage();
                 }
-    
-            } break;
+
+                return;
+            }
 
             // month 10 event
             case(10):
@@ -1209,12 +1225,12 @@ public class GameControllerV2 : MonoBehaviour
                 
                 current_choice_text = playerName + ", A significant part of your learning process as an IT specialist is to get knowledge of one time pad encryption. " +
                         "Solve the following challenge to advance your knowledge.";
-                                      
-                    
-            } break;
+
+                return;
+            }
             
             // month 11 event
-            case(11):
+            case (11):
             {
                 if (bad_event_occurred)
                 {
@@ -1239,66 +1255,83 @@ public class GameControllerV2 : MonoBehaviour
                     int np_difference = temp_np - network_power;
 
                     // Event that occurred
-                        current_event_text = playerName + ", your system was cracked by experienced hackers because you have not updated your system in a long time.\n" +
-                    "<i>NP has decreased by " + np_difference + ".</i>";
+                    current_event_text = playerName +
+                                         ", your system was cracked by experienced hackers because you have not updated your system in a long time.\n" +
+                                         "<i>NP has decreased by " + np_difference + ".</i>";
                 }
                 else
                 {
                     current_event_text = GoodMessage();
                 }
 
-                    // decrease monthly NP by a scaling amount - 5% of monthly NP
-                    DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.05f));
+                // decrease monthly NP by a scaling amount - 5% of monthly NP
+                DecreaseMonthlyNP(Mathf.RoundToInt(monthly_np * 0.05f));
 
-                    current_choice_text = playerName + ", would you like to learn about RSA? That is one of the most important encryption technique today!" +
-                        "\n<b>Cost: 5% of Monthly NP</b>";
-                    
-            } break;
-            
-            // month 12 event
-            case(12):
-            {
-                if(bad_event_occurred)
+                current_choice_text = playerName + ", would you like to learn about RSA? That is one of the most important encryption technique today!" +
+                                      "\n<b>Cost: 5% of Monthly NP</b>";
+                return;
+            }
+
+            // custom topic event
+            default:
+                if (current_month != lastMonth)
                 {
-                    // decrease NP by a scaling amount
-                    int temp_np = network_power;
+                    GameObject.Find("Canvas").transform.Find("stage_custom_topics").gameObject.SetActive(true);
+                    CustomTopicQuizController controller = GameObject.Find("stage_custom_topics").GetComponent<CustomTopicQuizController>();
 
-                    // Amount decreased by
-                    if (CHOSEN_COMPANY == Company.small)
-                    {
-                        DecreaseNP(10);
-                    }
-                    else if (CHOSEN_COMPANY == Company.med)
-                    {
-                        DecreaseNP(20);
-                    }
-                    else
-                    {
-                        DecreaseNP(50);
-                    }
+                    lastMonth = 12 + controller.getTopicCount();
 
-                    // calculate difference
-                    int np_difference = temp_np - network_power;
-
-                    // Event that occurred
-                    current_event_text = playerName + ", your company suffers from a heavy deficit.\n" +
-                    "<i>NP has decreased by " + np_difference + ".</i>";
-
-                } else {
                     current_event_text = GoodMessage();
+
+                    current_choice_text = "Would you like to learn about " + controller.getNextTopicName() + "?";
+
+                    return;
                 }
 
-                name_perk_1.text = "Promotion";
-                info_perk_1.text = playerName + ", you are being offered a higher position";
+                break;
+        }
 
-                name_perk_2.text = "Back to School";
-                info_perk_2.text = "Get a M.S degree for an increase in your paycheck";
+        if (current_month == lastMonth)
+        {
+            Debug.Log("does this happen?");
+            // this is the end of the game.
+            if (bad_event_occurred)
+            {
+                // decrease NP by a scaling amount
+                int temp_np = network_power;
 
-            } break;
+                // Amount decreased by
+                if (CHOSEN_COMPANY == Company.small)
+                {
+                    DecreaseNP(10);
+                }
+                else if (CHOSEN_COMPANY == Company.med)
+                {
+                    DecreaseNP(20);
+                }
+                else
+                {
+                    DecreaseNP(50);
+                }
 
-            default: 
-                Debug.Log("default - month 12 part 1"); 
-            break;
+                // calculate difference
+                int np_difference = temp_np - network_power;
+
+                // Event that occurred
+                current_event_text = "Your company suffers from a heavy deficit.\n" +
+                                     "<i>NP has decreased by " + np_difference + ".</i>";
+
+            }
+            else
+            {
+                current_event_text = GoodMessage();
+            }
+
+            name_perk_1.text = "Promotion";
+            info_perk_1.text = "You're being offered a higher position";
+
+            name_perk_2.text = "Back to School";
+            info_perk_2.text = "Getting a M.S degree for an increase in your paycheck";
         }
     }
 
@@ -1373,7 +1406,9 @@ public class GameControllerV2 : MonoBehaviour
 
                     DisplayDecision();
                 }
-            } break;
+
+                return;
+            }
 
             // month 2 choice
             case(2):
@@ -1396,7 +1431,8 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            } break;
+                return;
+            }
 
             // month 3 choice
             case(3):
@@ -1424,7 +1460,8 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            } break;
+                return;
+            }
 
             // month 4 choice
             case(4):
@@ -1451,7 +1488,9 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
 
                 }
-            } break;
+
+                return;
+            }
 
             // month 5 choice
             case(5):
@@ -1477,7 +1516,8 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            } break;
+                return;
+            }
 
             // month 6 choice 
             case(6):
@@ -1513,7 +1553,8 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            } break;
+                return;
+            }
 
             // month 7 choice
             case(7):
@@ -1537,7 +1578,9 @@ public class GameControllerV2 : MonoBehaviour
 
                     DisplayDecision();
                 }
-            } break;
+
+                return;
+            }
 
             // month 8 choice
             case(8):
@@ -1560,7 +1603,8 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            } break;
+                return;
+            }
 
             // month 9 choice QUARTER
             case(9):
@@ -1584,8 +1628,8 @@ public class GameControllerV2 : MonoBehaviour
                 }
 
                 DisplayDecision();
-
-            } break;
+                return;
+            }
 
             // month 10 choice
             
@@ -1615,8 +1659,9 @@ public class GameControllerV2 : MonoBehaviour
 
                     DisplayDecision();
                 }
-          
-            } break;
+
+                return;
+            }
             
             // month 11 choice
             case(11):
@@ -1645,44 +1690,58 @@ public class GameControllerV2 : MonoBehaviour
                     DisplayDecision();
                 }
 
-            } break;
-            
+                return;
+            }
 
-            // month 12 choice QUARTER (end of game)
-           case(12):
+            default:
             {
-                if(x) // Promotion - chose the first option
+                if (current_month != lastMonth)
                 {
-                        
-                    // increase np by 10%
-                    IncreaseNP(Mathf.RoundToInt(network_power * 0.1f));
+                    CustomTopicQuizController controller = GameObject.Find("stage_custom_topics")
+                        .GetComponent<CustomTopicQuizController>();
+                    if (x)
+                    {
+                        Debug.Log("next topic, activate stuff");
+                        controller.nextTopic();
+                    }
+                    else
+                    {
+                        // another spot where the penalty for declining could be defined in the google sheet.
+                        DecreaseNP(Mathf.RoundToInt(network_power * 0.1f));
 
-                    current_decision_text = playerName + ", you have chosen to get a promotion at your current job!" +
-                                            "\n<i>Monthly NP has increased by 10%</i>"; 
+                        current_decision_text = "You decided not to learn about " + controller.getNextTopicName() +
+                                                "\n<i>NP rate has decreased.</i> ";
+                        controller.skipTopic();
 
-                    //DisplayDecision();
-                    //increased_text.text = "End Game";
-
-                } else { // Back to School - chose the second option
-
-                   
-                    DecreaseErrorRate(error_rate * 0.2f);
-                        
-                        current_decision_text = playerName + ", you have chosen to go back to school to get your M.S degree! That's a very good decision" +
-                            "\n<i> Error rate has decreased by 20%</i> ";
-
-                    //DisplayDecision();
-                    //increased_text.text = "End Game";
+                        DisplayDecision();
+                    }
+                    return;
                 }
+                break;
+            }
+        }
 
-                DisplayDecision();
-                increased_text.text = "End Game";
+        if (current_month == lastMonth)
+        {
+            if (x) // Promotion - chose the first option
+            {
+                // increase np by 10%
+                IncreaseNP(Mathf.RoundToInt(network_power * 0.1f)); 
 
-            } break;
-            
-            default: 
-                Debug.Log("month 12 ---- second part"); 
-            break;
+                current_decision_text = playerName + ", you have chosen to get a promotion at your current job!" +
+                                            "\n<i>NP has increased by 10%</i>";
+            }
+            else
+            {
+                // Back to School - chose the second option
+                DecreaseErrorRate(error_rate * 0.2f);
+
+                current_decision_text = playerName + ", you have chosen to go back to school to get your M.S degree! That's a very good decision" +
+                                        "\n<i> Error rate has decreased by 20%</i> ";
+            }
+
+            DisplayDecision();
+            increased_text.text = "End Game";
         }
     }
 }

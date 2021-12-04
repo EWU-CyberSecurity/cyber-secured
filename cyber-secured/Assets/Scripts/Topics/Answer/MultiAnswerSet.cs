@@ -14,7 +14,7 @@ namespace Assets.Scripts.Topics
         private int[] correctAnswers; // some of 0 - 3. 
         // string to explain why the correct answer is correct, could be used
         // to set the text in the question box or be a dialogue popup after the question is answered.
-        // the game currently does both. 
+        // the game currently does both, but our implementation here does not.
         private string explanation; 
 
         public MultiAnswerSet(string option1, string option2,
@@ -50,6 +50,25 @@ namespace Assets.Scripts.Topics
         public bool isAnswerCorrect(int answer)
         {
             return correctAnswers.Contains(answer);
+        }
+
+        public string getCorrectAnswers()
+        {
+            string ret = "";
+            for (int i = 0; i < correctAnswers.Length; i++)
+            {
+                if (i != 0) ret += ", ";
+                string answerString = answers[correctAnswers[i]].TrimEnd();
+                // remove the last character if it's a period.
+                if (answerString.EndsWith("."))
+                {
+                    answerString = answerString.Remove(answerString.Length - 1, 1);
+                }
+
+                ret += answerString;
+            }
+
+            return ret;
         }
     }
 }

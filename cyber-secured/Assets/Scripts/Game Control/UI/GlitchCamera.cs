@@ -1,7 +1,13 @@
 ﻿// GlitchCamera.cs
 
 /// <summary>
-/// This script controls the glitch camera effect, as well as the start button function.
+/// This script essentially transitions between stages in the game.
+/// It used to have a glitch effect that was used as a transition, but we removed it.
+/// This class wasn't renamed though. And the actual purpose of both of the methods isn't 100% understood by us.
+/// TODO: Rename this script, and clean it up so it's more clear what's happening.
+/// TODO: Maybe move the bottom function into GameController because it does nothing most of the time.
+/// TODO: And call the other function something like TransitionFromQuiz().
+/// - Team 1
 /// </summary>
 
 using UnityEngine;

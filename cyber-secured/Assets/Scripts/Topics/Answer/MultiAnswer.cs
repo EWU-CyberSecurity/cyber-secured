@@ -14,10 +14,8 @@ namespace Assets.Scripts.Topics
     {
         private List<MultiAnswerSet> answerPool; // all the possible answer sets
         private MultiAnswerSet displayedSet; // the set of answers that is actually displayed
-        private Color disabledCorrectColor = new Color(0.5764706f, 1, 0.5882353f);
-        private Color disabledIncorrectColor = new Color(1, 0.5764706f, 0.5764706f);
 
-        private GameObject root = GameObject.Find("Quiz Components").transform.Find("Buttons").gameObject;
+        private GameObject multiAnswerRoot;
 
         private GameObject button1;
         private GameObject button2;
@@ -27,14 +25,31 @@ namespace Assets.Scripts.Topics
         // use this for updating all
         private GameObject[] buttons;
 
-        public MultiAnswer()
+        public MultiAnswer(GameObject root)
         {
+            this.multiAnswerRoot = root;
+
             answerPool = new List<MultiAnswerSet>();
 
             button1 = root.transform.Find("multi_answer_btn_1").gameObject;
             button2 = root.transform.Find("multi_answer_btn_2").gameObject;
             button3 = root.transform.Find("multi_answer_btn_3").gameObject;
             button4 = root.transform.Find("multi_answer_btn_4").gameObject;
+
+            // use this for updating all the buttons in a clean way
+            buttons = new GameObject[] { button1, button2, button3, button4 };
+        }
+
+        public MultiAnswer()
+        {
+            this.multiAnswerRoot = quizComponentsRoot.transform.Find("multianswer_components").gameObject;
+
+            answerPool = new List<MultiAnswerSet>();
+
+            button1 = multiAnswerRoot.transform.Find("multi_answer_btn_1").gameObject;
+            button2 = multiAnswerRoot.transform.Find("multi_answer_btn_2").gameObject;
+            button3 = multiAnswerRoot.transform.Find("multi_answer_btn_3").gameObject;
+            button4 = multiAnswerRoot.transform.Find("multi_answer_btn_4").gameObject;
 
             // use this for updating all the buttons in a clean way
             buttons = new GameObject[] { button1, button2, button3, button4 };
@@ -50,7 +65,20 @@ namespace Assets.Scripts.Topics
             answerPool.Add(answerSetToAdd);
         }
 
-        public override void displayAnswer()
+        public override void displayFeedback(bool correct)
+        {
+            string correct_answers = displayedSet.getCorrectAnswers();
+            if (correct)
+            {
+                questionBoxText.text = correct_feedback_template.Replace("[answer]", correct_answers);
+            }
+            else
+            {
+                questionBoxText.text = incorrect_feedback_template.Replace("[answer]", correct_answers);
+            }
+        }
+
+        public override void DisplayAnswer()
         {
             // Set the text on the four multiple choice buttons. Also set them to intractable again. 
             displayedSet = answerPool.ElementAt(Random.Range(0, answerPool.Count));
@@ -60,16 +88,10 @@ namespace Assets.Scripts.Topics
                 buttons[i].GetComponent<Button>().interactable = true;
                 buttons[i].transform.Find("Text").GetComponent<Text>().text = displayedSet.getAnswer(i);
             }
+            multiAnswerRoot.SetActive(true);
         }
 
-        // When the button is clicked check if it belongs to the right answer
-        public bool onButton1Clicked()
-        {
-            changeColorsAndDisableButtons();
-            return displayedSet.isAnswerCorrect(0);
-        }
-
-        private void changeColorsAndDisableButtons()
+        protected override void changeColorsAndDisableButtons()
         {
             // Change the disabled colors on the answer buttons depending
             // on whether or not they were correct.
@@ -82,22 +104,41 @@ namespace Assets.Scripts.Topics
             }
         }
 
+        public override void hideAnswerComponents()
+        {
+            multiAnswerRoot.SetActive(false);
+        }
+
+        // When the button is clicked check if it belongs to the right answer
+        public bool onButton1Clicked()
+        {
+            changeColorsAndDisableButtons();
+            bool correct = displayedSet.isAnswerCorrect(0);
+            displayFeedback(correct);
+            return correct;
+        }
         public bool onButton2Clicked()
         {
             changeColorsAndDisableButtons();
-            return displayedSet.isAnswerCorrect(1);
+            bool correct = displayedSet.isAnswerCorrect(1);
+            displayFeedback(correct);
+            return correct;
         }
 
         public bool onButton3Clicked()
         {
             changeColorsAndDisableButtons();
-            return displayedSet.isAnswerCorrect(2);
+            bool correct = displayedSet.isAnswerCorrect(2);
+            displayFeedback(correct);
+            return correct;
         }
 
         public bool onButton4Clicked()
         {
             changeColorsAndDisableButtons();
-            return displayedSet.isAnswerCorrect(3);
+            bool correct = displayedSet.isAnswerCorrect(3);
+            displayFeedback(correct);
+            return correct;
         }
     }
 }

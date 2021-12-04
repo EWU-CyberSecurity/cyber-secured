@@ -1,4 +1,8 @@
 ﻿
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+
 namespace Assets.Scripts.Topics
 {
     /// <summary>
@@ -8,35 +12,64 @@ namespace Assets.Scripts.Topics
     class TFAnswer : Answer
     {
         private bool isTrue;
-
-        public void onTrueClicked()
+        private GameObject tfRoot;
+        Button btn_true;
+        Button btn_false;
+        public TFAnswer(bool isTrue)
         {
-            if (isTrue)
+            tfRoot = quizComponentsRoot.transform.Find("true_false_components").gameObject;
+            this.isTrue = isTrue;
+
+            btn_true = tfRoot.transform.Find("btn_true").GetComponent<Button>();
+            btn_false = tfRoot.transform.Find("btn_false").GetComponent<Button>();
+        }
+
+        public bool OnTrueFalseButtonClicked(bool trueWasClicked)
+        {
+            changeColorsAndDisableButtons();
+            displayFeedback(trueWasClicked == isTrue);
+            return trueWasClicked == isTrue;
+        }
+
+        public override void displayFeedback(bool correct)
+        {
+            string correctAnswer = isTrue ? "true" : "false";
+            
+            if (correct)
             {
-                base.displayCorrectDialogue();
+                questionBoxText.text = correct_feedback_template.Replace("[answer]", correctAnswer);
             }
             else
             {
-                base.displayIncorrectDialogue();
+                questionBoxText.text = incorrect_feedback_template.Replace("[answer]", correctAnswer);
             }
         }
 
-        public void onFalseClicked()
+        public override void DisplayAnswer()
         {
-            if (!isTrue)
-            {
-                base.displayCorrectDialogue();
-            }
-            else
-            {
-                base.displayIncorrectDialogue();
-            }
+            btn_true.interactable = true;
+            btn_false.interactable = true;
+            tfRoot.SetActive(true);
         }
 
-        public override void displayAnswer()
+        protected override void changeColorsAndDisableButtons()
         {
-            // This is an easy one, just put the two buttons
-            // in the right place. No changing text or anything.
+            ColorBlock newTrueButtonColors = btn_true.colors;
+            ColorBlock newFalseButtonColors = btn_false.colors;
+
+            newTrueButtonColors.disabledColor = isTrue ? disabledCorrectColor : disabledIncorrectColor;
+            newFalseButtonColors.disabledColor = isTrue ? disabledIncorrectColor : disabledCorrectColor;
+
+            btn_true.colors = newTrueButtonColors;
+            btn_false.colors = newFalseButtonColors;
+
+            btn_true.interactable = false;
+            btn_false.interactable = false;
+        }
+
+        public override void hideAnswerComponents()
+        {
+            tfRoot.SetActive(false);
         }
     }
 }

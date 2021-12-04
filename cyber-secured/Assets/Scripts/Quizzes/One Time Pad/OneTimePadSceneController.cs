@@ -16,7 +16,9 @@ public class OneTimePadSceneController : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
-        
+
+        GameObject.Find("btn_exit_dialogue").SetActive(false);
+
         // displays opening text
         GameObject.Find("dlg_one_time_pad_illustration").GetComponent<DialogueTrigger>().TriggerDialogue();
 
@@ -26,9 +28,6 @@ public class OneTimePadSceneController : MonoBehaviour {
         //Deactivating the scn_main to show the animation better without the background:
         scn_main = GameObject.Find("scn_main");
         scn_main.SetActive(false);
-
-        GameObject.Find("btn_exit_dialogue").SetActive(false);
-
 
         //Get an access to the DialogueManager script to manage the demonstration according to the line displayed:
         dialog = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
