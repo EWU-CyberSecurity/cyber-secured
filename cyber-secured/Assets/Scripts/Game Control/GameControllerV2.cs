@@ -214,7 +214,8 @@ public class GameControllerV2 : MonoBehaviour
         in_dialogue = false;
 
         mitigate_event = false;
-        
+
+        ChooseNPCName();
     }
 
     void setName()
@@ -238,6 +239,14 @@ public class GameControllerV2 : MonoBehaviour
         AudioListener.volume = 0.5f;
         Destroy(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void ChooseNPCName()
+    {
+        string[] names = { "Stu Steiner", "Dan Tappan", "Holger Carlsen", "Cyrus Wells", "John Smith", "Arthur Hawk", "Ludwig Vance", "Laurence Vicar", "Stephen Bright", "Robert Rigney" };
+        System.Random rnd = new System.Random();
+        string chosen = names[rnd.Next(0, names.Length)];
+        GameObject.Find("txt_name").GetComponent<Text>().text = chosen;
     }
 
     // /!\ important game control functions below:

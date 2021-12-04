@@ -79,8 +79,6 @@ public class DialogueManager : MonoBehaviour
         has_started = true;
         has_ended = false;
 
-        text_name.text = dialogue.name;
-
         sentencesArrayList.Clear();
         sentencesStack.Clear();
 
