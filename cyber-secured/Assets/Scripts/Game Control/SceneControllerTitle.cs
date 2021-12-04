@@ -245,8 +245,6 @@ public class SceneControllerTitle : MonoBehaviour
             GameControllerV2.Instance.EventYesNo(false);
             GameControllerV2.Instance.HideDecision();
         }
-
-        GameObject.Find("scn_title").transform.Find("btn_till_end").gameObject.SetActive(false);
     }
 
 }
