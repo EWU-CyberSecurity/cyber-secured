@@ -8838,6 +8838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f17f079954e504ead0a398492698eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
   background: {fileID: 1014289086}
   scn_title: {fileID: 224519729}
   txt_title: {fileID: 735966638}
@@ -30137,11 +30138,11 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 8.105832, y: 4.5419564}
-  m_AdaptiveModeThreshold: 0.311
-  m_SpriteTileMode: 1
+  m_Size: {x: 8.24, y: 4.65}
+  m_AdaptiveModeThreshold: 0.568
+  m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1014289088
 Transform:
@@ -30151,7 +30152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014289086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0015, y: 0.0027, z: 0}
+  m_LocalPosition: {x: -0.002, y: -0.008, z: 0}
   m_LocalScale: {x: 2.1965108, y: 2.2093844, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39327,6 +39328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8071b39c4b83b314f80191bf06628837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
   background: {fileID: 1014289086}
   scn_main: {fileID: 1761814135}
   companies:
@@ -39345,17 +39347,7 @@ MonoBehaviour:
   scn_one_time_pad: {fileID: 821240469}
   scn_RSA: {fileID: 27754530}
   stage_custom_topics: {fileID: 191967207}
-  all_stages:
-  - {fileID: 1761814135}
-  - {fileID: 748008015}
-  - {fileID: 1406815010}
-  - {fileID: 1487395943}
-  - {fileID: 671755138}
-  - {fileID: 821240469}
-  - {fileID: 27754530}
-  - {fileID: 646155941}
-  - {fileID: 1427442604}
-  - {fileID: 191967207}
+  all_stages: []
   network_power: 0
   monthly_np: 0
   current_month: 0
