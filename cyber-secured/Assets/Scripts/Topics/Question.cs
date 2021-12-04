@@ -6,12 +6,15 @@ namespace Assets.Scripts.Topics
     /// <summary>
     /// This class represents a single question in a topic
     /// </summary>
-    class Question : TopicItem
+    public class Question : TopicItem
     {
-        private GameObject questionBox = GameObject.Find("Quiz Components").transform.Find("question_box").gameObject;
-        private GameObject continueButton = GameObject.Find("Quiz Components").transform.Find("Continue_button").gameObject;
+        private GameObject questionBox = GameObject.Find("Canvas").transform.Find("stage_custom_topics").transform.Find("question_box").gameObject;
+        private GameObject continueButton = GameObject.Find("Canvas").transform.Find("stage_custom_topics").transform.Find("Continue").gameObject;
         private string questionText;
         private Answer answer;
+
+        public string questionType { get; set; }
+        public string questionID { get; set; }
 
         public Question(string question_text)
         {
@@ -21,6 +24,11 @@ namespace Assets.Scripts.Topics
         {
             this.questionText = questionText;
             this.answer = answer;
+        }
+
+        public string getQuestionText()
+        {
+            return this.questionText;
         }
 
         public void setAnswer(Answer answer)
@@ -36,12 +44,13 @@ namespace Assets.Scripts.Topics
         public override void startItem()
         {
             // Here we create the question box and put the text in it.
-            // And then call answer.displayAnswer()
+            // And then call answer.DisplayAnswer()
             hideContinueButton();
 
-            questionBox.transform.Find("Text").GetComponent<Text>().text = questionText;
+            changeQuestionText(questionText);
+            showQuestionBox();
 
-            answer.displayAnswer();
+            answer.DisplayAnswer();
         }
 
         public void changeQuestionText(string newText)
@@ -57,6 +66,32 @@ namespace Assets.Scripts.Topics
         public void hideContinueButton()
         {
             continueButton.SetActive(false);
+        }
+
+        public void showQuestionBox()
+        {
+            questionBox.SetActive(true);
+        }
+
+        public void hideQuestionBox()
+        {
+            questionBox.SetActive(false);
+        }
+
+        public void setQuestionBox(GameObject questionBox)
+        {
+            this.questionBox = questionBox;
+        }
+
+        public void setContinueButton(GameObject continueButton)
+        {
+            this.continueButton = continueButton;
+        }
+
+        // hide all of the components associated with the current answer.
+        public void hideAnswerComponents()
+        {
+            answer.hideAnswerComponents();
         }
     }
 }
