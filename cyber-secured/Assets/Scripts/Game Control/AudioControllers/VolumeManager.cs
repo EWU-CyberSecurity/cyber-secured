@@ -15,6 +15,11 @@ public class VolumeManager : MonoBehaviour {
 
     bool muted = false;
 
+    private float previous_value_master = .5f;
+    private float previous_value_ui = .5f;
+    private float previous_value_background = .5f;
+    private float previous_value_quiz = .5f;
+
     public void SetMasterLevel(float sliderValue)
     {
         mixer.SetFloat("MasterVolume", Mathf.Log10(sliderValue) * 20);
@@ -61,11 +66,41 @@ public class VolumeManager : MonoBehaviour {
         {
             muteToggle.GetComponentInChildren<Text>().text = "Unmute all audio";
             AudioListener.volume = 0.0001f;
+
+            Slider slider = GameObject.Find("Master Volume Slider").GetComponent<Slider>();
+            previous_value_master = slider.value;
+            slider.value = slider.minValue;
+
+            slider = GameObject.Find("UI Volume Slider").GetComponent<Slider>();
+            previous_value_ui = slider.value;
+            slider.value = slider.minValue;
+
+            slider = GameObject.Find("Background Music Volume Slider").GetComponent<Slider>();
+            previous_value_background = slider.value;
+            slider.value = slider.minValue;
+
+            slider = GameObject.Find("Quiz Music Volume Slider").GetComponent<Slider>();
+            previous_value_quiz = slider.value;
+            slider.value = slider.minValue;
         }
         else
         {
             muteToggle.GetComponentInChildren<Text>().text = "Mute all audio";
             AudioListener.volume = 1.000f;
+
+            Slider slider = GameObject.Find("Master Volume Slider").GetComponent<Slider>();
+            slider.value = previous_value_master;
+
+            slider = GameObject.Find("UI Volume Slider").GetComponent<Slider>();
+            slider.value = previous_value_ui;
+
+            slider = GameObject.Find("Background Music Volume Slider").GetComponent<Slider>();
+            slider.value = previous_value_background;
+
+            slider = GameObject.Find("Quiz Music Volume Slider").GetComponent<Slider>();
+            slider.value = previous_value_quiz;
         }
+
+
     }
 }
