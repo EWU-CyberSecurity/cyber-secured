@@ -949,7 +949,7 @@ public class GameControllerV2 : MonoBehaviour
                 current_event_text = GoodMessage();
                 
                 // Password minigame
-                current_choice_text = "First up on the agenda, " + playerName +
+                current_choice_text = "First up on the agenda, " + playerName + "," +
                 "\nWould you like to hold a password strength training session?\n" +
                 "<b>Cost: 10% of NP</b>";
                 return;
@@ -1052,7 +1052,7 @@ public class GameControllerV2 : MonoBehaviour
                 
                 // Phishing minigame
                 current_choice_text = "An employee has fallen for a phishing attempt. " +
-                    playerName + " could you hold a company meeting to discuss the dangers of phishing?" +
+                    playerName + ", could you hold a company meeting to discuss the dangers of phishing?" +
                     "\n<b>Cost: 10% of NP</b>";
                 return;
             }
