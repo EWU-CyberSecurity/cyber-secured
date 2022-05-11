@@ -1,0 +1,45 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AnswerDisplay : MonoBehaviour
+{
+    // Start is called before the first frame update
+<<<<<<< HEAD
+    public int counter = 0;
+=======
+    private int counter = 0;
+>>>>>>> 8b461fbfdeba9cdeab331c97398a6b602102c442
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+<<<<<<< HEAD
+        if (counter < 100)
+        {
+            counter++;
+        }
+        if(counter == 30)
+=======
+        if (counter >0)
+        {
+            counter--;
+        }
+        if(counter == 1)
+>>>>>>> 8b461fbfdeba9cdeab331c97398a6b602102c442
+        {
+            this.gameObject.GetComponent<Camera>().depth = -4;
+        }
+    }
+<<<<<<< HEAD
+=======
+    public void ShowForTime(int time)
+    {
+        counter = time;
+    }
+>>>>>>> 8b461fbfdeba9cdeab331c97398a6b602102c442
+}
