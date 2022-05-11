@@ -10,7 +10,7 @@ public class OfficeCharacter : MonoBehaviour
 
     //this is the method that will control the movement of the office character
     public GameObject control; //this will be how control is accessed
-    public Vector2[] path,nextPath;//path is the path that is currently being walked on
+    public Vector2[] path,nextPath = null;//path is the path that is currently being walked on
     public bool stepping;
     public int step;
     public float speed;
@@ -32,7 +32,8 @@ public class OfficeCharacter : MonoBehaviour
             }
             else
             {
-                if(step < path.Length)
+
+                if (step < path.Length)
                 {
                     StartStep();
                 }
@@ -74,8 +75,13 @@ public class OfficeCharacter : MonoBehaviour
         //made it
         if(oversteppedX && oversteppedY)
         {
+            Vector2 tilePos = new Vector2(this.transform.position.x, this.transform.position.x);
+            tilePos = control.GetComponent<TileDisplay>().MapToTilePos(tilePos);
+
+            PlayerPrefs.SetInt("startX", (int)tilePos.x);
+            PlayerPrefs.SetInt("startY", (int)tilePos.y);
             control.GetComponent<TileDisplay>().ChangeStart(this.gameObject.GetComponent<Transform>().position);
-            if(nextPath != null)
+            if(nextPath != null && nextPath.Length != 0)
             {
                 path = nextPath;
                 step = 1;
@@ -87,7 +93,9 @@ public class OfficeCharacter : MonoBehaviour
                 step++;
                 stepping = false;
                 if (step == path.Length)
+                {
                     path = null;
+                }
             }
             
         }
@@ -105,10 +113,6 @@ public class OfficeCharacter : MonoBehaviour
 
         //calculate distance between start and finish
         //find speed x and speed y for moving at given speed
-        Vector2 tilePos = control.GetComponent<TileDisplay>().MapToTilePos(path[step]);
-
-        PlayerPrefs.SetInt("startX", (int)tilePos.x );
-        PlayerPrefs.SetInt("startY", (int)tilePos.y);
 
         if (this.GetComponent<Transform>().position.x > path[step].x)
             speedX = -speed;

@@ -6,6 +6,7 @@ public class AnswerDisplay : MonoBehaviour
 {
     // Start is called before the first frame update
     public int counter = 0;
+
     void Start()
     {
         
@@ -14,13 +15,18 @@ public class AnswerDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (counter < 100)
+
+        if (counter >0)
         {
-            counter++;
+            counter--;
         }
-        if(counter == 30)
+        if(counter == 1)
         {
             this.gameObject.GetComponent<Camera>().depth = -4;
         }
+    }
+    public void ShowForTime(int time)
+    {
+        counter = time;
     }
 }

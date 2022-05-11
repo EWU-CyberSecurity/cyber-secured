@@ -7,6 +7,7 @@ public class CameraControl : MonoBehaviour
     // Start is called before the first frame update
     public Camera testCamera;
     public Camera officeCamera;
+    public GameObject nameHolder;
 
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class CameraControl : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("ManualReset") == 1 && testCamera.enabled)
         {
-            ToggleCameraAndSmaller();
+            ToggleCamera();
         }
     }
     public void ToggleCamera()
@@ -39,12 +40,24 @@ public class CameraControl : MonoBehaviour
             testCamera.rect = new Rect(0.5f, 0.5f, 0.5f, 1);
         }
     }
-    public void ToggleCameraAndSmaller()
+    public void ToggleCameraStart()
     {
-        if (testCamera.enabled)
-            testCamera.enabled = false;
-        else
-            testCamera.enabled = true;
-        testCamera.rect = new Rect(0.5f, 0.5f, 0.5f, 1);
+        //if no name entered dont start
+        if(!(nameHolder.GetComponent<UnityEngine.UI.Text>().text == "") && !(nameHolder.GetComponent<UnityEngine.UI.Text>().text == ""))
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetString("name", nameHolder.GetComponent<UnityEngine.UI.Text>().text);
+            if (testCamera.enabled)
+            {
+                testCamera.enabled = false;
+                testCamera.rect = new Rect(0.5f, 5f, 0.5f, 1);
+            }
+            else
+            {
+                testCamera.enabled = true;
+                testCamera.rect = new Rect(0.5f, 0.5f, 0.5f, 1);
+            }
+
+        }
     }
 }

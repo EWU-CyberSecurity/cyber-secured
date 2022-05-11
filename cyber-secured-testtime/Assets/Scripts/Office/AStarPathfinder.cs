@@ -246,17 +246,41 @@ public class AStarPathfinder : MonoBehaviour
                             // unchecked just get thrown in
                             if (curr.GetState() == 0)
                             {
-                                //add it to the list
-                                curr.SetNext(queHead.GetNext());
-                                queHead.SetNext(curr);
 
-                                curr.SetState(1);
-                                curr.SetCost(queHead.GetCost() + movementCost);
-                                curr.SetParentX(queHead.GetXPos());
-                                curr.SetParentY(queHead.GetYPos());
+                                //this gets rid of walking through corners
+                                if(x!= 0 && y != 0)//diagonal move
+                                {
+                                    OfficeTile currXNeighbor = officeTileSpace[trueX][queHead.GetYPos()];
+                                    OfficeTile currYNeighbor = officeTileSpace[queHead.GetXPos()][trueY];
+                                    if(currXNeighbor.GetValidSpace() == false && currYNeighbor.GetValidSpace() == false)
+                                    {
+                                        //add it to the list
+                                        curr.SetNext(queHead.GetNext());
+                                        queHead.SetNext(curr);
 
-                                curr.SetGoalDistance(CalculateGoalDistance(goalX, goalY, curr));
-                                //curr.SetGoalDistance(CalculateGoalDistance(startX, startY, curr));
+                                        curr.SetState(1);
+                                        curr.SetCost(queHead.GetCost() + movementCost);
+                                        curr.SetParentX(queHead.GetXPos());
+                                        curr.SetParentY(queHead.GetYPos());
+
+                                        curr.SetGoalDistance(CalculateGoalDistance(goalX, goalY, curr));
+                                        //curr.SetGoalDistance(CalculateGoalDistance(startX, startY, curr));
+                                    }
+                                }
+                                else
+                                {
+                                    //add it to the list
+                                    curr.SetNext(queHead.GetNext());
+                                    queHead.SetNext(curr);
+
+                                    curr.SetState(1);
+                                    curr.SetCost(queHead.GetCost() + movementCost);
+                                    curr.SetParentX(queHead.GetXPos());
+                                    curr.SetParentY(queHead.GetYPos());
+
+                                    curr.SetGoalDistance(CalculateGoalDistance(goalX, goalY, curr));
+                                    //curr.SetGoalDistance(CalculateGoalDistance(startX, startY, curr));
+                                }
                             }
                             //this is a space in que so we just find it and change what is needed
                             else if (curr.GetState() == 1)

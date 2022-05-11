@@ -97,6 +97,16 @@ public class QuizHelp : MonoBehaviour
          * 8-phishing3
          * 9-phishing4
          * 10-phishing5
+         * 1-password1 working
+         * 2-password2 working
+         * 3-password3 working
+         * 4-password4 working
+         * 5-password5 working
+         * 6-phishing1 working
+         * 7-phishing2 working
+         * 8-phishing3 working
+         * 9-phishing4 working
+         * 10-phishing5 working
          * 11-ceasar1
          * 12-ceasar2
          * 13-ceasar3
@@ -359,9 +369,5 @@ public class QuizHelp : MonoBehaviour
                 virusQuizManager.GetComponent<VirusQuizManager>().nextSet();
                 break;//malware4 18
         }
-    }
-    public void BackToStart()
-    {
-
     }
 }

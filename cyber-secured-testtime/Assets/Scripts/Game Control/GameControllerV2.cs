@@ -242,7 +242,7 @@ public class GameControllerV2 : MonoBehaviour
                 GameObject QuestionCoverCamera = GameObject.Find("QuestionCoverCamera");
                 GameObject BackgroundQuestion = GameObject.Find("BackgroundQuestion");
                 QuestionCoverCamera.GetComponent<Camera>().depth = 0;
-                QuestionCoverCamera.GetComponent<AnswerDisplay>().counter = 0;
+                QuestionCoverCamera.GetComponent<AnswerDisplay>().ShowForTime(1000);
 
                 if (PlayerPrefs.GetInt("QuestionRight") == 1)
                 {
