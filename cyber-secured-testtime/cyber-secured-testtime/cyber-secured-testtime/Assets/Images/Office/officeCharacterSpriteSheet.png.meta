@@ -1,0 +1,592 @@
+fileFormatVersion: 2
+guid: c2e6eb0c268572149b4dfa866c36093d
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: officeCharacterSpriteSheetMin_0
+    21300002: officeCharacterSpriteSheet_1
+    21300004: officeCharacterSpriteSheet_2
+    21300006: officeCharacterSpriteSheetMin_3
+    21300008: officeCharacterSpriteSheet_4
+    21300010: officeCharacterSpriteSheet_5
+    21300012: officeCharacterSpriteSheetMin_6
+    21300014: officeCharacterSpriteSheet_7
+    21300016: officeCharacterSpriteSheetMin_8
+    21300018: officeCharacterSpriteSheet_9
+    21300020: officeCharacterSpriteSheet_10
+    21300022: officeCharacterSpriteSheetMin_11
+    21300024: officeCharacterSpriteSheet_12
+    21300026: officeCharacterSpriteSheetMin_13
+    21300028: officeCharacterSpriteSheet_14
+    21300030: officeCharacterSpriteSheetMin_15
+    21300032: officeCharacterSpriteSheet_16
+    21300034: officeCharacterSpriteSheet_17
+    21300036: officeCharacterSpriteSheet_18
+    21300038: officeCharacterSpriteSheetMin_19
+    21300040: officeCharacterSpriteSheet_20
+    21300042: officeCharacterSpriteSheet_21
+    21300044: officeCharacterSpriteSheet_22
+    21300046: officeCharacterSpriteSheet_23
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheetMin_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96846b848bc548a42adf85d44994d98d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 4800
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3494a45aa8b8824693768510492c6d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 4800
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 535225a783973c143939f3e72bfad887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheetMin_3
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 4800
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb0db5b17ab99ac4783b74baf11aab4a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 4800
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b813096f9c766a24c9c71f5d5204ef35
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3600
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 690779760bfc79f47b0b9557e0674c00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheetMin_6
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 3600
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f052ced644550644a9f7e5bdeb9c1063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 3600
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c86fae9d106ef894fbde30d001c0292b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheetMin_8
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 3600
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70a44a40aa1daef479a64f0313564ae4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 3600
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb9667ab82166645af1a683ce298d5a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ebe04aed0e5e414d80fe1378efe8929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheetMin_11
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 2400
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419c8109ba0b66842bf50a9661f8458b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 2400
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e233c29ed3d73542a5bc7c72b71eb07
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheetMin_13
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 2400
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a085507b6b01a904bab24997239f4c08
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 2400
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd8d42ab2854def498c37fb91b6cbcb0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheetMin_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47f9c7a573ddae54e88318606e24c408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1200
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 359aa3286b161f04299e4598b4008a49
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1200
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c7ae4cc9bc03541a5c7ab4e45627a3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 1200
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070503152a22bee4d88155f88e934ad7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheetMin_19
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1200
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d469de45faef18e45b2c1b90d7af3424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eed0bef3483c084291a753fba29e636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc23ce061d0f914fa8a8494eaa18376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69f11f6e3681c941933b4ac21789360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: officeCharacterSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 0
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc7ea680cdef7940b014c918507a902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c4a83e54141d1d346a29afa4b6993781
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

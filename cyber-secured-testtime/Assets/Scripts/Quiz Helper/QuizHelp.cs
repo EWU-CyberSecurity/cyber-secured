@@ -87,16 +87,6 @@ public class QuizHelp : MonoBehaviour
     {
         /**
          * 0-random
-         * 1-password1
-         * 2-password2
-         * 3-password3
-         * 4-password4
-         * 5-password5
-         * 6-phishing1
-         * 7-phishing2
-         * 8-phishing3
-         * 9-phishing4
-         * 10-phishing5
          * 1-password1 working
          * 2-password2 working
          * 3-password3 working
@@ -131,6 +121,7 @@ public class QuizHelp : MonoBehaviour
             return;
         if (questionNumber == 0)
             questionNumber = Random.Range(1,11);
+        questionNumber = 1;
         switch (questionNumber)
         {
             case (1):

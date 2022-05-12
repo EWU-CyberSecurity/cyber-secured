@@ -5,8 +5,7 @@ using UnityEngine;
 public class AnswerDisplay : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int counter = 0;
-
+    private int counter = 0;
     void Start()
     {
         
@@ -15,7 +14,6 @@ public class AnswerDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (counter >0)
         {
             counter--;

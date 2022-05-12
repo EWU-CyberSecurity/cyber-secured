@@ -246,7 +246,6 @@ public class AStarPathfinder : MonoBehaviour
                             // unchecked just get thrown in
                             if (curr.GetState() == 0)
                             {
-
                                 //this gets rid of walking through corners
                                 if(x!= 0 && y != 0)//diagonal move
                                 {

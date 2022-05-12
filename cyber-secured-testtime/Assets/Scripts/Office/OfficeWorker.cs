@@ -79,11 +79,7 @@ public class OfficeWorker : MonoBehaviour
         if (PlayerPrefs.HasKey(workerID))
         {
             wantsInteract = true;
-
-            myPing.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
-
             myPing.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-
         }
     }
 }
