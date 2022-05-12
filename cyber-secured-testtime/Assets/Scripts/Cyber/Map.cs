@@ -83,7 +83,7 @@ public class Map : MonoBehaviour
                     //the +0.5f is to make it not have it not go over edge
                     tile.GetComponent<Transform>().position = new Vector3(xMin + xTileSpace * (x + 0.5f), yMin + yTileSpace * (y + 0.5f), 0);
 
-                    tile.GetComponent<Transform>().localScale = new Vector2(xTileSpace, yTileSpace);
+                    tile.GetComponent<Transform>().localScale = new Vector2(xTileSpace * 1.01f, yTileSpace * 1.01f);
 
                     //tile.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0f,1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1);
                 }
