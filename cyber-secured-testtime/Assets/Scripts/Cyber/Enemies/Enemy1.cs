@@ -1,0 +1,31 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Enemy1 : EnemyBase
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public Enemy1()
+    {
+        Speed = 2;
+        Health = 2;
+        WeaponBase tempWeapon = new WeaponBase();
+        tempWeapon.WeaponName = "E1";
+        tempWeapon.WeaponID = 1;
+        tempWeapon.Damage = 2;
+        tempWeapon.AttackSpeed = 0.5f;
+        tempWeapon.WeaponEffectID = 0;
+        EnemyWeapon = tempWeapon;
+    }
+}
