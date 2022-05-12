@@ -8,7 +8,7 @@ public class CameraControl : MonoBehaviour
     public Camera testCamera;
     public Camera officeCamera;
     public GameObject nameHolder;
-
+    public int delay = -1;
 
     // Update is called once per frame
     private void Start()
@@ -26,6 +26,12 @@ public class CameraControl : MonoBehaviour
         {
             ToggleCamera();
         }
+        if(delay >= 0)
+        {
+            delay--;
+            float delayPercent = (100.0f -  (float)delay)/100.0f;
+            testCamera.rect = new Rect(0.5f +(1- delayPercent)*0.25f , 0.2f +(1- delayPercent) * 0.1f, delayPercent * 0.5f, delayPercent * 0.5f);
+        }
     }
     public void ToggleCamera()
     {
@@ -37,7 +43,7 @@ public class CameraControl : MonoBehaviour
         else
         {
             testCamera.enabled = true;
-            testCamera.rect = new Rect(0.5f, 0.5f, 0.5f, 1);
+            delay = 100;
         }
     }
     public void ToggleCameraStart()
@@ -55,7 +61,7 @@ public class CameraControl : MonoBehaviour
             else
             {
                 testCamera.enabled = true;
-                testCamera.rect = new Rect(0.5f, 0.5f, 0.5f, 1);
+                testCamera.rect = new Rect(0.5f, 0.0f, 0.5f, 0.885f);
             }
 
         }

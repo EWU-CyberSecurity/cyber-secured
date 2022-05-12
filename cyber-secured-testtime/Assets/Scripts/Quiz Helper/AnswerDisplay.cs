@@ -18,7 +18,7 @@ public class AnswerDisplay : MonoBehaviour
         {
             counter--;
         }
-        if(counter == 1)
+        if(counter == 0)
         {
             this.gameObject.GetComponent<Camera>().depth = -4;
         }

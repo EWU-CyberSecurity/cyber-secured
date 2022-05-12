@@ -121,7 +121,6 @@ public class QuizHelp : MonoBehaviour
             return;
         if (questionNumber == 0)
             questionNumber = Random.Range(1,11);
-        questionNumber = 1;
         switch (questionNumber)
         {
             case (1):

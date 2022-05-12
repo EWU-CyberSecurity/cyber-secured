@@ -17,18 +17,44 @@ public class OfficeWorker : MonoBehaviour
     //private GameObject myPing;
     public GameObject myPing;
     private bool fixStartPos = false;
+    public Sprite animation1;
+    public Sprite animation2;
+    public Sprite animation3;
+    public Sprite animation4;
+    private int counter;
 
     private int randTop = 10000;
 
     void Start()
     {
         //myPing = Instantiate(ping,this.transform);
-
+        counter = Random.Range(0, 4);
     }
 
     // Update is called once per frame
     void Update()
     {
+        counter += Random.Range(0, 5);
+        if(counter ==  10)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = animation1;
+        }
+        if (counter == 20)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = animation2;
+        }
+        if (counter == 30)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = animation3;
+        }
+        if (counter >= 40)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = animation4;
+            counter = 0;
+        }
+
+
+
         if (fixStartPos)
         {
             
@@ -37,7 +63,7 @@ public class OfficeWorker : MonoBehaviour
             this.GetComponent<Transform>().position = new Vector3(pos.x, pos.y, -1);
             fixStartPos = false;
         }
-        if(wantsInteract == false && Random.Range(0,randTop) == 0)
+        if(wantsInteract == false && Random.Range(0,randTop) == 0  && !officeControl.GetComponent<OfficeControl>().mainCamera.enabled)
         {
             Debug.Log("ping");
             myPing.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
@@ -65,6 +91,7 @@ public class OfficeWorker : MonoBehaviour
             if (playerDistanceX < acceptableDistance && playerDistanceY < acceptableDistance)
             {
                 wantsInteract = false;
+                this.gameObject.GetComponent<AudioSource>().Play();
                 PlayerPrefs.DeleteKey(workerID);
                 myPing.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
 

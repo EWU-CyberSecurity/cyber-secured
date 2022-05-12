@@ -15,6 +15,15 @@ public class OfficeCharacter : MonoBehaviour
     public int step;
     public float speed;
     public float speedX, speedY;
+    public Sprite animation1;
+    public Sprite animation2;
+    public Sprite animation3;
+    public Sprite animation4;
+    public Sprite animation5;
+    public Sprite animation6;
+    public Sprite animation7;
+    public Sprite animation8;
+    public int counter;
     void Start()
     {
         
@@ -23,12 +32,47 @@ public class OfficeCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(path != null)
+        counter++;
+        if (path != null)
         {
-            
-            if(stepping)
+            //animation
+            //counter += Random.Range(0, 5);
+            if (stepping)
             {
                 Stepping();
+                if (counter == 10)
+                {
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = animation1;
+                }
+                if (counter == 20)
+                {
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = animation2;
+                }
+                if (counter == 30)
+                {
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = animation3;
+                }
+                if (counter == 40)
+                {
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = animation4;
+                }
+                if (counter == 50)
+                {
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = animation5;
+                }
+                if (counter == 60)
+                {
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = animation6;
+                }
+                if (counter == 70)
+                {
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = animation7;
+                }
+                if (counter >= 80)
+                {
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = animation8;
+                    counter = 0;
+                }
             }
             else
             {
@@ -43,11 +87,38 @@ public class OfficeCharacter : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = animation4;
+        }
         if (PlayerPrefs.GetInt("ManualReset") == 1)
             SceneReset();
+
+
+        
     }
     private void Stepping()
     {
+
+        int directionY ;//1=up,0=none,-1=down
+        int directionX;//1=left,0=none,-1=right
+
+        if(speedX > 0)
+        {
+            directionX = -1;
+        }
+        else
+        {
+            directionX = 1;
+        }
+        if (speedY > 0)
+        {
+            directionY = -1;
+        }
+        else
+        {
+            directionY = 1;
+        }
 
         //change the position
         float newPosX = this.GetComponent<Transform>().position.x + speedX;
@@ -63,19 +134,67 @@ public class OfficeCharacter : MonoBehaviour
         {
             oversteppedX = true;
             newPosX = path[step].x;
+            directionX = 0;
         }
         if ((speedY > 0 && newPosY >= path[step].y) ||
             (speedY < 0 && newPosY <= path[step].y))
         {
             oversteppedY = true;
             newPosY = path[step].y;
+            directionY = 0;
         }
         this.GetComponent<Transform>().position = new Vector3(newPosX, newPosY, this.GetComponent<Transform>().position.z);
 
-        //made it
-        if(oversteppedX && oversteppedY)
+        if(directionY == -1)
         {
-            Vector2 tilePos = new Vector2(this.transform.position.x, this.transform.position.x);
+            if (directionX == 1)
+            {
+                this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 225f);
+            }
+            else if (directionX == 0)
+            {
+                this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 180f);
+            }
+            else if (directionX == -1)
+            {
+                this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 135f);
+            }
+        }
+        else if (directionY == 0)
+        {
+            if (directionX == 1)
+            {
+                this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 270f);
+            }
+            else if (directionX == -1)
+            {
+                this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 90f);
+            }
+        }
+        else if (directionY == 1)
+        {
+            if (directionX == 1)
+            {
+                this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 315f);
+            }
+            else if (directionX == 0)
+            {
+                this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0f);
+            }
+            else if (directionX == -1)
+            {
+                this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 45f);
+            }
+        }
+
+        //so he looks the correct way
+        //if (speedX > 0 && oversteppedY && !oversteppedX)
+        //this.transform.rotation.eulerAngles = new Vector3(0,0,0);
+
+        //made it
+        if (oversteppedX && oversteppedY)
+        {
+            Vector2 tilePos = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
             tilePos = control.GetComponent<TileDisplay>().MapToTilePos(tilePos);
 
             PlayerPrefs.SetInt("startX", (int)tilePos.x);
@@ -115,7 +234,9 @@ public class OfficeCharacter : MonoBehaviour
         //find speed x and speed y for moving at given speed
 
         if (this.GetComponent<Transform>().position.x > path[step].x)
+        {
             speedX = -speed;
+        }
         else
             speedX = speed;
         if (this.GetComponent<Transform>().position.y > path[step].y)
@@ -131,6 +252,8 @@ public class OfficeCharacter : MonoBehaviour
             speedX = speedX / Mathf.Sqrt(2);
             speedY = speedY / Mathf.Sqrt(2);
         }
+
+        
 
 
     }

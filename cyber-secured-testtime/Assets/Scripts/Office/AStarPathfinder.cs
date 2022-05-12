@@ -438,6 +438,7 @@ public class AStarPathfinder : MonoBehaviour
         goalY = PlayerPrefs.GetInt("goalY");
         startX = PlayerPrefs.GetInt("startX");
         startY = PlayerPrefs.GetInt("startY");
+        Debug.Log(startX + ", " + startY + ", "  + goalX + ", " +  goalY);
         path = FindPath(startX, startY, goalX, goalY);
         this.gameObject.GetComponent<TileDisplay>().UpdateDisplay(officeTileSpace, startX, startY, goalX, goalY, path);
         path = FindPath(startX, startY, goalX, goalY);

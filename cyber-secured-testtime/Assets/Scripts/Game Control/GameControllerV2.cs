@@ -228,31 +228,58 @@ public class GameControllerV2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (startDelay < 100)
             startDelay++;
-        if(startDelay == 2)
+        if(startDelay == 0)
         {
+            if (PlayerPrefs.HasKey("QuestionRight"))
+            {
+                GameObject QuestionCoverCamera = GameObject.Find("QuestionCoverCamera");
+                GameObject BackgroundQuestionCorrect = GameObject.Find("BackgroundQuestionCorrect");
+                GameObject BackgroundQuestionWrong = GameObject.Find("BackgroundQuestionWrong");
+                QuestionCoverCamera.GetComponent<Camera>().depth = 0;
+                QuestionCoverCamera.GetComponent<AnswerDisplay>().ShowForTime(100);
+
+                if (PlayerPrefs.GetInt("QuestionRight") == 1)
+                {
+                    BackgroundQuestionCorrect.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                    BackgroundQuestionWrong.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+                }
+                else
+                {
+                    BackgroundQuestionCorrect.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+                    BackgroundQuestionWrong.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                }
+            }
+        }
+        else if(startDelay == 1)
+        {
+            startDelay++;
             PlayerPrefs.SetInt("ManualReset", 0);
+            if (PlayerPrefs.HasKey("QuestionRight"))
+            {
+                GameObject QuestionCoverCamera = GameObject.Find("QuestionCoverCamera");
+                GameObject BackgroundQuestionCorrect = GameObject.Find("BackgroundQuestionCorrect");
+                GameObject BackgroundQuestionWrong = GameObject.Find("BackgroundQuestionWrong");
+                QuestionCoverCamera.GetComponent<Camera>().depth = 0;
+                QuestionCoverCamera.GetComponent<AnswerDisplay>().ShowForTime(100);
+
+                if (PlayerPrefs.GetInt("QuestionRight") == 1)
+                {
+                    BackgroundQuestionCorrect.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                    BackgroundQuestionWrong.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+                }
+                else
+                {
+                    BackgroundQuestionCorrect.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+                    BackgroundQuestionWrong.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                }
+            }
         }
         if (startDelay == 3)
         {
             startDelay++;
-            if (PlayerPrefs.HasKey("QuestionRight"))
-            {
-                GameObject QuestionCoverCamera = GameObject.Find("QuestionCoverCamera");
-                GameObject BackgroundQuestion = GameObject.Find("BackgroundQuestion");
-                QuestionCoverCamera.GetComponent<Camera>().depth = 0;
-                QuestionCoverCamera.GetComponent<AnswerDisplay>().ShowForTime(1000);
-
-                if (PlayerPrefs.GetInt("QuestionRight") == 1)
-                {
-                    BackgroundQuestion.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0);
-                }
-                else
-                {
-                    BackgroundQuestion.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
-                }
-            }
             PlayerPrefs.DeleteKey("QuestionRight");
             PlayerPrefs.SetInt("ManualReset", 0);
         }
