@@ -9,7 +9,8 @@ public class Map : MonoBehaviour
     public GameObject tilePrefab;
     private GameObject[][] tiles;
     public int heighth, width;
-
+    public float perlinMulti, perlinHeight;
+    public float perlinX, perlinY;
     
     public Sprite fullBlack, edgeTop, edgeLeft, edgeBottom, edgeRight,parralelEdgeTopBottom, parralelEdgeLeftRight,edgeCornerTopLeft,edgeCornerBottomRight,edgeCornerBottomLeft,edgeCornerTopRight,
         threeEdgeGapLeft,threeEdgeGapBottom,threeEdgeGapRight,threeEdgeGapTop,fullEdge;
@@ -23,15 +24,17 @@ public class Map : MonoBehaviour
 
     void Start()
     {
-        CreateMapRandom();
+        //CreateMapRandom();
+        CreateMap1();
         UpdateDisplay();
     }
     void Update()
     {
-        if(Input.GetKeyDown("l"))
+        if(Input.GetKeyDown("p"))
         {
             DeleteMap();
-            CreateMapRandom();
+            //CreateMapRandom();
+            CreateMap1();
             UpdateDisplay();
         }
     }
@@ -70,7 +73,45 @@ public class Map : MonoBehaviour
             tiles[x] = new GameObject[heighth];
             for (y = 0; y < heighth; y++)
             {
-                if (Random.Range(1,3) == 1)
+                if (Random.Range(1, 3) == 1)
+                {
+                    //create tile
+                    GameObject tile;
+                    tile = Instantiate(tilePrefab);
+                    tiles[x][y] = tile;
+                    float xSpace = Mathf.Abs(xMin - xMax);
+                    float xTileSpace = xSpace / heighth;
+                    float ySpace = Mathf.Abs(yMin - yMax);
+                    float yTileSpace = ySpace / width;
+                    //the +0.5f is to make it not have it not go over edge
+                    tile.GetComponent<Transform>().position = new Vector3(xMin + xTileSpace * (x + 0.5f), yMin + yTileSpace * (y + 0.5f), 0);
+
+                    tile.GetComponent<Transform>().localScale = new Vector2(xTileSpace, yTileSpace);
+
+                    //tile.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0f,1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1);
+                }
+            }
+        }
+    }
+    public bool Map1YesNo(int x, int y)
+    {
+        if (x == 0 || y == 0 || x == width - 1 || y == heighth - 1)
+            return true;
+        else if(Mathf.PerlinNoise((float) x*perlinMulti + perlinX, (float)y * perlinMulti + perlinY) > perlinHeight)
+        //if ((x == 1 || y == 1 || x == width - 2 || y == heighth - 2) && Random.Range(0, 2) == 1)
+            return true;
+        return false;
+    }
+    public void CreateMap1()
+    {
+        int x, y;
+        tiles = new GameObject[width][];
+        for (x = 0; x < width; x++)
+        {
+            tiles[x] = new GameObject[heighth];
+            for (y = 0; y < heighth; y++)
+            {
+                if (Map1YesNo(x, y))
                 {
                     //create tile
                     GameObject tile;

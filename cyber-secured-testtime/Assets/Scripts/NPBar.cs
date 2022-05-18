@@ -15,6 +15,14 @@ public class NPBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey("0"))
+        {
+            ChangeNP(np + 0.01f);
+        }
+        if (Input.GetKey("9"))
+        {
+            ChangeNP(np - 0.01f);
+        }
         if (PlayerPrefs.HasKey("NP") == false)
             ChangeNP(0.2f);
         if (PlayerPrefs.GetInt("ManualReset") == 1)
@@ -31,7 +39,11 @@ public class NPBar : MonoBehaviour
 
         GameObject bar = this.gameObject;
         bar.transform.localScale = new Vector3(fullLength* np, bar.transform.localScale.y, bar.transform.localScale.z);
-        bar.transform.localPosition = new Vector3(rightBound + 0.5f * np, bar.transform.localPosition.y, bar.transform.localPosition.z);
+        bar.transform.localPosition = new Vector3(rightBound + fullLength*0.5f * np, bar.transform.localPosition.y, bar.transform.localPosition.z);
+
+        float red = 1 - newNP ;
+        float blue = newNP;
+        bar.GetComponent<SpriteRenderer>().color = new Color(red,blue* 0.7f,blue);
     }
     public void SceneReset()
     {
