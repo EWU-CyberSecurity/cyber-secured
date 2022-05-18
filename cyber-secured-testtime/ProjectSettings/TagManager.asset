@@ -12,6 +12,7 @@ TagManager:
   - phishingQuestion
   - scn_main
   - IT_picture
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - 
   - 
   - Ground
-  - 
+  - Platform
   - 
   - 
   - 
