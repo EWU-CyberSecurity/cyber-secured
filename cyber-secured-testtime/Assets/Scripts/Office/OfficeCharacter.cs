@@ -76,7 +76,6 @@ public class OfficeCharacter : MonoBehaviour
             }
             else
             {
-
                 if (step < path.Length)
                 {
                     StartStep();
@@ -200,23 +199,20 @@ public class OfficeCharacter : MonoBehaviour
             PlayerPrefs.SetInt("startX", (int)tilePos.x);
             PlayerPrefs.SetInt("startY", (int)tilePos.y);
             control.GetComponent<TileDisplay>().ChangeStart(this.gameObject.GetComponent<Transform>().position);
-            if(nextPath != null && nextPath.Length != 0)
+            step++;
+            stepping = false;
+            if (step == path.Length)
             {
-                path = nextPath;
+                path = null;
+            }
+            if (nextPath != null && nextPath.Length != 0)
+            {
+                Vector2Int[]  pathy = control.GetComponent<AStarPathfinder>().FindPath((int)tilePos.x, (int)tilePos.y);
+                path = control.GetComponent<OfficeControl>().SwitchVector2ToFloat(pathy);
                 step = 1;
                 nextPath = null;
                 stepping = false;
             }
-            else
-            {
-                step++;
-                stepping = false;
-                if (step == path.Length)
-                {
-                    path = null;
-                }
-            }
-            
         }
 
         PlayerPrefs.SetFloat("OfficeCharacterPosX", this.GetComponent<Transform>().position.x);
