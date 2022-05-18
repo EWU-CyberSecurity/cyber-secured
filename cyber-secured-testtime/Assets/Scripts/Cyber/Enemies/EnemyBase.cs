@@ -27,7 +27,7 @@ public class EnemyBase : MonoBehaviour
 
     public void move()
     {
-        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + hMove, this.gameObject.transform.position.y + vMove, this.gameObject.transform.position.z);
+        //this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + hMove, this.gameObject.transform.position.y + vMove, this.gameObject.transform.position.z);
     }
 
     public void attack()
