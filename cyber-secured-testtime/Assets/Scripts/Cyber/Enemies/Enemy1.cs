@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ public class Enemy1 : EnemyBase
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - 0.01f, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
+
     }
 
     public Enemy1()
