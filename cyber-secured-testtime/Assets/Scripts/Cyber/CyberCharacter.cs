@@ -22,4 +22,9 @@ public class CyberCharacter : MonoBehaviour
         if (Input.GetKey("d"))
             this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + 0.01f, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
     }
+
+    public void TakeDamage(int damage)
+    {
+        this.gameObject.GetComponent<NPCharacterInterface>().NPDamage(damage);
+    }
 }

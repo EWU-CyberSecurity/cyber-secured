@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private float attackCooldown;
     [SerializeField] private Transform ProjPoint;
-    [SerializeField] private GameObject[] Proj;
+    [SerializeField] private Transform projectile;
+    [SerializeField] private WeaponBase currentWeapon;
+    [SerializeField] private WeaponBase defaultWeapon;
 
     private PlayerMovement playerMovement;
     private float cooldownTimer = Mathf.Infinity;
@@ -15,30 +16,38 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        
+        defaultWeapon = new WeaponBase();
+        defaultWeapon.WeaponName = "Default"; 
+        defaultWeapon.WeaponID = 0;
+        defaultWeapon.Damage = 1;
+        defaultWeapon.WeaponEffectID = 0;
+        defaultWeapon.AttackSpeed = .75f;
+        
+        currentWeapon = defaultWeapon;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && cooldownTimer > attackCooldown /*&& playerMovement.canAttack()*/)
+        if (Input.GetKey(KeyCode.Space) && cooldownTimer > currentWeapon.AttackSpeed /*&& playerMovement.canAttack()*/)
             Attack();
 
         cooldownTimer += Time.deltaTime;
     }
+    
     private void Attack()
     {
         cooldownTimer = 0;
 
-        Proj[FindProjectile()].transform.position = ProjPoint.position;
-        Proj[FindProjectile()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        Transform temp = Instantiate(projectile, ProjPoint.position, ProjPoint.rotation);
+        temp.GetComponent<Projectile>().Damage = currentWeapon.Damage;
+        temp.GetComponent<Projectile>().WeaponEffectID = currentWeapon.WeaponEffectID;
+        temp.GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
     }
-    private int FindProjectile()
+
+    public void NewWeapon(WeaponBase newWeapon)
     {
-        for (int i = 0; i < Proj.Length; i++)
-        {
-            if (!Proj[i].activeInHierarchy)
-                return i;
-        }
-        return 0;
+        currentWeapon = newWeapon;
     }
 }

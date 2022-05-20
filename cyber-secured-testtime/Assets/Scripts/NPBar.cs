@@ -6,7 +6,7 @@ public class NPBar : MonoBehaviour
 {
     public float rightBound, leftBound;
     public float fullLength;
-    float np = 0.2f;
+    public float np = 0.2f;
     void Start()
     {
         

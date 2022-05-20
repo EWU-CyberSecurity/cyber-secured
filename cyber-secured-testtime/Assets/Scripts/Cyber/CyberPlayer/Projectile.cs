@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private int damage;
+    [SerializeField] private int weaponEffectID;
     [SerializeField] private float speed;
+
     private float direction;
     private bool hit;
     private BoxCollider2D boxCollider;
@@ -25,12 +28,14 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*hit = true;
+        hit = true;
         boxCollider.enabled = false;
-        if(gameObject != null)
+        if(collision.transform.name == "Enemy1Temp(Clone)" || collision.transform.name == "Enemy2Temp(Clone)")
         {
-            Destroy(gameObject);
-        }*/
+            collision.gameObject.GetComponentInChildren<EnemyBase>().TakeDamage(damage);
+            collision.gameObject.GetComponentInChildren<EnemyBase>().WeaponEffect(weaponEffectID);
+        }
+        Destroy(gameObject);
     }
 
     public void SetDirection(float dir)
@@ -50,5 +55,17 @@ public class Projectile : MonoBehaviour
     private void Dectivate()
     {
         gameObject.SetActive(false);
+    }
+
+    public int Damage
+    {
+        get{return damage;}
+        set{damage = value;}
+    }
+
+    public int WeaponEffectID
+    {
+        get{return weaponEffectID;}
+        set{weaponEffectID = value;}
     }
 }
