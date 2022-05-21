@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CyberCharacter : MonoBehaviour
 {
+    private float iFrame = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,9 @@ public class CyberCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(iFrame >= 0)
+            iFrame -= Time.deltaTime;
+
         if (Input.GetKey("w"))
             this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.01f, this.gameObject.transform.position.z);
         if (Input.GetKey("s"))
@@ -25,6 +30,10 @@ public class CyberCharacter : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        this.gameObject.GetComponent<NPCharacterInterface>().NPDamage(damage);
+        if(iFrame <= 0)
+        {
+            this.gameObject.GetComponent<NPCharacterInterface>().NPDamage(damage);
+            iFrame = 1.0f;
+        }
     }
 }

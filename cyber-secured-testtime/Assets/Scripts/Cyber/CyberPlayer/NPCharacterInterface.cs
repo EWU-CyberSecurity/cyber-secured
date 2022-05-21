@@ -21,10 +21,11 @@ public class NPCharacterInterface : MonoBehaviour
 
     public void NPDamage(int damage)
     {
-        float newNP = npBar.GetComponent<NPBar>().np - (damage * .1f);
-        
+        float newNP = npBar.GetComponent<NPBar>().np - (damage * .05f);
+
         if(newNP <= 0)
         {
+            npBar.GetComponent<NPBar>().ChangeNP(0);
             Fail();
         }
         else

@@ -8,30 +8,26 @@ public class Enemy1 : EnemyBase
     public Sprite animation2;
     public Sprite animation3;
     public Sprite deathSprite;
-    private int counter;
-    private float deathTimer;
-
 
     // Start is called before the first frame update
     void Start()
     {
         Speed = 4;
         Health = 4;
-        WeaponBase tempWeapon = new WeaponBase();
-        tempWeapon.WeaponName = "E1";
-        tempWeapon.WeaponID = 1;
-        tempWeapon.Damage = 4;
-        tempWeapon.AttackSpeed = 1.0f;
-        tempWeapon.WeaponEffectID = 0;
-        EnemyWeapon = tempWeapon;
+        EnemyWeapon = new WeaponBase();
+        EnemyWeapon.WeaponName = "E1";
+        EnemyWeapon.WeaponID = 1;
+        EnemyWeapon.Damage = 2;
+        EnemyWeapon.AttackSpeed = 1.0f;
+        EnemyWeapon.WeaponEffectID = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        counter++;
         if(IsDead != true)
         {
+            counter++;
             if(counter ==  7)
             {
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = animation1;
@@ -45,6 +41,12 @@ public class Enemy1 : EnemyBase
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = animation3;
                 counter = 0;
             }
+
+            timeSinceAttack += Time.deltaTime;
+
+            CheckStatus();
+
+            Move(-1, 0, Speed);
         }
         else
         {
@@ -57,15 +59,14 @@ public class Enemy1 : EnemyBase
                 Destroy(gameObject);
             }
         }
-        
-        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - 0.01f, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.name == "CyberCharacter")
+        if(collision.transform.tag == "Player" && EnemyWeapon.AttackSpeed <= timeSinceAttack)
         {
             collision.gameObject.GetComponent<CyberCharacter>().TakeDamage(EnemyWeapon.Damage);
+            timeSinceAttack = 0.0f;
         }
     }
 }

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5569412613338426759}
   - component: {fileID: 3253538338765217996}
   - component: {fileID: 603162628118407279}
-  - component: {fileID: 8424589745064200365}
   - component: {fileID: 2466434825759852496}
+  - component: {fileID: 8424589745064200365}
   m_Layer: 0
   m_Name: Enemy2Temp
   m_TagString: Enemy
@@ -98,6 +98,27 @@ MonoBehaviour:
   animation2: {fileID: 21300002, guid: 68b4be48a557130419ea44f41e66e7f6, type: 3}
   deathSprite1: {fileID: 21300004, guid: 68b4be48a557130419ea44f41e66e7f6, type: 3}
   deathSprite2: {fileID: 21300006, guid: 68b4be48a557130419ea44f41e66e7f6, type: 3}
+--- !u!50 &2466434825759852496
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286566621424548834}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &8424589745064200365
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -143,24 +164,3 @@ PolygonCollider2D:
       - {x: -0.72999996, y: -3.75}
       - {x: 1.25, y: -3.52}
       - {x: 1.27, y: -3.5}
---- !u!50 &2466434825759852496
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5286566621424548834}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0

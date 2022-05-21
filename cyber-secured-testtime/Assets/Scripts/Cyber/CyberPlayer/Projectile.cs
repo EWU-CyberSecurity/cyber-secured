@@ -26,14 +26,14 @@ public class Projectile : MonoBehaviour
         transform.Translate(movementSpeed, 0, 0);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         hit = true;
         boxCollider.enabled = false;
         if(collision.transform.name == "Enemy1Temp(Clone)" || collision.transform.name == "Enemy2Temp(Clone)")
         {
             collision.gameObject.GetComponentInChildren<EnemyBase>().TakeDamage(damage);
-            collision.gameObject.GetComponentInChildren<EnemyBase>().WeaponEffect(weaponEffectID);
+            collision.gameObject.GetComponentInChildren<EnemyBase>().AddWeaponEffect(weaponEffectID);
         }
         Destroy(gameObject);
     }

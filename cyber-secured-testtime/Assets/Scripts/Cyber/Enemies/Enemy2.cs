@@ -9,21 +9,17 @@ public class Enemy2 : EnemyBase
     public Sprite deathSprite1;
     public Sprite deathSprite2;
 
-    private int counter;
-    private float deathTimer;
-
     // Start is called before the first frame update
     void Start()
     {
         Speed = 2;
         Health = 2;
-        WeaponBase tempWeapon = new WeaponBase();
-        tempWeapon.WeaponName = "E2";
-        tempWeapon.WeaponID = 2;
-        tempWeapon.Damage = 2;
-        tempWeapon.AttackSpeed = 0.5f;
-        tempWeapon.WeaponEffectID = 0;
-        EnemyWeapon = tempWeapon;
+        EnemyWeapon = new WeaponBase();
+        EnemyWeapon.WeaponName = "E2";
+        EnemyWeapon.WeaponID = 2;
+        EnemyWeapon.Damage = 1;
+        EnemyWeapon.AttackSpeed = 0.5f;
+        EnemyWeapon.WeaponEffectID = 0;
     }
 
     // Update is called once per frame
@@ -41,6 +37,18 @@ public class Enemy2 : EnemyBase
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = animation2;
                 counter = 0;
             }
+
+            if(timeSinceAttack >= 0)
+            {
+                timeSinceAttack += Time.deltaTime;
+            }
+            
+            if(effectTickRate <= timeSinceEffect)
+                CheckStatus();
+            else
+                timeSinceEffect += Time.deltaTime;
+
+            Move(-1, 1, Speed);
         }
         else
         {
@@ -57,15 +65,10 @@ public class Enemy2 : EnemyBase
                 Destroy(gameObject);
             }
         }
-
-        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - 0.01f, this.gameObject.transform.position.y + 0.01f, this.gameObject.transform.position.z);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void Attack()
     {
-        if(collision.transform.tag == "Player")
-        {
-            collision.gameObject.GetComponent<CyberCharacter>().TakeDamage(EnemyWeapon.Damage);
-        }
+
     }
 }
