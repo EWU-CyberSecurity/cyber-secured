@@ -414,7 +414,17 @@ public class Map : MonoBehaviour
             {
                 GameObject tile = tiles[x][y];
                 if(tile != null)
-                    FindTileDesign(tile,x,y);
+                {
+                    FindTileDesign(tile, x, y);
+                    if (y != heighth - 1)
+                    {
+                        if (tiles[x][y + 1] == null)
+                        {
+                            tiles[x][y].layer = 8;
+                            Debug.Log("yay");
+                        }
+                    }
+                }
             }
         }
     }

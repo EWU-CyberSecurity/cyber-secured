@@ -17,20 +17,27 @@ public class OfficeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !mainCamera.enabled)
+        bool pause = false;
+        if (PlayerPrefs.HasKey("Pause"))
+            if (PlayerPrefs.GetInt("Pause") == 1)
+                pause = true;
+        if(!pause)
         {
-            ChangeGoal();
-            if(firstChange)
+            if (Input.GetMouseButtonDown(0) && !mainCamera.enabled)
             {
                 ChangeGoal();
-                firstChange = false;
+                if (firstChange)
+                {
+                    ChangeGoal();
+                    firstChange = false;
+                }
             }
-        }
-        //if (Input.GetMouseButtonDown(1))
+            //if (Input.GetMouseButtonDown(1))
             //ChangeStart();
-        //if (Input.GetMouseButtonDown(1))
+            //if (Input.GetMouseButtonDown(1))
             //ChangeValidSpace();
-        MoveCharacterStart();
+            MoveCharacterStart();
+        }
         if(delay == 1)
         {
             SceneReset();

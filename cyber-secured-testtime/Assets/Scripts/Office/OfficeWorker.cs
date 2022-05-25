@@ -34,47 +34,55 @@ public class OfficeWorker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        counter += Random.Range(0, 5);
-        if(counter ==  10)
+        bool pause = false;
+        if (PlayerPrefs.HasKey("Pause"))
+            if (PlayerPrefs.GetInt("Pause") == 1)
+                pause = true;
+        if (!pause)
         {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = animation1;
-        }
-        if (counter == 20)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = animation2;
-        }
-        if (counter == 30)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = animation3;
-        }
-        if (counter >= 40)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = animation4;
-            counter = 0;
-        }
+            counter += Random.Range(0, 5);
+            if (counter == 10)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = animation1;
+            }
+            if (counter == 20)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = animation2;
+            }
+            if (counter == 30)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = animation3;
+            }
+            if (counter >= 40)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = animation4;
+                counter = 0;
+            }
 
 
 
-        if (fixStartPos)
-        {
-            
-            Vector2 pos = officeControl.GetComponent<TileDisplay>().MapToTilePos(new Vector2(this.GetComponent<Transform>().position.x, this.GetComponent<Transform>().position.y));
-            pos = officeControl.GetComponent<TileDisplay>().MapToRealPos(pos);
-            this.GetComponent<Transform>().position = new Vector3(pos.x, pos.y, -1);
-            fixStartPos = false;
-        }
-        if(wantsInteract == false && Random.Range(0,randTop) == 0  && !officeControl.GetComponent<OfficeControl>().mainCamera.enabled)
-        {
-            Debug.Log("ping");
-            myPing.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            wantsInteract = true;
-            PlayerPrefs.SetInt(workerID, 1);
-        }
+            if (fixStartPos)
+            {
 
-        if (Input.GetMouseButtonDown(1) && wantsInteract)
-        {
-            AttemptInteract();
+                Vector2 pos = officeControl.GetComponent<TileDisplay>().MapToTilePos(new Vector2(this.GetComponent<Transform>().position.x, this.GetComponent<Transform>().position.y));
+                pos = officeControl.GetComponent<TileDisplay>().MapToRealPos(pos);
+                this.GetComponent<Transform>().position = new Vector3(pos.x, pos.y, -1);
+                fixStartPos = false;
+            }
+            if (wantsInteract == false && Random.Range(0, randTop) == 0 && !officeControl.GetComponent<OfficeControl>().mainCamera.enabled)
+            {
+                Debug.Log("ping");
+                myPing.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                wantsInteract = true;
+                PlayerPrefs.SetInt(workerID, 1);
+            }
+
+            if (Input.GetMouseButtonDown(1) && wantsInteract)
+            {
+                AttemptInteract();
+            }
         }
+        
         if (PlayerPrefs.GetInt("ManualReset") == 1)
             SceneReset();
     }

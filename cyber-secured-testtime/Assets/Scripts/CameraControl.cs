@@ -4,24 +4,15 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //this just deals with the two cameras of the scene
+
     public Camera testCamera;
     public Camera officeCamera;
-    public GameObject nameHolder;
+    public GameObject nameHolder;//name holder makes it so the game doesn't start if no name is plugged in
     public int delay = -1;
 
-    // Update is called once per frame
-    private void Start()
-    {
-
-    }
     void Update()
     {
-        if (Input.GetKeyDown("k"))
-        {
-            PlayerPrefs.DeleteAll();
-            //ToggleCamera();
-        }
         if (PlayerPrefs.GetInt("ManualReset") == 1 && testCamera.enabled)
         {
             ToggleCamera();

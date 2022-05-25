@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 2337660}
   - component: {fileID: 2337659}
   - component: {fileID: 2337658}
+  - component: {fileID: 2337663}
   m_Layer: 0
   m_Name: CyberCamera
   m_TagString: MainCamera
@@ -291,12 +292,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2337657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.6, y: 4.7, z: -10}
+  m_LocalPosition: {x: -3.1, y: 24.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2337663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3c84d66ea6f574a9a5046872085139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3714309
 GameObject:
   m_ObjectHideFlags: 0
@@ -9707,7 +9720,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306707790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.47, y: 0.52, z: 0}
+  m_LocalPosition: {x: -3.2, y: 23.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 632151045}
@@ -58214,6 +58227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1736796813}
   - component: {fileID: 1736796812}
+  - component: {fileID: 1736796814}
   m_Layer: 0
   m_Name: CyberBackGround
   m_TagString: Untagged
@@ -58277,12 +58291,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736796811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 32.8, z: 1}
-  m_LocalScale: {x: 1.866475, y: 1.2905598, z: 1.1486}
+  m_LocalPosition: {x: -3.1, y: 25.82, z: 1}
+  m_LocalScale: {x: 1.4459256, y: 1.1502585, z: 1.1486}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1736796814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736796811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340fb3d7b2f7d7a47823da621af37ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1737477940
 GameObject:
   m_ObjectHideFlags: 0
@@ -64566,7 +64592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929276958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 69.2, y: 21.6, z: 1}
+  m_LocalPosition: {x: 69.41, y: 2.62, z: 1}
   m_LocalScale: {x: 27.37212, y: 15.358641, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
