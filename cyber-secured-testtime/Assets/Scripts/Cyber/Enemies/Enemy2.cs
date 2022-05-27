@@ -8,11 +8,13 @@ public class Enemy2 : EnemyBase
     public Sprite animation2;
     public Sprite deathSprite1;
     public Sprite deathSprite2;
+    private Transform player;
+    public float sight;
 
     // Start is called before the first frame update
     void Start()
     {
-        Speed = 2;
+        Speed = 5;
         Health = 2;
         EnemyWeapon = new WeaponBase();
         EnemyWeapon.WeaponName = "E2";
@@ -20,11 +22,21 @@ public class Enemy2 : EnemyBase
         EnemyWeapon.Damage = 1;
         EnemyWeapon.AttackSpeed = 0.5f;
         EnemyWeapon.WeaponEffectID = 0;
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        sight = 10.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
+        if (distanceFromPlayer < sight)
+        {
+            transform.position = Vector2.MoveTowards(this.transform.position, player.position, Speed * Time.deltaTime);
+        }
+
+
         counter++;
         if(IsDead != true)
         {
@@ -65,6 +77,12 @@ public class Enemy2 : EnemyBase
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position,sight);
     }
 
     void Attack()
