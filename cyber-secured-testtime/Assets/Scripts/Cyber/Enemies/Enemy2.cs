@@ -14,7 +14,7 @@ public class Enemy2 : EnemyBase
     // Start is called before the first frame update
     void Start()
     {
-        Speed = 5;
+        Speed = 3;
         Health = 2;
         EnemyWeapon = new WeaponBase();
         EnemyWeapon.WeaponName = "E2";
