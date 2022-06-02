@@ -15,8 +15,8 @@ public class Enemy1 : EnemyBase
     // Start is called before the first frame update
     void Start()
     {
-        Speed = 3;
-        Health = 4;
+        Speed = 2;
+        Health = 3;
         EnemyWeapon = new WeaponBase();
         EnemyWeapon.WeaponName = "E1";
         EnemyWeapon.WeaponID = 1;
@@ -24,7 +24,7 @@ public class Enemy1 : EnemyBase
         EnemyWeapon.AttackSpeed = 1.0f;
         EnemyWeapon.WeaponEffectID = 0;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        sight = 10.0f;
+        //sight = 10.0f;
         rb = GetComponent<Rigidbody2D>();
     }
 
