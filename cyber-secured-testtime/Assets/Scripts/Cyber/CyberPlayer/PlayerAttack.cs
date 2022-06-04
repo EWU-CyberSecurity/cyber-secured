@@ -30,8 +30,11 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && cooldownTimer > currentWeapon.AttackSpeed /*&& playerMovement.canAttack()*/)
+        if (Input.GetKey(KeyCode.Space) && cooldownTimer > currentWeapon.AttackSpeed)
+        {
+            playerMovement.attacking = true;
             Attack();
+        }
 
         cooldownTimer += Time.deltaTime;
     }
@@ -40,10 +43,10 @@ public class PlayerAttack : MonoBehaviour
     {
         cooldownTimer = 0;
 
-        Transform temp = Instantiate(projectile, ProjPoint.position, ProjPoint.rotation);
-        temp.GetComponent<Projectile>().Damage = currentWeapon.Damage;
-        temp.GetComponent<Projectile>().WeaponEffectID = currentWeapon.WeaponEffectID;
-        temp.GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        Transform proj = Instantiate(projectile, ProjPoint.position, ProjPoint.rotation);
+        proj.GetComponent<Projectile>().Damage = currentWeapon.Damage;
+        proj.GetComponent<Projectile>().WeaponEffectID = currentWeapon.WeaponEffectID;
+        proj.GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
     }
 
     public void NewWeapon(WeaponBase newWeapon)

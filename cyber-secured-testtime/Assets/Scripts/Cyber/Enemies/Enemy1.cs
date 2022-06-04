@@ -24,7 +24,7 @@ public class Enemy1 : EnemyBase
         EnemyWeapon.AttackSpeed = 1.0f;
         EnemyWeapon.WeaponEffectID = 0;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        //sight = 10.0f;
+        sight = 10.0f;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -42,13 +42,23 @@ public class Enemy1 : EnemyBase
         }*/
 
         float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
-        
+        if (distanceFromPlayer < sight)
+        {
+            transform.position = Vector2.MoveTowards(this.transform.position, player.position, Speed * Time.deltaTime);
+        }
+
         transform.position = Vector2.MoveTowards(this.transform.position, player.position, Speed * Time.deltaTime);
         
 
         if (IsDead != true)
         {
             counter++;
+
+            if(player.position.x < transform.position.x)
+                this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            else if(player.position.x > transform.position.x)
+                this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+
             if(counter ==  7)
             {
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = animation1;
@@ -66,8 +76,6 @@ public class Enemy1 : EnemyBase
             timeSinceAttack += Time.deltaTime;
 
             CheckStatus();
-
-            Move(-1, 0, Speed);
         }
         else
         {
@@ -92,7 +100,7 @@ public class Enemy1 : EnemyBase
     {
         if(collision.transform.tag == "Player" && EnemyWeapon.AttackSpeed <= timeSinceAttack)
         {
-            collision.gameObject.GetComponent<CyberCharacter>().TakeDamage(EnemyWeapon.Damage);
+            collision.gameObject.GetComponent<PlayerMovement>().hit = collision.gameObject.GetComponent<PlayerMovement>().TakeDamage(EnemyWeapon.Damage);
             timeSinceAttack = 0.0f;
         }
     }

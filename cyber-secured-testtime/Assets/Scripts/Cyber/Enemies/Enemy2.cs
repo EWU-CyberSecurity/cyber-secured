@@ -36,7 +36,6 @@ public class Enemy2 : EnemyBase
             transform.position = Vector2.MoveTowards(this.transform.position, player.position, Speed * Time.deltaTime);
         }
 
-
         counter++;
         if(IsDead != true)
         {
